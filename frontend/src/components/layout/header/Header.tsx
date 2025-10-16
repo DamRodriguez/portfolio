@@ -111,7 +111,7 @@ const Header = () => {
         position="top"
         hideOverlay
         closeButton={null}
-        className={clsx("pb-[7rem] backdrop-blur-[20px] bg-black/10 xl:hidden",
+        className={clsx("pb-[7rem] backdrop-blur-[1rem] bg-black/10 xl:hidden",
           {
             "mt-[7.5rem] md:mt-[8rem] shadow-s4 border border-soft-gray/15 rounded-[5rem]": scrolled,
             "mt-[5.5rem] ": !scrolled

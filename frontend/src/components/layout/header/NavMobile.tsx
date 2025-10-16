@@ -12,7 +12,7 @@ type NavMobileProps = {
 const NavMobile = ({ onClose }: NavMobileProps) => {
   return (
     <MotionFade className="h-full">
-      <div className="pt-[1.5rem] px-[7rem] lg:px-[15rem] pb-[4rem] justify-between flex flex-col h-full">
+      <div className="pt-[1.5rem] px-[5rem] lg:px-[15rem] pb-[4rem] justify-between flex flex-col h-full">
         <nav>
           <ul className="flex flex-col items-center text-center text-base gap-[1rem] leading-[1.5rem] font-semibold">
             {routeItems.map(({ href, label }) => (
