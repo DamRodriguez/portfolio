@@ -5,7 +5,6 @@ import type {
   EmblaOptionsType,
 } from "embla-carousel";
 import HorizontalCarouselVariantItem, { type HorizontalCarouselVariantData } from "@/components/carousel/horizontal-carousel-variant/HorizontalCarouselVariantItem";
-import { NextIcon, PrevIcon } from "@/components/icons/carousel";
 import { useHorizontalCarousel } from "@/hooks/useHorizontalCarousel";
 import { ArrowIcon } from "@/components/icons/buttons";
 import { useEffect, useState } from "react";
