@@ -9,9 +9,10 @@ const config = {
     "4xl": 1920,
   },
   urls: {
-    facebook: "",
-    instagram: "",
-    whatsapp: "",
+    telegram: "https://t.me/damrod99",
+    linkedin: "http://www.linkedin.com/in/damianagustinrodriguez",
+    github: "https://github.com/DamRodriguez?tab=repositories",
+    whatsapp: "https://wa.me/5491159641031",
   },
 };
 

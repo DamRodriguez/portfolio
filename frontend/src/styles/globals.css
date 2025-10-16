@@ -3,4 +3,9 @@
 
 body {
   font-family: var(--font-work-sans);
+  cursor: url("/images/cursor.png") 4 4, auto;
+}
+
+a, button, [role="button"], .cursor-pointer {
+  cursor: url('/images/cursor-pointer.png') 4 4, pointer;
 }

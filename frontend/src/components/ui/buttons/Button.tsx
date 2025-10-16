@@ -11,6 +11,7 @@ type ButtonProps = {
   isLoading?: boolean;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void | Promise<void>;
   routerPath?: string;
+  routerPathNewTab?: string;
   disabled?: boolean;
   spinnerColor?: string;
   className?: string;
@@ -33,6 +34,10 @@ const Button = (props: ButtonProps) => {
   return (
     <button
       onClick={event => {
+        if (props.routerPathNewTab) {
+          window.open(props.routerPathNewTab, "_blank");
+          return;
+        }
         if (props.routerPath) {
           router.push(props.routerPath);
         }

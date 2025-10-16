@@ -12,18 +12,18 @@ type NavMobileProps = {
 const NavMobile = ({ onClose }: NavMobileProps) => {
   return (
     <MotionFade className="h-full">
-      <div className="pt-[1.5rem] px-[1rem] md:px-[5.5rem] pb-[4rem] justify-between flex flex-col h-full">
+      <div className="pt-[1.5rem] px-[7rem] lg:px-[15rem] pb-[4rem] justify-between flex flex-col h-full">
         <nav>
-          <ul className="flex flex-col items-center text-center text-base leading-[1.5rem] font-semibold">
+          <ul className="flex flex-col items-center text-center text-base gap-[1rem] leading-[1.5rem] font-semibold">
             {routeItems.map(({ href, label }) => (
-              <li key={href} className="w-full">
+              <li key={href} className="w-full group">
                 <Link
                   href={href}
                   onClick={onClose}
                   className="cursor-pointer text-soft-white">
                   {label}
                 </Link>
-                <div className="h-[0.0625rem] bg-soft-gray my-[0.5rem] " />
+                <div className="h-[0.0625rem] bg-soft-gray my-[0.5rem] group-hover:bg-soft-white transition-all duration-400 ease-in-out group-hover:w-[50%] mx-auto w-full " />
               </li>
             ))}
           </ul>
