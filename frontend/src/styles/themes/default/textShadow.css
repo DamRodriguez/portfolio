@@ -1,0 +1,5 @@
+@theme {
+  --text-shadow-*: initial;
+  --text-shadow-green: 2px 2px 0 #003A21;
+  --text-shadow-purple: 2px 2px 0 #480069;
+}

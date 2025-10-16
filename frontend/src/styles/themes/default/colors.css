@@ -1,0 +1,8 @@
+@theme {
+  --color-*: initial;
+  --color-black: #121212;
+  --color-strong-black: #0F0F0F;
+  --color-dark-gray: #3D3D3D;
+  --color-soft-gray: #A6A6A6;
+  --color-soft-white: #F5F5F5;
+}

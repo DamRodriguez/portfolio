@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import "./themes/default/theme.css";
+
+body {
+  font-family: var(--font-work-sans);
+}
