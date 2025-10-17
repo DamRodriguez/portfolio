@@ -10,6 +10,8 @@ import { routes } from "@/constants/routes";
 import { CloseIcon, HamburgerIcon } from "@/components/icons/header";
 import Drawer from "@/components/other/Drawer";
 import SpaceX from "@/components/layout/SpaceX";
+import { MotionOpacity } from "@/components/motion/MotionOpacity";
+import { AnimatePresence } from "framer-motion";
 
 const Header = () => {
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(false);
@@ -120,6 +122,12 @@ const Header = () => {
       >
         <NavMobile onClose={() => { setIsMobileNavVisible(false); }} />
       </Drawer>
+      <div className={clsx("bg-black/60 backdrop-blur-[1rem] absolute w-screen h-screen -top-6",
+        {
+          "flex": isMobileNavVisible,
+          "hidden": !isMobileNavVisible
+        }
+      )} />
     </header>
   );
 };
