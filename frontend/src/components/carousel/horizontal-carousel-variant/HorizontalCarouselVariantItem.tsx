@@ -25,7 +25,7 @@ const HorizontalCarouselVariantItem = ({ data }: HorizontalCarouselVariantItemPr
         <p className="text-soft-white text-xl xl:text-2xl font-fira-code">
           {data.title}
         </p>
-        <p className="text-soft-white text-base w-full line-clamp-4">
+        <p className="text-soft-white text-sm xl:text-base w-full line-clamp-4">
           {data.description}
         </p>
         <div className="pointer-events-auto">
