@@ -1,0 +1,10 @@
+{
+  "header": {
+    "navItems": {
+      "aboutme": "Sobre mí",
+      "work": "Trabajos",
+      "projects": "Proyectos",
+      "contact": "Contacto"
+    }
+  }
+}

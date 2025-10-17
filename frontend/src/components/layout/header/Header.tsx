@@ -10,10 +10,16 @@ import { routes } from "@/constants/routes";
 import { CloseIcon, HamburgerIcon } from "@/components/icons/header";
 import Drawer from "@/components/other/Drawer";
 import SpaceX from "@/components/layout/SpaceX";
-import { MotionOpacity } from "@/components/motion/MotionOpacity";
-import { AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
+import LanguageDropdown from "@/components/other/LanguageDropdown";
+import { Locale } from "@/i18n/routing";
 
-const Header = () => {
+type HeaderProps = {
+  locale: Locale
+}
+
+const Header = ({ locale }: HeaderProps) => {
+  const t = useTranslations("header.navItems");
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
@@ -70,7 +76,7 @@ const Header = () => {
                       onClick={() => { }}
                       className="cursor-pointer group-hover:scale-110 transition-all duration-400 ease-in-out"
                     >
-                      {label}
+                      {t(label)}
                     </Link>
                     <span className="block h-[0.1rem] bg-soft-white w-full scale-x-0 origin-center transition-transform duration-400 group-hover:scale-x-100 ease-in-out"></span>
                   </li>
@@ -81,12 +87,7 @@ const Header = () => {
         </nav>
         <div className="flex gap-[1rem] md:gap-[2rem] ">
           <MotionFade className="flex flex-col text-sm text-soft-white">
-            <button>
-              Es
-            </button>
-            <button>
-              En
-            </button>
+            <LanguageDropdown locale={locale} />
           </MotionFade>
           <MotionFade className="flex xl:hidden">
             {isMobileNavVisible ? (

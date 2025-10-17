@@ -4,12 +4,14 @@ import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
 import { routeItems } from "@/constants/routeItems";
 import SocialButtons from "@/components/other/SocialButtons";
+import { useTranslations } from "next-intl";
 
 type NavMobileProps = {
   onClose: () => void;
 };
 
 const NavMobile = ({ onClose }: NavMobileProps) => {
+  const t = useTranslations("header.navItems");
   return (
     <MotionFade className="h-full">
       <div className="pt-[1.5rem] px-[5rem] lg:px-[15rem] pb-[4rem] justify-between flex flex-col h-full">
@@ -21,7 +23,7 @@ const NavMobile = ({ onClose }: NavMobileProps) => {
                   href={href}
                   onClick={onClose}
                   className="cursor-pointer text-soft-white">
-                  {label}
+                  {t(label)}
                 </Link>
                 <div className="h-[0.0625rem] bg-soft-gray my-[0.5rem] group-hover:bg-soft-white transition-all duration-400 ease-in-out group-hover:w-[50%] mx-auto w-full shadow-s4" />
               </li>

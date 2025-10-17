@@ -1,0 +1,10 @@
+{
+  "header": {
+    "navItems": {
+      "aboutme": "About Me",
+      "work": "Work",
+      "projects": "Projects",
+      "contact": "Contact"
+    }
+  }
+}

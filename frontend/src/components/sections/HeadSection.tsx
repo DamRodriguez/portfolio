@@ -1,3 +1,4 @@
+"use client";
 import SpaceX from "@/components/layout/SpaceX";
 import ButtonWithArrow from "@/components/ui/buttons/ButtonWithArrow";
 import HorizontalCarouselVariant from "../carousel/horizontal-carousel-variant/HorizontalCarouselVariant";
