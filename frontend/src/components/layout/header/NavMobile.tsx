@@ -23,7 +23,7 @@ const NavMobile = ({ onClose }: NavMobileProps) => {
                   className="cursor-pointer text-soft-white">
                   {label}
                 </Link>
-                <div className="h-[0.0625rem] bg-soft-gray my-[0.5rem] group-hover:bg-soft-white transition-all duration-400 ease-in-out group-hover:w-[50%] mx-auto w-full " />
+                <div className="h-[0.0625rem] bg-soft-gray my-[0.5rem] group-hover:bg-soft-white transition-all duration-400 ease-in-out group-hover:w-[50%] mx-auto w-full shadow-s4" />
               </li>
             ))}
           </ul>

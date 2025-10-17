@@ -1,5 +1,6 @@
 import { ArrowIcon } from "@/components/icons/buttons";
 import clsx from "clsx";
+import Button from "./Button";
 
 type ButtonWithArrowProps = {
   text: string;
@@ -8,8 +9,10 @@ type ButtonWithArrowProps = {
 
 const ButtonWithArrow = (props: ButtonWithArrowProps) => {
   return (
-    <button className="flex items-center transition-all duration-400 cursor-pointer group h-fit gap-[0.5rem] min-w-[10rem] ">
-      <div className={clsx("bg-soft-white backdrop-blur-[0.1rem] py-[1rem] flex items-center rounded-full italic font-medium group-hover:bg-transparent group-hover:text-soft-white group-hover:border-soft-gray border transition-all duration-400",
+    <Button
+      variant="empty"
+      className="flex transition-all duration-400 cursor-pointer group h-fit gap-[0.5rem] min-w-[10rem]">
+      <div className={clsx("bg-soft-white backdrop-blur-[0.1rem] py-[1rem] flex items-center rounded-full italic font-medium group-hover:bg-transparent group-hover:text-soft-white border-soft-white group-hover:border-soft-gray border transition-all duration-400",
         {
           "h-[2.5rem] xl:h-[3rem] px-[1.5rem] text-sm": props.small,
           "h-[2.5rem] lg:h-[3.5rem] px-[3rem] xl:px-[4rem] 2xl:px-[5rem] 4xl:px-[7rem] text-base xl:text-xl": !props.small
@@ -30,7 +33,7 @@ const ButtonWithArrow = (props: ButtonWithArrowProps) => {
           }
         )} />
       </div>
-    </button>
+    </Button>
   );
 };
 

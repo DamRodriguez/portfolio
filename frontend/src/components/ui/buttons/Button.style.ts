@@ -1,10 +1,11 @@
 import { cva } from "class-variance-authority";
 
-export const buttonClass = cva("text-sm xl:text-xl leading-[1.5rem] font-semibold tracking-[-0.04375rem] py-[0.62rem] px-[1.62rem] rounded-[0.375rem] flex items-center cursor-pointer justify-center min-h-[2.75rem] flex gap-[0.7rem] transition-all duration-400 hover:scale-110", {
+export const buttonClass = cva("text-sm xl:text-xl leading-[1.5rem] font-semibold tracking-[-0.04375rem] rounded-[0.375rem] flex items-center cursor-pointer justify-center min-h-[2.75rem] flex gap-[0.7rem]", {
   variants: {
     intent: {
-      primary: "bg-black text-soft-gray rounded-full border border-soft-gray italic hover:border-soft-white hover:[&_svg]:fill-black [&_svg]:fill-soft-white hover:text-dark-gray hover:bg-soft-white",
-      secondary: "bg-soft-white text-xl flex items-center rounded-full italic font-medium hover:bg-transparent hover:text-soft-white border hover:border-soft-gray hover:[&_svg]:fill-black [&_svg]:fill-[#000]",
+      primary: "bg-black text-soft-gray rounded-full border border-soft-gray italic hover:border-soft-white hover:[&_svg]:fill-black [&_svg]:fill-soft-white hover:text-dark-gray hover:bg-soft-white transition-all duration-400 hover:scale-110 py-[0.62rem] px-[1.62rem]",
+      secondary: "bg-soft-white text-xl flex items-center rounded-full italic font-medium hover:bg-transparent hover:text-soft-white border hover:border-soft-gray hover:[&_svg]:fill-black [&_svg]:fill-[#000] transition-all duration-400 hover:scale-110 py-[0.62rem] px-[1.62rem]",
+      empty: "",
     },
     disabled: {
       false: null,
@@ -32,4 +33,4 @@ export const buttonClass = cva("text-sm xl:text-xl leading-[1.5rem] font-semibol
   },
 })
 
-export type ButtonVariants = "primary" | "secondary";
+export type ButtonVariants = "primary" | "secondary" | "empty";

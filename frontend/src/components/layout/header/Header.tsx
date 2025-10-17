@@ -13,11 +13,11 @@ import SpaceX from "@/components/layout/SpaceX";
 
 const Header = () => {
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 0);
+      setHasScrolled(window.scrollY > 0);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -25,11 +25,11 @@ const Header = () => {
 
   return (
     <header className={clsx("sticky z-9999 transition-all duration-400", {
-      "top-0": !scrolled,
-      "top-6": scrolled
+      "top-0": !hasScrolled,
+      "top-6": hasScrolled
     })}>
-      <SpaceX className={clsx("sticky min-h-[5.5rem] xl:min-h-[7rem] backdrop-blur-[1rem] bg-black/70 flex items-center justify-between z-999999 transition-all duration-400 ease-in-out", {
-        "shadow-s4 m-6 rounded-full border border-soft-gray/15": scrolled
+      <SpaceX className={clsx("sticky min-h-[5rem] xl:min-h-[7rem] backdrop-blur-[1rem] bg-black/70 flex items-center justify-between z-999999 transition-all duration-400 ease-in-out", {
+        "shadow-s4 m-6 rounded-full border border-soft-gray/15": hasScrolled,
       })}
       >
         <MotionFade>
@@ -78,14 +78,14 @@ const Header = () => {
           </ul>
         </nav>
         <div className="flex gap-[1rem] md:gap-[2rem] ">
-          <div className="flex flex-col text-sm text-soft-white">
+          <MotionFade className="flex flex-col text-sm text-soft-white">
             <button>
               Es
             </button>
             <button>
               En
             </button>
-          </div>
+          </MotionFade>
           <MotionFade className="flex xl:hidden">
             {isMobileNavVisible ? (
               <button
@@ -113,8 +113,8 @@ const Header = () => {
         closeButton={null}
         className={clsx("pb-[7rem] backdrop-blur-[1rem] bg-black/10 xl:hidden",
           {
-            "mt-[7.5rem] md:mt-[8rem] shadow-s4 border border-soft-gray/15 rounded-[5rem]": scrolled,
-            "mt-[5.5rem] ": !scrolled
+            "mt-[7.5rem] md:mt-[8rem] shadow-s4 border border-soft-gray/15 rounded-[5rem]": hasScrolled,
+            "mt-[5.5rem] ": !hasScrolled
           }
         )}
       >
