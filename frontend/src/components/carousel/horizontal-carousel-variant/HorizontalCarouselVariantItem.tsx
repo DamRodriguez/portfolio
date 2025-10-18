@@ -1,4 +1,5 @@
 import ButtonWithArrow from "@/components/ui/buttons/ButtonWithArrow";
+import { useTranslations } from "next-intl";
 import Image, { type StaticImageData } from "next/image";
 
 export type HorizontalCarouselVariantData = {
@@ -12,6 +13,7 @@ type HorizontalCarouselVariantItemProps = {
 };
 
 const HorizontalCarouselVariantItem = ({ data }: HorizontalCarouselVariantItemProps) => {
+  const t = useTranslations("headSection.horizontalCarousel")
   return (
     <div className="relative overflow-hidden shadow-s6 rounded-3xl">
       <div className="group overflow-hidden h-[17rem] xl:h-[20rem] rounded-3xl">
@@ -29,7 +31,7 @@ const HorizontalCarouselVariantItem = ({ data }: HorizontalCarouselVariantItemPr
           {data.description}
         </p>
         <div className="pointer-events-auto">
-          <ButtonWithArrow small text="Ver más" />
+          <ButtonWithArrow small text={t("seeMoreButton")} />
         </div>
       </div>
     </div>

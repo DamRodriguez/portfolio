@@ -1,15 +1,18 @@
 import clsx from "clsx";
-import MotionStagger from "../motion/MotionStagger";
-import Button from "../ui/buttons/Button";
+import MotionStagger from "@/components/motion/MotionStagger";
+import Button from "@/components/ui/buttons/Button";
 import config from "@/config/config";
 import { GithubIcon, LinkedInIcon, TelegramIcon, WhatsAppIcon } from "@/components/icons/social";
+import { useTranslations } from "next-intl";
 
 const SocialButtonsSection = () => {
+  const t = useTranslations("headSection.socialButtons");
+
   const socialButtons = [
-    { icon: TelegramIcon, text: "Telegram", href: config.urls.telegram },
-    { icon: LinkedInIcon, text: "LinkedIn", href: config.urls.linkedin },
-    { icon: GithubIcon, text: "Github", href: config.urls.github },
-    { icon: WhatsAppIcon, text: "WhatsApp", href: config.urls.whatsapp }
+    { icon: TelegramIcon, text: t("telegram"), href: config.urls.telegram },
+    { icon: LinkedInIcon, text: t("linkedIn"), href: config.urls.linkedin },
+    { icon: GithubIcon, text: t("github"), href: config.urls.github },
+    { icon: WhatsAppIcon, text: t("whatsApp"), href: config.urls.whatsapp }
   ]
 
   return (

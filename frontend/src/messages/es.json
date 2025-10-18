@@ -6,5 +6,40 @@
       "projects": "Proyectos",
       "contact": "Contacto"
     }
-  }
+  },
+  "headSection": {
+      "title": {
+        "first": "Front-end",
+        "second": "Developer"
+      },
+      "personalDescription" : "Mi objetivo es desarrollar <strong>interfaces atractivas</strong> utilizando <strong>tecnologías modernas</strong>, manteniendo un <strong>código limpio</strong>, <strong>eficiente</strong> y <strong>escalable</strong>.",
+      "projectsButton": "Proyectos",
+      "socialButtons": {
+        "telegram": "Telegram",
+        "linkedIn": "LinkedIn",
+        "github": "Github",
+        "whatsApp": "WhatsApp"
+      },
+      "horizontalCarousel": {
+        "seeMoreButton": "Ver más",
+        "carouselData": {
+          "dondeSalgo": {
+            "title": "Dónde Salgo",
+            "description": "Aplicación móvil desarrollada con React Native y Expo, enfocada en la búsqueda de bares y otros sitios en Buenos Aires."
+          },
+          "vanicracia": {
+            "title": "Vanicracia",
+            "description": "E-commerce enfocado en la astrología realizado principalmente con Next.js."
+          },
+          "alfombrasTauro": {
+            "title": "Alfombras Tauro",
+            "description": "Sitio Web para un negocio de alfombras realizado con Next.js."
+          },
+          "medicalSpace": {
+            "title": "Medical Space",
+            "description": "Aplicación web para gestionar pacientes médicos."
+          }
+        }
+      }
+    }
 }

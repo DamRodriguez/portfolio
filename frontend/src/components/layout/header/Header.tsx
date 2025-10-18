@@ -87,7 +87,7 @@ const Header = ({ locale }: HeaderProps) => {
         </nav>
         <div className="flex gap-[1rem] md:gap-[2rem] ">
           <MotionFade className="flex flex-col text-sm text-soft-white">
-            <LanguageDropdown locale={locale} />
+            <LanguageDropdown locale={locale} hasScrolled={hasScrolled} />
           </MotionFade>
           <MotionFade className="flex xl:hidden">
             {isMobileNavVisible ? (

@@ -6,5 +6,40 @@
       "projects": "Projects",
       "contact": "Contact"
     }
-  }
+  },
+  "headSection": {
+      "title": {
+        "first": "Front-end",
+        "second": "Developer"
+      },
+      "personalDescription": "My goal is to build <strong>engaging interfaces</strong> using <strong>modern technologies</strong>, while keeping the code <strong>clean</strong>, <strong>efficient</strong>, and <strong>scalable</strong>.",
+      "projectsButton": "Projects",
+      "socialButtons": {
+        "telegram": "Telegram",
+        "linkedIn": "LinkedIn",
+        "github": "Github",
+        "whatsApp": "WhatsApp"
+      },
+      "horizontalCarousel": {
+        "seeMoreButton": "See more",
+        "carouselData": {
+          "dondeSalgo": {
+            "title": "Dónde Salgo",
+            "description": "Mobile application developed with React Native and Expo, focused on finding bars and other venues in Buenos Aires."
+          },
+          "vanicracia": {
+            "title": "Vanicracia",
+            "description": "E-commerce focused on astrology, built primarily with Next.js."
+          },
+          "alfombrasTauro": {
+            "title": "Alfombras Tauro",
+            "description": "Website for a carpet business built with Next.js."
+          },
+          "medicalSpace": {
+            "title": "Medical Space",
+            "description": "Web application to manage medical patients."
+          }
+        }
+      }
+    }
 }

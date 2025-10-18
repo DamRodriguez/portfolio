@@ -1,5 +1,5 @@
 import Main from "@/components/layout/Main";
-import HeadSection from "@/components/sections/HeadSection";
+import HeadSection from "@/components/sections/head-section/HeadSection";
 
 const HomePage = () => {
   return (

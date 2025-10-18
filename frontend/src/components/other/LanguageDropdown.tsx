@@ -11,6 +11,7 @@ import clsx from "clsx";
 
 type LanguageDropdownProps = {
   locale: Locale;
+  hasScrolled: boolean;
 };
 
 const Languages: { lang: Locale; flag: JSX.Element }[] = [
@@ -18,7 +19,7 @@ const Languages: { lang: Locale; flag: JSX.Element }[] = [
   { lang: "en", flag: <EngFlagIcon className="w-5 h-5 xl:w-7 xl:h-7" /> },
 ];
 
-const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
+const LanguageDropdown = ({ locale, hasScrolled }: LanguageDropdownProps) => {
   const router = useRouter();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
@@ -46,10 +47,11 @@ const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
       })}
       ref={dropdownRef}
       className="inline-block max-h-[2rem] w-[4.5rem] xl:w-[5.7rem] z-40">
-      <div className={clsx("py-[0.4rem] px-[0.3rem] xl:px-[0.5rem] shadow-s4 rounded-[0.5rem] overflow-hidden transition-all duration-400 ease-in-out",
+      <div className={clsx("py-[0.4rem] px-[0.3rem] xl:px-[0.5rem] rounded-[0.5rem] overflow-hidden transition-all duration-400 ease-in-out",
         {
           "bg-dark-gray/90": isOpen,
-          "bg-soft-gray/10": !isOpen
+          "bg-soft-gray/10": !isOpen,
+          "shadow-s4": hasScrolled
         }
       )}>
         <div
