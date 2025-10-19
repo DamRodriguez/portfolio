@@ -8,38 +8,63 @@
     }
   },
   "headSection": {
-      "title": {
-        "first": "Front-end",
-        "second": "Developer"
-      },
-      "personalDescription": "My goal is to build <strong>engaging interfaces</strong> using <strong>modern technologies</strong>, while keeping the code <strong>clean</strong>, <strong>efficient</strong>, and <strong>scalable</strong>.",
-      "projectsButton": "Projects",
-      "socialButtons": {
-        "telegram": "Telegram",
-        "linkedIn": "LinkedIn",
-        "github": "Github",
-        "whatsApp": "WhatsApp"
-      },
-      "horizontalCarousel": {
-        "seeMoreButton": "See more",
-        "carouselData": {
-          "dondeSalgo": {
-            "title": "Dónde Salgo",
-            "description": "Mobile application developed with React Native and Expo, focused on finding bars and other venues in Buenos Aires."
-          },
-          "vanicracia": {
-            "title": "Vanicracia",
-            "description": "E-commerce focused on astrology, built primarily with Next.js."
-          },
-          "alfombrasTauro": {
-            "title": "Alfombras Tauro",
-            "description": "Website for a carpet business built with Next.js."
-          },
-          "medicalSpace": {
-            "title": "Medical Space",
-            "description": "Web application to manage medical patients."
-          }
+    "title": {
+      "first": "Front-end",
+      "second": "Developer"
+    },
+    "personalDescription": "My goal is to build <strong>engaging interfaces</strong> using <strong>modern technologies</strong>, while keeping the code <strong>clean</strong>, <strong>efficient</strong>, and <strong>scalable</strong>.",
+    "projectsButton": "Projects",
+    "socialButtons": {
+      "telegram": "Telegram",
+      "linkedIn": "LinkedIn",
+      "github": "Github",
+      "whatsApp": "WhatsApp"
+    },
+    "horizontalCarousel": {
+      "seeMoreButton": "See more",
+      "carouselData": {
+        "dondeSalgo": {
+          "title": "Dónde Salgo",
+          "description": "Mobile application developed with React Native and Expo, focused on finding bars and other venues in Buenos Aires."
+        },
+        "vanicracia": {
+          "title": "Vanicracia",
+          "description": "E-commerce focused on astrology, built primarily with Next.js."
+        },
+        "alfombrasTauro": {
+          "title": "Alfombras Tauro",
+          "description": "Website for a carpet business built with Next.js."
+        },
+        "medicalSpace": {
+          "title": "Medical Space",
+          "description": "Web application to manage medical patients."
         }
       }
     }
+  },
+  "aboutMeSection": {
+    "header": {
+      "sectionName": "../About me",
+      "description": "Hi! I'm Damián, currently a <strong>front-end developer</strong>.\nOver <strong>2 years</strong> of experience."
+    },
+    "technologies": {
+      "frontend": {
+        "title": "Front-end", 
+        "items": "TypeScript, React, Next.js, React Native, Expo, Redux Toolkit"
+      },
+      "styles": {
+        "title": "Styles", 
+        "items": "CSS, Tailwind"
+      },
+      "backend": {
+        "title": "Back-end", 
+        "items": "Python, C, MySQL"
+      },
+      "devOps": {
+        "title": "DevOps", 
+        "items": "Motion, i18next, React Toastify, React Hook Form, Embla Carousel, Recharts"
+      }
+    },
+    "favoritesTools": "Some of my favorite <strong>technologies</strong> and <strong>tools</strong> I've worked with."
+  } 
 }

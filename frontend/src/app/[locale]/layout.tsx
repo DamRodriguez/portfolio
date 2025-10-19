@@ -41,7 +41,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className={clsx("antialiased min-h-svh flex flex-col bg-black", openSans.variable, firaCode.variable)}>
+      <body className={clsx("antialiased min-h-svh flex flex-col bg-black scroll-smooth", openSans.variable, firaCode.variable)}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ProgressBarProvider>
             <div className="min-w-[20rem] max-w-[120rem] mx-auto w-full font-open-sans">
@@ -51,6 +51,6 @@ export default async function LocaleLayout({
           </ProgressBarProvider>
         </NextIntlClientProvider>
       </body>
-    </html >
+    </html>
   );
 }

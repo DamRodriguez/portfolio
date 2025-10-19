@@ -44,9 +44,9 @@ const Header = ({ locale }: HeaderProps) => {
           <Link
             href={routes.home}
             onClick={() => { if (isMobileNavVisible) { setIsMobileNavVisible(false); } }}
-            className="text-soft-white text-sm xl:text-xl font-fira-code flex items-center gap-[0.5rem] font-light group"
+            className="text-soft-white text-xs xl:text-xl font-fira-code flex items-center gap-[0.2rem] xl:gap-[0.5rem] font-light group"
           >
-            <div className="text-5xl xl:text-6xl text-soft-gray group-hover:text-soft-white transition-all duration-400">
+            <div className="text-3xl xl:text-6xl text-soft-gray group-hover:text-soft-white transition-all duration-400">
               &lt;
             </div>
             <div>
@@ -57,7 +57,7 @@ const Header = ({ locale }: HeaderProps) => {
                 Rodríguez
               </p>
             </div>
-            <div className="text-5xl xl:text-6xl flex text-soft-gray group-hover:text-soft-white transition-all duration-400">
+            <div className="text-3xl xl:text-6xl flex text-soft-gray group-hover:text-soft-white transition-all duration-400">
               <span className="group-hover:rotate-10 transition-all duration-400">
                 /
               </span>
@@ -87,7 +87,7 @@ const Header = ({ locale }: HeaderProps) => {
         </nav>
         <div className="flex gap-[1rem] md:gap-[2rem] ">
           <MotionFade className="flex flex-col text-sm text-soft-white">
-            <LanguageDropdown locale={locale} hasScrolled={hasScrolled} />
+            <LanguageDropdown locale={locale} />
           </MotionFade>
           <MotionFade className="flex xl:hidden">
             {isMobileNavVisible ? (
