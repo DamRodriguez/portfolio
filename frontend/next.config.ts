@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
   images: { unoptimized: true },
   basePath: isProd ? "/portfolio" : "",
   assetPrefix: isProd ? "/portfolio/" : "",
+  trailingSlash: true,
 };
 
 const withNextIntl = createNextIntlPlugin();

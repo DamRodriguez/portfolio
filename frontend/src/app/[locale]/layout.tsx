@@ -37,12 +37,10 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
 
-  const messages = (await import(`@/messages/${locale}`)).default;
-
   return (
-    <html lang={locale}>
+    <html lang={locale} className="scroll-smooth">
       <body className={clsx("antialiased min-h-svh flex flex-col bg-black scroll-smooth", openSans.variable, firaCode.variable)}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider>
           <ProgressBarProvider>
             <div className="min-w-[20rem] max-w-[120rem] mx-auto w-full font-open-sans">
               <Header locale={locale} />

@@ -1,6 +1,5 @@
 "use client";
 import clsx from "clsx";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import NavMobile from "@/components/layout/header/NavMobile";
 import MotionFade from "@/components/motion/MotionFade";
@@ -13,6 +12,7 @@ import SpaceX from "@/components/layout/SpaceX";
 import { useTranslations } from "next-intl";
 import LanguageDropdown from "@/components/other/LanguageDropdown";
 import { Locale } from "@/i18n/routing";
+import { Link } from "@/i18n/navigation";
 
 type HeaderProps = {
   locale: Locale
@@ -68,15 +68,15 @@ const Header = ({ locale }: HeaderProps) => {
         <nav className="hidden xl:flex">
           <ul className="text-lg leading-[1.5rem] text-soft-white">
             <MotionStagger className="flex gap-[3rem]" direction="up" duration={0.3}>
-              {routeItems.map(({ href, label }) => {
+              {routeItems.map((item, index) => {
                 return (
-                  <li key={href} className="flex flex-col group relative">
+                  <li key={index} className="flex flex-col group relative">
                     <Link
-                      href={href}
+                      href={item.href}
                       onClick={() => { }}
                       className="cursor-pointer group-hover:scale-110 transition-all duration-400 ease-in-out"
                     >
-                      {t(label)}
+                      {t(item.label)}
                     </Link>
                     <span className="block h-[0.1rem] bg-soft-white w-full scale-x-0 origin-center transition-transform duration-400 group-hover:scale-x-100 ease-in-out"></span>
                   </li>

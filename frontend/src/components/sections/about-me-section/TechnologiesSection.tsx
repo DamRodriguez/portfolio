@@ -16,8 +16,8 @@ const TechnologiesSection = () => {
   const backendTechnologyData: TechnologyItemData = {
     title: t("technologies.backend.title"), items: t("technologies.backend.items")
   }
-  const devOpsData: TechnologyItemData = {
-    title: t("technologies.devOps.title"), items: t("technologies.devOps.items")
+  const toolsData: TechnologyItemData = {
+    title: t("technologies.tools.title"), items: t("technologies.tools.items")
   }
 
   return (
@@ -47,7 +47,7 @@ const TechnologiesSection = () => {
       <div className="flex items-center flex-row-reverse justify-between">
         <MotionSlide direction="right" className="w-1/2">
           <TechnologyItem
-            data={devOpsData}
+            data={toolsData}
           />
         </MotionSlide>
         <MotionFade className="w-1/3">

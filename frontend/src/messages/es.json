@@ -60,9 +60,9 @@
         "title": "Back-end", 
         "items": "Python, C, MySQL"
       },
-      "devOps": {
-        "title": "DevOps", 
-        "items": "Motion, i18next, React Toastify, React Hook Form, Embla Carousel, Recharts"
+      "tools": {
+        "title": "Herramientas", 
+        "items": "Motion, next-intl, React Toastify, React Hook Form, Embla Carousel, Recharts"
       }
     },
     "favoritesTools": "Algunas de mis <strong>tecnologías</strong> y <strong>herramientas favoritas</strong> con las que he trabajado."
