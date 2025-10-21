@@ -1,0 +1,71 @@
+import { ImagePopUp } from "@/components/other/ImagePopUp";
+import Button from "@/components/ui/buttons/Button";
+import { useTranslations } from "next-intl";
+import { StaticImageData } from "next/image";
+import { useState } from "react";
+
+export type CertificationItemData = {
+  title: string;
+  place: string;
+  image: StaticImageData;
+  pdf: string;
+}
+
+type CertificationItemProps = {
+  data: CertificationItemData;
+}
+
+const CertificationItem = (props: CertificationItemProps) => {
+  const data = props.data;
+  const t = useTranslations("aboutMeSection.certificationSection");
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = data.pdf;
+    link.download = `${data.title.replace(/ /g, "-")}-Damian-Rodriguez.pdf`;
+    link.click();
+  };
+
+  return (
+    <div className="relative">
+      <div
+        className="flex items-center justify-between md:w-[70%] xl:w-[60%] gap-[1rem] py-[1rem] "
+      >
+        <div>
+          <p className="text-soft-white text-sm xl:text-base">
+            {data.title}
+          </p>
+        </div>
+
+        <div>
+          <p className="text-soft-white text-sm xl:text-base">
+            {data.place}
+          </p>
+        </div>
+
+        <div className="flex gap-2 xl:gap-4">
+          <Button
+            onClick={() => { setSelectedImage(data.image.src); }}
+            variant="secondary"
+            small
+          >
+            {t("buttons.see")}
+          </Button>
+          <Button
+            onClick={handleDownload}
+            small
+          >
+            {t("buttons.download")}
+          </Button>
+        </div>
+      </div>
+      <ImagePopUp
+        image={selectedImage}
+        alt={data.title}
+        onClose={() => setSelectedImage(null)}
+      />
+    </div>
+  );
+};
+
+export default CertificationItem;

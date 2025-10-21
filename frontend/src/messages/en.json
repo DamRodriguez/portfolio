@@ -65,6 +65,19 @@
         "items": "Motion, next-intl, React Toastify, React Hook Form, Embla Carousel, Recharts"
       }
     },
+    "certificationSection": {
+      "title": "Certifications",
+      "buttons": {
+        "see": "View",
+        "download": "Download"
+      },
+      "certifications": {
+        "codoACodo": {
+          "title": "Full Stack Python",
+          "place": "Codo a Codo"
+        }
+      }
+    },
     "favoritesTools": "Some of my favorite <strong>technologies</strong> and <strong>tools</strong> I've worked with."
   },
   "workSection": {

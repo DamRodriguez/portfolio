@@ -3,14 +3,15 @@ import SpaceX from "@/components/layout/SpaceX";
 import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
 import { useTranslations } from "next-intl";
-import TechnologiesSection from "./TechnologiesSection";
+import TechnologiesSection from "./technologies/TechnologiesSection";
 import { removeHash } from "@/utils/removeHash";
 import { routes } from "@/constants/routes";
 import Image from "next/image";
 import personalImage from "@/assets/images/damian.jpg"
+import CertificationSection from "./certification/CertificationSection";
 
 const AboutMeSection = () => {
-  const t = useTranslations("aboutMeSection.header");
+  const t = useTranslations("aboutMeSection");
 
   return (
     <SpaceX
@@ -19,13 +20,13 @@ const AboutMeSection = () => {
     >
       <div className="flex md:flex-row md:justify-between xl:w-[80%] flex-col gap-[2rem]">
         <MotionSlide>
-          <span className="text-soft-white text-xl xl:text-2xl font-fira-code">
-            {t("sectionName")}
-          </span>
+          <h3 className="text-soft-white text-xl xl:text-2xl font-fira-code">
+            {t("header.sectionName")}
+          </h3>
         </MotionSlide>
         <MotionFade>
           <p className="text-soft-gray text-base lg:text-xl whitespace-pre-line bg-black">
-            {t.rich("description", {
+            {t.rich("header.description", {
               strong: (chunks) => <span className="text-soft-white">{chunks}</span>,
             })}
           </p>
@@ -46,6 +47,15 @@ const AboutMeSection = () => {
           <div className="absolute inset-x-0 bottom-0 h-30 xl:h-60 bg-gradient-to-t from-black to-transparent pointer-events-none" />
           <div className="absolute inset-x-0 top-0 h-25 xl:h-45 bg-gradient-to-b from-black to-transparent pointer-events-none" />
         </MotionSlide>
+      </div>
+
+      <div className="flex flex-col gap-[1.5rem] xl:gap-[2rem]">
+        <MotionSlide>
+          <h5 className="text-soft-white text-xl xl:text-2xl font-fira-code">
+            {t("certificationSection.title")}
+          </h5>
+        </MotionSlide>
+        <CertificationSection />
       </div>
     </SpaceX>
   );

@@ -20,6 +20,7 @@ type ButtonProps = {
   full?: boolean;
   form?: string;
   backButton?: boolean;
+  small?: boolean;
 };
 
 const Button = (props: ButtonProps) => {
@@ -30,6 +31,7 @@ const Button = (props: ButtonProps) => {
     disabled: props.disabled,
     outline: props.outline,
     full: props.full,
+    small: props.small,
   }), props.className);
   return (
     <button
