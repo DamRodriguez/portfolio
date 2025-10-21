@@ -3,6 +3,7 @@ import type { EmblaCarouselType, EmblaEventType, EmblaOptionsType } from "embla-
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useRef } from "react";
 import { usePrevNextButtons } from "@/hooks/usePrevNextButtons";
+import { useDotButton } from "@/components/carousel/horizontal-carousel-variant/HorizontalCarouselDotButtons";
 
 const numberWithinRange = (number: number, min: number, max: number): number =>
   Math.min(Math.max(number, min), max);
@@ -21,6 +22,8 @@ export const useHorizontalCarousel = ({ options, tweenFactorBase = 0 }: useHoriz
     watchDrag: true,
     skipSnaps: true,
   });
+
+  const { onDotButtonClick } = useDotButton(emblaApi);
 
   const tweenFactor = useRef(0);
 
@@ -92,5 +95,6 @@ export const useHorizontalCarousel = ({ options, tweenFactorBase = 0 }: useHoriz
     nextBtnDisabled,
     onPrevButtonClick,
     onNextButtonClick,
+    onDotButtonClick
   };
 };

@@ -8,6 +8,7 @@ import HorizontalCarouselVariantItem, { type HorizontalCarouselVariantData } fro
 import { useHorizontalCarousel } from "@/hooks/useHorizontalCarousel";
 import { ArrowIcon } from "@/components/icons/buttons";
 import { useEffect, useState } from "react";
+import { DotButton } from "./HorizontalCarouselDotButtons";
 
 type HorizontalCarouselVariantProps = {
   options?: EmblaOptionsType;
@@ -22,6 +23,7 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
     nextBtnDisabled,
     onPrevButtonClick,
     onNextButtonClick,
+    onDotButtonClick
   } = useHorizontalCarousel({ options });
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -59,8 +61,8 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
         </div>
       </div>
 
-      <div className="absolute inset-y-0 left-0 w-30 xl:w-100 bg-gradient-to-r from-black to-transparent pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-30 xl:w-100 bg-gradient-to-l from-black to-transparent pointer-events-none" />
+      <div className="absolute inset-y-0 left-0 w-30 md:w-50 xl:w-100 2xl:w-150 bg-gradient-to-r from-black to-transparent pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-30 md:w-50 xl:w-100 2xl:w-150 bg-gradient-to-l from-black to-transparent pointer-events-none" />
 
       <div className={clsx("absolute inset-0 flex items-center justify-between pointer-events-none",
         {
@@ -81,6 +83,22 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
         >
           <ArrowIcon className={arrowSvgClassName} />
         </button>
+      </div>
+
+      <div className="absolute -bottom-7 md:-bottom-8 left-1/2 -translate-x-1/2 flex gap-2 xl:hidden ">
+        {items.map((_, index) => (
+          <DotButton
+            key={index}
+            onClick={() => { onDotButtonClick(index); }}
+            className={clsx(
+              "w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-alpha-50/50 border border-soft-gray cursor-pointer hover:scale-110 transition-all duration-400",
+              {
+                "bg-soft-white hover:bg-soft-white": index === selectedIndex,
+                "hover:border-soft-white": index !== selectedIndex,
+              }
+            )}
+          />
+        ))}
       </div>
 
     </div>

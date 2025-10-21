@@ -19,7 +19,7 @@ const AboutMeSection = () => {
     >
       <div className="flex md:flex-row md:justify-between xl:w-[80%] flex-col gap-[2rem]">
         <MotionSlide>
-          <span className="text-soft-white text-base xl:text-xl font-fira-code">
+          <span className="text-soft-white text-xl xl:text-2xl font-fira-code">
             {t("sectionName")}
           </span>
         </MotionSlide>

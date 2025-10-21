@@ -39,7 +39,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className="scroll-smooth">
-      <body className={clsx("antialiased min-h-svh flex flex-col bg-black scroll-smooth", openSans.variable, firaCode.variable)}>
+      <body className={clsx("antialiased min-h-svh flex flex-col bg-black", openSans.variable, firaCode.variable)}>
         <NextIntlClientProvider>
           <ProgressBarProvider>
             <div className="min-w-[20rem] max-w-[120rem] mx-auto w-full font-open-sans">
