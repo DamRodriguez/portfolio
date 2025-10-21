@@ -1,5 +1,6 @@
 @theme {
   --text-*: initial;
+  --text-xxs: 0.625rem;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;

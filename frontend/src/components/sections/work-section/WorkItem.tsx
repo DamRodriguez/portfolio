@@ -27,14 +27,14 @@ const WorkItem = (props: WorkItemProps) => {
   const finalYear = getYear(data.finalDate);
 
   return (
-    <SpaceX className="grid grid-cols-[1fr_1fr_1fr] xl:grid-cols-[0.5fr_1fr_1fr] items-center group hover:bg-soft-white transition-all duration-400 ease-in-out py-[1rem] xl:py-[1.5rem]">
+    <SpaceX className="grid grid-cols-[1fr_1fr_1fr] xl:grid-cols-[0.5fr_1fr_1fr] items-center group hover:bg-soft-white transition-all duration-400 ease-in-out py-[1rem] xl:py-[1.5rem] gap-[0.5rem] ">
       <div className="text-soft-gray group-hover:text-black transition-all duration-400 ease-in-out">
-        <div className="text-sm xl:text-xl">
+        <div className="text-xs xl:text-xl">
           <span>{initialYear}</span>
           <span>{" - "}</span>
           <span>{finalYear}</span>
         </div>
-        <p className="text-xs xl:text-sm">
+        <p className="text-xxs xl:text-sm">
           {totalTime}
         </p>
       </div>
