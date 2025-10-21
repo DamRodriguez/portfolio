@@ -35,7 +35,7 @@ const AboutMeSection = () => {
       <div className="flex flex-col-reverse xl:flex-row items-center xl:justify-between gap-[2rem] ">
         <TechnologiesSection />
 
-        <MotionSlide direction="down" className="relative overflow-hidden">
+        <MotionSlide viewAmount={0.2} direction="down" className="relative overflow-hidden">
           <Image
             src={personalImage}
             alt="Personal image"

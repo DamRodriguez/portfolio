@@ -27,24 +27,26 @@ const WorkItem = (props: WorkItemProps) => {
   const finalYear = getYear(data.finalDate);
 
   return (
-    <SpaceX className="grid grid-cols-[1fr_1fr_1fr] xl:grid-cols-[0.5fr_1fr_1fr] items-center group hover:bg-soft-white transition-all duration-400 ease-in-out py-[1rem] xl:py-[1.5rem] gap-[0.5rem] ">
+    <SpaceX className="grid grid-cols-[0.5fr_1fr] xl:grid-cols-[0.5fr_1fr_1fr] items-center group hover:bg-soft-white transition-all duration-400 ease-in-out py-[1rem] xl:py-[1.5rem] gap-[1rem] xl:gap-[2rem]">
       <div className="text-soft-gray group-hover:text-black transition-all duration-400 ease-in-out">
-        <div className="text-xs xl:text-xl">
+        <div className="text-sm xl:text-xl">
           <span>{initialYear}</span>
           <span>{" - "}</span>
           <span>{finalYear}</span>
         </div>
-        <p className="text-xxs xl:text-sm">
+        <p className="text-xs xl:text-sm">
           {totalTime}
         </p>
       </div>
 
-      <div className="text-soft-white text-sm xl:text-xl group-hover:text-black transition-all duration-400 ease-in-out">
-        {data.employer}
-      </div>
+      <div className="grid gap-[0.5rem] xl:contents">
+        <div className="text-soft-white text-base xl:text-xl group-hover:text-black transition-all duration-400 ease-in-out">
+          {data.employer}
+        </div>
 
-      <div className="text-soft-white text-sm xl:text-xl font-fira-code group-hover:text-black transition-all duration-400 ease-in-out">
-        {data.position}
+        <div className="text-soft-white text-sm xl:text-xl font-fira-code group-hover:text-black transition-all duration-400 ease-in-out">
+          {data.position}
+        </div>
       </div>
     </SpaceX>
   );

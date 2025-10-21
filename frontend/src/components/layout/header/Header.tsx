@@ -24,9 +24,15 @@ const Header = ({ locale }: HeaderProps) => {
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
+    const saved = sessionStorage.getItem("hasScrolled");
+    if (saved === "true") setHasScrolled(true);
+
     const handleScroll = () => {
-      setHasScrolled(window.scrollY > 0);
+      const scrolled = window.scrollY > 0;
+      setHasScrolled(scrolled);
+      sessionStorage.setItem("hasScrolled", String(scrolled));
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);

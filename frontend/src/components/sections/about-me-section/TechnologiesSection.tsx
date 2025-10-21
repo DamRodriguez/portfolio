@@ -21,7 +21,7 @@ const TechnologiesSection = () => {
   }
 
   return (
-    <div className="xl:w-1/2 gap-[2rem] flex flex-col">
+    <div className="xl:w-1/2 gap-[1.5rem] xl:gap-[2rem] flex flex-col">
       <MotionSlide>
         <TechnologyItem
           data={frontTechnologyData}
@@ -39,7 +39,7 @@ const TechnologiesSection = () => {
       </div>
       <div className="flex items-end justify-between">
         <MotionFade className="w-[40%]">
-          <p className="text-soft-gray text-sm lg:text-base whitespace-pre-line">
+          <p className="text-soft-gray text-sm lg:text-lg whitespace-pre-line">
             {t.rich("favoritesTools", {
               strong: (chunks) => <span className="text-soft-white">{chunks}</span>,
             })}
