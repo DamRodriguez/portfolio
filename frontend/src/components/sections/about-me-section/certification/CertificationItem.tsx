@@ -1,3 +1,4 @@
+"use client";
 import { ImagePopUp } from "@/components/other/ImagePopUp";
 import Button from "@/components/ui/buttons/Button";
 import { useTranslations } from "next-intl";
