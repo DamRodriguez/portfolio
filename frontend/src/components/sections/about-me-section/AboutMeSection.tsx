@@ -35,11 +35,11 @@ const AboutMeSection = () => {
       <div className="flex flex-col-reverse xl:flex-row items-center xl:justify-between gap-[2rem] ">
         <TechnologiesSection />
 
-        <MotionSlide direction="down" className="relative">
+        <MotionSlide direction="down" className="relative overflow-hidden">
           <Image
             src={personalImage}
             alt="Personal image"
-            className="object-cover w-fit h-120 md:h-150 xl:h-full "
+            className="object-cover w-fit h-120 md:h-150 xl:h-full hover:scale-110 transition-all duration-400 ease-in-out"
           />
           <div className="absolute inset-y-0 left-0 w-20 xl:w-50 bg-gradient-to-r from-black to-transparent pointer-events-none" />
           <div className="absolute inset-y-0 right-0 w-20 xl:w-30 bg-gradient-to-l from-black to-transparent pointer-events-none" />

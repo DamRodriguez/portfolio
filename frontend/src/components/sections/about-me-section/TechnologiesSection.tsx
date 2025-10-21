@@ -37,27 +37,25 @@ const TechnologiesSection = () => {
           <GithubButton />
         </MotionFade>
       </div>
-      <div className="flex justify-center">
-        <MotionSlide className="w-1/2">
-          <TechnologyItem
-            data={backendTechnologyData}
-          />
-        </MotionSlide>
-      </div>
-      <div className="flex items-center flex-row-reverse justify-between">
-        <MotionSlide direction="right" className="w-1/2">
-          <TechnologyItem
-            data={toolsData}
-          />
-        </MotionSlide>
-        <MotionFade className="w-1/3">
+      <div className="flex items-end justify-between">
+        <MotionFade className="w-[40%]">
           <p className="text-soft-gray text-sm lg:text-base whitespace-pre-line">
             {t.rich("favoritesTools", {
               strong: (chunks) => <span className="text-soft-white">{chunks}</span>,
             })}
           </p>
         </MotionFade>
+        <MotionSlide className="w-1/2">
+          <TechnologyItem
+            data={backendTechnologyData}
+          />
+        </MotionSlide>
       </div>
+      <MotionSlide direction="right">
+        <TechnologyItem
+          data={toolsData}
+        />
+      </MotionSlide>
     </div>
   );
 };

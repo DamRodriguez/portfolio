@@ -66,5 +66,27 @@
       }
     },
     "favoritesTools": "Some of my favorite <strong>technologies</strong> and <strong>tools</strong> I've worked with."
-  } 
+  },
+  "workSection": {
+    "title": "Work",
+    "workItem": {
+      "present": "Present",
+      "months": "{count, plural, one {# month} other {# months}}",
+      "years": "{count, plural, one {# year} other {# years}}"
+    },
+    "workData": {
+      "webSpace": {
+        "employer": "Web Space",
+        "position": "Frontend Developer | React & React Native"
+      },
+      "telecentro": {
+        "employer": "Telecentro",
+        "position": "Technical Support"
+      },
+      "mercadoLibre": {
+        "employer": "Mercado Libre",
+        "position": "Shipping Representative"
+      }
+    }
+  }
 }
