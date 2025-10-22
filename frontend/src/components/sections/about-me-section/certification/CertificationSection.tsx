@@ -11,7 +11,7 @@ const CertificationSection = () => {
       title: t("certifications.codoACodo.title"),
       place: t("certifications.codoACodo.place"),
       image: cacImage,
-      pdf: "/portfolio/es/certifications/cac/cac-certificado.pdf",
+      pdf: "https://damrodriguez.github.io/portfolio/es/certifications/cac/cac-certificado.pdf",
     },
   ]
 
