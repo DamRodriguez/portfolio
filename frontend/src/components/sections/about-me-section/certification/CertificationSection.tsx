@@ -11,7 +11,7 @@ const CertificationSection = () => {
       title: t("certifications.codoACodo.title"),
       place: t("certifications.codoACodo.place"),
       image: cacImage,
-      pdf: `${process.env.NEXT_PUBLIC_BASE_PATH}certifications/cac/cac-certificado.pdf`,
+      pdf: "/portfolio/certifications/cac/cac-certificado.pdf",
     },
   ]
 
