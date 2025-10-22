@@ -6,6 +6,7 @@ import { removeHash } from "@/utils/removeHash";
 import { routes } from "@/constants/routes";
 import MotionSlide from "@/components/motion/MotionSlide";
 import clsx from "clsx";
+import config from "@/config/config";
 
 const WorkSection = () => {
   const t = useTranslations("workSection");
@@ -14,7 +15,8 @@ const WorkSection = () => {
       initialDate: "2025-02-05",
       finalDate: "present",
       employer: t("workData.webSpace.employer"),
-      position: t("workData.webSpace.position")
+      position: t("workData.webSpace.position"),
+      employerLink: config.work.webSpace,
     },
     {
       initialDate: "2023-04-05",
@@ -33,7 +35,7 @@ const WorkSection = () => {
   return (
     <div
       id={removeHash(routes.work)}
-      className="w-full flex flex-col gap-[1.5rem] xl:gap-[2rem]"
+      className="w-full flex flex-col gap-[1.5rem] xl:gap-[2rem] scroll-mt-[8.5rem] xl:scroll-mt-[14rem]"
     >
       <MotionSlide direction="right">
         <SpaceX>
@@ -50,15 +52,13 @@ const WorkSection = () => {
             <MotionSlide
               key={index}
               direction="down"
-              className={clsx("border-t border-t-soft-gray/50",
+              className={clsx("border-t border-t-soft-gray/60",
                 {
-                  "border-b border-b-soft-gray/50": isLast
+                  "border-b border-b-soft-gray/60": isLast
                 }
               )}
             >
-              <WorkItem
-                data={{ ...item }}
-              />
+              <WorkItem data={{ ...item }} />
             </MotionSlide>
           )
         })}

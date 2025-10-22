@@ -14,6 +14,13 @@ const config = {
     github: "https://github.com/DamRodriguez?tab=repositories",
     whatsapp: "https://wa.me/5491159641031",
   },
+  work: {
+    webSpace: "https://webspace.com.ar/"
+  },
+  projects: {
+    vanicracia: "https://vanicracia.com/",
+    alfombrasTauro: "",
+  }
 };
 
 export default config;

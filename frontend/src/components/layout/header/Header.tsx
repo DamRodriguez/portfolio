@@ -80,11 +80,11 @@ const Header = ({ locale }: HeaderProps) => {
                     <Link
                       href={item.href}
                       onClick={() => { }}
-                      className="cursor-pointer group-hover:scale-110 transition-all duration-400 ease-in-out"
+                      className="cursor-pointer"
                     >
                       {t(item.label)}
                     </Link>
-                    <span className="block h-[0.1rem] bg-soft-white w-full scale-x-0 origin-center transition-transform duration-400 group-hover:scale-x-100 ease-in-out"></span>
+                    <span className="block h-[0.1rem] bg-soft-white w-full scale-x-0 origin-center transition-transform duration-600 group-hover:scale-x-100 ease-in-out"></span>
                   </li>
                 );
               })}

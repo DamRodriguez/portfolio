@@ -39,7 +39,7 @@ export const ImagePopUp = ({ image, alt = "Imagen ampliada", onClose }: ImagePop
         >
           <MotionOpacity>
             <div
-              className="relative max-w-[90vw] max-h-[90vh] overflow-auto rounded-[0.5rem] shadow-s3"
+              className="relative max-w-[90vw] max-h-[90vh] overflow-auto rounded-[0.5rem] rounded-tr-[1.3rem] xl:rounded-tr-[2rem] shadow-s3"
               onClick={(e) => e.stopPropagation()}
             >
               <Image
@@ -51,7 +51,7 @@ export const ImagePopUp = ({ image, alt = "Imagen ampliada", onClose }: ImagePop
               />
               <button
                 onClick={onClose}
-                className="absolute top-0 right-0 cursor-pointer p-[0.4rem] xl:p-[0.5rem] bg-black/50 backdrop-blur-[1rem] rounded-full m-1 xl:m-2 hover:bg-black/80 transition-all duration-400 ease-in-out"
+                className="absolute top-0 right-0 cursor-pointer p-[0.4rem] xl:p-[0.5rem] bg-black/60 backdrop-blur-[0.2rem] border border-soft-gray rounded-full m-1 xl:m-2 hover:bg-black/80 transition-all duration-400 ease-in-out"
               >
                 <CloseIcon className="w-[1.5rem] h-[1.5rem] xl:w-[2rem] xl:h-[2rem] " color="#fff" />
               </button>

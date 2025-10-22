@@ -20,17 +20,19 @@ const CertificationItem = (props: CertificationItemProps) => {
   const data = props.data;
   const t = useTranslations("aboutMeSection.certificationSection");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  {/*
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = data.pdf;
     link.download = `${data.title.replace(/ /g, "-")}-Damian-Rodriguez.pdf`;
     link.click();
   };
+  */}
 
   return (
     <div className="relative">
       <div
-        className="flex items-center justify-between md:w-[70%] xl:w-[60%] gap-[1rem] py-[1rem] "
+        className="flex items-center justify-between md:w-[70%] xl:w-[60%] gap-[1rem] p-[1rem] rounded-[1rem] border border-soft-gray/15"
       >
         <div>
           <p className="text-soft-white text-sm xl:text-base">
@@ -52,12 +54,14 @@ const CertificationItem = (props: CertificationItemProps) => {
           >
             {t("buttons.see")}
           </Button>
+          {/*
           <Button
             onClick={handleDownload}
             small
           >
             {t("buttons.download")}
           </Button>
+          */}
         </div>
       </div>
       <ImagePopUp

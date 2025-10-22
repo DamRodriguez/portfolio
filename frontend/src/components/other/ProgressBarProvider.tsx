@@ -5,7 +5,7 @@ const ProgressBarProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <ProgressProvider
       height="4px"
-      color="#E0211C"
+      color="#fff"
       options={{ showSpinner: false }}
       shallowRouting
     >

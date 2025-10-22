@@ -62,7 +62,7 @@
       },
       "tools": {
         "title": "Herramientas", 
-        "items": "Motion, next-intl, React Toastify, React Hook Form, Embla Carousel, Recharts"
+        "items": "Motion, next-intl, TanStack Query, React Toastify, React Hook Form, Embla Carousel, Recharts"
       }
     },
     "certificationSection": {
@@ -90,7 +90,7 @@
     "workData": {
       "webSpace": {
         "employer": "Web Space",
-        "position": "Frontend Developer | React & React Native"
+        "position": "Desarrollador Front-end | React & React Native"
       },
       "telecentro": {
         "employer": "Telecentro",
@@ -99,6 +99,24 @@
       "mercadoLibre": {
         "employer": "Mercado Libre",
         "position": "Representante de envíos"
+      }
+    }
+  },
+  "projectsSection": {
+    "title": "../Proyectos",
+    "buttons": {
+      "visitSite": "Visitar sitio"
+    },
+    "projectsData": {
+      "vanicracia": {
+        "title": "Vanicracia",
+        "description": "<strong>E-commerce</strong> enfocado en la astrología, con diversas secciones que incluyen <strong>servicios</strong>, <strong>cursos</strong> y <strong>productos</strong>. Permite explorar y adquirir artículos, acceder a sus detalles y visualizar <strong>cursos pregrabados</strong>.\n\nAdemás, cuenta con un <strong>carrito de compras</strong> con sistemas de pago integrados y un <strong>sistema de autenticación de usuarios</strong> que incluye inicio de sesión, registro y recuperación de contraseña.",
+        "technologies": "Next.js, TypeScript, Tailwind, React Hook Form, React Toastify, Motion, Redux Toolkit, TanStack Query"
+      },
+      "alfombrasTauro": {
+        "title": "Alfombras Tauro",
+        "description": "Sitio web especializado en alfombras, que ofrece una amplia variedad de <strong>productos</strong>, <strong>accesorios</strong> y <strong>servicios</strong>.\n\nPermite explorar cada categoría, acceder a sus respectivos elementos y visualizar en detalle cada uno de ellos.",
+        "technologies": "Next.js, TypeScript, Tailwind, React Hook Form, Motion, TanStack Query"
       }
     }
   }

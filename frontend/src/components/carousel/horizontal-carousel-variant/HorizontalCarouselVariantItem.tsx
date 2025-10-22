@@ -6,6 +6,7 @@ export type HorizontalCarouselVariantData = {
   image: string | StaticImageData;
   title: string;
   description: string;
+  routerPath: string;
 };
 
 type HorizontalCarouselVariantItemProps = {
@@ -31,7 +32,11 @@ const HorizontalCarouselVariantItem = ({ data }: HorizontalCarouselVariantItemPr
           {data.description}
         </p>
         <div className="pointer-events-auto">
-          <ButtonWithArrow small text={t("seeMoreButton")} />
+          <ButtonWithArrow
+            small
+            text={t("seeMoreButton")}
+            routerPath={data.routerPath}
+          />
         </div>
       </div>
     </div>

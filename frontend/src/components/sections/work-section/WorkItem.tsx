@@ -2,12 +2,14 @@
 import SpaceX from "@/components/layout/SpaceX";
 import { calculateTotalTime } from "@/utils/calculateTotalTime";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 export type WorkItemData = {
   initialDate: string;
   finalDate: string | "present";
   employer: string;
   position: string;
+  employerLink?: string;
 };
 
 type WorkItemProps = {
@@ -40,9 +42,19 @@ const WorkItem = (props: WorkItemProps) => {
       </div>
 
       <div className="grid gap-[0.5rem] xl:contents">
-        <div className="text-soft-white text-base xl:text-xl group-hover:text-black transition-all duration-400 ease-in-out">
-          {data.employer}
-        </div>
+        {data.employerLink ? (
+          <Link
+            href={data.employerLink}
+            target="_blank"
+            className="text-soft-white text-base xl:text-xl group-hover:text-black transition-all duration-400 ease-in-out cursor-pointer w-fit hover:scale-110"
+          >
+            {data.employer}
+          </Link>
+        ) : (
+          <div className="text-soft-white text-base xl:text-xl group-hover:text-black transition-all duration-400 ease-in-out">
+            {data.employer}
+          </div>
+        )}
 
         <div className="text-soft-white text-sm xl:text-xl font-fira-code group-hover:text-black transition-all duration-400 ease-in-out">
           {data.position}

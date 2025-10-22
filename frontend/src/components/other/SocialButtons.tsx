@@ -10,7 +10,7 @@ const SocialButtons = () => {
     { href: config.urls.whatsapp, icon: <WhatsAppIcon /> },
   ];
   return (
-    <div className="flex flex-wrap justify-center gap-[2rem] [&_svg]:fill-[#fff]">
+    <div className="flex flex-wrap justify-center gap-[1.5rem] [&_svg]:fill-[#fff]">
       {socialItems.map((item, index) => (
         <Link
           key={index}

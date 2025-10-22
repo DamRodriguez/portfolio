@@ -21,9 +21,13 @@ type ButtonProps = {
   form?: string;
   backButton?: boolean;
   small?: boolean;
+  cursorNormal?: boolean;
 };
 
-const Button = (props: ButtonProps) => {
+const Button = ({
+  cursorNormal = false,
+  ...props
+}: ButtonProps) => {
   const router = useRouter();
 
   const className = clsx(buttonClass({
@@ -32,6 +36,7 @@ const Button = (props: ButtonProps) => {
     outline: props.outline,
     full: props.full,
     small: props.small,
+    cursorNormal: cursorNormal,
   }), props.className);
   return (
     <button
