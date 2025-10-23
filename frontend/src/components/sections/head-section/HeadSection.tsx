@@ -6,6 +6,7 @@ import MotionFade from "@/components/motion/MotionFade";
 import { useTranslations } from "next-intl";
 import HorizontalCarouselSection from "@/components/sections/head-section/HorizontalCarouselSection";
 import SocialButtonsSection from "@/components/sections/head-section/SocialButtonsSection";
+import { routes } from "@/constants/routes";
 
 const HeadSection = () => {
   const t = useTranslations();
@@ -23,7 +24,10 @@ const HeadSection = () => {
               </h1>
             </MotionSlide>
             <MotionFade className="hidden 2xl:flex">
-              <ButtonWithArrow text={projectsButtonText} />
+              <ButtonWithArrow
+                text={projectsButtonText}
+                routerPath={routes.projects}
+              />
             </MotionFade>
           </div>
           <div className="flex flex-col-reverse text-center xl:text-start items-center xl:flex xl:flex-row xl:justify-between xl:items-center gap-[1rem]">
@@ -42,7 +46,10 @@ const HeadSection = () => {
           </div>
         </div>
         <MotionFade className="flex 2xl:hidden justify-center">
-          <ButtonWithArrow text={projectsButtonText} />
+          <ButtonWithArrow
+            text={projectsButtonText}
+            routerPath={routes.projects}
+          />
         </MotionFade>
       </div>
 

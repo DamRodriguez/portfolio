@@ -30,7 +30,7 @@ type ProjectItemProps = {
 const ProjectItem = (props: ProjectItemProps) => {
   const data = props.data;
   const t = useTranslations("projectsSection.buttons");
-  const imageItemClassName = "rounded-3xl object-cover object-top h-full shadow-s6 border border-soft-gray/10 overflow-hidden"
+  const imageItemClassName = "rounded-3xl object-cover object-top w-full h-full shadow-s6 border border-soft-gray/10 overflow-hidden"
   const isMobile = useIsMobile({});
 
   return (
@@ -73,7 +73,7 @@ const ProjectItem = (props: ProjectItemProps) => {
       </div>
 
       <div className="grid gap-[1rem] xl:gap-[1.5rem] h-full xl:w-full ">
-        <MotionSlide direction="down" className="grid grid-cols-[1fr_0.3fr] gap-[1rem] xl:gap-[1.5rem] h-[15rem] xl:h-[25rem]">
+        <MotionSlide direction="down" className="grid grid-cols-[1fr_0.7fr] xl:grid-cols-[1fr_0.3fr] gap-[1rem] xl:gap-[1.5rem] h-[15rem] md:h-[20rem] xl:h-[25rem]">
           <Image
             src={data.images.rectangular}
             alt={`${data.title} rectangular image`}
@@ -86,7 +86,7 @@ const ProjectItem = (props: ProjectItemProps) => {
           />
         </MotionSlide>
 
-        <MotionSlide direction="down" className="flex h-[10rem] xl:h-[20rem] gap-[1rem] xl:gap-[1.5rem]">
+        <MotionSlide direction="down" className="flex h-[8rem] md:h-[16rem] xl:h-[20rem] gap-[1rem] xl:gap-[1.5rem]">
           <Image
             src={data.images.square}
             alt={`${data.title} square image`}
