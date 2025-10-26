@@ -62,7 +62,7 @@
       },
       "tools": {
         "title": "Herramientas", 
-        "items": "Motion, next-intl, TanStack Query, React Toastify, React Hook Form, Embla Carousel, Recharts"
+        "items": "Motion, TanStack Query, React Toastify, React Hook Form, next-intl, i18next, Embla Carousel, Recharts"
       }
     },
     "certificationSection": {
@@ -105,7 +105,8 @@
   "projectsSection": {
     "title": "../Proyectos",
     "buttons": {
-      "visitSite": "Visitar sitio"
+      "visitSite": "Visitar sitio",
+      "inDevelopment": "En desarrollo"
     },
     "projectsData": {
       "vanicracia": {
@@ -117,6 +118,16 @@
         "title": "Alfombras Tauro",
         "description": "Sitio web especializado en alfombras, que ofrece una amplia variedad de <strong>productos</strong>, <strong>accesorios</strong> y <strong>servicios</strong>.\n\nPermite explorar cada categoría, acceder a sus respectivos elementos y visualizar en detalle cada uno de ellos.",
         "technologies": "Next.js, TypeScript, Tailwind, React Hook Form, Motion, TanStack Query"
+      },
+      "dondeSalgo": {
+        "title": "Dónde Salgo",
+        "description": "Aplicación móvil enfocada en la <strong>búsqueda de bares</strong> y otros <strong>sitios por Buenos Aires</strong>. Posee varias secciones y un <strong>flujo intuitivo para el usuario</strong>. Además de tener un <strong>sistema de autenticación completo</strong>, entre muchas otras cosas.",
+        "technologies": "React Native, Expo, TypeScript, React Hook Form, TanStack Query, Redux Toolkit, React Native Reanimated, i18next"
+      },
+      "medicalSpace": {
+        "title": "Medical Space",
+        "description": "Aplicación web diseñada para optimizar la <strong>gestión de asuntos médicos</strong>. Permite administrar <strong>turnos</strong>, <strong>historiales clínicos</strong> y <strong>datos de pacientes</strong> de forma <strong>segura</strong> y <strong>eficiente</strong>. Su <strong>interfaz intuitiva</strong> facilita el trabajo del <strong>personal médico</strong> y <strong>administrativo</strong>, <strong>centralizando</strong> toda la información en un solo lugar.",
+        "technologies": "Next.js, TypeScript, Tailwind, React Hook Form, React Toastify, Motion, Redux Toolkit, TanStack Query"
       }
     }
   }

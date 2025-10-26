@@ -1,20 +1,21 @@
 import HorizontalCarouselVariant from "@/components/carousel/horizontal-carousel-variant/HorizontalCarouselVariant";
 import { HorizontalCarouselVariantData } from "@/components/carousel/horizontal-carousel-variant/HorizontalCarouselVariantItem";
 import MotionSlide from "@/components/motion/MotionSlide";
-import bgTest from "@/assets/images/bg-test.png"
+import inDevelopmentBg from "@/assets/images/in-development.png"
 import vanicraciaBg from "@/assets/images/vanicracia.png"
 import { useTranslations } from "next-intl";
 import { projectsRoutes } from "@/constants/projectsRoutes";
+import dondeSalgoBg from "@/assets/images/react-native.png"
 
 const HorizontalCarouselSection = () => {
   const t = useTranslations("headSection.horizontalCarousel.carouselData")
 
   const horizontalCarouselItems: HorizontalCarouselVariantData[] = [
     {
-      image: bgTest,
+      image: dondeSalgoBg,
       title: t("dondeSalgo.title"),
       description: t("dondeSalgo.description"),
-      routerPath: ""
+      routerPath: projectsRoutes.dondeSalgo,
     },
     {
       image: vanicraciaBg,
@@ -23,16 +24,16 @@ const HorizontalCarouselSection = () => {
       routerPath: projectsRoutes.vanicracia,
     },
     {
-      image: bgTest,
+      image: inDevelopmentBg,
       title: t("alfombrasTauro.title"),
       description: t("alfombrasTauro.description"),
       routerPath: projectsRoutes.alfombrasTauro,
     },
     {
-      image: bgTest,
+      image: inDevelopmentBg,
       title: t("medicalSpace.title"),
       description: t("medicalSpace.description"),
-      routerPath: ""
+      routerPath: projectsRoutes.medicalSpace
     },
   ]
 

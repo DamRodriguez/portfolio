@@ -10,46 +10,73 @@ import vanicraciaImgRectangular from "@/assets/images/projects/vanicracia/rectan
 import vanicraciaImgVertical from "@/assets/images/projects/vanicracia/vertical.png"
 import vanicraciaImgSquare from "@/assets/images/projects/vanicracia/square.png"
 import vanicraciaImgHorizontal from "@/assets/images/projects/vanicracia/horizontal.png"
-import bgTest from "@/assets/images/bg-test.png"
 import SectionSeparator from "@/components/other/SectionSeparator";
 import { projectsRoutes } from "@/constants/projectsRoutes";
+import splitText from "@/utils/splitText";
+import { RichText } from "@/components/other/RichText";
+import appInDevImage from "@/assets/images/projects/appInDevelopment.png"
+import webAppInDevImage from "@/assets/images/projects/appWebInDevelopment.png"
 
 const ProjectsSection = () => {
-  const t = useTranslations("projectsSection")
+  const t = useTranslations("projectsSection");
   const projectsData: ProjectItemData[] = [
     {
       title: t("projectsData.vanicracia.title"),
-      technologies: t("projectsData.vanicracia.technologies")
-        .split(",")
-        .map((tech) => tech.trim()),
-      description: t.rich("projectsData.vanicracia.description", {
-        strong: (chunks) => <span className="text-soft-white">{chunks}</span>,
-      }),
+      technologies: splitText(t("projectsData.vanicracia.technologies")),
+      description:
+        <RichText
+          t={t}
+          translationKey="projectsData.vanicracia.description"
+        />
+      ,
       siteLink: config.projects.vanicracia,
+      id: removeHash(projectsRoutes.vanicracia),
       images: {
         rectangular: vanicraciaImgRectangular,
         vertical: vanicraciaImgVertical,
         square: vanicraciaImgSquare,
         horizontal: vanicraciaImgHorizontal,
       },
-      id: removeHash(projectsRoutes.vanicracia),
     },
     {
       title: t("projectsData.alfombrasTauro.title"),
-      technologies: t("projectsData.alfombrasTauro.technologies")
-        .split(",")
-        .map((tech) => tech.trim()),
-      description: t.rich("projectsData.alfombrasTauro.description", {
-        strong: (chunks) => <span className="text-soft-white">{chunks}</span>,
-      }),
-      siteLink: config.projects.alfombrasTauro,
-      images: {
-        rectangular: bgTest,
-        vertical: bgTest,
-        square: bgTest,
-        horizontal: bgTest,
-      },
+      technologies: splitText(t("projectsData.alfombrasTauro.technologies")),
+      description:
+        <RichText
+          t={t}
+          translationKey="projectsData.alfombrasTauro.description"
+        />
+      ,
+      // siteLink: config.projects.alfombrasTauro,
+      inDevelopment: true,
       id: removeHash(projectsRoutes.alfombrasTauro),
+      image: webAppInDevImage
+    },
+    {
+      title: t("projectsData.dondeSalgo.title"),
+      technologies: splitText(t("projectsData.dondeSalgo.technologies")),
+      description:
+        <RichText
+          t={t}
+          translationKey="projectsData.dondeSalgo.description"
+        />
+      ,
+      id: removeHash(projectsRoutes.dondeSalgo),
+      inDevelopment: true,
+      image: appInDevImage
+    },
+    {
+      title: t("projectsData.medicalSpace.title"),
+      technologies: splitText(t("projectsData.medicalSpace.technologies")),
+      description:
+        <RichText
+          t={t}
+          translationKey="projectsData.medicalSpace.description"
+        />
+      ,
+      id: removeHash(projectsRoutes.medicalSpace),
+      inDevelopment: true,
+      image: webAppInDevImage
     }
   ]
 

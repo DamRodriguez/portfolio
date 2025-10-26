@@ -1,4 +1,6 @@
 export const projectsRoutes = {
   vanicracia: "#vanicracia",
-  alfombrasTauro: "#alfombrasTauro",
+  alfombrasTauro: "#alfombras-tauro",
+  dondeSalgo: "#donde-salgo",
+  medicalSpace: "#medical-space"
 };

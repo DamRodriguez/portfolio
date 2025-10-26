@@ -24,7 +24,7 @@ const HorizontalCarouselVariantItem = ({ data }: HorizontalCarouselVariantItemPr
           className="h-full w-full rounded-3xl group-hover:scale-110 transition-all duration-400 ease-in-out object-cover"
         />
       </div>
-      <div className="w-[75%] h-full bg-black/70 shadow-s4 backdrop-blur-[0.2rem] absolute right-0 bottom-0 pr-[4rem] xl:pr-[1rem] px-[1rem] xl:px-[1rem] py-[2rem] flex flex-col justify-between pointer-events-none items-start">
+      <div className="w-[75%] h-full bg-black/70 shadow-s4 backdrop-blur-[0.1rem] absolute right-0 bottom-0 pr-[4rem] xl:pr-[1rem] px-[1rem] xl:px-[1rem] py-[2rem] flex flex-col justify-between pointer-events-none items-start rounded-r-3xl">
         <p className="text-soft-white text-xl xl:text-2xl font-fira-code">
           {data.title}
         </p>

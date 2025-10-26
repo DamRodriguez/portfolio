@@ -19,7 +19,7 @@ const config = {
   },
   projects: {
     vanicracia: "https://vanicracia.com/",
-    alfombrasTauro: "",
+    alfombrasTauro: "https://alfombrastauro.com/",
   }
 };
 

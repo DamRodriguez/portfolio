@@ -62,7 +62,7 @@
       },
       "tools": {
         "title": "Tools", 
-        "items": "Motion, next-intl, React Toastify, React Hook Form, Embla Carousel, Recharts"
+        "items": "Motion, TanStack Query, React Toastify, React Hook Form, next-intl, i18next, Embla Carousel, Recharts"
       }
     },
     "certificationSection": {
@@ -105,7 +105,8 @@
   "projectsSection": {
     "title": "../Projects",
     "buttons": {
-      "visitSite": "Visit site"
+      "visitSite": "Visit site",
+      "inDevelopment": "In development"
     },
     "projectsData": {
       "vanicracia": {
@@ -117,6 +118,16 @@
         "title": "Alfombras Tauro",
         "description": "A <strong>website specialized in rugs</strong>, offering a wide range of <strong>products</strong>, <strong>accessories</strong>, and <strong>services</strong>.\n\nIt allows users to explore each category, access their respective items, and view detailed information about each one.",
         "technologies": "Next.js, TypeScript, Tailwind, React Hook Form, Motion, TanStack Query"
+      },
+      "dondeSalgo": {
+        "title": "Dónde Salgo",
+        "description": "Mobile application focused on the <strong>search for bars and other venues around Buenos Aires</strong>. It features <strong>multiple sections</strong> and an <strong>intuitive user flow</strong>. It also includes a <strong>complete authentication system</strong>, among many other things.",
+        "technologies": "React Native, Expo, TypeScript, React Hook Form, TanStack Query, Redux Toolkit, React Native Reanimated, i18next"
+      },
+      "medicalSpace": {
+        "title": "Medical Space",
+        "description": "Web application designed to optimize <strong>medical management</strong>. It allows you to manage <strong>appointments</strong>, <strong>medical records</strong>, and <strong>patient data</strong> in a <strong>secure</strong> and <strong>efficient</strong> way. Its <strong>intuitive interface</strong> streamlines the work of <strong>medical</strong> and <strong>administrative staff</strong>, <strong>centralizing</strong> all information in one place.",
+        "technologies": "Next.js, TypeScript, Tailwind, React Hook Form, React Toastify, Motion, Redux Toolkit, TanStack Query"
       }
     }
   }

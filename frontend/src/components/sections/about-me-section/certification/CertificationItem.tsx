@@ -30,9 +30,9 @@ const CertificationItem = (props: CertificationItemProps) => {
   */}
 
   return (
-    <div className="relative">
+    <div className="relative group">
       <div
-        className="flex items-center justify-between md:w-[70%] xl:w-[60%] gap-[1rem] p-[1rem] rounded-[1rem] border border-soft-gray/15"
+        className="group-hover:bg-soft-white/10 transition-all duration-400 ease-in-out flex items-center justify-between md:w-[70%] xl:w-[60%] gap-[1rem] p-[1rem] rounded-[1rem] border border-soft-gray/15"
       >
         <div>
           <p className="text-soft-white text-sm xl:text-base">
