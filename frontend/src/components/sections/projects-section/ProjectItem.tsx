@@ -104,7 +104,7 @@ const ProjectItem = (props: ProjectItemProps) => {
             <ProjectImage
               src={data.images.vertical}
               alt={`${data.title} vertical image`}
-              className="w-[40%]"
+              className="w-[70%]"
             />
           </MotionSlide>
 

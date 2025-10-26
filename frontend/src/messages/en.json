@@ -1,7 +1,7 @@
 {
   "header": {
     "navItems": {
-      "aboutme": "About Me",
+      "aboutme": "About me",
       "work": "Work",
       "projects": "Projects",
       "contact": "Contact"
@@ -130,5 +130,22 @@
         "technologies": "Next.js, TypeScript, Tailwind, React Hook Form, React Toastify, Motion, Redux Toolkit, TanStack Query"
       }
     }
+  },
+  "contactSection": {
+    "title": "../Contact",
+    "routes": {
+      "home": "Home",
+      "aboutMe": "About me",
+      "work": "Work",
+      "projects": "Projects"
+    },
+    "buttons": {
+      "downloadCV": "Download CV"
+    },
+    "name": {
+      "firstName": "Damián",
+      "lastName": "Rodríguez"
+    },
+    "position": "Front-end\ndeveloper"
   }
 }

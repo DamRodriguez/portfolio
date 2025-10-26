@@ -5,7 +5,11 @@ import config from "@/config/config";
 import { GithubIcon, LinkedInIcon, TelegramIcon, WhatsAppIcon } from "@/components/icons/social";
 import { useTranslations } from "next-intl";
 
-const SocialButtonsSection = () => {
+type SocialButtonsSectionProps = {
+  withoutMt?: boolean;
+}
+
+const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
   const t = useTranslations("headSection.socialButtons");
 
   const socialButtons = [
@@ -25,7 +29,7 @@ const SocialButtonsSection = () => {
             key={index}
             className={clsx("h-fit",
               {
-                "xl:mt-[0.7rem] ": index === 0 || index === socialButtons.length - 1
+                "xl:mt-[0.7rem] ": (index === 0 || index === socialButtons.length - 1) && !props.withoutMt
               }
             )}
           >

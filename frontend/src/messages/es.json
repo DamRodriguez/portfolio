@@ -90,7 +90,7 @@
     "workData": {
       "webSpace": {
         "employer": "Web Space",
-        "position": "Desarrollador Front-end | React & React Native"
+        "position": "Front-end Developer | React & React Native"
       },
       "telecentro": {
         "employer": "Telecentro",
@@ -130,5 +130,22 @@
         "technologies": "Next.js, TypeScript, Tailwind, React Hook Form, React Toastify, Motion, Redux Toolkit, TanStack Query"
       }
     }
+  },
+  "contactSection": {
+    "title": "../Contacto",
+    "routes": {
+      "home": "Inicio",
+      "aboutMe": "Sobre mí",
+      "work": "Trabajos",
+      "projects": "Proyectos"
+    },
+    "buttons": {
+      "downloadCV": "Descargar CV"
+    },
+    "name": {
+      "firstName": "Damián",
+      "lastName": "Rodríguez"
+    },
+    "position": "Front-end\ndeveloper"
   }
 }
