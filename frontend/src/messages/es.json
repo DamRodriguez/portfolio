@@ -126,7 +126,7 @@
       },
       "medicalSpace": {
         "title": "Medical Space",
-        "description": "Aplicación web diseñada para optimizar la <strong>gestión de asuntos médicos</strong>. Permite administrar <strong>turnos</strong>, <strong>historiales clínicos</strong> y <strong>datos de pacientes</strong> de forma <strong>segura</strong> y <strong>eficiente</strong>. Su <strong>interfaz intuitiva</strong> facilita el trabajo del <strong>personal médico</strong> y <strong>administrativo</strong>, <strong>centralizando</strong> toda la información en un solo lugar.",
+        "description": "Aplicación web diseñada para optimizar la <strong>gestión de asuntos médicos</strong>. Permite administrar <strong>turnos</strong>, <strong>historiales clínicos</strong> y <strong>datos de pacientes</strong> de forma <strong>segura</strong> y <strong>eficiente</strong>.\n\nSu <strong>interfaz intuitiva</strong> facilita el trabajo del <strong>personal médico</strong> y <strong>administrativo</strong>, <strong>centralizando</strong> toda la información en un solo lugar.",
         "technologies": "Next.js, TypeScript, Tailwind, React Hook Form, React Toastify, Motion, Redux Toolkit, TanStack Query"
       }
     }

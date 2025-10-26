@@ -99,7 +99,7 @@ const ProjectItem = (props: ProjectItemProps) => {
             <ProjectImage
               src={data.images.rectangular}
               alt={`${data.title} rectangular image`}
-              className="w-full"
+              className="w-full object-center"
             />
             <ProjectImage
               src={data.images.vertical}

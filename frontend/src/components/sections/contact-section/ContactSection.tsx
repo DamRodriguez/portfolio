@@ -6,11 +6,8 @@ import { routes } from "@/constants/routes";
 import { removeHash } from "@/utils/removeHash";
 import { Link } from "@/i18n/navigation";
 import MotionSlide from "@/components/motion/MotionSlide";
-import CustomButton from "@/components/ui/buttons/CustomButton";
-import Button from "@/components/ui/buttons/Button";
 import MotionFade from "@/components/motion/MotionFade";
 import MotionStagger from "@/components/motion/MotionStagger";
-import { DownloadIcon } from "@/components/icons/buttons";
 
 const ContactSection = () => {
   const t = useTranslations("contactSection");
@@ -20,19 +17,22 @@ const ContactSection = () => {
     { text: t("routes.work"), href: routes.work },
     { text: t("routes.projects"), href: routes.projects },
   ]
+
+  {/*
   const handleDownloadCV = () => {
     const link = document.createElement("a");
     link.href = "/CV.pdf";
     link.download = "CV-Damian-Rodriguez.pdf";
     link.click();
   };
+  */}
 
   return (
     <SpaceX
       id={removeHash(routes.contact)}
       className="w-full flex flex-col gap-[3rem] xl:gap-[5rem] pb-[3rem] xl:pb-[5rem] "
     >
-      <div className="flex flex-col-reverse 4xl:flex-row gap-[2rem] xl:gap-[3rem] 4xl:gap-[8rem]">
+      <div className="flex flex-col-reverse 4xl:flex-row gap-[3rem] xl:gap-[3rem] 4xl:gap-[8rem]">
         <div className="-space-y-4 xl:-space-y-10 4xl:-space-y-15">
           <MotionSlide>
             <h6 className="text-soft-white font-fira-code font-semibold text-5md xl:text-8xl 4xl:text-9xl">
@@ -71,6 +71,7 @@ const ContactSection = () => {
             ))}
           </MotionStagger>
 
+          {/*
           <MotionFade>
             <Button
               onClick={handleDownloadCV}
@@ -79,6 +80,7 @@ const ContactSection = () => {
               <DownloadIcon />
             </Button>
           </MotionFade>
+          */}
         </div>
       </div>
 
