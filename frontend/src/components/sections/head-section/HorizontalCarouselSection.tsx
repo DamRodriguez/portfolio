@@ -6,6 +6,7 @@ import vanicraciaBg from "@/assets/images/vanicracia.png"
 import { useTranslations } from "next-intl";
 import { projectsRoutes } from "@/constants/projectsRoutes";
 import dondeSalgoBg from "@/assets/images/react-native.png"
+import alfombrasTauroBg from "@/assets/images/alfombras-tauro.jpg"
 
 const HorizontalCarouselSection = () => {
   const t = useTranslations("headSection.horizontalCarousel.carouselData")
@@ -24,7 +25,7 @@ const HorizontalCarouselSection = () => {
       routerPath: projectsRoutes.vanicracia,
     },
     {
-      image: inDevelopmentBg,
+      image: alfombrasTauroBg,
       title: t("alfombrasTauro.title"),
       description: t("alfombrasTauro.description"),
       routerPath: projectsRoutes.alfombrasTauro,
