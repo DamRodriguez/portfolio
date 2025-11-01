@@ -26,7 +26,7 @@ const Drawer = ({
   className,
   closeButtonClassName,
   position = "right",
-  closeButton = <CloseIcon />,
+  closeButton = <CloseIcon className="fill-[#fff]" />,
   transition = { duration: 0.4, ease: "easeInOut" },
   overlayClassName,
   hideOverlay,

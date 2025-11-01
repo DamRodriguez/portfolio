@@ -101,7 +101,7 @@ const Header = ({ locale }: HeaderProps) => {
                 onClick={() => { setIsMobileNavVisible(false); }}
                 className="cursor-pointer"
               >
-                <CloseIcon />
+                <CloseIcon className="fill-[#fff]" />
               </button>
             ) : (
               <button

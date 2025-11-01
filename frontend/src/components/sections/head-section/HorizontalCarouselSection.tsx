@@ -5,8 +5,8 @@ import inDevelopmentBg from "@/assets/images/in-development.png"
 import vanicraciaBg from "@/assets/images/vanicracia.png"
 import { useTranslations } from "next-intl";
 import { projectsRoutes } from "@/constants/projectsRoutes";
-import dondeSalgoBg from "@/assets/images/react-native.png"
 import alfombrasTauroBg from "@/assets/images/alfombras-tauro.jpg"
+import dondeSalgoBg from "@/assets/images/donde-salgo.png"
 
 const HorizontalCarouselSection = () => {
   const t = useTranslations("headSection.horizontalCarousel.carouselData")

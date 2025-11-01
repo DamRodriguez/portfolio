@@ -121,7 +121,7 @@
       },
       "dondeSalgo": {
         "title": "Dónde Salgo",
-        "description": "Mobile application focused on the <strong>search for bars and other venues around Buenos Aires</strong>. It features <strong>multiple sections</strong> and an <strong>intuitive user flow</strong>. It also includes a <strong>complete authentication system</strong>, among many other things.",
+        "description": "Mobile application focused on the <strong>search for bars</strong> and other <strong>places around Buenos Aires</strong>.\n\nIt features several sections and an <strong>intuitive user flow</strong>. In addition, it includes a <strong>complete authentication system</strong>, an <strong>admin panel</strong>, among many other features.",
         "technologies": "React Native, Expo, TypeScript, React Hook Form, TanStack Query, Redux Toolkit, React Native Reanimated, i18next"
       },
       "medicalSpace": {

@@ -14,12 +14,15 @@ import SectionSeparator from "@/components/other/SectionSeparator";
 import { projectsRoutes } from "@/constants/projectsRoutes";
 import splitText from "@/utils/splitText";
 import { RichText } from "@/components/other/RichText";
-import appInDevImage from "@/assets/images/projects/appInDevelopment.png"
 import webAppInDevImage from "@/assets/images/projects/appWebInDevelopment.png"
 import tauroImgHorizontal from "@/assets/images/projects/alfombras-tauro/horizontal.png"
 import tauroImgRectangular from "@/assets/images/projects/alfombras-tauro/rectangular.png"
 import tauroImgSquare from "@/assets/images/projects/alfombras-tauro/square.png"
 import tauroImgVertical from "@/assets/images/projects/alfombras-tauro/vertical.png"
+import dondeSalgoImgHorizontal from "@/assets/images/projects/donde-salgo/horizontal.png"
+import dondeSalgoImgVertical from "@/assets/images/projects/donde-salgo/vertical.png"
+import dondeSalgoImgRectangular from "@/assets/images/projects/donde-salgo/rectangular.png"
+import dondeSalgoImgSquare from "@/assets/images/projects/donde-salgo/square.png"
 
 const ProjectsSection = () => {
   const t = useTranslations("projectsSection");
@@ -71,7 +74,12 @@ const ProjectsSection = () => {
       ,
       id: removeHash(projectsRoutes.dondeSalgo),
       inDevelopment: true,
-      image: appInDevImage
+      images: {
+        rectangular: dondeSalgoImgRectangular,
+        vertical: dondeSalgoImgVertical,
+        square: dondeSalgoImgSquare,
+        horizontal: dondeSalgoImgHorizontal,
+      },
     },
     {
       title: t("projectsData.medicalSpace.title"),
@@ -84,6 +92,7 @@ const ProjectsSection = () => {
       ,
       id: removeHash(projectsRoutes.medicalSpace),
       inDevelopment: true,
+      disablePopUp: true,
       image: webAppInDevImage
     }
   ]

@@ -23,6 +23,7 @@ export type ProjectItemData = {
     horizontal: StaticImageData;
   }
   image?: StaticImageData;
+  disablePopUp?: boolean;
 }
 
 type ProjectItemProps = {
@@ -97,14 +98,16 @@ const ProjectItem = (props: ProjectItemProps) => {
             )}
           >
             <ProjectImage
-              src={data.images.rectangular}
+              image={data.images.rectangular}
               alt={`${data.title} rectangular image`}
+              disablePopUp={data.disablePopUp}
               className="w-full object-center"
             />
             <ProjectImage
-              src={data.images.vertical}
+              image={data.images.vertical}
               alt={`${data.title} vertical image`}
-              className="w-[70%]"
+              disablePopUp={data.disablePopUp}
+              className="w-[40%] 2xl:w-[30%]"
             />
           </MotionSlide>
 
@@ -117,13 +120,15 @@ const ProjectItem = (props: ProjectItemProps) => {
             )}
           >
             <ProjectImage
-              src={data.images.square}
+              image={data.images.square}
               alt={`${data.title} square image`}
+              disablePopUp={data.disablePopUp}
               className="w-[60%]"
             />
             <ProjectImage
-              src={data.images.horizontal}
+              image={data.images.horizontal}
               alt={`${data.title} horizontal image`}
+              disablePopUp={data.disablePopUp}
               className="w-full"
             />
           </MotionSlide>
@@ -137,8 +142,9 @@ const ProjectItem = (props: ProjectItemProps) => {
           )}
         >
           <ProjectImage
-            src={data.image}
+            image={data.image}
             alt={`${data.title} image`}
+            disablePopUp={data.disablePopUp}
             className="w-full"
           />
         </MotionSlide>
