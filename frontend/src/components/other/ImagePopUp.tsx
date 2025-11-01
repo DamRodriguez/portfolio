@@ -51,9 +51,9 @@ export const ImagePopUp = ({ image, alt = "Imagen ampliada", onClose }: ImagePop
               />
               <button
                 onClick={onClose}
-                className="absolute top-0 right-0 cursor-pointer p-[0.4rem] xl:p-[0.5rem] bg-black/60 backdrop-blur-[0.2rem] border border-soft-gray rounded-full m-1 xl:m-2 transition-all duration-400 ease-in-out group hover:bg-soft-white hover:border-black"
+                className="absolute top-0 right-0 cursor-pointer p-[0.4rem] xl:p-[0.5rem] bg-black/60 backdrop-blur-[0.2rem] border border-soft-gray rounded-full m-1 xl:m-2 transition-all duration-400 ease-in-out [&_svg]:fill-[#fff] hover:[&_svg]:fill-[#000] hover:bg-soft-white hover:border-black"
               >
-                <CloseIcon className="w-[1.5rem] h-[1.5rem] xl:w-[2rem] xl:h-[2rem] fill-[#fff] group-hover:fill-[#000] transition-all duration-400 ease-in-out" />
+                <CloseIcon className="w-[1.5rem] h-[1.5rem] xl:w-[2rem] xl:h-[2rem] transition-all duration-400 ease-in-out" />
               </button>
             </div>
           </MotionOpacity>

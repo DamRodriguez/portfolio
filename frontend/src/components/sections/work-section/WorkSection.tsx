@@ -12,8 +12,8 @@ const WorkSection = () => {
   const t = useTranslations("workSection");
   const workItems: WorkItemData[] = [
     {
-      initialDate: "2025-02-05",
-      finalDate: "present",
+      initialDate: "2025-02-01",
+      finalDate: "2025-10-02",
       employer: t("workData.webSpace.employer"),
       position: t("workData.webSpace.position"),
       employerLink: config.work.webSpace,
