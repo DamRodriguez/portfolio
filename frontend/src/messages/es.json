@@ -25,7 +25,7 @@
       "carouselData": {
         "dondeSalgo": {
           "title": "Dónde Salgo",
-          "description": "Aplicación móvil desarrollada con React Native y Expo, enfocada en la búsqueda de bares y otros sitios en Buenos Aires."
+          "description": "Aplicación móvil para Android e iOS desarrollada con React Native y Expo, enfocada en la búsqueda de bares y otros sitios en Buenos Aires."
         },
         "vanicracia": {
           "title": "Vanicracia",
@@ -121,7 +121,7 @@
       },
       "dondeSalgo": {
         "title": "Dónde Salgo",
-        "description": "Aplicación móvil enfocada en la <strong>búsqueda de bares</strong> y otros <strong>sitios por Buenos Aires</strong>.\n\nPosee varias secciones y un <strong>flujo intuitivo para el usuario</strong>. Además de tener un <strong>sistema de autenticación completo</strong>, un <strong>administrador</strong>, entre muchas otras cosas.",
+        "description": "Aplicación móvil para <strong>Android</strong> e <strong>iOS</strong> enfocada en la <strong>búsqueda de bares</strong> y otros <strong>sitios por Buenos Aires</strong>.\n\nPosee varias secciones y un <strong>flujo intuitivo para el usuario</strong>. Además de tener un <strong>sistema de autenticación completo</strong>, un <strong>administrador</strong>, entre muchas otras cosas.",
         "technologies": "React Native, Expo, TypeScript, React Hook Form, TanStack Query, Redux Toolkit, React Native Reanimated, i18next"
       },
       "medicalSpace": {
