@@ -107,7 +107,7 @@ const ProjectItem = (props: ProjectItemProps) => {
               image={data.images.vertical}
               alt={`${data.title} vertical image`}
               disablePopUp={data.disablePopUp}
-              className="w-[40%] 2xl:w-[30%]"
+              className="w-[65%] 2xl:w-[30%]"
             />
           </MotionSlide>
 
