@@ -38,6 +38,10 @@
         "medicalSpace": {
           "title": "Medical Space",
           "description": "Web application to manage medical patients."
+        },
+        "spotifyMobile": {
+          "title": "Spotify Mobile",
+          "description": "Clone of the Spotify mobile application using React Native and Expo."
         }
       }
     }
@@ -128,6 +132,11 @@
         "title": "Medical Space",
         "description": "Web application designed to optimize <strong>medical management</strong>. It allows you to manage <strong>appointments</strong>, <strong>medical records</strong>, and <strong>patient data</strong> in a <strong>secure</strong> and <strong>efficient</strong> way.\n\nIts <strong>intuitive interface</strong> streamlines the work of <strong>medical</strong> and <strong>administrative staff</strong>, <strong>centralizing</strong> all information in one place.",
         "technologies": "Next.js, TypeScript, Tailwind, React Hook Form, React Toastify, Motion, Redux Toolkit, TanStack Query"
+      },
+      "spotifyMobile": {
+        "title": "Spotify Mobile",
+        "description": "A clone of the <strong>Spotify</strong> mobile app using React Native and Expo.\n\nIt features a variety of sections and playlists with their respective songs, as well as a <strong>functional floating player</strong> and its corresponding screen.",
+        "technologies": "React Native, Expo, TypeScript, Redux Toolkit, React Native Reanimated"
       }
     }
   },

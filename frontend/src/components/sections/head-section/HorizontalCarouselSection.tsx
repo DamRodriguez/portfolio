@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import { projectsRoutes } from "@/constants/projectsRoutes";
 import alfombrasTauroBg from "@/assets/images/alfombras-tauro.jpg"
 import dondeSalgoBg from "@/assets/images/donde-salgo.png"
+import spotifyBg from "@/assets/images/spotify.png"
 
 const HorizontalCarouselSection = () => {
   const t = useTranslations("headSection.horizontalCarousel.carouselData")
@@ -29,6 +30,12 @@ const HorizontalCarouselSection = () => {
       title: t("alfombrasTauro.title"),
       description: t("alfombrasTauro.description"),
       routerPath: projectsRoutes.alfombrasTauro,
+    },
+    {
+      image: spotifyBg,
+      title: t("spotifyMobile.title"),
+      description: t("spotifyMobile.description"),
+      routerPath: projectsRoutes.spotifyMobile
     },
     {
       image: inDevelopmentBg,

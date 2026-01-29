@@ -22,6 +22,7 @@ export type ProjectItemData = {
     square: StaticImageData;
     horizontal: StaticImageData;
   }
+  mobileImages?: StaticImageData[];
   image?: StaticImageData;
   disablePopUp?: boolean;
 }
@@ -132,6 +133,24 @@ const ProjectItem = (props: ProjectItemProps) => {
               className="w-full"
             />
           </MotionSlide>
+        </div>
+      )}
+
+      {data.mobileImages && (
+        <div className="flex gap-[1rem] xl:gap-[1.5rem] h-full xl:w-full">
+          {data.mobileImages.map((image, index) => (
+            <MotionSlide
+              direction="down"
+              key={index}
+            >
+              <ProjectImage
+                image={image}
+                alt={`${data.title} mobile image ${index + 1}`}
+                disablePopUp={data.disablePopUp}
+                className="w-full h-full"
+              />
+            </MotionSlide>
+          ))}
         </div>
       )}
 

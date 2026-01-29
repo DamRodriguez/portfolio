@@ -23,6 +23,10 @@ import dondeSalgoImgHorizontal from "@/assets/images/projects/donde-salgo/horizo
 import dondeSalgoImgVertical from "@/assets/images/projects/donde-salgo/vertical.png"
 import dondeSalgoImgRectangular from "@/assets/images/projects/donde-salgo/rectangular.png"
 import dondeSalgoImgSquare from "@/assets/images/projects/donde-salgo/square.png"
+import spotifyImg1 from "@/assets/images/projects/spotify-mobile/image1.jpeg"
+import spotifyImg2 from "@/assets/images/projects/spotify-mobile/image2.jpeg"
+import spotifyImg3 from "@/assets/images/projects/spotify-mobile/image3.jpeg"
+import spotifyImg4 from "@/assets/images/projects/spotify-mobile/image4.jpeg"
 
 const ProjectsSection = () => {
   const t = useTranslations("projectsSection");
@@ -80,6 +84,19 @@ const ProjectsSection = () => {
         square: dondeSalgoImgSquare,
         horizontal: dondeSalgoImgHorizontal,
       },
+    },
+    {
+      title: t("projectsData.spotifyMobile.title"),
+      technologies: splitText(t("projectsData.spotifyMobile.technologies")),
+      description:
+        <RichText
+          t={t}
+          translationKey="projectsData.spotifyMobile.description"
+        />
+      ,
+      id: removeHash(projectsRoutes.spotifyMobile),
+      inDevelopment: true,
+      mobileImages: [spotifyImg1, spotifyImg2, spotifyImg3, spotifyImg4]
     },
     {
       title: t("projectsData.medicalSpace.title"),
