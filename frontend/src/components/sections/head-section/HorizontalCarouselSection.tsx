@@ -32,16 +32,16 @@ const HorizontalCarouselSection = () => {
       routerPath: projectsRoutes.alfombrasTauro,
     },
     {
-      image: spotifyBg,
-      title: t("spotifyMobile.title"),
-      description: t("spotifyMobile.description"),
-      routerPath: projectsRoutes.spotifyMobile
-    },
-    {
       image: inDevelopmentBg,
       title: t("medicalSpace.title"),
       description: t("medicalSpace.description"),
       routerPath: projectsRoutes.medicalSpace
+    },
+    {
+      image: spotifyBg,
+      title: t("spotifyMobile.title"),
+      description: t("spotifyMobile.description"),
+      routerPath: projectsRoutes.spotifyMobile
     },
   ]
 
