@@ -25,19 +25,15 @@
       "carouselData": {
         "dondeSalgo": {
           "title": "Dónde Salgo",
-          "description": "Aplicación móvil para Android e iOS desarrollada con React Native y Expo, enfocada en la búsqueda de bares y otros sitios en Buenos Aires."
+          "description": "Aplicación móvil para Android e iOS desarrollada con React Native y Expo."
         },
         "vanicracia": {
           "title": "Vanicracia",
-          "description": "E-commerce enfocado en la astrología realizado principalmente con Next.js."
+          "description": "E-commerce enfocado en la astrología realizado con Next.js."
         },
         "alfombrasTauro": {
           "title": "Alfombras Tauro",
           "description": "Sitio Web para un negocio de alfombras realizado con Next.js."
-        },
-        "medicalSpace": {
-          "title": "Medical Space",
-          "description": "Aplicación web para gestionar pacientes médicos."
         },
         "spotifyMobile": {
           "title": "Spotify Mobile",
@@ -127,11 +123,6 @@
         "title": "Dónde Salgo",
         "description": "Aplicación móvil para <strong>Android</strong> e <strong>iOS</strong> enfocada en la <strong>búsqueda de bares</strong> y otros <strong>sitios por Buenos Aires</strong>.\n\nPosee varias secciones y un <strong>flujo intuitivo para el usuario</strong>. Además de tener un <strong>sistema de autenticación completo</strong>, un <strong>administrador</strong>, entre muchas otras cosas.",
         "technologies": "React Native, Expo, TypeScript, React Hook Form, TanStack Query, Redux Toolkit, React Native Reanimated, i18next"
-      },
-      "medicalSpace": {
-        "title": "Medical Space",
-        "description": "Aplicación web diseñada para optimizar la <strong>gestión de asuntos médicos</strong>. Permite administrar <strong>turnos</strong>, <strong>historiales clínicos</strong> y <strong>datos de pacientes</strong> de forma <strong>segura</strong> y <strong>eficiente</strong>.\n\nSu <strong>interfaz intuitiva</strong> facilita el trabajo del <strong>personal médico</strong> y <strong>administrativo</strong>, <strong>centralizando</strong> toda la información en un solo lugar.",
-        "technologies": "React, TypeScript, Tailwind, React Hook Form, React Toastify, Motion, Redux Toolkit, TanStack Query"
       },
       "spotifyMobile": {
         "title": "Spotify Mobile",

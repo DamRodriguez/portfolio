@@ -14,7 +14,6 @@ import SectionSeparator from "@/components/other/SectionSeparator";
 import { projectsRoutes } from "@/constants/projectsRoutes";
 import splitText from "@/utils/splitText";
 import { RichText } from "@/components/other/RichText";
-import webAppInDevImage from "@/assets/images/projects/appWebInDevelopment.png"
 import tauroImgHorizontal from "@/assets/images/projects/alfombras-tauro/horizontal.png"
 import tauroImgRectangular from "@/assets/images/projects/alfombras-tauro/rectangular.png"
 import tauroImgSquare from "@/assets/images/projects/alfombras-tauro/square.png"
@@ -98,20 +97,6 @@ const ProjectsSection = () => {
       inDevelopment: true,
       mobileImages: [spotifyImg1, spotifyImg2, spotifyImg3, spotifyImg4]
     },
-    {
-      title: t("projectsData.medicalSpace.title"),
-      technologies: splitText(t("projectsData.medicalSpace.technologies")),
-      description:
-        <RichText
-          t={t}
-          translationKey="projectsData.medicalSpace.description"
-        />
-      ,
-      id: removeHash(projectsRoutes.medicalSpace),
-      inDevelopment: true,
-      disablePopUp: true,
-      image: webAppInDevImage
-    }
   ]
 
   return (

@@ -25,19 +25,15 @@
       "carouselData": {
         "dondeSalgo": {
           "title": "Dónde Salgo",
-          "description": "Mobile application for Android and iOS developed with React Native and Expo, focused on finding bars and other places in Buenos Aires."
+          "description": "Mobile application for Android and iOS developed with React Native and Expo."
         },
         "vanicracia": {
           "title": "Vanicracia",
-          "description": "E-commerce focused on astrology, built primarily with Next.js."
+          "description": "E-commerce focused on astrology built with Next.js."
         },
         "alfombrasTauro": {
           "title": "Alfombras Tauro",
           "description": "Website for a carpet business built with Next.js."
-        },
-        "medicalSpace": {
-          "title": "Medical Space",
-          "description": "Web application to manage medical patients."
         },
         "spotifyMobile": {
           "title": "Spotify Mobile",
@@ -127,11 +123,6 @@
         "title": "Dónde Salgo",
         "description": "Mobile application for <strong>Android</strong> and <strong>iOS</strong>, focused on the <strong>search for bars</strong> and other <strong>places around Buenos Aires</strong>.\n\nIt features several sections and an <strong>intuitive user flow</strong>. In addition, it includes a <strong>complete authentication system</strong>, an <strong>admin panel</strong>, among many other features.",
         "technologies": "React Native, Expo, TypeScript, React Hook Form, TanStack Query, Redux Toolkit, React Native Reanimated, i18next"
-      },
-      "medicalSpace": {
-        "title": "Medical Space",
-        "description": "Web application designed to optimize <strong>medical management</strong>. It allows you to manage <strong>appointments</strong>, <strong>medical records</strong>, and <strong>patient data</strong> in a <strong>secure</strong> and <strong>efficient</strong> way.\n\nIts <strong>intuitive interface</strong> streamlines the work of <strong>medical</strong> and <strong>administrative staff</strong>, <strong>centralizing</strong> all information in one place.",
-        "technologies": "Next.js, TypeScript, Tailwind, React Hook Form, React Toastify, Motion, Redux Toolkit, TanStack Query"
       },
       "spotifyMobile": {
         "title": "Spotify Mobile",

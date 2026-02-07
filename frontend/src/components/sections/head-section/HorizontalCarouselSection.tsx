@@ -1,7 +1,6 @@
 import HorizontalCarouselVariant from "@/components/carousel/horizontal-carousel-variant/HorizontalCarouselVariant";
 import { HorizontalCarouselVariantData } from "@/components/carousel/horizontal-carousel-variant/HorizontalCarouselVariantItem";
 import MotionSlide from "@/components/motion/MotionSlide";
-import inDevelopmentBg from "@/assets/images/in-development.png"
 import vanicraciaBg from "@/assets/images/vanicracia.png"
 import { useTranslations } from "next-intl";
 import { projectsRoutes } from "@/constants/projectsRoutes";
@@ -30,12 +29,6 @@ const HorizontalCarouselSection = () => {
       title: t("alfombrasTauro.title"),
       description: t("alfombrasTauro.description"),
       routerPath: projectsRoutes.alfombrasTauro,
-    },
-    {
-      image: inDevelopmentBg,
-      title: t("medicalSpace.title"),
-      description: t("medicalSpace.description"),
-      routerPath: projectsRoutes.medicalSpace
     },
     {
       image: spotifyBg,
