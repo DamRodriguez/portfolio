@@ -11,7 +11,7 @@ const config = {
   urls: {
     telegram: "https://t.me/damrod99",
     linkedin: "http://www.linkedin.com/in/damianagustinrodriguez",
-    github: "https://github.com/DamRodriguez?tab=repositories",
+    github: "https://github.com/DamRodriguez",
     whatsapp: "https://wa.me/5491159641031",
   },
   work: {
