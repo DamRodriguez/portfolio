@@ -18,7 +18,7 @@ const ProjectImage = (props: ProjectImageProps) => {
     <>
       <div
         onClick={() => { if (!props.disablePopUp) setSelectedImage(props.image.src) }}
-        className={clsx("overflow-hidden rounded-3xl shadow-s6 border border-soft-gray/15",
+        className={clsx("overflow-hidden rounded-[0.5rem] xl:rounded-2xl shadow-s6 border border-soft-gray/15",
           props.className,
           {
             "cursor-pointer": !props.disablePopUp,
