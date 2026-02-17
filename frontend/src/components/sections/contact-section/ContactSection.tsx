@@ -22,7 +22,7 @@ const ContactSection = () => {
 
   const handleDownloadCV = () => {
     const link = document.createElement("a");
-    link.href = "/portfolio/CV.pdf";
+    link.href = "/portfolio/pdf/CV.pdf";
     link.download = "CV-Damian-Rodriguez.pdf";
     link.click();
   };

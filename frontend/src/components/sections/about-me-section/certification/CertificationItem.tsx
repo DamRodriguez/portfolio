@@ -20,14 +20,12 @@ const CertificationItem = (props: CertificationItemProps) => {
   const data = props.data;
   const t = useTranslations("aboutMeSection.certificationSection");
   const [selectedImage, setSelectedImage] = useState<string>("");
-  {/*
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = data.pdf;
     link.download = `${data.title.replace(/ /g, "-")}-Damian-Rodriguez.pdf`;
     link.click();
   };
-  */}
 
   return (
     <div className="relative group">
@@ -54,14 +52,12 @@ const CertificationItem = (props: CertificationItemProps) => {
           >
             {t("buttons.see")}
           </Button>
-          {/*
           <Button
             onClick={handleDownload}
             small
           >
             {t("buttons.download")}
           </Button>
-          */}
         </div>
       </div>
       <ImagePopUp
