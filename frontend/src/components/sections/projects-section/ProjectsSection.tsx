@@ -27,10 +27,13 @@ import spotifyImg2 from "@/assets/images/projects/spotify-mobile/image2.jpeg"
 import spotifyImg3 from "@/assets/images/projects/spotify-mobile/image3.jpeg"
 import spotifyImg4 from "@/assets/images/projects/spotify-mobile/image4.jpeg"
 
+const spotifyMobileVideo = "/videos/projects/spotify-mobile/spotify-mobile.mp4";
+
 const ProjectsSection = () => {
   const t = useTranslations("projectsSection");
   const projectsData: ProjectItemData[] = [
     {
+      id: removeHash(projectsRoutes.vanicracia),
       title: t("projectsData.vanicracia.title"),
       technologies: splitText(t("projectsData.vanicracia.technologies")),
       description:
@@ -39,16 +42,22 @@ const ProjectsSection = () => {
           translationKey="projectsData.vanicracia.description"
         />
       ,
-      siteLink: config.projects.vanicracia,
-      id: removeHash(projectsRoutes.vanicracia),
-      images: {
-        rectangular: vanicraciaImgRectangular,
-        vertical: vanicraciaImgVertical,
-        square: vanicraciaImgSquare,
-        horizontal: vanicraciaImgHorizontal,
+      button: {
+        type: "site",
+        link: config.projects.vanicracia
       },
+      imageSource: {
+        type: "default",
+        images: {
+          rectangular: vanicraciaImgRectangular,
+          vertical: vanicraciaImgVertical,
+          square: vanicraciaImgSquare,
+          horizontal: vanicraciaImgHorizontal,
+        },
+      }
     },
     {
+      id: removeHash(projectsRoutes.alfombrasTauro),
       title: t("projectsData.alfombrasTauro.title"),
       technologies: splitText(t("projectsData.alfombrasTauro.technologies")),
       description:
@@ -57,16 +66,22 @@ const ProjectsSection = () => {
           translationKey="projectsData.alfombrasTauro.description"
         />
       ,
-      siteLink: config.projects.alfombrasTauro,
-      id: removeHash(projectsRoutes.alfombrasTauro),
-      images: {
-        rectangular: tauroImgRectangular,
-        vertical: tauroImgVertical,
-        square: tauroImgSquare,
-        horizontal: tauroImgHorizontal,
+      button: {
+        type: "site",
+        link: config.projects.alfombrasTauro
       },
+      imageSource: {
+        type: "default",
+        images: {
+          rectangular: tauroImgRectangular,
+          vertical: tauroImgVertical,
+          square: tauroImgSquare,
+          horizontal: tauroImgHorizontal,
+        },
+      }
     },
     {
+      id: removeHash(projectsRoutes.dondeSalgo),
       title: t("projectsData.dondeSalgo.title"),
       technologies: splitText(t("projectsData.dondeSalgo.technologies")),
       description:
@@ -75,16 +90,21 @@ const ProjectsSection = () => {
           translationKey="projectsData.dondeSalgo.description"
         />
       ,
-      id: removeHash(projectsRoutes.dondeSalgo),
-      inDevelopment: true,
-      images: {
-        rectangular: dondeSalgoImgRectangular,
-        vertical: dondeSalgoImgVertical,
-        square: dondeSalgoImgSquare,
-        horizontal: dondeSalgoImgHorizontal,
+      button: {
+        type: "inDevelopment",
       },
+      imageSource: {
+        type: "default",
+        images: {
+          rectangular: dondeSalgoImgRectangular,
+          vertical: dondeSalgoImgVertical,
+          square: dondeSalgoImgSquare,
+          horizontal: dondeSalgoImgHorizontal,
+        },
+      }
     },
     {
+      id: removeHash(projectsRoutes.spotifyMobile),
       title: t("projectsData.spotifyMobile.title"),
       technologies: splitText(t("projectsData.spotifyMobile.technologies")),
       description:
@@ -93,9 +113,15 @@ const ProjectsSection = () => {
           translationKey="projectsData.spotifyMobile.description"
         />
       ,
-      id: removeHash(projectsRoutes.spotifyMobile),
-      inDevelopment: true,
-      mobileImages: [spotifyImg1, spotifyImg2, spotifyImg3, spotifyImg4]
+      button: {
+        type: "repository",
+        link: config.repositories.spotifyMobile
+      },
+      imageSource: {
+        type: "mobile",
+        images: [spotifyImg1, spotifyImg2, spotifyImg3, spotifyImg4]
+      },
+      demoVideo: spotifyMobileVideo
     },
   ]
 

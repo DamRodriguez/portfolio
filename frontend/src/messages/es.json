@@ -106,7 +106,9 @@
     "title": "../Proyectos",
     "buttons": {
       "visitSite": "Visitar sitio",
-      "inDevelopment": "En desarrollo"
+      "inDevelopment": "En desarrollo",
+      "seeCode": "Ver código",
+      "seeDemo": "Ver demo"
     },
     "projectsData": {
       "vanicracia": {

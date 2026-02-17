@@ -1,6 +1,6 @@
 import { ArrowIcon } from "@/components/icons/buttons";
 import clsx from "clsx";
-import Button from "./Button";
+import Button from "@/components/ui/buttons/Button";
 
 type ButtonWithArrowProps = {
   text: string;

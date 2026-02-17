@@ -12,7 +12,7 @@ type ProjectImageProps = {
 }
 
 const ProjectImage = (props: ProjectImageProps) => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string>("");
 
   return (
     <>
@@ -34,7 +34,7 @@ const ProjectImage = (props: ProjectImageProps) => {
       <ImagePopUp
         image={selectedImage}
         alt={props.alt}
-        onClose={() => setSelectedImage(null)}
+        onClose={() => setSelectedImage("")}
       />
     </>
   );

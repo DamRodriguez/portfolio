@@ -25,7 +25,7 @@ const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
   const [selectedLang, setSelectedLang] = useState<Locale>(locale);
   const dropdownRef = useRef<HTMLDivElement>(null);
   useClickOutside(dropdownRef as React.RefObject<HTMLElement>, () => { setIsOpen(false); });
-  const isMobile = useIsMobile({ breakpoint: Number(config.breakpoints.md) });
+  const isMobile = useIsMobile(Number(config.breakpoints.md));
 
   const handleLanguageChange = (newLang: Locale) => {
     const langsRegex = Languages.map(l => l.lang).join("|");
