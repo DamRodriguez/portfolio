@@ -27,7 +27,7 @@ import spotifyImg2 from "@/assets/images/projects/spotify-mobile/image2.jpeg"
 import spotifyImg3 from "@/assets/images/projects/spotify-mobile/image3.jpeg"
 import spotifyImg4 from "@/assets/images/projects/spotify-mobile/image4.jpeg"
 
-const spotifyMobileVideo = "/videos/projects/spotify-mobile/spotify-mobile.mp4";
+const spotifyMobileVideo = "/portfolio/videos/projects/spotify-mobile/spotify-mobile.mp4";
 
 const ProjectsSection = () => {
   const t = useTranslations("projectsSection");
