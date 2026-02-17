@@ -19,7 +19,7 @@ type CertificationItemProps = {
 const CertificationItem = (props: CertificationItemProps) => {
   const data = props.data;
   const t = useTranslations("aboutMeSection.certificationSection");
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string>("");
   {/*
   const handleDownload = () => {
     const link = document.createElement("a");
@@ -67,7 +67,7 @@ const CertificationItem = (props: CertificationItemProps) => {
       <ImagePopUp
         image={selectedImage}
         alt={data.title}
-        onClose={() => setSelectedImage(null)}
+        onClose={() => setSelectedImage("")}
       />
     </div>
   );
