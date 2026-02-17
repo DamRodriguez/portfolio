@@ -12,8 +12,8 @@ export const DownloadIcon = ({ className }: { className?: string }) => {
 
 export const PlayIcon = ({ className }: { className?: string }) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 20 20">
-      <path fill="" d="m4 4l12 6l-12 6z" />
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} width="200" height="200" viewBox="0 0 24 24">
+      <path fill="" d="M18.25 12L8.5 17.629V6.37L18.25 12Z" />
     </svg>
   )
 }

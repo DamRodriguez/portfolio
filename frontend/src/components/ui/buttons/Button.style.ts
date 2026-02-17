@@ -37,12 +37,12 @@ export const buttonClass = cva("text-sm xl:text-xl leading-[1.5rem] font-semibol
     {
       intent: "primary",
       small: true,
-      class: "h-0 xl:h-[3rem] !text-sm !px-[1rem]",
+      class: "!h-0 !lg:h-[3rem] !text-xs lg:!text-sm !px-[0.7rem] lg:!px-[1rem]",
     },
     {
       intent: "secondary",
       small: true,
-      class: "h-0 xl:h-[3rem] !text-sm !px-[1rem]",
+      class: "!h-0 !lg:h-[3rem] !text-xs lg:!text-sm !px-[0.7rem] lg:!px-[1rem]",
     },
   ],
   defaultVariants: {

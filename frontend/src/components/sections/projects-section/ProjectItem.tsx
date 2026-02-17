@@ -1,7 +1,6 @@
 import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
 import MotionStagger from "@/components/motion/MotionStagger";
-import Button from "@/components/ui/buttons/Button";
 import CustomButton from "@/components/ui/buttons/CustomButton";
 import useIsMobile from "@/hooks/useIsMobile";
 import clsx from "clsx";
@@ -11,6 +10,7 @@ import ProjectImage from "./ProjectImage";
 import { ArrowIcon, PlayIcon } from "@/components/icons/buttons";
 import { VideoPopUp } from "@/components/other/VideoPopUp";
 import { useState } from "react";
+import ItemHover from "@/components/other/ItemHover";
 
 type ImageSource =
   {
@@ -92,9 +92,9 @@ const ProjectItem = (props: ProjectItemProps) => {
               className="flex flex-wrap gap-[0.7rem] xl:gap-[1rem]"
             >
               {data.technologies.map((tech, index) => (
-                <Button key={index} small cursorNormal className="!h-2">
+                <ItemHover key={index} small cursorNormal>
                   {tech}
-                </Button>
+                </ItemHover>
               ))}
             </MotionStagger>
           </div>
