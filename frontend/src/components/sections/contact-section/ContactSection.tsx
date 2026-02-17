@@ -8,6 +8,8 @@ import { Link } from "@/i18n/navigation";
 import MotionSlide from "@/components/motion/MotionSlide";
 import MotionFade from "@/components/motion/MotionFade";
 import MotionStagger from "@/components/motion/MotionStagger";
+import Button from "@/components/ui/buttons/Button";
+import { DownloadIcon } from "@/components/icons/buttons";
 
 const ContactSection = () => {
   const t = useTranslations("contactSection");
@@ -18,14 +20,12 @@ const ContactSection = () => {
     { text: t("routes.projects"), href: routes.projects },
   ]
 
-  {/*
   const handleDownloadCV = () => {
     const link = document.createElement("a");
-    link.href = "/CV.pdf";
+    link.href = "/portfolio/CV.pdf";
     link.download = "CV-Damian-Rodriguez.pdf";
     link.click();
   };
-  */}
 
   return (
     <SpaceX
@@ -71,7 +71,6 @@ const ContactSection = () => {
             ))}
           </MotionStagger>
 
-          {/*
           <MotionFade>
             <Button
               onClick={handleDownloadCV}
@@ -80,7 +79,6 @@ const ContactSection = () => {
               <DownloadIcon />
             </Button>
           </MotionFade>
-          */}
         </div>
       </div>
 
