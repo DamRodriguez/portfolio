@@ -2,18 +2,22 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
-type TranslationKey = Parameters<
+type ErrorMessageTranslationKey = Parameters<
   ReturnType<typeof useTranslations<"contactSection">>
 >[0];
 
 type FormErrorProps = {
-  errorMessage?: TranslationKey;
+  errorMessage?: string | ErrorMessageTranslationKey;
   className?: string;
 };
 
 const FormErrorMessage = ({ errorMessage, className }: FormErrorProps) => {
   const t = useTranslations("contactSection");
   if (!errorMessage) return null;
+
+  const isTranslationKey = (key: string | ErrorMessageTranslationKey): key is ErrorMessageTranslationKey => {
+    return typeof key === "string";
+  };
 
   return (
     errorMessage && (
@@ -24,7 +28,7 @@ const FormErrorMessage = ({ errorMessage, className }: FormErrorProps) => {
         transition={{ duration: 0.2, ease: "easeInOut" }}
         className={clsx("text-red-error text-sm", className)}
       >
-        {t(errorMessage)}
+        {isTranslationKey(errorMessage) ? t(errorMessage) : errorMessage}
       </motion.span>
     )
   );

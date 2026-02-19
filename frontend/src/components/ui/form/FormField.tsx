@@ -28,38 +28,40 @@ function FormField<T extends FieldValues>({
     <Controller
       name={name}
       control={control}
-      render={({ field, fieldState }) => (
-        <div className="w-full flex flex-col gap-[0.5rem]">
-          <div className="flex flex-col gap-[0.5rem] group">
-            <div className="flex flex-col-reverse gap-[0.5rem]">
-              <div className="w-full flex flex-col">
-                {input &&
-                  input({
-                    ...field,
-                    id: name,
-                    error: error || fieldState.error !== undefined,
-                  })}
+      render={({ field, fieldState }) => {
+        return (
+          <div className="w-full flex flex-col gap-[0.5rem]">
+            <div className="flex flex-col gap-[0.5rem] group">
+              <div className="flex flex-col-reverse gap-[0.5rem]">
+                <div className="w-full flex flex-col">
+                  {input &&
+                    input({
+                      ...field,
+                      id: name,
+                      error: error || fieldState.error !== undefined,
+                    })}
+                </div>
+                {label && (
+                  <Label
+                    htmlFor={name}
+                    error={error || fieldState.error !== undefined}
+                    hasValue={!!field.value}
+                  >
+                    {label}
+                  </Label>
+                )}
               </div>
-              {label && (
-                <Label
-                  htmlFor={name}
-                  error={error || fieldState.error !== undefined}
-                  hasValue={!!field.value}
-                >
-                  {label}
-                </Label>
-              )}
             </div>
+            {(isLastErrorMessageField && errorMessage) || fieldState.error?.message ? (
+              <FormErrorMessage
+                errorMessage={isLastErrorMessageField && errorMessage
+                  ? errorMessage
+                  : fieldState.error?.message}
+              />
+            ) : null}
           </div>
-          {(isLastErrorMessageField && errorMessage) || fieldState.error?.message ? (
-            <FormErrorMessage
-              errorMessage={isLastErrorMessageField && errorMessage
-                ? errorMessage
-                : fieldState.error?.message}
-            />
-          ) : null}
-        </div>
-      )}
+        )
+      }}
     />
   );
 }
