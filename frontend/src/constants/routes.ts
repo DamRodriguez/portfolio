@@ -4,5 +4,4 @@ export const routes = {
   aboutMe: "#about-me",
   work: "#work",
   contact: "#contact",
-  apiContact: "/api/contact"
 };

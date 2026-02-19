@@ -9,7 +9,6 @@ import Form from "@/components/ui/form/Form";
 import useFormError from "@/hooks/useFormError";
 import { useTranslations } from "next-intl";
 import { SendIcon } from "@/components/icons/buttons";
-import { routes } from "@/constants/routes";
 import showToast from "@/components/toast/Toast";
 
 const ContactForm = () => {
@@ -33,29 +32,50 @@ const ContactForm = () => {
   const onSubmit = async (data: ContactSchemaType) => {
     setApiErrorMessage(undefined);
 
+    if (data.honeypot) {
+      return;
+    }
+
     try {
-      const res = await fetch(routes.apiContact, {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          name: data.name,
+          email: data.email,
+          message: data.message,
+          subject: `Nuevo mensaje de ${data.name}`,
+        }),
       });
 
-      if (res.ok) {
+      const json = await res.json();
+
+      if (json.success) {
         methods.reset();
-        showToast("success", t("contactSection.toast.messages.contactFormSuccess"))
+        showToast(
+          "success",
+          t("contactSection.toast.messages.contactFormSuccess")
+        );
+        return;
       }
 
-      if (!res.ok) {
-        showToast("error", t("contactSection.toast.messages.contactFormError"))
-      }
+      showToast(
+        "error",
+        t("contactSection.toast.messages.contactFormError")
+      );
 
-    } catch {
-      showToast("error", t("contactSection.toast.messages.contactFormError"))
+    } catch (error) {
+      console.error("Web3Forms error:", error);
+
+      showToast(
+        "error",
+        t("contactSection.toast.messages.contactFormError")
+      );
     }
   };
-
 
   return (
     <FormProvider {...methods}>
@@ -90,7 +110,16 @@ const ContactForm = () => {
             isLastErrorMessageField
             className="min-h-[11rem]"
           />
-          <input type="text" name="website" style={{ display: "none" }} />
+          <div style={{ position: "absolute", left: "-9999px" }}>
+            <label htmlFor="company">Company</label>
+            <input
+              type="text"
+              id="company"
+              {...methods.register("honeypot")}
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </div>
         </MotionStagger>
         <MotionFade className="w-full">
           <Button
