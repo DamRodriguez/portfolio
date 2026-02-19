@@ -12,6 +12,7 @@ import { SendIcon } from "@/components/icons/buttons";
 import showToast from "@/components/toast/Toast";
 
 const ContactForm = () => {
+  const key = "80a0cd9c-7b3a-4501-9224-e69df4e9ed56";
   const t = useTranslations();
   const methods = useForm<ContactSchemaType>({
     defaultValues: {
@@ -43,7 +44,7 @@ const ContactForm = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          access_key: key,
           name: data.name,
           email: data.email,
           message: data.message,
