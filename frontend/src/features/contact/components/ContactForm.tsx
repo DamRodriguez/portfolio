@@ -38,7 +38,7 @@ const ContactForm = () => {
     }
 
     try {
-      const res = await fetch("https://api.web3forms.com/submit/pepe", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
