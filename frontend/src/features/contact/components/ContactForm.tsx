@@ -26,55 +26,37 @@ const ContactForm = () => {
     shouldFocusError: false,
     reValidateMode: "onSubmit",
   });
-  const { apiErrorMessage, setApiErrorMessage } = useFormError(
-    methods.formState,
-  );
+  const { apiErrorMessage } = useFormError(methods.formState);
 
   const onSubmit = async (data: ContactSchemaType) => {
-    setApiErrorMessage(undefined);
-
-    if (data.honeypot) {
-      return;
-    }
+    if (data.honeypot) return;
 
     try {
+      const formData = new FormData();
+      formData.append("access_key", key);
+      formData.append("name", data.name);
+      formData.append("email", data.email);
+      formData.append("message", data.message);
+      formData.append("subject", `Nuevo mensaje de ${data.name}`);
+
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          access_key: key,
-          name: data.name,
-          email: data.email,
-          message: data.message,
-          subject: `Nuevo mensaje de ${data.name}`,
-        }),
+        body: formData,
       });
 
       const json = await res.json();
 
       if (json.success) {
         methods.reset();
-        showToast(
-          "success",
-          t("contactSection.toast.messages.contactFormSuccess")
+        showToast("success", t("contactSection.toast.messages.contactFormSuccess")
         );
         return;
       }
 
-      showToast(
-        "error",
-        t("contactSection.toast.messages.contactFormError")
-      );
+      showToast("error", t("contactSection.toast.messages.contactFormError"));
 
-    } catch (error) {
-      console.error("Web3Forms error:", error);
-
-      showToast(
-        "error",
-        t("contactSection.toast.messages.contactFormError")
-      );
+    } catch {
+      showToast("error", t("contactSection.toast.messages.contactFormError"));
     }
   };
 
