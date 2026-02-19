@@ -2,13 +2,17 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
+type TranslationKey = Parameters<
+  ReturnType<typeof useTranslations<"contactSection">>
+>[0];
+
 type FormErrorProps = {
-  errorMessage?: string;
+  errorMessage?: TranslationKey;
   className?: string;
 };
 
 const FormErrorMessage = ({ errorMessage, className }: FormErrorProps) => {
-  const t = useTranslations();
+  const t = useTranslations("contactSection");
   if (!errorMessage) return null;
 
   return (

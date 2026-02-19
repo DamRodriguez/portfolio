@@ -1,7 +1,7 @@
 import { z } from "zod";
 
-const emptyFieldMessage = "contactSection.form.errors.empty";
-const emailErrorMessaage = "contactSection.form.errors.email";
+const emptyFieldMessage = "form.errors.empty";
+const emailErrorMessaage = "form.errors.email";
 
 export const ContactSchema = z.object({
   name: z.string().min(1, { message: emptyFieldMessage }),
