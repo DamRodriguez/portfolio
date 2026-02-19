@@ -6,6 +6,7 @@
   box-shadow: var(--shadow-s6) !important;
   backdrop-filter: blur(3px);
   border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px !important;
 }
 
 .Toastify__toast-icon {
