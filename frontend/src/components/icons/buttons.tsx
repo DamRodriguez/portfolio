@@ -17,3 +17,11 @@ export const PlayIcon = ({ className }: { className?: string }) => {
     </svg>
   )
 }
+
+export const SendIcon = ({ className }: { className?: string }) => {
+  return (
+    <svg className={className} width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8">
+      <path fill="" d="m0 0l8 3.5L0 7l1-3q5-.5 0-1" />
+    </svg>
+  )
+}

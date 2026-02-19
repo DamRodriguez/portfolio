@@ -142,12 +142,38 @@
       "projects": "Projects"
     },
     "buttons": {
-      "downloadCV": "Download CV"
+      "downloadCV": "Download CV",
+      "sendMessage": "Send message"
     },
     "name": {
       "firstName": "Damián",
       "lastName": "Rodríguez"
     },
-    "position": "Front-end\ndeveloper"
+    "form": {
+      "nameInput": {
+        "label": "Full Name",
+        "placeholder": "Enter your full name"
+      },
+      "emailInput": {
+        "label": "Email Address",
+        "placeholder": "Enter your email address"
+      },
+      "textAreaInput": {
+        "label": "Message",
+        "placeholder": "Enter your message below"
+      },
+      "errors": {
+        "empty": "This field is required",
+        "email": "The email format entered is not valid",
+        "api": "An error has occurred, please try again"
+      }
+    },
+    "position": "Front-end\ndeveloper",
+    "toast": {
+      "messages": {
+        "contactFormSuccess": "Message sent successfully!",
+        "contactFormError": "An error has occurred, please try again"
+      }
+    }
   }
 }

@@ -24,7 +24,7 @@ export const buttonClass = cva("text-sm xl:text-xl leading-[1.5rem] font-semibol
       true: "",
     },
     cursorNormal: {
-      false: "transition-all duration-400 hover:scale-110 cursor-pointer",
+      false: "transition-all duration-400 hover:scale-105 cursor-pointer",
       true: "cursor-default"
     }
   },

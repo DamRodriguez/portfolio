@@ -56,20 +56,20 @@ const Button = ({
         }
       }}
       type={props.type}
-      disabled={props.disabled}
+      disabled={props.disabled || props.isLoading}
       className={clsx("", className)}
       form={props.form}
     >
       {
         props.isLoading ? (
-          <div className="flex gap-x-[1rem] h-[1.3125rem]">
-            <Spinner size={1.2} color={props.spinnerColor} />
+          <div className="flex gap-x-[1rem] h-[1.5rem]">
+            <Spinner size={20} color={props.spinnerColor} />
           </div>
         ) : (
           props.children
         )
       }
-    </button >
+    </button>
   );
 };
 

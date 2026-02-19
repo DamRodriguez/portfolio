@@ -6,6 +6,7 @@ import { setRequestLocale } from "next-intl/server";
 import clsx from "clsx";
 import ProgressBarProvider from "@/components/other/ProgressBarProvider";
 import { Open_Sans, Fira_Code } from "next/font/google";
+import { ToastContainer } from "react-toastify";
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
@@ -44,6 +45,7 @@ export default async function LocaleLayout({
           <ProgressBarProvider>
             <div className="min-w-[20rem] max-w-[120rem] mx-auto w-full font-open-sans">
               <Header locale={locale} />
+              <ToastContainer />
               {children}
             </div>
           </ProgressBarProvider>
