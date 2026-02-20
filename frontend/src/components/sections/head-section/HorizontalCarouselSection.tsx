@@ -13,10 +13,10 @@ const HorizontalCarouselSection = () => {
 
   const horizontalCarouselItems: HorizontalCarouselVariantData[] = [
     {
-      image: dondeSalgoBg,
-      title: t("dondeSalgo.title"),
-      description: t("dondeSalgo.description"),
-      routerPath: projectsRoutes.dondeSalgo,
+      image: spotifyBg,
+      title: t("spotifyMobile.title"),
+      description: t("spotifyMobile.description"),
+      routerPath: projectsRoutes.spotifyMobile
     },
     {
       image: vanicraciaBg,
@@ -31,10 +31,10 @@ const HorizontalCarouselSection = () => {
       routerPath: projectsRoutes.alfombrasTauro,
     },
     {
-      image: spotifyBg,
-      title: t("spotifyMobile.title"),
-      description: t("spotifyMobile.description"),
-      routerPath: projectsRoutes.spotifyMobile
+      image: dondeSalgoBg,
+      title: t("dondeSalgo.title"),
+      description: t("dondeSalgo.description"),
+      routerPath: projectsRoutes.dondeSalgo,
     },
   ]
 

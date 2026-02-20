@@ -33,6 +33,26 @@ const ProjectsSection = () => {
   const t = useTranslations("projectsSection");
   const projectsData: ProjectItemData[] = [
     {
+      id: removeHash(projectsRoutes.spotifyMobile),
+      title: t("projectsData.spotifyMobile.title"),
+      technologies: splitText(t("projectsData.spotifyMobile.technologies")),
+      description:
+        <RichText
+          t={t}
+          translationKey="projectsData.spotifyMobile.description"
+        />
+      ,
+      button: {
+        type: "repository",
+        link: config.repositories.spotifyMobile
+      },
+      imageSource: {
+        type: "mobile",
+        images: [spotifyImg1, spotifyImg2, spotifyImg3, spotifyImg4]
+      },
+      demoVideo: spotifyMobileVideo
+    },
+    {
       id: removeHash(projectsRoutes.vanicracia),
       title: t("projectsData.vanicracia.title"),
       technologies: splitText(t("projectsData.vanicracia.technologies")),
@@ -102,26 +122,6 @@ const ProjectsSection = () => {
           horizontal: dondeSalgoImgHorizontal,
         },
       }
-    },
-    {
-      id: removeHash(projectsRoutes.spotifyMobile),
-      title: t("projectsData.spotifyMobile.title"),
-      technologies: splitText(t("projectsData.spotifyMobile.technologies")),
-      description:
-        <RichText
-          t={t}
-          translationKey="projectsData.spotifyMobile.description"
-        />
-      ,
-      button: {
-        type: "repository",
-        link: config.repositories.spotifyMobile
-      },
-      imageSource: {
-        type: "mobile",
-        images: [spotifyImg1, spotifyImg2, spotifyImg3, spotifyImg4]
-      },
-      demoVideo: spotifyMobileVideo
     },
   ]
 

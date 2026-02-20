@@ -62,7 +62,7 @@
       },
       "tools": {
         "title": "Tools", 
-        "items": "Motion, TanStack Query, React Toastify, React Hook Form, next-intl, i18next, Embla Carousel, Recharts"
+        "items": "Motion, TanStack Query, React Toastify, React Hook Form, next-intl, i18next, Embla Carousel, Recharts, zod"
       }
     },
     "certificationSection": {
@@ -114,17 +114,17 @@
       "vanicracia": {
         "title": "Vanicracia",
         "description": "<strong>E-commerce</strong> focused on astrology, featuring various sections including <strong>services</strong>, <strong>courses</strong>, and <strong>products</strong>. It allows users to explore and purchase items, view their details, and access <strong>pre-recorded courses</strong>.\n\nIt also includes a <strong>shopping cart</strong> with integrated payment systems and a <strong>user authentication system</strong> that supports login, registration, and password recovery.",
-        "technologies": "Next.js, TypeScript, Tailwind, React Hook Form, React Toastify, Motion, Redux Toolkit, TanStack Query"
+        "technologies": "Next.js, TypeScript, Tailwind, React Hook Form, React Toastify, Motion, Redux Toolkit, TanStack Query, zod"
       },
       "alfombrasTauro": {
         "title": "Alfombras Tauro",
         "description": "A <strong>website specialized in rugs</strong>, offering a wide range of <strong>products</strong>, <strong>accessories</strong>, and <strong>services</strong>.\n\nIt allows users to explore each category, access their respective items, and view detailed information about each one.",
-        "technologies": "Next.js, TypeScript, Tailwind, React Hook Form, Motion, TanStack Query"
+        "technologies": "Next.js, TypeScript, Tailwind, React Hook Form, Motion, TanStack Query, zod"
       },
       "dondeSalgo": {
         "title": "Dónde Salgo",
         "description": "Mobile application for <strong>Android</strong> and <strong>iOS</strong>, focused on the <strong>search for bars</strong> and other <strong>places around Buenos Aires</strong>.\n\nIt features several sections and an <strong>intuitive user flow</strong>. In addition, it includes a <strong>complete authentication system</strong>, an <strong>admin panel</strong>, among many other features.",
-        "technologies": "React Native, Expo, TypeScript, React Hook Form, TanStack Query, Redux Toolkit, React Native Reanimated, i18next"
+        "technologies": "React Native, Expo, TypeScript, React Hook Form, TanStack Query, Redux Toolkit, React Native Reanimated, i18next, zod"
       },
       "spotifyMobile": {
         "title": "Spotify Mobile",
