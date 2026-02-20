@@ -11,9 +11,6 @@ import vanicraciaImgVertical from "@/assets/images/projects/vanicracia/vertical.
 import vanicraciaImgSquare from "@/assets/images/projects/vanicracia/square.png"
 import vanicraciaImgHorizontal from "@/assets/images/projects/vanicracia/horizontal.png"
 import SectionSeparator from "@/components/other/SectionSeparator";
-import { projectsRoutes } from "@/constants/projectsRoutes";
-import splitText from "@/utils/splitText";
-import { RichText } from "@/components/other/RichText";
 import tauroImgHorizontal from "@/assets/images/projects/alfombras-tauro/horizontal.png"
 import tauroImgRectangular from "@/assets/images/projects/alfombras-tauro/rectangular.png"
 import tauroImgSquare from "@/assets/images/projects/alfombras-tauro/square.png"
@@ -27,21 +24,12 @@ import spotifyImg2 from "@/assets/images/projects/spotify-mobile/image2.jpeg"
 import spotifyImg3 from "@/assets/images/projects/spotify-mobile/image3.jpeg"
 import spotifyImg4 from "@/assets/images/projects/spotify-mobile/image4.jpeg"
 
-const spotifyMobileVideo = "/portfolio/videos/projects/spotify-mobile/spotify-mobile.mp4";
-
 const ProjectsSection = () => {
   const t = useTranslations("projectsSection");
+
   const projectsData: ProjectItemData[] = [
     {
-      id: removeHash(projectsRoutes.spotifyMobile),
-      title: t("projectsData.spotifyMobile.title"),
-      technologies: splitText(t("projectsData.spotifyMobile.technologies")),
-      description:
-        <RichText
-          t={t}
-          translationKey="projectsData.spotifyMobile.description"
-        />
-      ,
+      translationKey: "spotifyMobile",
       button: {
         type: "repository",
         link: config.repositories.spotifyMobile
@@ -50,18 +38,10 @@ const ProjectsSection = () => {
         type: "mobile",
         images: [spotifyImg1, spotifyImg2, spotifyImg3, spotifyImg4]
       },
-      demoVideo: spotifyMobileVideo
+      demoVideo: "/portfolio/videos/projects/spotify-mobile/spotify-mobile.mp4"
     },
     {
-      id: removeHash(projectsRoutes.vanicracia),
-      title: t("projectsData.vanicracia.title"),
-      technologies: splitText(t("projectsData.vanicracia.technologies")),
-      description:
-        <RichText
-          t={t}
-          translationKey="projectsData.vanicracia.description"
-        />
-      ,
+      translationKey: "vanicracia",
       button: {
         type: "site",
         link: config.projects.vanicracia
@@ -77,15 +57,7 @@ const ProjectsSection = () => {
       }
     },
     {
-      id: removeHash(projectsRoutes.alfombrasTauro),
-      title: t("projectsData.alfombrasTauro.title"),
-      technologies: splitText(t("projectsData.alfombrasTauro.technologies")),
-      description:
-        <RichText
-          t={t}
-          translationKey="projectsData.alfombrasTauro.description"
-        />
-      ,
+      translationKey: "alfombrasTauro",
       button: {
         type: "site",
         link: config.projects.alfombrasTauro
@@ -101,15 +73,7 @@ const ProjectsSection = () => {
       }
     },
     {
-      id: removeHash(projectsRoutes.dondeSalgo),
-      title: t("projectsData.dondeSalgo.title"),
-      technologies: splitText(t("projectsData.dondeSalgo.technologies")),
-      description:
-        <RichText
-          t={t}
-          translationKey="projectsData.dondeSalgo.description"
-        />
-      ,
+      translationKey: "dondeSalgo",
       button: {
         type: "inDevelopment",
       },

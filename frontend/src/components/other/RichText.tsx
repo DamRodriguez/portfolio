@@ -1,10 +1,11 @@
 "use client";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
+import { DescriptionKey } from "../sections/projects-section/ProjectItem";
 
 type RichTextProps = {
   t: ReturnType<typeof useTranslations>;
-  translationKey: Parameters<ReturnType<typeof useTranslations>>[0];
+  translationKey: DescriptionKey;
 };
 
 export const RichText = ({
