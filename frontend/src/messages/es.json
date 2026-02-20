@@ -123,7 +123,7 @@
       },
       "dondeSalgo": {
         "title": "Dónde Salgo",
-        "description": "Aplicación móvil para <strong>Android</strong> e <strong>iOS</strong> enfocada en la <strong>búsqueda de bares</strong> y otros <strong>sitios por Buenos Aires</strong>.\n\nPosee varias secciones y un <strong>flujo intuitivo para el usuario</strong>. Además de tener un <strong>sistema de autenticación completo</strong>, un <strong>administrador</strong>, entre muchas otras cosas.",
+        "description": "Aplicación móvil para <strong>Android</strong> e <strong>iOS</strong> enfocada en la <strong>búsqueda de fiestas</strong> y otros <strong>sitios por Buenos Aires</strong>.\n\nPosee varias secciones y un <strong>flujo intuitivo para el usuario</strong>. Además de tener un <strong>sistema de autenticación completo</strong>, un <strong>administrador</strong>, entre muchas otras cosas.",
         "technologies": "React Native, Expo, TypeScript, React Hook Form, TanStack Query, Redux Toolkit, React Native Reanimated, i18next, zod"
       },
       "spotifyMobile": {

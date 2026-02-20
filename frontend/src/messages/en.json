@@ -123,7 +123,7 @@
       },
       "dondeSalgo": {
         "title": "Dónde Salgo",
-        "description": "Mobile application for <strong>Android</strong> and <strong>iOS</strong>, focused on the <strong>search for bars</strong> and other <strong>places around Buenos Aires</strong>.\n\nIt features several sections and an <strong>intuitive user flow</strong>. In addition, it includes a <strong>complete authentication system</strong>, an <strong>admin panel</strong>, among many other features.",
+        "description": "Mobile application for <strong>Android</strong> and <strong>iOS</strong>, focused on the <strong>search for parties</strong> and other <strong>places around Buenos Aires</strong>.\n\nIt features several sections and an <strong>intuitive user flow</strong>. In addition, it includes a <strong>complete authentication system</strong>, an <strong>admin panel</strong>, among many other features.",
         "technologies": "React Native, Expo, TypeScript, React Hook Form, TanStack Query, Redux Toolkit, React Native Reanimated, i18next, zod"
       },
       "spotifyMobile": {
