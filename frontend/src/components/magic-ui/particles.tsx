@@ -84,7 +84,7 @@ export const Particles: React.FC<ParticlesProps> = ({
   ease = 50,
   size = 0.4,
   refresh = false,
-  color = "#666666",
+  color = "#474747",
   vx = 0,
   vy = 0,
   ...props
