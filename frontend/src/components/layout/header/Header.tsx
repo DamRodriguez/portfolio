@@ -13,6 +13,7 @@ import { useTranslations } from "next-intl";
 import LanguageDropdown from "@/components/other/LanguageDropdown";
 import { Locale } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
+import { ShineBorder } from "@/components/magic-ui/shine-border"
 
 type HeaderProps = {
   locale: Locale
@@ -43,9 +44,14 @@ const Header = ({ locale }: HeaderProps) => {
       "top-6": hasScrolled
     })}>
       <SpaceX className={clsx("sticky min-h-[5rem] xl:min-h-[7rem] backdrop-blur-[1rem] bg-black/70 flex items-center justify-between z-999999 transition-all duration-400 ease-in-out", {
-        "shadow-s4 m-6 rounded-full border border-soft-gray/15": hasScrolled,
+        "m-6 shadow-s4 rounded-full": hasScrolled,
       })}
       >
+        {hasScrolled && (
+          <ShineBorder className={clsx("", {
+            "border border-soft-gray/15": hasScrolled,
+          })} />
+        )}
         <MotionFade>
           <Link
             href={routes.home}
@@ -91,7 +97,7 @@ const Header = ({ locale }: HeaderProps) => {
             </MotionStagger>
           </ul>
         </nav>
-        <div className="flex gap-[1rem] md:gap-[2rem] ">
+        <div className="flex gap-[1rem] md:gap-[2rem]">
           <MotionFade className="flex flex-col text-sm text-soft-white">
             <LanguageDropdown locale={locale} />
           </MotionFade>
