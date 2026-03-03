@@ -4,6 +4,7 @@ import { MotionOpacity } from "@/components/motion/MotionOpacity";
 import { CloseIcon } from "../icons/header";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
 import React from "react";
+import { MotionScale } from "../motion/MotionScale";
 
 type SourcePopUpProps = {
   source: string | null;
@@ -13,7 +14,7 @@ type SourcePopUpProps = {
 
 export const SourcePopUp = ({ source, onClose, children }: SourcePopUpProps) => {
   useLockBodyScroll(!!source);
-  const mediaClassName = "h-auto w-auto max-w-full max-h-[90vh] rounded-[0.5rem] object-contain";
+  const mediaClassName = "h-auto w-auto max-w-full max-h-[90vh] rounded-[0.5rem] object-contain bg-black/75";
   const childWithClass = React.cloneElement(children, {
     className: `${children.props.className ?? ""} ${mediaClassName}`,
   });
@@ -26,18 +27,20 @@ export const SourcePopUp = ({ source, onClose, children }: SourcePopUpProps) => 
           onClick={onClose}
         >
           <MotionOpacity>
-            <div
-              className="relative max-w-[90vw] max-h-[90vh] rounded-[0.5rem] xl:rounded-2xl overflow-hidden rounded-tr-[1.3rem] xl:rounded-tr-[2rem] shadow-s6 border border-soft-gray/10"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {childWithClass}
-              <button
-                onClick={onClose}
-                className="absolute top-0 right-0 cursor-pointer p-[0.4rem] xl:p-[0.5rem] bg-black/60 backdrop-blur-[0.2rem] border border-soft-gray rounded-full m-1 xl:m-2 transition-all duration-400 ease-in-out [&_svg]:fill-[#fff] hover:[&_svg]:fill-[#000] hover:bg-soft-white hover:border-black"
+            <MotionScale>
+              <div
+                className="relative max-w-[90vw] max-h-[90vh] rounded-[0.5rem] xl:rounded-2xl overflow-hidden rounded-tr-[1.3rem] xl:rounded-tr-[2rem] shadow-s6 border border-soft-gray/10"
+                onClick={(e) => e.stopPropagation()}
               >
-                <CloseIcon className="w-[1.5rem] h-[1.5rem] xl:w-[2rem] xl:h-[2rem] transition-all duration-400 ease-in-out" />
-              </button>
-            </div>
+                {childWithClass}
+                <button
+                  onClick={onClose}
+                  className="absolute top-0 right-0 cursor-pointer p-[0.4rem] xl:p-[0.5rem] bg-black/60 backdrop-blur-[0.2rem] border border-soft-gray rounded-full m-1 xl:m-2 transition-all duration-400 ease-in-out [&_svg]:fill-[#fff] hover:[&_svg]:fill-[#000] hover:bg-soft-white hover:border-black"
+                >
+                  <CloseIcon className="w-[1.5rem] h-[1.5rem] xl:w-[2rem] xl:h-[2rem] transition-all duration-400 ease-in-out" />
+                </button>
+              </div>
+            </MotionScale>
           </MotionOpacity>
         </div>
       )}

@@ -9,6 +9,7 @@ type VideoPopUpProps = {
 
 export const VideoPopUp = ({ video, onClose }: VideoPopUpProps) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const videoPosterImg = "../../assets/images/video-poster.png"
 
   useEffect(() => {
     const videoElement = videoRef.current;
@@ -34,6 +35,7 @@ export const VideoPopUp = ({ video, onClose }: VideoPopUpProps) => {
         src={video}
         controls
         playsInline
+        poster={videoPosterImg}
       />
     </SourcePopUp>
   );

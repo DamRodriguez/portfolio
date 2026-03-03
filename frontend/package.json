@@ -17,6 +17,7 @@
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.23.24",
     "lucide-react": "^0.576.0",
+    "motion": "^12.34.4",
     "next": "15.5.5",
     "next-intl": "^4.3.12",
     "radix-ui": "^1.4.3",
