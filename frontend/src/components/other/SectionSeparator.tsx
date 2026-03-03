@@ -12,7 +12,7 @@ const SectionSeparator = ({ className }: SectionSeparatorProps) => {
   return (
     <MotionStretch>
       <div className={clsx("h-[0.03125rem] w-full bg-soft-gray/30 relative", className)}>
-        <BorderBeam initialOffset={50} duration={8} size={isMobile ? 200 : 1000} colorFrom="var(--color-soft-gray/30)" colorTo="var(--color-opaque-gray)" />
+        <BorderBeam initialOffset={50} duration={8} size={isMobile ? 150 : 1000} colorFrom="var(--color-soft-gray/30)" colorTo="var(--color-opaque-gray)" />
       </div>
     </MotionStretch>
   );
