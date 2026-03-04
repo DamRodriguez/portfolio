@@ -26,8 +26,13 @@ import spotifyImg4 from "@/assets/images/projects/spotify-mobile/image4.jpeg"
 
 const ProjectsSection = () => {
   const t = useTranslations("projectsSection");
+  const basePath =
+    typeof window !== "undefined" &&
+      window.location.hostname.includes("github.io")
+      ? "/portfolio"
+      : "";
 
-  const spotifyDemoVideo = "/videos/projects/spotify-mobile/spotify-mobile.mp4";
+  const spotifyDemoVideo = `${basePath}/videos/projects/spotify-mobile/spotify-mobile.mp4`;
 
   const projectsData: ProjectItemData[] = [
     {
