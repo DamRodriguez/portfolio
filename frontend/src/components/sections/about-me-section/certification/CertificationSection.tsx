@@ -5,13 +5,20 @@ import MotionSlide from "@/components/motion/MotionSlide";
 
 const CertificationSection = () => {
   const t = useTranslations("aboutMeSection.certificationSection");
+  const basePath =
+    typeof window !== "undefined" &&
+      window.location.hostname.includes("github.io")
+      ? "/portfolio"
+      : "";
+
+  const cacPdf = `${basePath}/pdf/cac-certificado.pdf`
 
   const certificationItems: CertificationItemData[] = [
     {
       title: t("certifications.codoACodo.title"),
       place: t("certifications.codoACodo.place"),
       image: cacImage,
-      pdf: "/portfolio/pdf/cac-certificado.pdf",
+      pdf: cacPdf,
     },
   ]
 

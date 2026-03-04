@@ -7,9 +7,17 @@ import React from 'react';
 
 const NameSection = () => {
   const t = useTranslations("contactSection");
+  const basePath =
+    typeof window !== "undefined" &&
+      window.location.hostname.includes("github.io")
+      ? "/portfolio"
+      : "";
+
+  const CV = `${basePath}/pdf/CV.pdf`
+
   const handleDownloadCV = () => {
     const link = document.createElement("a");
-    link.href = "/portfolio/pdf/CV.pdf";
+    link.href = CV;
     link.download = "CV-Damian-Rodriguez.pdf";
     link.click();
   };
