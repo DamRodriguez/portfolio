@@ -30,6 +30,7 @@ const ProjectsSection = () => {
     window.location.hostname.includes("github.io")
       ? "/portfolio/"
       : "/";
+
   const spotifyDemoVideo = `${basePath}videos/projects/spotify-mobile/spotify-mobile.mp4`;
 
   const projectsData: ProjectItemData[] = [
