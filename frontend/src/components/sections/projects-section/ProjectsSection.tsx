@@ -38,7 +38,7 @@ const ProjectsSection = () => {
         type: "mobile",
         images: [spotifyImg1, spotifyImg2, spotifyImg3, spotifyImg4]
       },
-      demoVideo: "/portfolio/videos/projects/spotify-mobile/spotify-mobile.mp4"
+      demoVideo: "/videos/projects/spotify-mobile/spotify-mobile.mp4"
     },
     {
       translationKey: "vanicracia",
