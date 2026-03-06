@@ -8,6 +8,7 @@ type MotionStaggerProps = {
   duration?: number;
   stagger?: number;
   className?: string;
+  order?: number;
 };
 
 const MotionStagger = ({
@@ -15,12 +16,15 @@ const MotionStagger = ({
   direction = "down",
   duration = 0.4,
   stagger = 0.2,
+  order = 0,
   className,
 }: MotionStaggerProps) => {
+
   const containerVariants: Variants = {
     hidden: {},
     visible: {
       transition: {
+        delayChildren: order * 0.4,
         staggerChildren: stagger,
       },
     },
@@ -53,8 +57,10 @@ const MotionStagger = ({
       viewport={{ once: true, amount: 0.3 }}
       className={className}
     >
-      {React.Children.map(children, child => (
-        <motion.div variants={childVariants}>{child}</motion.div>
+      {React.Children.map(children, (child, i) => (
+        <motion.div key={i} variants={childVariants}>
+          {child}
+        </motion.div>
       ))}
     </motion.div>
   );

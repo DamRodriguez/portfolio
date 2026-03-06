@@ -43,7 +43,7 @@ const Header = ({ locale }: HeaderProps) => {
       "top-0": !hasScrolled,
       "top-6": hasScrolled
     })}>
-      <SpaceX className={clsx("sticky min-h-[5rem] xl:min-h-[7rem] backdrop-blur-[1rem] bg-black/70 flex items-center justify-between z-999999 transition-all duration-400 ease-in-out", {
+      <SpaceX className={clsx("sticky min-h-[5rem] xl:min-h-[7rem] bg-black/98 flex items-center justify-between z-999999 transition-all duration-400 ease-in-out", {
         "m-6 shadow-s4 rounded-full": hasScrolled,
       })}
       >
@@ -126,16 +126,21 @@ const Header = ({ locale }: HeaderProps) => {
         position="top"
         hideOverlay
         closeButton={null}
-        className={clsx("pb-[7rem] backdrop-blur-[1rem] bg-black/10 xl:hidden",
+        className={clsx("pb-[7rem] bg-black/90 xl:hidden",
           {
-            "mt-[7.5rem] md:mt-[8rem] shadow-s4 border border-soft-gray/15 rounded-t-[5rem] ": hasScrolled,
+            "mt-[7.5rem] md:mt-[8rem] shadow-s4 border border-soft-gray/15 rounded-t-[5rem]": hasScrolled,
             "mt-[5.5rem] ": !hasScrolled
           }
         )}
       >
+        {hasScrolled && (
+          <ShineBorder className={clsx("", {
+            "border border-soft-gray/15": hasScrolled,
+          })} />
+        )}
         <NavMobile onClose={() => { setIsMobileNavVisible(false); }} />
       </Drawer>
-      <div className={clsx("bg-black/60 backdrop-blur-[1rem] absolute w-screen h-screen -top-6",
+      <div className={clsx("bg-black/80 absolute w-screen h-screen -top-6",
         {
           "flex": isMobileNavVisible,
           "hidden": !isMobileNavVisible

@@ -7,11 +7,13 @@ type MotionSlideProps = {
   children: React.ReactNode;
   viewAmount?: number;
   className?: string;
+  order?: number;
 };
 
 const MotionSlide = ({
   direction = "left",
   duration = 0.6,
+  order = 0,
   children,
   viewAmount = 0.3,
   className,
@@ -26,7 +28,7 @@ const MotionSlide = ({
       initial={{ opacity: 0, ...initialPosition }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, amount: viewAmount }}
-      transition={{ duration, ease: "easeInOut" }}
+      transition={{ duration, delay: order * 0.4, ease: "easeInOut" }}
       className={className}
     >
       {children}

@@ -1,12 +1,13 @@
 import clsx from "clsx";
-import MotionStagger from "@/components/motion/MotionStagger";
 import Button from "@/components/ui/buttons/Button";
 import config from "@/config/config";
 import { GithubIcon, LinkedInIcon, TelegramIcon, WhatsAppIcon } from "@/components/icons/social";
 import { useTranslations } from "next-intl";
+import MotionStagger from "@/components/motion/MotionStagger";
 
 type SocialButtonsSectionProps = {
   withoutMt?: boolean;
+  order?: number;
 }
 
 const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
@@ -20,7 +21,10 @@ const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
   ]
 
   return (
-    <MotionStagger className="flex flex-wrap gap-[1.5rem] xl:gap-[3rem] justify-center">
+    <MotionStagger
+      order={props.order}
+      className="flex flex-wrap gap-[1.5rem] xl:gap-[3rem] justify-center"
+    >
       {socialButtons.map((item, index) => {
         const Icon = item.icon
         return (

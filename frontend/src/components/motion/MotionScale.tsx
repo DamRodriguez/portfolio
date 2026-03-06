@@ -8,6 +8,7 @@ type MotionScaleProps = {
   scaleDuration?: number;
   initialScale?: number;
   finalScale?: number;
+  withOpacity?: boolean;
   className?: string;
 };
 
@@ -16,6 +17,7 @@ export const MotionScale = ({
   scaleDuration = 0.3,
   initialScale = 0.9,
   finalScale = 1,
+  withOpacity = false,
   className,
 }: MotionScaleProps): JSX.Element => {
   const pathname = usePathname();
@@ -23,9 +25,9 @@ export const MotionScale = ({
   return (
     <motion.div
       key={pathname}
-      initial={{ scale: initialScale }}
-      animate={{ scale: finalScale }}
-      exit={{ scale: initialScale }}
+      initial={{ scale: initialScale, opacity: withOpacity ? 0 : 1 }}
+      animate={{ scale: finalScale, opacity: withOpacity ? 1 : 1 }}
+      exit={{ scale: initialScale, opacity: withOpacity ? 0 : 1 }}
       transition={{ duration: scaleDuration, ease: "easeInOut" }}
       className={className}
     >
