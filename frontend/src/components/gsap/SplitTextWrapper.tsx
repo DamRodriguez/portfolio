@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import useIsMobile from "@/hooks/useIsMobile";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -14,6 +15,7 @@ type Props = {
 
 export default function SplitTextWrapper({ children, order = 0 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   useGSAP(
     () => {
@@ -30,7 +32,7 @@ export default function SplitTextWrapper({ children, order = 0 }: Props) {
       });
 
       const tween = gsap.from(split.chars, {
-        y: -75,
+        y: isMobile ? -45 : -75,
         scale: 0.85,
         opacity: 0,
         duration: 1,
