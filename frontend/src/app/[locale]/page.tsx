@@ -4,22 +4,25 @@ import ContactSection from "@/components/sections/contact-section/ContactSection
 import HeadSection from "@/components/sections/head-section/HeadSection";
 import ProjectsSection from "@/components/sections/projects-section/ProjectsSection";
 import WorkSection from "@/components/sections/work-section/WorkSection";
-import { Particles } from "@/components/magic-ui/particles"
+import ViewportActiveSection from "@/components/other/ViewportActiveSection";
 
 const HomePage = () => {
   return (
-    <>
-      <Particles
-        className="fixed h-full inset-0 -z-999"
-      />
-      <Main className="gap-[6rem] xl:gap-[12rem]">
-        <HeadSection />
+    <Main className="gap-[6rem] xl:gap-[12rem]">
+      <HeadSection />
+      <ViewportActiveSection section="aboutme">
         <AboutMeSection />
+      </ViewportActiveSection>
+      <ViewportActiveSection section="work">
         <WorkSection />
+      </ViewportActiveSection>
+      <ViewportActiveSection section="projects">
         <ProjectsSection />
+      </ViewportActiveSection>
+      <ViewportActiveSection section="contact">
         <ContactSection />
-      </Main>
-    </>
+      </ViewportActiveSection>
+    </Main>
   )
 }
 

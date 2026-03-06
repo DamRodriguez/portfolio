@@ -42,7 +42,7 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
   const arrowSvgClassName = "w-7 h-7 xl:w-10 xl:h-10 fill-[#fff]";
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full mb-7 md:mb-8 xl:mb-0">
 
       <div className="overflow-hidden rounded-[0.625rem]" ref={emblaRef}>
         <div className={`flex ${items.length <= 3 ? "xl:justify-center" : ""}`}>
@@ -85,7 +85,7 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
         </button>
       </div>
 
-      <div className="absolute -bottom-7 md:-bottom-8 left-1/2 -translate-x-1/2 flex gap-2 xl:hidden ">
+      <div className="absolute -bottom-7 md:-bottom-8 left-1/2 -translate-x-1/2 flex gap-2 xl:hidden">
         {items.map((_, index) => (
           <DotButton
             key={index}

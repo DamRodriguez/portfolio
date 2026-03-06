@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
+import ReduxStoreProvider from "@/components/provider/ReduxStoreProvider";
 
 export const metadata: Metadata = {
   title: "Portfolio - Damian Rodriguez",
@@ -36,8 +37,8 @@ export default async function RootLayout({
 }: RootLayoutProps) {
 
   return (
-    <>
+    <ReduxStoreProvider>
       {children}
-    </>
+    </ReduxStoreProvider>
   );
 }

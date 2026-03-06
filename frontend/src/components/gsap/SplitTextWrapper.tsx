@@ -11,9 +11,14 @@ gsap.registerPlugin(SplitText, ScrollTrigger);
 type Props = {
   children: ReactNode;
   order?: number;
+  ease?: gsap.EaseString;
 };
 
-export default function SplitTextWrapper({ children, order = 0 }: Props) {
+export default function SplitTextWrapper({
+  children,
+  order = 0,
+  ease = "bounce.out"
+}: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
 
@@ -36,7 +41,7 @@ export default function SplitTextWrapper({ children, order = 0 }: Props) {
         scale: 0.85,
         opacity: 0,
         duration: 1,
-        ease: "bounce.out",
+        ease: ease,
         stagger: 0.04,
         delay: order * 0.35,
         scrollTrigger: {

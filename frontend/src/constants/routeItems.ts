@@ -6,3 +6,5 @@ export const routeItems = [
   { href: routes.projects, label: "projects" },
   { href: routes.contact, label: "contact" },
 ] as const;
+
+export type RouteLabel = typeof routeItems[number]["label"];

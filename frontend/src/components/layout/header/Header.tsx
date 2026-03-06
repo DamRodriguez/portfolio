@@ -14,6 +14,7 @@ import LanguageDropdown from "@/components/other/LanguageDropdown";
 import { Locale } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
 import { ShineBorder } from "@/components/magic-ui/shine-border"
+import useActiveSection from "@/redux/active-section/useActiveSection";
 
 type HeaderProps = {
   locale: Locale
@@ -23,6 +24,7 @@ const Header = ({ locale }: HeaderProps) => {
   const t = useTranslations("header.navItems");
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const { activeSection } = useActiveSection();
 
   useEffect(() => {
     const saved = sessionStorage.getItem("hasScrolled");
@@ -78,11 +80,16 @@ const Header = ({ locale }: HeaderProps) => {
           </Link>
         </MotionFade>
         <nav className="hidden xl:flex">
-          <ul className="text-lg leading-[1.5rem] text-soft-white">
+          <ul className="text-lg leading-[1.5rem]">
             <MotionStagger className="flex gap-[3rem]" direction="up" duration={0.3}>
               {routeItems.map((item, index) => {
+                const isActive = activeSection === item.label;
+
                 return (
-                  <li key={index} className="flex flex-col group relative">
+                  <li key={index} className={clsx("flex flex-col group relative hover:text-soft-white transition-all duration-600", {
+                    "text-soft-white": isActive,
+                    "text-medium-gray": !isActive
+                  })}>
                     <Link
                       href={item.href}
                       onClick={() => { }}
@@ -90,7 +97,9 @@ const Header = ({ locale }: HeaderProps) => {
                     >
                       {t(item.label)}
                     </Link>
-                    <span className="block h-[0.1rem] bg-soft-white w-full scale-x-0 origin-center transition-transform duration-600 group-hover:scale-x-100 ease-in-out"></span>
+                    <span className={clsx("block top-[0.2rem] relative h-[0.05rem] bg-soft-gray w-full scale-x-0 origin-center transition-transform duration-600 group-hover:scale-x-100 ease-in-out rounded-full ", {
+                      "scale-x-100": isActive,
+                    })}></span>
                   </li>
                 );
               })}
@@ -140,7 +149,7 @@ const Header = ({ locale }: HeaderProps) => {
         )}
         <NavMobile onClose={() => { setIsMobileNavVisible(false); }} />
       </Drawer>
-      <div className={clsx("bg-black/80 absolute w-screen h-screen -top-6",
+      <div className={clsx("bg-black/80 absolute w-screen h-screen -top-6 xl:hidden",
         {
           "flex": isMobileNavVisible,
           "hidden": !isMobileNavVisible
