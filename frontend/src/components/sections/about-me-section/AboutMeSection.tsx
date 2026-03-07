@@ -33,7 +33,7 @@ const AboutMeSection = () => {
         </MotionFade>
       </div>
 
-      <div className="flex flex-col-reverse xl:flex-row items-center xl:justify-between gap-[2rem] ">
+      <div className="flex flex-col-reverse xl:flex-row items-center xl:justify-between gap-[2rem]">
         <TechnologiesSection />
 
         <MotionSlide viewAmount={0.2} direction="down" className="relative overflow-hidden">
