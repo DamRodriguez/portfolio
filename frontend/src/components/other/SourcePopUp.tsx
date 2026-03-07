@@ -4,6 +4,7 @@ import { CloseIcon } from "../icons/header";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
 import React from "react";
 import { MotionScale } from "../motion/MotionScale";
+import { MotionOpacity } from "../motion/MotionOpacity";
 
 type SourcePopUpProps = {
   source: string | null;
@@ -21,11 +22,11 @@ export const SourcePopUp = ({ source, onClose, children }: SourcePopUpProps) => 
   return (
     <AnimatePresence>
       {source && (
-        <div
+        <MotionOpacity
           className="fixed inset-0 bg-black/90 flex items-center justify-center z-[99999]"
           onClick={onClose}
         >
-          <MotionScale withOpacity>
+          <MotionScale>
             <div
               className="relative max-w-[90vw] max-h-[90vh] rounded-[0.5rem] xl:rounded-2xl overflow-hidden rounded-tr-[1.3rem] xl:rounded-tr-[2rem] shadow-s6 border border-soft-gray/10"
               onClick={(e) => e.stopPropagation()}
@@ -39,7 +40,7 @@ export const SourcePopUp = ({ source, onClose, children }: SourcePopUpProps) => 
               </button>
             </div>
           </MotionScale>
-        </div>
+        </MotionOpacity>
       )}
     </AnimatePresence>
   );

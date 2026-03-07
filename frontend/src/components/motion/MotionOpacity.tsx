@@ -7,12 +7,14 @@ type MotionOpacityProps = {
   children?: ReactNode;
   fadeDuration?: number;
   className?: string;
+  onClick?: () => void;
 };
 
 export const MotionOpacity = ({
   children,
   fadeDuration = 0.3,
   className,
+  onClick
 }: MotionOpacityProps): JSX.Element => {
   const pathname = usePathname();
 
@@ -24,6 +26,7 @@ export const MotionOpacity = ({
       exit={{ opacity: 0 }}
       transition={{ duration: fadeDuration, ease: "easeInOut" }}
       className={className}
+      onClick={onClick}
     >
       {children}
     </motion.div>
