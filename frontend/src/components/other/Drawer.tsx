@@ -103,13 +103,13 @@ const Drawer = ({
               className="fixed top-0 left-0 w-full h-full z-900"
             />
           )}
-          {!hideOverlay && (
+          {(!hideOverlay && visible) && (
             <motion.div
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.5 }}
+              animate={{ opacity: 0.9 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className={clsx("fixed top-0 left-0 w-full h-full bg-[#000] z-800", overlayClassName)}
+              className={clsx("fixed top-0 left-0 right-0 w-screen h-screen bg-black", overlayClassName)}
             />
           )}
         </>

@@ -38,7 +38,7 @@ const HeadSection = () => {
             <MotionSlide
               direction="left"
               order={2}
-              className="max-w-[70%] xl:max-w-[30%]"
+              className="max-w-[70%] xl:max-w-[25%]"
             >
               <p className="text-base 2xl:text-xl text-soft-gray">
                 {t.rich("headSection.personalDescription", {
