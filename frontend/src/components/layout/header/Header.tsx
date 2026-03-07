@@ -28,8 +28,7 @@ const Header = ({ locale }: HeaderProps) => {
     })}>
       <SpaceX className={clsx("sticky min-h-[5rem] xl:min-h-[7rem] bg-black/98 flex items-center justify-between z-999999 transition-all duration-400 ease-in-out", {
         "m-6 shadow-s4 rounded-full": hasScrolled,
-      })}
-      >
+      })}>
         <ShineBorderCustom isVisible={hasScrolled} />
         <LeftItem
           onClick={() => { if (isMobileNavVisible) { setIsMobileNavVisible(false); } }}
@@ -47,14 +46,10 @@ const Header = ({ locale }: HeaderProps) => {
         onClose={() => { setIsMobileNavVisible(false); }}
         position="top"
         closeButton={null}
-        className={clsx("pb-[7rem] bg-black/90 xl:hidden",
-          {
-            "mt-[7.5rem] md:mt-[8rem] shadow-s4 border border-soft-gray/15 rounded-t-[5rem]": hasScrolled,
-            "mt-[5.1rem]": !hasScrolled
-          }
-        )}
-      >
-        <ShineBorderCustom isVisible={hasScrolled} />
+        className={clsx("pb-[7rem] bg-black/90 xl:hidden", {
+          "mt-[7.5rem] md:mt-[8rem] shadow-s4 border border-soft-gray/15 rounded-t-[5rem]": hasScrolled,
+          "mt-[5.1rem]": !hasScrolled
+        })}>
         <NavMobile onClose={() => { setIsMobileNavVisible(false); }} />
       </Drawer>
     </header>
