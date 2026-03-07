@@ -7,6 +7,7 @@ import clsx from "clsx";
 import ProgressBarProvider from "@/components/other/ProgressBarProvider";
 import { Open_Sans, Fira_Code } from "next/font/google";
 import { ToastContainer } from "react-toastify";
+import SmoothScroll from "@/components/gsap/SmoothScroll";
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
@@ -43,10 +44,16 @@ export default async function LocaleLayout({
       <body className={clsx("antialiased min-h-svh flex flex-col bg-black", openSans.variable, firaCode.variable)}>
         <NextIntlClientProvider>
           <ProgressBarProvider>
-            <div className="min-w-[20rem] max-w-[120rem] mx-auto w-full font-open-sans">
+            <div
+              id="smooth-wrapper"
+              className="min-w-[20rem] max-w-[120rem] mx-auto w-full font-open-sans"
+            >
               <Header locale={locale} />
               <ToastContainer />
-              {children}
+              <div id="smooth-content">
+                <SmoothScroll />
+                {children}
+              </div>
             </div>
           </ProgressBarProvider>
         </NextIntlClientProvider>
