@@ -35,17 +35,6 @@ body {
   background: var(--color-soft-gray);
 }
 
-#smooth-wrapper {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-#smooth-content {
-  min-height: 100%;
-}
-
 @media (max-width: 900px) {
   ::-webkit-scrollbar {
     width: 5px;
