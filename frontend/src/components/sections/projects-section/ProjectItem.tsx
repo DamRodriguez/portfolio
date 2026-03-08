@@ -62,7 +62,7 @@ const ProjectItem = (props: ProjectItemProps) => {
             className="flex flex-wrap gap-[0.7rem] xl:gap-[1rem]"
           >
             {technologies.map((tech, index) => (
-              <ItemHover key={index} small cursorNormal>
+              <ItemHover key={index} small cursorNormal className="!border-soft-gray/30">
                 {tech}
               </ItemHover>
             ))}

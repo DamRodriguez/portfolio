@@ -14,7 +14,7 @@ const ButtonWithArrow = (props: ButtonWithArrowProps) => {
       routerPath={props.routerPath}
       variant="empty"
       cursorNormal
-      className="flex transition-all duration-400 cursor-pointer group h-fit gap-[0.3rem] xl:gap-[0.5rem]">
+      className="flex transition-all duration-400 cursor-pointer group h-fit gap-[0.2rem] xl:gap-[0.5rem]">
       <div className={clsx("bg-soft-white backdrop-blur-[0.1rem] py-[0.5rem] xl:py-[1rem] flex items-center rounded-full italic font-medium group-hover:bg-transparent group-hover:text-soft-white border-soft-white group-hover:border-soft-gray/80 border transition-all duration-400",
         {
           "h-[1.7rem] xl:h-[2.5rem] px-[2rem] text-xs xl:text-base": props.small,
