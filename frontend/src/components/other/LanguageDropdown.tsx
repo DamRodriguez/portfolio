@@ -3,8 +3,7 @@ import { usePathname, useRouter } from "next/navigation";
 import type { Locale } from "next-intl";
 import { type JSX, useRef, useState } from "react";
 import { ArgFlagIcon, DownIcon, EngFlagIcon, UpIcon } from "@/components/icons/languageDropdown";
-import config from "@/config/config";
-import useIsMobile from "@/hooks/useIsMobile";
+import useBreakpoint from "@/hooks/useBreakpoint";
 import { MotionHeight } from "@/components/motion/MotionHeight";
 import { useClickOutside } from "@/utils/useClickOutside";
 import clsx from "clsx";
@@ -25,7 +24,7 @@ const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
   const [selectedLang, setSelectedLang] = useState<Locale>(locale);
   const dropdownRef = useRef<HTMLDivElement>(null);
   useClickOutside(dropdownRef as React.RefObject<HTMLElement>, () => { setIsOpen(false); });
-  const isMobile = useIsMobile(Number(config.breakpoints.md));
+  const isMobile = useBreakpoint();
 
   const handleLanguageChange = (newLang: Locale) => {
     const langsRegex = Languages.map(l => l.lang).join("|");

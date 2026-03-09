@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import useIsMobile from "@/hooks/useIsMobile";
+import useBreakpoint from "@/hooks/useBreakpoint";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -20,7 +20,7 @@ export default function SplitTextWrapper({
   ease = "bounce.out"
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const isMobile = useIsMobile();
+  const isMobile = useBreakpoint();
 
   useGSAP(
     () => {

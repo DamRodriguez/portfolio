@@ -1,7 +1,7 @@
 import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
 import MotionStagger from "@/components/motion/MotionStagger";
-import useIsMobile from "@/hooks/useIsMobile";
+import useBreakpoint from "@/hooks/useBreakpoint";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
 import ItemHover from "@/components/other/ItemHover";
@@ -35,7 +35,7 @@ const ProjectItem = (props: ProjectItemProps) => {
   const data = props.data;
   const t = useTranslations("projectsSection");
   const title = t(`projectsData.${data.translationKey}.title`);
-  const isMobile = useIsMobile();
+  const isMobile = useBreakpoint();
   const technologiesString = t(
     `projectsData.${data.translationKey}.technologies`
   );

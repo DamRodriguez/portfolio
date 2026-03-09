@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import config from "@/config/config";
 
-const useIsMobile = (breakpoint = Number(config.breakpoints.md)) => {
+const useBreakpoint = (breakpoint = Number(config.breakpoints.md)) => {
   const [isMobile, setIsMobile] = useState(
     typeof window !== "undefined" ? window.innerWidth <= breakpoint : false,
   );
@@ -18,4 +18,4 @@ const useIsMobile = (breakpoint = Number(config.breakpoints.md)) => {
   return isMobile;
 };
 
-export default useIsMobile;
+export default useBreakpoint;

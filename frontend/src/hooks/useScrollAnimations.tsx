@@ -3,7 +3,8 @@ import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { RefObject } from "react"
-import useIsMobile from "./useIsMobile"
+import useBreakpoint from "./useBreakpoint"
+import config from "@/config/config"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -30,8 +31,8 @@ export function useScrollAnimations({
   scope,
   disabled = false
 }: UseScrollAnimationsProps) {
-  const isMobile = useIsMobile();
-  const topDistance = isMobile ? "10%" : "20%";
+  const isDeskXl = useBreakpoint(Number(config.breakpoints.xl));
+  const topDistance = isDeskXl ? "10%" : "20%";
 
   const DEFAULT_SCROLL_TRIGGER: ScrollTrigger.Vars = {
     start: `top ${topDistance}`,
