@@ -73,6 +73,7 @@ const ProjectItem = (props: ProjectItemProps) => {
       ".project-buttons-gsap": {
         rotate: -5,
         x: -50,
+        opacity: 0
       }
     },
     scope: itemRef
