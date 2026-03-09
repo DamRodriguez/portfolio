@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import MotionStagger from "@/components/motion/MotionStagger";
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import { useRef } from "react";
+import useBreakpoint from "@/hooks/useBreakpoint";
 
 type SocialButtonsSectionProps = {
   withoutMt?: boolean;
@@ -16,6 +17,7 @@ type SocialButtonsSectionProps = {
 const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
   const t = useTranslations("headSection.socialButtons");
   const containerRef = useRef(null);
+  const isMobile = useBreakpoint();
 
   const socialButtons = [
     { icon: TelegramIcon, text: t("telegram"), href: config.urls.telegram },
@@ -26,15 +28,25 @@ const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
 
   useScrollAnimations({
     animations: {
-      ".item-pair-gsap": {
+      ".item-pair-gsap": isMobile ? {
+        rotate: -20,
+        x: -100,
+        stagger: 0.1
+      } : {
         rotate: 20,
         x: 50,
-        y: -50
+        y: -50,
+        stagger: 0.1
       },
-      ".item-odd-gsap": {
+      ".item-odd-gsap": isMobile ? {
+        rotate: 20,
+        x: 100,
+        stagger: 0.1
+      } : {
         rotate: -20,
         x: -50,
-        y: 50
+        y: 50,
+        stagger: 0.1
       }
     },
     scope: containerRef,

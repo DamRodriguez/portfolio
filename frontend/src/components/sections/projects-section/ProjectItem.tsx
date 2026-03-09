@@ -52,8 +52,10 @@ const ProjectItem = (props: ProjectItemProps) => {
         rotate: 5
       },
       ".project-technologies-gsap": {
-        scale: 0.9,
-        rotate: -2
+        scale: 0.7,
+        rotate: -2,
+        rotateZ: 10,
+        stagger: 0.1
       },
       ".project-image-gsap": {
         y: -25,
@@ -61,6 +63,7 @@ const ProjectItem = (props: ProjectItemProps) => {
         rotateZ: props.odd ? 4 : -4,
         x: props.odd ? -15 : 15,
         borderRadius: isMobile ? 30 : 60,
+        stagger: 0.1
       },
       ".project-text-gsap": {
         color: "var(--color-black)",
@@ -68,9 +71,8 @@ const ProjectItem = (props: ProjectItemProps) => {
         x: 15
       },
       ".project-buttons-gsap": {
-        rotateY: -50,
-        rotate: -3,
-        x: -25
+        rotate: -5,
+        x: -50,
       }
     },
     scope: itemRef
@@ -94,18 +96,18 @@ const ProjectItem = (props: ProjectItemProps) => {
             </h6>
           </MotionSlide>
 
-          <div className="project-technologies-gsap">
-            <MotionStagger
-              duration={0.3}
-              className="flex flex-wrap gap-[0.7rem] xl:gap-[1rem]"
-            >
-              {technologies.map((tech, index) => (
-                <ItemHover key={index} small cursorNormal className="!border-soft-gray/30">
+          <MotionStagger
+            duration={0.3}
+            className="flex flex-wrap gap-[0.7rem] xl:gap-[1rem]"
+          >
+            {technologies.map((tech, index) => (
+              <div key={index} className="project-technologies-gsap">
+                <ItemHover small cursorNormal className="!border-soft-gray/30">
                   {tech}
                 </ItemHover>
-              ))}
-            </MotionStagger>
-          </div>
+              </div>
+            ))}
+          </MotionStagger>
         </div>
 
         <MotionFade>
