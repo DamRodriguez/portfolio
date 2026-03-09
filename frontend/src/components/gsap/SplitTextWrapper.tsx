@@ -42,7 +42,7 @@ export default function SplitTextWrapper({
         opacity: 0,
         duration: 1,
         ease: ease,
-        stagger: 0.04,
+        stagger: 0.09,
         delay: order * 0.35,
         scrollTrigger: {
           trigger: el,
