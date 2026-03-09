@@ -60,7 +60,7 @@ const ProjectItem = (props: ProjectItemProps) => {
         scale: 0.9,
         rotateZ: props.odd ? 4 : -4,
         x: props.odd ? -15 : 15,
-        borderRadius: 60
+        borderRadius: isMobile ? 30 : 60,
       },
       ".project-text-gsap": {
         color: "var(--color-black)",
