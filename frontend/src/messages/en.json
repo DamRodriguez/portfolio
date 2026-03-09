@@ -62,7 +62,7 @@
       },
       "tools": {
         "title": "Tools", 
-        "items": "Motion, TanStack Query, React Toastify, React Hook Form, next-intl, i18next, Embla Carousel, Recharts, Zod"
+        "items": "Motion, TanStack Query, React Toastify, React Hook Form, next-intl, i18next, Embla Carousel, Recharts, Zod, GSAP"
       }
     },
     "certificationSection": {

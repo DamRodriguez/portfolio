@@ -9,6 +9,7 @@ import { useHorizontalCarousel } from "@/hooks/useHorizontalCarousel";
 import { ArrowIcon } from "@/components/icons/buttons";
 import { useEffect, useState } from "react";
 import { DotButton } from "./HorizontalCarouselDotButtons";
+import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 
 type HorizontalCarouselVariantProps = {
   options?: EmblaOptionsType;
@@ -41,6 +42,21 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
 
   const arrowSvgClassName = "w-7 h-7 xl:w-10 xl:h-10 fill-[#fff]";
 
+  useScrollAnimations({
+    animations: {
+      ".left-arrow-gsap": {
+        rotate: -50,
+        x: -100,
+        y: -100
+      },
+      ".right-arrow-gsap": {
+        rotate: 50,
+        x: 100,
+        y: -100
+      }
+    }
+  })
+
   return (
     <div className="relative w-full mb-7 md:mb-8 xl:mb-0">
 
@@ -69,20 +85,24 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
           "xl:hidden": items.length <= 3,
           hidden: items.length === 1,
         })}>
-        <button
-          onClick={onPrevButtonClick}
-          disabled={prevBtnDisabled}
-          className="pointer-events-auto backdrop-blur-[0.1rem] cursor-pointer hover:scale-110 transition-all duration-400 rotate-180 border border-soft-gray rounded-full w-15 h-15 xl:w-20 xl:h-20 flex items-center justify-center hover:[&_svg]:fill-[#000] hover:bg-soft-white shadow-s4"
-        >
-          <ArrowIcon className={arrowSvgClassName} />
-        </button>
-        <button
-          onClick={onNextButtonClick}
-          disabled={nextBtnDisabled}
-          className="pointer-events-auto backdrop-blur-[0.1rem] cursor-pointer hover:scale-110 transition-all duration-300 border border-soft-gray rounded-full w-15 h-15 xl:w-20 xl:h-20 flex items-center justify-center hover:[&_svg]:fill-[#000] hover:bg-soft-white shadow-s4"
-        >
-          <ArrowIcon className={arrowSvgClassName} />
-        </button>
+        <div className="left-arrow-gsap">
+          <button
+            onClick={onPrevButtonClick}
+            disabled={prevBtnDisabled}
+            className="pointer-events-auto backdrop-blur-[0.1rem] cursor-pointer hover:scale-110 transition-all duration-400 rotate-180 border border-soft-gray rounded-full w-15 h-15 xl:w-20 xl:h-20 flex items-center justify-center hover:[&_svg]:fill-[#000] hover:bg-soft-white shadow-s4"
+          >
+            <ArrowIcon className={arrowSvgClassName} />
+          </button>
+        </div>
+        <div className="right-arrow-gsap">
+          <button
+            onClick={onNextButtonClick}
+            disabled={nextBtnDisabled}
+            className="pointer-events-auto backdrop-blur-[0.1rem] cursor-pointer hover:scale-110 transition-all duration-300 border border-soft-gray rounded-full w-15 h-15 xl:w-20 xl:h-20 flex items-center justify-center hover:[&_svg]:fill-[#000] hover:bg-soft-white shadow-s4"
+          >
+            <ArrowIcon className={arrowSvgClassName} />
+          </button>
+        </div>
       </div>
 
       <div className="absolute -bottom-7 md:-bottom-8 left-1/2 -translate-x-1/2 flex gap-2 xl:hidden">

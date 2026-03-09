@@ -2,6 +2,7 @@ import { ArrowIcon, PlayIcon } from "@/components/icons/buttons";
 import MotionFade from "@/components/motion/MotionFade";
 import { VideoPopUp } from "@/components/other/VideoPopUp";
 import CustomButton from "@/components/ui/buttons/CustomButton";
+import clsx from "clsx";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
@@ -23,15 +24,16 @@ export type ProjectButton =
 type ButtonsSectionProps = {
   button: ProjectButton;
   demoVideo?: string;
+  containerClassName?: string;
 }
 
-const ButtonsSection = ({ button, demoVideo }: ButtonsSectionProps) => {
+const ButtonsSection = ({ button, demoVideo, containerClassName }: ButtonsSectionProps) => {
   const t = useTranslations("projectsSection.buttons");
   const [demoVideoState, setDemoVideoState] = useState<string>("");
 
   return (
     <>
-      <div className="flex flex-col gap-[1rem] xl:gap-[1.5rem]">
+      <div className={clsx("flex flex-col gap-[1rem] xl:gap-[1.5rem]", containerClassName)}>
         {button.type === "site" && (
           <MotionFade>
             <CustomButton

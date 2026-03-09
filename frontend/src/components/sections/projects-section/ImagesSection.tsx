@@ -32,6 +32,7 @@ type ImagesSectionProps = {
 }
 
 const ImagesSection = ({ imageSource, disablePopUp, odd, title }: ImagesSectionProps) => {
+
   return (
     <>
       {imageSource.type === "default" && (

@@ -23,13 +23,13 @@ const CertificationSection = () => {
   ]
 
   return (
-    <div>
+    <>
       {certificationItems.map((item, index) => (
         <MotionSlide key={index} direction="down">
           <CertificationItem data={item} />
         </MotionSlide>
       ))}
-    </div>
+    </>
   );
 };
 

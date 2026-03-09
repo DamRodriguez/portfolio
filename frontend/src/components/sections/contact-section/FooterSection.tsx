@@ -28,7 +28,7 @@ const FooterSection = () => {
           ))}
         </MotionFade>
       </div>
-      <SocialButtonsSection withoutMt />
+      <SocialButtonsSection withoutMt gsapDisabled />
     </div>
   );
 };

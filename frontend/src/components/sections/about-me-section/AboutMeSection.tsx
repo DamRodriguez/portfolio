@@ -9,31 +9,32 @@ import { routes } from "@/constants/routes";
 import Image from "next/image";
 import personalImage from "@/assets/images/damian.jpg"
 import CertificationSection from "./certification/CertificationSection";
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { useGSAP } from "@gsap/react"
-
-gsap.registerPlugin(ScrollTrigger)
+import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 
 const AboutMeSection = () => {
   const t = useTranslations("aboutMeSection");
 
-  {/*
-    useGSAP(() => {
-    gsap.to(".personal-image", {
-      y: -200,
-      x: 200,
-      transformOrigin: "center center",
-      scrollTrigger: {
-        trigger: ".personal-image",
-        scroller: "#smooth-wrapper",
-        start: "top top",
-        end: "center top",
-        scrub: true
-      }
-    })
+  useScrollAnimations({
+    animations: {
+      ".personal-image-gsap": {
+        scale: 0.75,
+        x: 50,
+        rotate: -5,
+      },
+      ".section-name-gsap": {
+        x: -100,
+        y: -100,
+      },
+      ".description-gsap": {
+        x: 100,
+        y: -100,
+        color: "var(--color-black)"
+      },
+      ".certificacion-title-gsap": {
+        x: -100,
+      },
+    },
   })
-    */}
 
   return (
     <SpaceX
@@ -42,12 +43,12 @@ const AboutMeSection = () => {
     >
       <div className="flex md:flex-row md:justify-between xl:w-[80%] flex-col gap-[2rem]">
         <MotionSlide>
-          <h3 className="text-soft-white text-xl xl:text-2xl font-fira-code">
+          <h3 className="section-name-gsap text-soft-white text-xl xl:text-2xl font-fira-code">
             {t("header.sectionName")}
           </h3>
         </MotionSlide>
         <MotionFade>
-          <p className="text-soft-gray text-base lg:text-xl whitespace-pre-line bg-black">
+          <p className="description-gsap text-soft-gray text-base lg:text-xl whitespace-pre-line bg-black">
             {t.rich("header.description", {
               strong: (chunks) => <span className="text-soft-white">{chunks}</span>,
             })}
@@ -58,7 +59,7 @@ const AboutMeSection = () => {
       <div className="flex flex-col-reverse xl:flex-row items-center xl:justify-between gap-[2rem]">
         <TechnologiesSection />
 
-        <div className="personal-image">
+        <div className="personal-image-gsap overflow-hidden">
           <MotionSlide viewAmount={0.2} direction="down" className=" relative overflow-hidden">
             <Image
               src={personalImage}
@@ -75,13 +76,13 @@ const AboutMeSection = () => {
 
       <div className="flex flex-col gap-[1.5rem] xl:gap-[2rem]">
         <MotionSlide>
-          <h5 className="text-soft-white text-xl xl:text-2xl font-fira-code">
+          <h5 className="certificacion-title-gsap text-soft-white text-xl xl:text-2xl font-fira-code">
             {t("certificationSection.title")}
           </h5>
         </MotionSlide>
         <CertificationSection />
       </div>
-    </SpaceX>
+    </SpaceX >
   );
 };
 

@@ -30,7 +30,6 @@ const ContactForm = () => {
 
   const onSubmit = async (data: ContactSchemaType) => {
     if (data.honeypot) return;
-
     try {
       const formData = new FormData();
       formData.append("access_key", key);
@@ -38,23 +37,18 @@ const ContactForm = () => {
       formData.append("email", data.email);
       formData.append("message", data.message);
       formData.append("subject", `Nuevo mensaje de ${data.name}`);
-
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData,
       });
-
       const json = await res.json();
-
       if (json.success) {
         methods.reset();
         showToast("success", t("contactSection.toast.messages.contactFormSuccess")
         );
         return;
       }
-
       showToast("error", t("contactSection.toast.messages.contactFormError"));
-
     } catch {
       showToast("error", t("contactSection.toast.messages.contactFormError"));
     }
@@ -83,6 +77,7 @@ const ContactForm = () => {
             error={apiErrorMessage !== undefined}
             errorMessage={apiErrorMessage}
             isLastErrorMessageField={false}
+            className="input-gsap"
           />
           <Form.InputTextArea
             label={t("contactSection.form.textAreaInput.label")}

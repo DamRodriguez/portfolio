@@ -23,6 +23,7 @@ import spotifyImg1 from "@/assets/images/projects/spotify-mobile/image1.jpeg"
 import spotifyImg2 from "@/assets/images/projects/spotify-mobile/image2.jpeg"
 import spotifyImg3 from "@/assets/images/projects/spotify-mobile/image3.jpeg"
 import spotifyImg4 from "@/assets/images/projects/spotify-mobile/image4.jpeg"
+import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 
 const ProjectsSection = () => {
   const t = useTranslations("projectsSection");
@@ -96,6 +97,15 @@ const ProjectsSection = () => {
     },
   ]
 
+  useScrollAnimations({
+    animations: {
+      ".project-title-gsap": {
+        x: 100,
+        y: -100,
+      },
+    },
+  })
+
   return (
     <SpaceX
       id={removeHash(routes.projects)}
@@ -103,7 +113,7 @@ const ProjectsSection = () => {
     >
       <MotionSlide className="xl:flex xl:gap-[5rem]">
         <div className="xl:w-[45%]" />
-        <h3 className="text-soft-white text-xl xl:text-2xl font-fira-code xl:w-full">
+        <h3 className="project-title-gsap text-soft-white text-xl xl:text-2xl font-fira-code xl:w-full">
           {t("title")}
         </h3>
       </MotionSlide>
@@ -115,7 +125,9 @@ const ProjectsSection = () => {
               data={project}
               odd={index % 2 !== 0}
             />
-            {index !== projectsData.length - 1 && (<SectionSeparator />)}
+            {index !== projectsData.length - 1 && (
+              <SectionSeparator />
+            )}
           </div>
         ))}
       </div>

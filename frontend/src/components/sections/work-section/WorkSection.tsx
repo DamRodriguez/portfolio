@@ -7,6 +7,7 @@ import { routes } from "@/constants/routes";
 import MotionSlide from "@/components/motion/MotionSlide";
 import clsx from "clsx";
 import config from "@/config/config";
+import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 
 const WorkSection = () => {
   const t = useTranslations("workSection");
@@ -32,6 +33,15 @@ const WorkSection = () => {
     }
   ]
 
+  useScrollAnimations({
+    animations: {
+      ".title-gsap": {
+        x: 100,
+        y: -100,
+      },
+    },
+  })
+
   return (
     <div
       id={removeHash(routes.work)}
@@ -39,26 +49,23 @@ const WorkSection = () => {
     >
       <MotionSlide direction="right">
         <SpaceX>
-          <h3 className="text-soft-white text-end font-fira-code font-semibold text-5md xl:text-8xl">
+          <h3 className="title-gsap text-soft-white text-end font-fira-code font-semibold text-5md xl:text-8xl">
             {t("title")}
           </h3>
         </SpaceX>
       </MotionSlide>
-      <div className="">
+      <div>
         {workItems.map((item, index) => {
           const isLast = index === workItems.length - 1;
-
+          const isPair = index % 2 === 0;
           return (
             <MotionSlide
               key={index}
               direction="down"
-              className={clsx("border-t border-t-soft-gray/60",
-                {
-                  "border-b border-b-soft-gray/60": isLast
-                }
-              )}
-            >
-              <WorkItem data={{ ...item }} />
+              className={clsx("border-t border-t-soft-gray/60", {
+                "border-b border-b-soft-gray/60": isLast
+              })}>
+              <WorkItem data={{ ...item }} isPair={isPair} />
             </MotionSlide>
           )
         })}
