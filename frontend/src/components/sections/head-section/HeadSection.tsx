@@ -38,7 +38,6 @@ const HeadSection = () => {
       ".carousel-gsap": {
         y: -25,
         opacity: 0,
-        scale: 0.9,
       },
     },
   })

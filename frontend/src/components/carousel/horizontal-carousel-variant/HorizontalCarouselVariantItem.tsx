@@ -1,6 +1,7 @@
 import ButtonWithArrow from "@/components/ui/buttons/ButtonWithArrow";
 import { useTranslations } from "next-intl";
 import Image, { type StaticImageData } from "next/image";
+import React from "react";
 
 export type HorizontalCarouselVariantData = {
   image: string | StaticImageData;
@@ -43,4 +44,4 @@ const HorizontalCarouselVariantItem = ({ data }: HorizontalCarouselVariantItemPr
   );
 };
 
-export default HorizontalCarouselVariantItem;
+export default React.memo(HorizontalCarouselVariantItem)

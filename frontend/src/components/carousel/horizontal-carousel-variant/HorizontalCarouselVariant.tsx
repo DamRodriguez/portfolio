@@ -28,6 +28,7 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
   } = useHorizontalCarousel({ options });
 
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [slidesInView, setSlidesInView] = useState<number[]>([]);
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -39,6 +40,22 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
     emblaApi.on("select", onSelect);
     onSelect();
   }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return
+
+    const updateSlides = () => {
+      setSlidesInView(emblaApi.slidesInView())
+    }
+
+    emblaApi.on("slidesInView", updateSlides)
+    updateSlides()
+
+    return () => {
+      emblaApi.off("slidesInView", updateSlides)
+    }
+
+  }, [emblaApi])
 
   const arrowSvgClassName = "w-7 h-7 xl:w-10 xl:h-10 fill-[#fff]";
 
@@ -62,18 +79,24 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
 
       <div className="overflow-hidden rounded-[0.625rem]" ref={emblaRef}>
         <div className={`flex ${items.length <= 3 ? "xl:justify-center" : ""}`}>
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className={clsx("flex-[0_0_calc(100%)] xl:flex-[0_0_calc(100%/3)] px-[0.5rem] w-[1rem]",
-                {
-                  "xl:mt-[0.7rem]": index !== selectedIndex
-                }
-              )}
-            >
-              <HorizontalCarouselVariantItem data={{ ...item }} />
-            </div>
-          ))}
+          {items.map((item, index) => {
+            const isVisible = slidesInView.includes(index);
+
+            return (
+              <div
+                key={index}
+                className={clsx("flex-[0_0_calc(100%)] xl:flex-[0_0_calc(100%/3)] px-[0.5rem] w-[1rem]",
+                  {
+                    "xl:mt-[0.7rem]": index !== selectedIndex
+                  }
+                )}
+              >
+                {isVisible && (
+                  <HorizontalCarouselVariantItem data={item} />
+                )}
+              </div>
+            )
+          })}
         </div>
       </div>
 
@@ -120,7 +143,6 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
           />
         ))}
       </div>
-
     </div>
   );
 };

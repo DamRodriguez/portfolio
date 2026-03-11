@@ -26,8 +26,8 @@ const Header = ({ locale }: HeaderProps) => {
       "top-0": !hasScrolled,
       "top-6": hasScrolled,
     })}>
-      <SpaceX className={clsx("sticky min-h-[5rem] xl:min-h-[7rem] flex items-center justify-between z-999999 transition-all duration-400 ease-in-out", {
-        "m-6 shadow-s4 rounded-full bg-black/98": hasScrolled,
+      <SpaceX className={clsx("sticky min-h-[5rem] xl:min-h-[7rem] bg-black/98 flex items-center justify-between z-999999 transition-all duration-400 ease-in-out", {
+        "m-6 shadow-s4 rounded-full": hasScrolled,
       })}>
         <ShineBorderCustom isVisible={hasScrolled} />
         <LeftItem

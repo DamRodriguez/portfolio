@@ -17,7 +17,7 @@ type SocialButtonsSectionProps = {
 const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
   const t = useTranslations("headSection.socialButtons");
   const containerRef = useRef(null);
-  const isMobile = useBreakpoint();
+  const isTablet = useBreakpoint(Number(config.breakpoints.lg));
 
   const socialButtons = [
     { icon: TelegramIcon, text: t("telegram"), href: config.urls.telegram },
@@ -28,7 +28,7 @@ const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
 
   useScrollAnimations({
     animations: {
-      ".item-pair-gsap": isMobile ? {
+      ".item-pair-gsap": isTablet ? {
         rotate: -20,
         x: -100,
         stagger: 0.1
@@ -38,7 +38,7 @@ const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
         y: -50,
         stagger: 0.1
       },
-      ".item-odd-gsap": isMobile ? {
+      ".item-odd-gsap": isTablet ? {
         rotate: 20,
         x: 100,
         stagger: 0.1
@@ -54,10 +54,10 @@ const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
   })
 
   return (
-    <div ref={containerRef}>
+    <div ref={containerRef} className="flex justify-center">
       <MotionStagger
         order={props.order}
-        className="flex flex-wrap gap-[1.5rem] xl:gap-[3rem] justify-center"
+        className="grid grid-cols-2 w-fit justify-items-center-safe gap-[1.5rem] lg:flex lg:justify-center xl:gap-[3rem]"
       >
         {socialButtons.map((item, index) => {
           const Icon = item.icon;
@@ -68,7 +68,7 @@ const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
               key={index}
               className={clsx("", {
                 "item-pair-gsap": isPair,
-                "item-odd-gsap": !isPair
+                "item-odd-gsap": !isPair,
               })}>
               <Button
                 routerPathNewTab={item.href}

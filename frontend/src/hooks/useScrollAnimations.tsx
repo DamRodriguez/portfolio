@@ -12,40 +12,62 @@ export type ScrollAnimationConfig = {
   from?: gsap.TweenVars
   to?: gsap.TweenVars
   scrollTrigger?: {
-    trigger?: string | Element
-    start?: string
-    end?: string
+    trigger?: ScrollTrigger.Vars["trigger"]
+    start?: ScrollTrigger.Vars["start"]
+    end?: ScrollTrigger.Vars["end"]
     scrub?: boolean | number
     markers?: boolean
+    pin?: boolean
+    snap?: number | ScrollTrigger.SnapVars
   }
 } & gsap.TweenVars
 
+type HorizontalConfig = {
+  panels: string
+  container?: string
+}
+
 type UseScrollAnimationsProps = {
-  animations: Record<string, ScrollAnimationConfig>
+  animations?: Record<string, ScrollAnimationConfig>
+  horizontal?: HorizontalConfig
   scope?: RefObject<Element | null>
   disabled?: boolean
+  scrollTriggerDefaults?: Partial<ScrollTrigger.Vars>
 }
 
 export function useScrollAnimations({
-  animations,
+  animations = {},
+  horizontal,
   scope,
-  disabled = false
+  disabled = false,
+  scrollTriggerDefaults
 }: UseScrollAnimationsProps) {
-  const isDeskXl = useBreakpoint(Number(config.breakpoints.xl));
-  const topDistance = isDeskXl ? "10%" : "20%";
 
-  const DEFAULT_SCROLL_TRIGGER: ScrollTrigger.Vars = {
+  const isDeskXl = useBreakpoint(Number(config.breakpoints.xl))
+  const topDistance = isDeskXl ? "10%" : "20%"
+
+  const BASE_SCROLL_TRIGGER: ScrollTrigger.Vars = {
     start: `top ${topDistance}`,
     end: "+=300",
     scrub: 2.5,
   }
 
+  const DEFAULT_SCROLL_TRIGGER: ScrollTrigger.Vars = {
+    ...BASE_SCROLL_TRIGGER,
+    ...scrollTriggerDefaults
+  }
+
   useGSAP(
     (context) => {
+
       if (disabled) {
         context.revert()
         return
       }
+
+      const root = scope?.current || document
+
+      /* ---------- NORMAL ANIMATIONS ---------- */
 
       Object.entries(animations).forEach(([target, animation]) => {
         const { from, to, scrollTrigger, ...vars } = animation
@@ -73,10 +95,39 @@ export function useScrollAnimations({
           })
         }
       })
+
+      /* ---------- HORIZONTAL SCROLL ---------- */
+
+      if (horizontal) {
+        const panels = gsap.utils.toArray<HTMLElement>(horizontal.panels, root)
+
+        if (!panels.length) return
+
+        const container = horizontal.container
+          ? (root as Element).querySelector<HTMLElement>(horizontal.container)!
+          : panels[0].parentElement!
+
+        gsap.to(panels, {
+          xPercent: -100 * (panels.length - 1),
+          ease: "none",
+          scrollTrigger: {
+            trigger: container,
+            start: "top top",
+            pin: true,
+            scrub: 0.2,
+            snap: {
+              snapTo: 1 / (panels.length - 1),
+              duration: 0,
+              inertia: false
+            },
+            end: () => `+=${container.offsetWidth}`
+          }
+        })
+      }
     },
     {
       scope,
-      dependencies: [disabled, animations],
+      dependencies: [animations, horizontal, disabled],
       revertOnUpdate: true
     }
   )
