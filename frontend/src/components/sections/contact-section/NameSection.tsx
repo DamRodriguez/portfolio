@@ -34,7 +34,7 @@ const NameSection = () => {
           <MotionFade order={2} className="flex justify-center flex-1">
             <Button
               onClick={handleDownloadCV}
-              className="!px-4"
+              className="!px-4 shadow-s1"
             >
               {t("buttons.downloadCV")}
               <DownloadIcon />

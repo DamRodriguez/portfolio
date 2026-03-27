@@ -1,5 +1,5 @@
+import { MotionOpacity } from "@/components/motion/MotionOpacity";
 import clsx from "clsx";
-import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 type ErrorMessageTranslationKey = Parameters<
@@ -21,15 +21,11 @@ const FormErrorMessage = ({ errorMessage, className }: FormErrorProps) => {
 
   return (
     errorMessage && (
-      <motion.span
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0.2 }}
-        transition={{ duration: 0.2, ease: "easeInOut" }}
-        className={clsx("text-red-error text-sm", className)}
+      <MotionOpacity
+        className={clsx("text-red-error text-xs xl:text-sm", className)}
       >
         {isTranslationKey(errorMessage) ? t(errorMessage) : errorMessage}
-      </motion.span>
+      </MotionOpacity>
     )
   );
 };

@@ -105,6 +105,7 @@ const ContactForm = () => {
             type="submit"
             full
             isLoading={methods.formState.isSubmitting}
+            className="shadow-s1"
           >
             {t("contactSection.buttons.sendMessage")}
             <SendIcon />

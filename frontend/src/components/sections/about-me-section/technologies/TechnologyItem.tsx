@@ -18,7 +18,7 @@ const TechnologyItem = (props: TechnologyItemProps) => {
 
   return (
     <div
-      className={clsx("text-soft-gray gap-[1rem] xl:gap-[1.5rem] flex flex-col border border-soft-gray/60 rounded-[2.5rem] xl:rounded-[3rem] p-[1.5rem] xl:p-[2rem] hover:text-black transition-all duration-400 ease-in-out group overflow-hidden relative shadow-s1", props.className)}
+      className={clsx("text-soft-gray gap-[1rem] xl:gap-[1.5rem] flex flex-col border border-soft-gray/60 rounded-[2.5rem] xl:rounded-[3rem] p-[1.5rem] xl:p-[2rem] hover:text-black transition-all duration-400 ease-in-out group overflow-hidden relative  bg-strong-black/50 shadow-s3 z-1", props.className)}
     >
       <p className="text-xl xl:text-2xl font-medium">
         {data.title}
@@ -27,7 +27,7 @@ const TechnologyItem = (props: TechnologyItemProps) => {
         {data.items.split(", ").join(" / ")}
       </span>
 
-      <div className={clsx("absolute scale-x-0 group-hover:scale-x-100 transition-transform duration-600 ease-in-out top-0 left-0 w-full h-full bg-soft-white -z-10", {
+      <div className={clsx("absolute scale-x-0 group-hover:scale-x-100 transition-transform duration-600 ease-in-out top-0 left-0 w-full h-full bg-soft-white -z-1", {
         "origin-left": props.animation === "left",
         "origin-right": props.animation === "right"
       })} />

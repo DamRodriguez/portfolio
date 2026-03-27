@@ -23,7 +23,7 @@ const SectionSeparator = ({ className }: SectionSeparatorProps) => {
   return (
     <div ref={itemRef} className={className}>
       <MotionStretch>
-        <div className={clsx("project-item-separator h-[0.03125rem] w-full bg-soft-gray/30")} />
+        <div className={clsx("project-item-separator h-[0.03125rem] w-full bg-soft-gray/30 shadow-s3")} />
       </MotionStretch>
     </div>
   );

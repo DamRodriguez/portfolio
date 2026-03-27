@@ -92,7 +92,7 @@ const ProjectItem = (props: ProjectItemProps) => {
       <div className="flex flex-col justify-center gap-[2rem] xl:gap-[3rem] xl:w-[45%]">
         <div className="flex flex-col gap-[1.5rem] xl:gap-[2rem] ">
           <MotionSlide direction={(props.odd && !isMobile) ? "right" : "left"}>
-            <h6 className="project-item-title-gsap text-soft-white text-xl xl:text-2xl">
+            <h6 className="project-item-title-gsap text-soft-white text-xl xl:text-2xl font-semibold">
               {title}
             </h6>
           </MotionSlide>
@@ -103,7 +103,7 @@ const ProjectItem = (props: ProjectItemProps) => {
           >
             {technologies.map((tech, index) => (
               <div key={index} className="project-technologies-gsap">
-                <ItemHover small cursorNormal className="!border-soft-gray/30">
+                <ItemHover small cursorNormal className="!border-soft-gray/30 shadow-s1">
                   {tech}
                 </ItemHover>
               </div>
