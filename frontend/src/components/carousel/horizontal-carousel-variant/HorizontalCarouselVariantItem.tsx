@@ -17,7 +17,7 @@ type HorizontalCarouselVariantItemProps = {
 const HorizontalCarouselVariantItem = ({ data }: HorizontalCarouselVariantItemProps) => {
   const t = useTranslations("headSection.horizontalCarousel")
   return (
-    <div className="relative overflow-hidden shadow-s6 rounded-3xl">
+    <div className="relative overflow-hidden shadow-s1 rounded-3xl">
       <div className="group overflow-hidden h-[17rem] xl:h-[20rem] rounded-3xl">
         <Image
           src={data.image}
