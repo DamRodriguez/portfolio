@@ -17,20 +17,21 @@ const NavDesk = () => {
             const isActive = activeSection === item.label;
 
             return (
-              <li key={index} className={clsx("flex flex-col group relative hover:text-soft-white transition-all duration-600", {
-                "text-soft-white": isActive,
+              <li key={index} className={clsx("flex items-center justify-center flex-col group relative hover:text-strong-black transition-all duration-600", {
+                "text-strong-black": isActive,
                 "text-medium-gray": !isActive
               })}>
                 <Link
                   href={item.href}
                   onClick={() => { }}
-                  className="cursor-pointer"
+                  className="cursor-pointer py-[0.4rem] px-[0.8rem]"
                 >
                   {t(item.label)}
                 </Link>
-                <span className={clsx("block top-[0.2rem] relative h-[0.05rem] bg-soft-gray w-full scale-x-0 origin-center transition-transform duration-600 group-hover:scale-x-100 ease-in-out rounded-full ", {
+                <div className={clsx("absolute -z-10 w-full h-full shadow-s2 bg-soft-white/95 transition-transform duration-600 scale-x-0 group-hover:scale-x-100 origin-center ease-in-out rotate-5", {
                   "scale-x-100": isActive,
-                })} />
+                })}
+                />
               </li>
             );
           })}
@@ -41,3 +42,9 @@ const NavDesk = () => {
 };
 
 export default NavDesk;
+
+{/*
+<span className={clsx("block top-[0.2rem] relative h-[0.05rem] bg-soft-gray w-full scale-x-0 origin-center transition-transform duration-600 group-hover:scale-x-100 ease-in-out rounded-full ", {
+                  "scale-x-100": isActive,
+                })} />  
+*/}

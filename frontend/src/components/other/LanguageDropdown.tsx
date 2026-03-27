@@ -44,10 +44,10 @@ const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
         onMouseLeave: () => { setIsOpen(false); },
       })}
       ref={dropdownRef}
-      className="inline-block max-h-[2rem] w-[4.5rem] xl:w-[5.7rem] z-40">
+      className="inline-block max-h-[2rem] w-[4.5rem] xl:w-[5.7rem] z-999">
       <div className={clsx("py-[0.4rem] px-[0.3rem] xl:px-[0.5rem] rounded-[0.5rem] overflow-hidden transition-all duration-400 ease-in-out",
         {
-          "bg-dark-gray/90": isOpen,
+          "bg-dark-gray/70": isOpen,
           "bg-soft-gray/10": !isOpen,
         }
       )}>

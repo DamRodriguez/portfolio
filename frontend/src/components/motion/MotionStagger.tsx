@@ -1,24 +1,26 @@
 "use client";
+import { DEFAULT_MOTION, MotionDefaults } from "@/config/motion";
 import { motion, type Variants } from "framer-motion";
 import React from "react";
 
-type MotionStaggerProps = {
-  children: React.ReactNode;
+type MotionStaggerProps = MotionDefaults & {
   direction?: "left" | "right" | "up" | "down";
-  duration?: number;
   stagger?: number;
-  className?: string;
-  order?: number;
 };
 
 const MotionStagger = ({
-  children,
   direction = "down",
-  duration = 0.4,
   stagger = 0.2,
-  order = 0,
-  className,
+  ...props
 }: MotionStaggerProps) => {
+  const {
+    duration,
+    order,
+    viewAmount,
+    children,
+    className,
+    onClick
+  } = { ...DEFAULT_MOTION, ...props };
 
   const containerVariants: Variants = {
     hidden: {},
@@ -54,8 +56,9 @@ const MotionStagger = ({
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: true, amount: viewAmount }}
       className={className}
+      onClick={onClick}
     >
       {React.Children.map(children, (child, i) => (
         <motion.div key={i} variants={childVariants}>

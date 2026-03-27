@@ -1,4 +1,3 @@
-"use client";
 import clsx from "clsx";
 
 type MainProps = {
@@ -8,9 +7,12 @@ type MainProps = {
 
 const Main = ({ children, className }: MainProps) => {
   return (
-    <main className={clsx("min-h-dvh overflow-hidden flex flex-col py-[1.5rem] md:py-[2rem] xl:py-[3rem]", className)}>
-      {children}
-    </main>
+    <>
+      <main className={clsx("min-h-dvh overflow-hidden flex flex-col py-[1.5rem] md:py-[2rem] xl:py-[3rem]", className)}>
+        {children}
+      </main>
+
+    </>
   );
 };
 

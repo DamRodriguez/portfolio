@@ -44,7 +44,7 @@ export function useScrollAnimations({
 }: UseScrollAnimationsProps) {
 
   const isDeskXl = useBreakpoint(Number(config.breakpoints.xl))
-  const topDistance = isDeskXl ? "10%" : "20%"
+  const topDistance = isDeskXl ? "8%" : "20%"
 
   const BASE_SCROLL_TRIGGER: ScrollTrigger.Vars = {
     start: `top ${topDistance}`,

@@ -1,27 +1,28 @@
 "use client";
+import { DEFAULT_MOTION, MotionDefaults } from "@/config/motion";
 import { motion } from "framer-motion";
 
-type MotionStretchProps = {
-  duration?: number;
-  children: React.ReactNode;
-  viewAmount?: number;
-  className?: string;
-};
+type MotionStretchProps = MotionDefaults;
 
-const MotionStretch = ({
-  duration = 0.6,
-  viewAmount = 0.3,
-  children,
-  className,
-}: MotionStretchProps) => {
+const MotionStretch = (props: MotionStretchProps) => {
+  const {
+    duration,
+    order,
+    viewAmount,
+    children,
+    className,
+    onClick
+  } = { ...DEFAULT_MOTION, ...props };
+
   return (
     <motion.div
       initial={{ scaleX: 0, opacity: 0 }}
       whileInView={{ scaleX: 1, opacity: 1 }}
       viewport={{ once: true, amount: viewAmount }}
-      transition={{ duration, ease: "easeInOut" }}
+      transition={{ duration, delay: order * 0.4, ease: "easeInOut" }}
       style={{ transformOrigin: "center" }}
       className={className}
+      onClick={onClick}
     >
       {children}
     </motion.div>

@@ -1,25 +1,28 @@
 "use client";
+import { DEFAULT_MOTION, MotionDefaults } from "@/config/motion";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import type { JSX, ReactNode } from "react";
 
-type MotionScaleProps = {
-  children?: ReactNode;
-  scaleDuration?: number;
+type MotionScaleProps = MotionDefaults & {
   initialScale?: number;
   finalScale?: number;
   withOpacity?: boolean;
-  className?: string;
 };
 
 export const MotionScale = ({
-  children,
-  scaleDuration = 0.3,
   initialScale = 0.9,
   finalScale = 1,
   withOpacity = false,
-  className,
-}: MotionScaleProps): JSX.Element => {
+  ...props
+}: MotionScaleProps) => {
+  const {
+    duration,
+    order,
+    viewAmount,
+    children,
+    className,
+    onClick
+  } = { ...DEFAULT_MOTION, ...props };
   const pathname = usePathname();
 
   return (
@@ -28,8 +31,10 @@ export const MotionScale = ({
       initial={{ scale: initialScale, opacity: withOpacity ? 0 : 1 }}
       animate={{ scale: finalScale, opacity: withOpacity ? 1 : 1 }}
       exit={{ scale: initialScale, opacity: withOpacity ? 0 : 1 }}
-      transition={{ duration: scaleDuration, ease: "easeInOut" }}
+      viewport={{ once: true, amount: viewAmount }}
+      transition={{ duration, delay: order * 0.4, ease: "easeInOut" }}
       className={className}
+      onClick={onClick}
     >
       {children}
     </motion.div>

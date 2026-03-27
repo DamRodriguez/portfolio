@@ -61,6 +61,7 @@ const TechnologiesSection = () => {
         <MotionSlide direction="right">
           <TechnologyItem
             data={frontTechnologyData}
+            animation="left"
           />
         </MotionSlide>
       </div>
@@ -69,6 +70,7 @@ const TechnologiesSection = () => {
           <MotionSlide>
             <TechnologyItem
               data={stylesTechnologyData}
+              animation="right"
             />
           </MotionSlide>
         </div>
@@ -90,6 +92,7 @@ const TechnologiesSection = () => {
           <MotionSlide direction="right">
             <TechnologyItem
               data={backendTechnologyData}
+              animation="left"
             />
           </MotionSlide>
         </div>
@@ -98,6 +101,7 @@ const TechnologiesSection = () => {
         <MotionSlide>
           <TechnologyItem
             data={toolsData}
+            animation="right"
           />
         </MotionSlide>
       </div>

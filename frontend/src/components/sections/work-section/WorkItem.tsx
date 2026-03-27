@@ -48,7 +48,7 @@ const WorkItem = (props: WorkItemProps) => {
     <div ref={itemRef}>
       <div className="work-item-gsap">
         <SpaceX className=" grid grid-cols-[0.5fr_1fr] xl:grid-cols-[0.5fr_1fr_1fr] items-center group hover:bg-soft-white transition-all duration-400 ease-in-out py-[1rem] xl:py-[1.5rem] gap-[1rem] xl:gap-[2rem]">
-          <div className="text-soft-gray group-hover:text-black transition-all duration-400 ease-in-out">
+          <div className="text-soft-gray group-hover:text-black transition-all duration-600 ease-in-out">
             <div className="text-sm xl:text-xl">
               <span>{initialYear}</span>
               <span>{" - "}</span>

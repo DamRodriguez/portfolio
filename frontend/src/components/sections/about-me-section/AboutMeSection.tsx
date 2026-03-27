@@ -48,7 +48,7 @@ const AboutMeSection = () => {
           </h3>
         </MotionSlide>
         <MotionFade>
-          <p className="description-gsap text-soft-gray text-base lg:text-xl whitespace-pre-line bg-black">
+          <p className="description-gsap text-soft-gray text-base lg:text-xl whitespace-pre-line">
             {t.rich("header.description", {
               strong: (chunks) => <span className="text-soft-white">{chunks}</span>,
             })}
@@ -82,7 +82,7 @@ const AboutMeSection = () => {
         </MotionSlide>
         <CertificationSection />
       </div>
-    </SpaceX >
+    </SpaceX>
   );
 };
 
