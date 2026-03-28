@@ -9,7 +9,7 @@
   },
   "headSection": {
     "title": {
-        "first": "Front-end",
+        "first": "Frontend",
         "second": "Developer"
       },
     "personalDescription" : "Mi objetivo es desarrollar <strong>interfaces atractivas</strong> utilizando <strong>tecnologías modernas</strong>, manteniendo un <strong>código limpio</strong>, <strong>eficiente</strong> y <strong>escalable</strong>.",
@@ -45,11 +45,11 @@
   "aboutMeSection": {
     "header": {
       "sectionName": "../Sobre mí",
-      "description": "Hola! Soy Damián, actualmente <strong>desarrollador front-end</strong>.\nMás de <strong>2 años</strong> de experiencia."
+      "description": "Hola! Soy Damián, actualmente <strong>Desarrollador Frontend</strong>.\nMás de <strong>2 años</strong> de experiencia."
     },
     "technologies": {
       "frontend": {
-        "title": "Front-end", 
+        "title": "Frontend", 
         "items": "TypeScript, React, Next.js, React Native, Expo, Redux Toolkit"
       },
       "styles": {
@@ -57,7 +57,7 @@
         "items": "CSS, Tailwind"
       },
       "backend": {
-        "title": "Back-end", 
+        "title": "Backend", 
         "items": "Python, C, MySQL"
       },
       "tools": {
@@ -90,7 +90,7 @@
     "workData": {
       "webSpace": {
         "employer": "Web Space",
-        "position": "Front-end Developer | React & React Native"
+        "position": "Frontend Developer | React & React Native"
       },
       "telecentro": {
         "employer": "Telecentro",
@@ -168,7 +168,7 @@
         "api": "Ha ocurrido un error, intente nuevamente"
       }
     },
-    "position": "Front-end\ndeveloper",
+    "position": "Frontend\nDeveloper",
     "toast": {
       "messages": {
         "contactFormSuccess": "Mensaje enviado con éxito!",
