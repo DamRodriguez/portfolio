@@ -12,12 +12,14 @@ type Props = {
   children: ReactNode;
   order?: number;
   ease?: gsap.EaseString;
+  ariaLabel?: string;
 };
 
 export default function SplitTextWrapper({
   children,
   order = 0,
-  ease = "bounce.out"
+  ease = "bounce.out",
+  ariaLabel
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const isMobile = useBreakpoint();
@@ -27,7 +29,10 @@ export default function SplitTextWrapper({
       const el = containerRef.current;
       if (!el) return;
 
-      const split = SplitText.create(el, {
+      const target = el.querySelector('[data-split-target]');
+      if (!target) return;
+
+      const split = SplitText.create(target, {
         type: "chars",
       });
 
@@ -61,7 +66,12 @@ export default function SplitTextWrapper({
 
   return (
     <div ref={containerRef} className="opacity-0">
-      {children}
+      <span className="sr-only">
+        {ariaLabel || (typeof children === "string" ? children : "")}
+      </span>
+      <div aria-hidden="true" data-split-target>
+        {children}
+      </div>
     </div>
   );
 }
