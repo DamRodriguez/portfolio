@@ -45,9 +45,9 @@ const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
       })}
       ref={dropdownRef}
       className="inline-block max-h-[2rem] w-[4.5rem] xl:w-[5.7rem] z-999">
-      <div className={clsx("py-[0.4rem] px-[0.3rem] xl:px-[0.5rem] rounded-[0.5rem] overflow-hidden transition-all duration-400 ease-in-out",
+      <div className={clsx("py-[0.4rem] px-[0.3rem] xl:px-[0.5rem] rounded-[0.5rem] overflow-hidden transition-all duration-400 ease-in-out backdrop-blur-xs",
         {
-          "bg-dark-gray/70": isOpen,
+          "bg-dark-gray/60 shadow-s1": isOpen,
           "bg-soft-gray/10": !isOpen,
         }
       )}>
@@ -68,7 +68,7 @@ const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
 
         <AnimatePresence>
           {isOpen && (
-            <MotionHeight>
+            <MotionHeight duration={0.3}>
               <div className="flex flex-col gap-[0.6rem] pt-[0.6rem]">
                 {othersLanguages.map(({ lang, flag }) => (
                   <div
