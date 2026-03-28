@@ -43,9 +43,9 @@ const AboutMeSection = () => {
     >
       <div className="flex md:flex-row md:justify-between xl:w-[80%] flex-col gap-[2rem]">
         <MotionSlide>
-          <h3 className="section-name-gsap text-soft-white text-xl xl:text-2xl font-fira-code">
+          <h2 className="section-name-gsap text-soft-white text-2xl xl:text-3xl font-fira-code">
             {t("header.sectionName")}
-          </h3>
+          </h2>
         </MotionSlide>
         <MotionFade>
           <p className="description-gsap text-soft-gray text-base lg:text-xl whitespace-pre-line">
@@ -75,14 +75,7 @@ const AboutMeSection = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-[1.5rem] xl:gap-[2rem]">
-        <MotionSlide>
-          <h5 className="certificacion-title-gsap text-soft-white text-xl xl:text-2xl font-fira-code">
-            {t("certificationSection.title")}
-          </h5>
-        </MotionSlide>
-        <CertificationSection />
-      </div>
+      <CertificationSection />
     </SpaceX>
   );
 };

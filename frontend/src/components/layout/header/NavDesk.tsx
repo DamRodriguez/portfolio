@@ -45,9 +45,3 @@ const NavDesk = () => {
 };
 
 export default NavDesk;
-
-{/*
-<span className={clsx("block top-[0.2rem] relative h-[0.05rem] bg-soft-gray w-full scale-x-0 origin-center transition-transform duration-600 group-hover:scale-x-100 ease-in-out rounded-full ", {
-                  "scale-x-100": isActive,
-                })} />  
-*/}

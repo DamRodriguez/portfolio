@@ -10,6 +10,7 @@ const GithubButton = () => {
       href={config.urls.github}
       target="_blank"
       className="flex group cursor-pointer"
+      aria-label="Ver perfil de GitHub"
     >
       <div className="[&_svg]:fill-soft-white border rounded-full border-soft-gray/80 w-[3rem] h-[3rem] xl:w-[3.5rem] xl:h-[3.5rem] flex justify-center items-center group-hover:bg-soft-white group-hover:border-soft-white group-hover:[&_svg]:fill-black transition-all duration-400 ease-in-out shadow-s1">
         <GithubIcon className="w-[1.2rem] h-[1.2rem]" />

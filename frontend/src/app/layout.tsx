@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Portfolio - Damian Rodriguez",
     description: "Portfolio personal de Damian Rodriguez",
-    url: process.env.NEXT_PUBLIC_BASE_PATH,
+    url: "https://damrod.dev",
     siteName: "Damian Rodriguez Portfolio",
     images: [
       {

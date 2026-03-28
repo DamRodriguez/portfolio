@@ -21,6 +21,7 @@ const RightSection = (props: RightSectionProps) => {
           <button
             onClick={() => { props.setIsMobileNavVisible(false); }}
             className="cursor-pointer"
+            aria-label="Cerrar menú de navegación"
           >
             <CloseIcon className="fill-[#fff]" />
           </button>
@@ -28,6 +29,7 @@ const RightSection = (props: RightSectionProps) => {
           <button
             onClick={() => { props.setIsMobileNavVisible(true); }}
             className="cursor-pointer"
+            aria-label="Abrir menú de navegación"
           >
             <HamburgerIcon />
           </button>

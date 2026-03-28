@@ -89,6 +89,7 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
           <button
             onClick={onPrevButtonClick}
             disabled={prevBtnDisabled}
+            aria-label="Flecha de navegación hacia la izquierda"
             className="pointer-events-auto backdrop-blur-[0.1rem] cursor-pointer hover:scale-110 transition-all duration-400 rotate-180 border border-soft-gray rounded-full w-15 h-15 xl:w-20 xl:h-20 flex items-center justify-center hover:[&_svg]:fill-[#000] hover:bg-soft-white shadow-s4"
           >
             <ArrowIcon className={arrowSvgClassName} />
@@ -98,6 +99,7 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
           <button
             onClick={onNextButtonClick}
             disabled={nextBtnDisabled}
+            aria-label="Flecha de navegación hacia la derecha"
             className="pointer-events-auto backdrop-blur-[0.1rem] cursor-pointer hover:scale-110 transition-all duration-300 border border-soft-gray rounded-full w-15 h-15 xl:w-20 xl:h-20 flex items-center justify-center hover:[&_svg]:fill-[#000] hover:bg-soft-white shadow-s4"
           >
             <ArrowIcon className={arrowSvgClassName} />
@@ -105,7 +107,7 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
         </div>
       </div>
 
-      <div className="absolute -bottom-7 md:-bottom-8 left-1/2 -translate-x-1/2 flex gap-2 xl:hidden">
+      <div className="absolute -bottom-7 md:-bottom-8 left-1/2 -translate-x-1/2 flex gap-3 md:gap-4 xl:hidden">
         {items.map((_, index) => (
           <DotButton
             key={index}

@@ -20,9 +20,9 @@ const ContactSection = () => {
         <NameSection />
         <div className="w-full flex flex-col gap-[2rem] xl:gap-[3rem]">
           <MotionFade>
-            <h3 className="text-soft-white text-xl xl:text-2xl font-fira-code">
+            <h2 className="text-soft-white text-2xl xl:text-3xl font-fira-code">
               {t("title")}
-            </h3>
+            </h2>
           </MotionFade>
           <ContactForm />
         </div>

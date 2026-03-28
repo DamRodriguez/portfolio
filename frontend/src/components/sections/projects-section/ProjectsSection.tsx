@@ -113,9 +113,9 @@ const ProjectsSection = () => {
     >
       <MotionSlide className="xl:flex xl:gap-[5rem]">
         <div className="xl:w-[45%]" />
-        <h3 className="project-title-gsap text-soft-white text-xl xl:text-2xl font-fira-code xl:w-full">
+        <h2 className="project-title-gsap text-soft-white text-2xl xl:text-3xl font-fira-code xl:w-full">
           {t("title")}
-        </h3>
+        </h2>
       </MotionSlide>
 
       <div className="flex flex-col gap-[4rem] xl:gap-[6rem]">
