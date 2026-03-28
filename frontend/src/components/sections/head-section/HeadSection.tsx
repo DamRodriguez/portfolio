@@ -19,14 +19,10 @@ const HeadSection = () => {
       ".first-title-gsap": {
         x: -150,
         rotate: -5,
-        fontWeight: 500,
-        opacity: 0.6,
       },
       ".second-title-gsap": {
         x: 150,
         rotate: 5,
-        fontWeight: 500,
-        opacity: 0.6,
       },
       ".text-gsap": {
         scale: 0.85,
