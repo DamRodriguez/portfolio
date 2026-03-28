@@ -1,9 +1,7 @@
 import { AnimatePresence, motion, type Transition } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import clsx from "clsx";
 import { CloseIcon } from "@/components/icons/header";
-import useScreen from "@/hooks/useScreen";
-import config from "@/config/config";
 
 type DrawerProps = {
   children: React.ReactNode;
@@ -33,47 +31,34 @@ const Drawer = ({
   disableOutsideOnClose,
 }: DrawerProps) => {
   const drawerPosition = {
-    left: {
-      initial: { x: "-100%" },
-      animate: { x: 0 },
-      exit: { x: "-100%" },
-      className: "top-0 bottom-0 left-0",
-    },
-    right: {
-      initial: { x: "100%" },
-      animate: { x: 0 },
-      exit: { x: "100%" },
-      className: "top-0 bottom-0 right-0",
-    },
-    top: {
-      initial: { y: "-100%" },
-      animate: { y: 0 },
-      exit: { y: "-100%" },
-      className: "left-0 right-0 top-0",
-    },
-    bottom: {
-      initial: { y: "100%" },
-      animate: { y: 0 },
-      exit: { y: "100%" },
-      className: "left-0 right-0 bottom-0",
-    },
+    left: { initial: { x: "-100%" }, animate: { x: 0 }, exit: { x: "-100%" }, className: "top-0 bottom-0 left-0" },
+    right: { initial: { x: "100%" }, animate: { x: 0 }, exit: { x: "100%" }, className: "top-0 bottom-0 right-0" },
+    top: { initial: { y: "-100%" }, animate: { y: 0 }, exit: { y: "-100%" }, className: "left-0 right-0 top-0" },
+    bottom: { initial: { y: "100%" }, animate: { y: 0 }, exit: { y: "100%" }, className: "left-0 right-0 bottom-0" },
   };
-  const { screenWidth } = useScreen();
-  const isXlDown = screenWidth < config.breakpoints.xl;
+
+  const lockScroll = useCallback(() => {
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = `${String(scrollbarWidth)}px`;
+  }, []);
+
+  const unlockScroll = useCallback(() => {
+    document.body.style.overflow = "";
+    document.body.style.paddingRight = "";
+  }, []);
 
   useEffect(() => {
     if (visible) {
-      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-      document.body.style.overflow = "hidden";
-      document.body.style.paddingRight = `${String(scrollbarWidth)}px`;
-    } else {
-      document.body.style.overflow = "auto";
-      document.body.style.paddingRight = "0px";
+      lockScroll();
     }
-  }, [visible, isXlDown]);
+  }, [visible, lockScroll]);
 
   return (
-    <AnimatePresence>
+    <AnimatePresence
+      mode="wait"
+      onExitComplete={unlockScroll}
+    >
       {visible && (
         <>
           <motion.div
@@ -81,8 +66,10 @@ const Drawer = ({
             animate={drawerPosition[position].animate}
             exit={drawerPosition[position].exit}
             transition={transition}
+            style={{ willChange: "transform" }}
             className={clsx(
-              "fixed top-0 z-999 w-full h-screen overflow-hidden shadow-s4",
+              "fixed top-0 z-999 w-full h-screen overflow-hidden shadow-s1",
+              "backface-visibility-hidden",
               className,
               drawerPosition[position].className,
             )}
@@ -97,18 +84,20 @@ const Drawer = ({
             )}
             {children}
           </motion.div>
+
           {!disableOutsideOnClose && (
             <div
               onClick={onClose}
-              className="fixed top-0 left-0 w-full h-full z-900"
+              className="fixed top-0 left-0 w-full h-full inset-0 z-900"
             />
           )}
-          {(!hideOverlay && visible) && (
+
+          {!hideOverlay && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.9 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
+              transition={{ duration: 0.3 }}
               className={clsx("fixed top-0 left-0 right-0 w-screen h-screen bg-black", overlayClassName)}
             />
           )}
