@@ -4,7 +4,11 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const isGithub = process.env.GITHUB_ACTIONS === "true";
 
 const nextConfig: NextConfig = {
-  output: "export",
+  output: isGithub ? "export" : undefined,
+  images: {
+    unoptimized: isGithub,
+    formats: ['image/avif', 'image/webp'],
+  },
   basePath: isGithub ? "/portfolio" : "",
   assetPrefix: isGithub ? "/portfolio/" : "",
   trailingSlash: true,
