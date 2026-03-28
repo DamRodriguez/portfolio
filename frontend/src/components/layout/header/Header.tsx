@@ -22,12 +22,10 @@ const Header = ({ locale }: HeaderProps) => {
   useCloseMobileNavOnDesktop({ setIsMobileNavVisible });
 
   return (
-    <header className={clsx("sticky z-9999 transition-all duration-600 ease-in-out", {
-      "top-0": !hasScrolled,
-      "top-6": hasScrolled,
-    })}>
-      <SpaceX className={clsx("sticky min-h-[5rem] xl:min-h-[7rem] bg-black/98 flex items-center justify-between z-999999 transition-all duration-400 ease-in-out", {
-        "m-6 shadow-s1 rounded-full": hasScrolled,
+    <header className="sticky top-0 z-9999">
+      <SpaceX className={clsx("sticky z-9999 min-h-[5rem] xl:min-h-[7rem] bg-black/98 flex items-center justify-between transition-all duration-600 ease-in-out", {
+        "translate-y-6 mx-6 shadow-s1 rounded-full": hasScrolled,
+        "translate-y-0": !hasScrolled,
       })}>
         <ShineBorderCustom isVisible={hasScrolled} />
         <LeftItem
@@ -47,8 +45,8 @@ const Header = ({ locale }: HeaderProps) => {
         position="top"
         closeButton={null}
         className={clsx("pb-[7rem] bg-black/90 xl:hidden", {
-          "mt-[7.5rem] md:mt-[8rem] shadow-s1 border border-soft-gray/15 rounded-t-[5rem]": hasScrolled,
-          "mt-[5rem]": !hasScrolled
+          "translate-y-[7.5rem] md:translate-y-[8rem] border border-soft-gray/15 rounded-t-[5rem]": hasScrolled,
+          "translate-y-[5rem]": !hasScrolled
         })}>
         <NavMobile onClose={() => { setIsMobileNavVisible(false); }} />
       </Drawer>
