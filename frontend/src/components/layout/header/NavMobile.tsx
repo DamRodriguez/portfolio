@@ -16,7 +16,7 @@ const NavMobile = ({ onClose }: NavMobileProps) => {
     <MotionFade className="h-full">
       <div className="pt-[1.5rem] px-[5rem] lg:px-[15rem] pb-[8rem] justify-between flex flex-col h-full">
         <nav>
-          <ul className="flex flex-col items-center text-center text-base gap-[1rem] leading-[1.5rem] font-semibold">
+          <ul className="flex flex-col items-center text-center text-base gap-[1rem] font-semibold">
             {routeItems.map(({ href, label }) => (
               <li key={href} className="w-full group">
                 <Link
@@ -25,7 +25,7 @@ const NavMobile = ({ onClose }: NavMobileProps) => {
                   className="cursor-pointer text-soft-white">
                   {t(label)}
                 </Link>
-                <div className="h-[0.05rem] bg-soft-gray my-[0.5rem] group-hover:bg-soft-white transition-all duration-400 ease-in-out group-hover:w-[50%] mx-auto w-full shadow-s4" />
+                <div className="h-[0.05rem] bg-soft-gray my-[0.5rem] group-hover:bg-soft-white transition-all duration-400 ease-in-out group-hover:w-[50%] mx-auto w-full" />
               </li>
             ))}
           </ul>

@@ -68,7 +68,7 @@ const Drawer = ({
             transition={transition}
             style={{ willChange: "transform" }}
             className={clsx(
-              "fixed top-0 z-999 w-full h-screen overflow-hidden shadow-s1",
+              "fixed top-0 z-999 w-full h-screen overflow-hidden",
               "backface-visibility-hidden",
               className,
               drawerPosition[position].className,

@@ -44,7 +44,7 @@ const Header = ({ locale }: HeaderProps) => {
         onClose={() => { setIsMobileNavVisible(false); }}
         position="top"
         closeButton={null}
-        className={clsx("pb-[7rem] bg-black/90 xl:hidden", {
+        className={clsx("pb-[7rem] bg-black/90 xl:hidden shadow-s1", {
           "translate-y-[7.5rem] md:translate-y-[8rem] border border-soft-gray/15 rounded-t-[5rem]": hasScrolled,
           "translate-y-[5rem]": !hasScrolled
         })}>
