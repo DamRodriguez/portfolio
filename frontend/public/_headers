@@ -1,0 +1,14 @@
+# Cache para archivos estáticos de Next.js (JS y CSS procesados)
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache para tus imágenes y assets en la carpeta public
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Si tienes archivos específicos como el favicon o logos sueltos
+/favicon.ico
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400

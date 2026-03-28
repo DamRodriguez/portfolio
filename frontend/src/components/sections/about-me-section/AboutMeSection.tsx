@@ -63,6 +63,7 @@ const AboutMeSection = () => {
           <MotionSlide viewAmount={0.2} direction="down" className=" relative overflow-hidden">
             <Image
               src={personalImage}
+              priority={true}
               alt="Personal image"
               className="object-cover w-fit h-120 md:h-150 xl:h-full hover:scale-110 transition-all duration-400 ease-in-out"
             />

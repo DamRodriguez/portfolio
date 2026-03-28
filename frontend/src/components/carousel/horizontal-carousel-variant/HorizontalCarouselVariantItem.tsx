@@ -18,10 +18,13 @@ const HorizontalCarouselVariantItem = ({ data }: HorizontalCarouselVariantItemPr
   const t = useTranslations("headSection.horizontalCarousel")
   return (
     <div className="relative overflow-hidden shadow-s1 rounded-3xl">
-      <div className="group overflow-hidden h-[17rem] xl:h-[20rem] rounded-3xl">
+      <div className="relative group overflow-hidden h-[17rem] xl:h-[20rem] rounded-3xl">
         <Image
           src={data.image}
           alt={data.title}
+          priority={true}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          fill
           className="h-full w-full rounded-3xl group-hover:scale-110 transition-all duration-400 ease-in-out object-cover"
         />
       </div>
