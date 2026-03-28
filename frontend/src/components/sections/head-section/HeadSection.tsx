@@ -9,19 +9,21 @@ import { routes } from "@/constants/routes";
 import SplitTextWrapper from "@/components/gsap/SplitTextWrapper";
 import MotionSlide from "@/components/motion/MotionSlide";
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";
+import useBreakpoint from "@/hooks/useBreakpoint";
 
 const HeadSection = () => {
   const t = useTranslations();
   const projectsButtonText = t("headSection.projectsButton");
+  const isMobile = useBreakpoint();
 
   useScrollAnimations({
     animations: {
       ".first-title-gsap": {
-        x: -150,
+        x: isMobile ? -70 : -150,
         rotate: -5,
       },
       ".second-title-gsap": {
-        x: 150,
+        x: isMobile ? 70 : 150,
         rotate: 5,
       },
       ".text-gsap": {
