@@ -92,9 +92,9 @@ const ProjectItem = (props: ProjectItemProps) => {
       <div className="flex flex-col justify-center gap-[2rem] xl:gap-[3rem] xl:w-[45%]">
         <div className="flex flex-col gap-[1.5rem] xl:gap-[2rem] ">
           <MotionSlide direction={(props.odd && !isMobile) ? "right" : "left"}>
-            <h4 className="project-item-title-gsap text-soft-white text-xl xl:text-2xl font-semibold">
+            <h3 className="project-item-title-gsap text-soft-white text-xl xl:text-2xl font-semibold">
               {title}
-            </h4>
+            </h3>
           </MotionSlide>
 
           <MotionStagger
