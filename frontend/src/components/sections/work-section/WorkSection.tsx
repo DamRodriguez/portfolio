@@ -62,7 +62,7 @@ const WorkSection = () => {
             <MotionSlide
               key={index}
               direction="down"
-              className={clsx("border-t border-t-soft-gray/60 shadow-s3 bg-strong-black/50", {
+              className={clsx("border-t border-t-soft-gray/60 shadow-s3 bg-strong-black/40", {
                 "border-b border-b-soft-gray/60": isLast
               })}>
               <WorkItem data={{ ...item }} isPair={isPair} />
