@@ -14,7 +14,7 @@ const ContactSection = () => {
   return (
     <SpaceX
       id={removeHash(routes.contact)}
-      className="w-full flex flex-col gap-[5rem] xl:gap-[10rem] pb-[3rem] xl:pb-[5rem] "
+      className="w-full flex flex-col gap-[5rem] xl:gap-[10rem] pb-[3rem] xl:pb-[5rem]"
     >
       <div className="flex flex-col-reverse 2xl:flex-row gap-[5rem] 4xl:gap-[8rem]">
         <NameSection />

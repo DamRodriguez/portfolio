@@ -38,25 +38,30 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
+  background: var(--color-medium-gray);
+}
+
+.dark ::-webkit-scrollbar-track {
   background: #000;
 }
 
 ::-webkit-scrollbar-thumb {
+  background: var(--color-black);
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
   background: var(--color-soft-gray);
   border-radius: 3px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-soft-gray);
-}
-
 @media (max-width: 900px) {
   ::-webkit-scrollbar {
-    width: 5px;
+    width: 6px;
   }
 }
 
