@@ -10,14 +10,17 @@ import Image from "next/image";
 import personalImage from "@/assets/images/damian.jpg"
 import CertificationSection from "./certification/CertificationSection";
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";
+import FadeShadow from "@/components/other/FadeShadow";
+import { useTheme } from "next-themes";
 
 const AboutMeSection = () => {
   const t = useTranslations("aboutMeSection");
+  const { theme } = useTheme();
 
   useScrollAnimations({
     animations: {
       ".personal-image-gsap": {
-        scale: 0.75,
+        y: -50,
         x: 50,
         rotate: -5,
       },
@@ -28,7 +31,6 @@ const AboutMeSection = () => {
       ".description-gsap": {
         x: 100,
         y: -100,
-        color: "var(--color-black)"
       },
       ".certificacion-title-gsap": {
         x: -100,
@@ -43,14 +45,14 @@ const AboutMeSection = () => {
     >
       <div className="flex md:flex-row md:justify-between xl:w-[80%] flex-col gap-[2rem]">
         <MotionSlide>
-          <h2 className="section-name-gsap text-soft-white text-2xl xl:text-3xl font-fira-code">
+          <h2 className="section-name-gsap text-black dark:text-soft-white text-2xl xl:text-3xl font-fira-code">
             {t("header.sectionName")}
           </h2>
         </MotionSlide>
         <MotionFade>
-          <p className="description-gsap text-soft-gray text-base lg:text-xl whitespace-pre-line">
+          <p className="description-gsap text-dark-gray/85 dark:text-soft-gray theme-transition text-base lg:text-xl whitespace-pre-line">
             {t.rich("header.description", {
-              strong: (chunks) => <span className="text-soft-white">{chunks}</span>,
+              strong: (chunks) => <span className="text-strong-black dark:text-soft-white theme-transition font-medium">{chunks}</span>,
             })}
           </p>
         </MotionFade>
@@ -59,18 +61,22 @@ const AboutMeSection = () => {
       <div className="flex flex-col-reverse xl:flex-row items-center xl:justify-between gap-[2rem]">
         <TechnologiesSection />
 
-        <div className="personal-image-gsap overflow-hidden">
-          <MotionSlide viewAmount={0.2} direction="down" className=" relative overflow-hidden">
+        <div className="personal-image-gsap">
+          <MotionSlide viewAmount={0.2} direction="down" className=" relative overflow-hidden shadow-s1 dark:shadow-none rounded-full dark:rounded-none border border-soft-white/50 dark:border-none">
             <Image
               src={personalImage}
               priority={true}
               alt="Personal image"
-              className="object-cover w-fit h-120 md:h-150 xl:h-full hover:scale-110 transition-all duration-400 ease-in-out"
+              className="object-cover w-fit h-120 md:h-150 xl:h-full hover:scale-110 theme-transition-all"
             />
-            <div className="absolute inset-y-0 left-0 w-20 xl:w-50 bg-gradient-to-r from-black to-transparent pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-20 xl:w-30 bg-gradient-to-l from-black to-transparent pointer-events-none" />
-            <div className="absolute inset-x-0 bottom-0 h-30 xl:h-60 bg-gradient-to-t from-black to-transparent pointer-events-none" />
-            <div className="absolute inset-x-0 top-0 h-25 xl:h-45 bg-gradient-to-b from-black to-transparent pointer-events-none" />
+            {theme === "dark" && (
+              <>
+                <FadeShadow direction="left" sizeClasses="w-20 xl:w-30" />
+                <FadeShadow direction="right" sizeClasses="w-20 xl:w-20" />
+                <FadeShadow direction="bottom" sizeClasses="h-30 xl:h-60" />
+                <FadeShadow direction="top" sizeClasses="h-25 xl:h-45" />
+              </>
+            )}
           </MotionSlide>
         </div>
       </div>

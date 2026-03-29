@@ -18,7 +18,7 @@ const ProjectImage = (props: ProjectImageProps) => {
     <>
       <div
         onClick={() => { if (!props.disablePopUp) setSelectedImage(props.image.src) }}
-        className={clsx("project-image-gsap overflow-hidden rounded-[0.5rem] xl:rounded-2xl shadow-s1 border border-soft-gray/15",
+        className={clsx("project-image-gsap overflow-hidden rounded-[0.5rem] xl:rounded-2xl shadow-s1 border border-black/15 dark:border-soft-gray/15",
           props.className,
           {
             "cursor-pointer": !props.disablePopUp,
@@ -28,7 +28,7 @@ const ProjectImage = (props: ProjectImageProps) => {
         <Image
           src={props.image}
           alt={props.alt}
-          className={clsx("object-cover object-top h-full w-full hover:scale-110 transition-all duration-400 ease-in-out")}
+          className={clsx("object-cover object-top h-full w-full hover:scale-110 theme-transition-all")}
         />
       </div>
       <ImagePopUp

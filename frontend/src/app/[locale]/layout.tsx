@@ -7,6 +7,9 @@ import clsx from "clsx";
 import ProgressBarProvider from "@/components/other/ProgressBarProvider";
 import { Open_Sans, Fira_Code } from "next/font/google";
 import { ToastContainer } from "react-toastify";
+import ThemeProvider from "@/components/layout/ThemeProvider";
+import ThemeTransitionBlocker from "@/components/other/ThemeTransitionBlocker";
+import ThemeScript from "@/components/other/ThemeScript";
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
@@ -39,16 +42,22 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} className="scroll-smooth">
-      <body className={clsx("antialiased min-h-svh flex flex-col bg-black", openSans.variable, firaCode.variable)}>
+    <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
+      <body className={clsx("antialiased min-h-svh flex flex-col", openSans.variable, firaCode.variable)}>
         <NextIntlClientProvider>
-          <ProgressBarProvider>
-            <div className="min-w-[20rem] max-w-[120rem] mx-auto w-full font-open-sans">
-              <Header locale={locale} />
-              <ToastContainer />
-              {children}
-            </div>
-          </ProgressBarProvider>
+          <ThemeProvider>
+            <ThemeTransitionBlocker />
+            <ProgressBarProvider>
+              <div className="min-w-[20rem] max-w-[120rem] mx-auto w-full font-open-sans theme-transition bg-white-bone dark:bg-black">
+                <Header locale={locale} />
+                <ToastContainer />
+                {children}
+              </div>
+            </ProgressBarProvider>
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>

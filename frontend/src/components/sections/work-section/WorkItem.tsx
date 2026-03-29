@@ -2,6 +2,7 @@
 import SpaceX from "@/components/layout/SpaceX";
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import { calculateTotalTime } from "@/utils/calculateTotalTime";
+import clsx from "clsx";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRef } from "react";
@@ -16,7 +17,8 @@ export type WorkItemData = {
 
 type WorkItemProps = {
   data: WorkItemData;
-  isPair: boolean;
+  isPair?: boolean;
+  isLast?: boolean;
 };
 
 const WorkItem = (props: WorkItemProps) => {
@@ -37,8 +39,7 @@ const WorkItem = (props: WorkItemProps) => {
     animations: {
       ".work-item-gsap": {
         scale: 1.05,
-        rotate: props.isPair ? 2 : -2,
-        backgroundColor: props.isPair ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.2)",
+        x: props.isPair ? 50 : -50,
       },
     },
     scope: itemRef
@@ -47,12 +48,20 @@ const WorkItem = (props: WorkItemProps) => {
   return (
     <div ref={itemRef}>
       <div className="work-item-gsap">
-        <SpaceX className=" grid grid-cols-[0.5fr_1fr] xl:grid-cols-[0.5fr_1fr_1fr] items-center group hover:bg-soft-white transition-all duration-400 ease-in-out py-[1rem] xl:py-[1.5rem] gap-[1rem] xl:gap-[2rem]">
-          <div className="text-soft-gray group-hover:text-black transition-all duration-600 ease-in-out">
+        <SpaceX className={clsx("grid grid-cols-[0.5fr_1fr] xl:grid-cols-[0.5fr_1fr_1fr] items-center group hover:bg-black dark:hover:bg-soft-white theme-transition py-[1rem] xl:py-[1.5rem] gap-[1rem] xl:gap-[2rem] border-t border-t-black/60 dark:border-t-soft-gray/60 bg-soft-white/40 dark:bg-strong-black/40", {
+          "border-b border-b-black/60 dark:border-b-soft-gray/60": props.isLast
+        })}>
+          <div className="text-dark-gray dark:text-medium-gray group-hover:text-soft-white dark:group-hover:text-black theme-transition">
             <div className="text-sm xl:text-xl">
-              <span>{initialYear}</span>
-              <span>{" - "}</span>
-              <span>{finalYear}</span>
+              {initialYear === finalYear ? (
+                <span className="font-medium">{initialYear}</span>
+              ) : (
+                <>
+                  <span className="font-medium">{initialYear}</span>
+                  <span className="font-medium">{" - "}</span>
+                  <span className="font-medium">{finalYear}</span>
+                </>
+              )}
             </div>
             <p className="text-xs xl:text-sm">
               {totalTime}
@@ -64,17 +73,17 @@ const WorkItem = (props: WorkItemProps) => {
               <Link
                 href={data.employerLink}
                 target="_blank"
-                className="text-soft-white text-base xl:text-xl group-hover:text-black transition-all duration-400 ease-in-out cursor-pointer w-fit hover:scale-110"
+                className="text-black dark:text-soft-white text-base xl:text-xl group-hover:text-soft-white dark:group-hover:text-black theme-transition-all cursor-pointer w-fit hover:scale-105 font-medium"
               >
                 {data.employer}
               </Link>
             ) : (
-              <div className="text-soft-white text-base xl:text-xl group-hover:text-black transition-all duration-400 ease-in-out">
+              <div className="text-black dark:text-soft-white text-base xl:text-xl group-hover:text-soft-white dark:group-hover:text-black theme-transition font-medium">
                 {data.employer}
               </div>
             )}
 
-            <div className="text-soft-white text-sm xl:text-xl font-fira-code group-hover:text-black transition-all duration-400 ease-in-out">
+            <div className="text-black dark:text-soft-white text-sm xl:text-xl font-fira-code group-hover:text-soft-white dark:group-hover:text-black theme-transition">
               {data.position}
             </div>
           </div>

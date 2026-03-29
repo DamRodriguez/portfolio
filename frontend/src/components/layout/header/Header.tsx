@@ -23,8 +23,8 @@ const Header = ({ locale }: HeaderProps) => {
 
   return (
     <header className="sticky top-0 z-9999">
-      <SpaceX className={clsx("sticky z-9999 min-h-[5rem] xl:min-h-[7rem] bg-black/98 flex items-center justify-between transition-all duration-600 ease-in-out", {
-        "translate-y-6 mx-6 shadow-s1 rounded-full": hasScrolled,
+      <SpaceX className={clsx("sticky z-9999 min-h-[5rem] xl:min-h-[7rem] bg-white-bone dark:bg-black flex items-center justify-between theme-transition-all", {
+        "translate-y-4 mx-4 xl:translate-y-6 xl:mx-6 shadow-s9 dark:shadow-s1 rounded-full": hasScrolled,
         "translate-y-0": !hasScrolled,
       })}>
         <ShineBorderCustom isVisible={hasScrolled} />
@@ -44,8 +44,8 @@ const Header = ({ locale }: HeaderProps) => {
         onClose={() => { setIsMobileNavVisible(false); }}
         position="top"
         closeButton={null}
-        className={clsx("pb-[7rem] bg-black/90 xl:hidden shadow-s1", {
-          "translate-y-[7.5rem] md:translate-y-[8rem] border border-soft-gray/15 rounded-t-[5rem]": hasScrolled,
+        className={clsx("pb-[7rem] bg-white-bone/90 dark:bg-black/90 xl:hidden shadow-s2 dark:shadow-s1 theme-transition", {
+          "translate-y-[7.5rem] md:translate-y-[8rem] border border-black/30 dark:border-soft-gray/15 rounded-t-[5rem]": hasScrolled,
           "translate-y-[5rem]": !hasScrolled
         })}>
         <NavMobile onClose={() => { setIsMobileNavVisible(false); }} />

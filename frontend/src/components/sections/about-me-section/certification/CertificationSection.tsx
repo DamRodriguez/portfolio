@@ -25,7 +25,7 @@ const CertificationSection = () => {
   return (
     <div className="flex flex-col gap-[1.5rem] xl:gap-[2rem]">
       <MotionSlide>
-        <h3 className="certificacion-title-gsap text-soft-white text-xl xl:text-2xl font-fira-code">
+        <h3 className="certificacion-title-gsap text-black dark:text-soft-white theme-transition text-xl xl:text-2xl font-fira-code">
           {t("title")}
         </h3>
       </MotionSlide>

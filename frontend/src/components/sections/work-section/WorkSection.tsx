@@ -5,7 +5,6 @@ import WorkItem, { WorkItemData } from "./WorkItem";
 import { removeHash } from "@/utils/removeHash";
 import { routes } from "@/constants/routes";
 import MotionSlide from "@/components/motion/MotionSlide";
-import clsx from "clsx";
 import config from "@/config/config";
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 
@@ -49,23 +48,21 @@ const WorkSection = () => {
     >
       <MotionSlide direction="right">
         <SpaceX>
-          <h2 className="title-gsap text-soft-white text-end font-fira-code font-semibold text-5md xl:text-8xl">
+          <h2 className="title-gsap text-black dark:text-soft-white theme-transition text-end font-fira-code font-semibold text-5md xl:text-8xl">
             {t("title")}
           </h2>
         </SpaceX>
       </MotionSlide>
-      <div>
+      <div className="shadow-s3 dark:shadow-s1">
         {workItems.map((item, index) => {
           const isLast = index === workItems.length - 1;
           const isPair = index % 2 === 0;
           return (
             <MotionSlide
               key={index}
-              direction="down"
-              className={clsx("border-t border-t-soft-gray/60 shadow-s3 bg-strong-black/40", {
-                "border-b border-b-soft-gray/60": isLast
-              })}>
-              <WorkItem data={{ ...item }} isPair={isPair} />
+              order={0.4 * index}
+            >
+              <WorkItem data={{ ...item }} isPair={isPair} isLast={isLast} />
             </MotionSlide>
           )
         })}

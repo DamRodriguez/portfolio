@@ -43,16 +43,16 @@ const CertificationItem = (props: CertificationItemProps) => {
     <>
       <div className="relative group certification-item-gsap md:w-[70%] xl:w-[60%]">
         <div
-          className={clsx(" group-hover:bg-soft-white/10 transition-all duration-400 ease-in-out flex items-center justify-between gap-[1rem] p-[1rem] rounded-[1rem] border border-soft-gray/15 shadow-s1", props.containerClassName)}
+          className={clsx("bg-soft-white/20 dark:bg-black group-hover:bg-black/5 dark:group-hover:bg-soft-white/10 theme-transition flex items-center justify-between gap-[1rem] p-[1rem] rounded-[1rem] border border-transparent dark:border-soft-gray/15 shadow-s3 dark:shadow-s1", props.containerClassName)}
         >
           <div>
-            <p className="text-soft-white text-sm xl:text-base">
+            <p className="text-black dark:text-soft-white theme-transition text-sm xl:text-base">
               {data.title}
             </p>
           </div>
 
           <div>
-            <p className="text-soft-white text-sm xl:text-base">
+            <p className="text-black dark:text-soft-white theme-transition text-sm xl:text-base">
               {data.place}
             </p>
           </div>

@@ -98,7 +98,7 @@ const Drawer = ({
               animate={{ opacity: 0.9 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className={clsx("fixed top-0 left-0 right-0 w-screen h-screen bg-black", overlayClassName)}
+              className={clsx("fixed top-0 left-0 right-0 w-screen h-screen bg-black/90 dark:bg-black theme-transition-all", overlayClassName)}
             />
           )}
         </>

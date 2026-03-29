@@ -66,7 +66,6 @@ const ProjectItem = (props: ProjectItemProps) => {
         stagger: 0.1
       },
       ".project-text-gsap": {
-        color: "var(--color-black)",
         scale: 0.95,
         x: 15
       },
@@ -92,7 +91,7 @@ const ProjectItem = (props: ProjectItemProps) => {
       <div className="flex flex-col justify-center gap-[2rem] xl:gap-[3rem] xl:w-[45%]">
         <div className="flex flex-col gap-[1.5rem] xl:gap-[2rem] ">
           <MotionSlide direction={(props.odd && !isMobile) ? "right" : "left"}>
-            <h3 className="project-item-title-gsap text-soft-white text-xl xl:text-2xl font-semibold">
+            <h3 className="project-item-title-gsap text-black dark:text-soft-white theme-transition text-xl xl:text-2xl font-semibold">
               {title}
             </h3>
           </MotionSlide>
@@ -103,7 +102,7 @@ const ProjectItem = (props: ProjectItemProps) => {
           >
             {technologies.map((tech, index) => (
               <div key={index} className="project-technologies-gsap">
-                <ItemHover small cursorNormal className="!border-soft-gray/30 shadow-s1">
+                <ItemHover small cursorNormal className="dark:!border-soft-gray/30 !border-soft-white/50 shadow-s2 dark:shadow-s1 bg-black/80">
                   {tech}
                 </ItemHover>
               </div>
@@ -112,7 +111,7 @@ const ProjectItem = (props: ProjectItemProps) => {
         </div>
 
         <MotionFade>
-          <p className="project-text-gsap text-soft-gray text-sm xl:text-lg whitespace-pre-line">
+          <p className="project-text-gsap text-dark-gray/85 dark:text-soft-gray theme-transition text-sm xl:text-lg whitespace-pre-line">
             <RichText
               t={t}
               translationKey={`projectsData.${data.translationKey}.description`}

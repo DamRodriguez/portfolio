@@ -6,16 +6,10 @@ import { ArgFlagIcon, DownIcon, EngFlagIcon, UpIcon } from "@/components/icons/l
 import useBreakpoint from "@/hooks/useBreakpoint";
 import { MotionHeight } from "@/components/motion/MotionHeight";
 import { useClickOutside } from "@/utils/useClickOutside";
-import clsx from "clsx";
 
 type LanguageDropdownProps = {
   locale: Locale;
 };
-
-const Languages: { lang: Locale; flag: JSX.Element }[] = [
-  { lang: "es", flag: <ArgFlagIcon className="w-5 h-5 xl:w-7 xl:h-7" /> },
-  { lang: "en", flag: <EngFlagIcon className="w-5 h-5 xl:w-7 xl:h-7" /> },
-];
 
 const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
   const router = useRouter();
@@ -25,6 +19,12 @@ const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   useClickOutside(dropdownRef as React.RefObject<HTMLElement>, () => { setIsOpen(false); });
   const isMobile = useBreakpoint();
+  const flagIconClassName = "w-5 h-5 xl:w-7 xl:h-7";
+
+  const Languages: { lang: Locale; flag: JSX.Element }[] = [
+    { lang: "es", flag: <ArgFlagIcon className={flagIconClassName} /> },
+    { lang: "en", flag: <EngFlagIcon className={flagIconClassName} /> },
+  ];
 
   const handleLanguageChange = (newLang: Locale) => {
     const langsRegex = Languages.map(l => l.lang).join("|");
@@ -37,6 +37,8 @@ const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
   const currentLanguage = Languages.find(l => l.lang === selectedLang);
   const othersLanguages = Languages.filter(l => l.lang !== selectedLang);
 
+  const arrowIconClassName = "w-2 h-2 xl:w-[0.6rem] xl:h-[0.6rem] fill-black dark:fill-soft-white";
+
   return (
     <div
       {...(!isMobile && {
@@ -44,26 +46,21 @@ const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
         onMouseLeave: () => { setIsOpen(false); },
       })}
       ref={dropdownRef}
-      className="inline-block max-h-[2rem] w-[4.5rem] xl:w-[5.7rem] z-999">
-      <div className={clsx("py-[0.4rem] px-[0.3rem] xl:px-[0.5rem] rounded-[0.5rem] overflow-hidden transition-all duration-400 ease-in-out backdrop-blur-xs",
-        {
-          "bg-dark-gray/60 shadow-s1": isOpen,
-          "bg-soft-gray/10": !isOpen,
-        }
-      )}>
+      className="inline-block max-h-[2.17375rem] xl:max-h-[2.67375rem] w-[4.1rem] xl:w-[5.3rem] z-999">
+      <div className="py-[0.4rem] px-[0.3rem] xl:px-[0.5rem] rounded-[0.5rem] overflow-hidden theme-transition backdrop-blur-xs border dark:border-soft-gray/5 shadow-s2 bg-soft-white dark:bg-soft-gray/20">
         <div
           onClick={() => { setIsOpen(!isOpen); }}
-          className="flex items-center gap-[0.6rem] cursor-pointer"
+          className="flex items-center gap-[0.5rem] cursor-pointer"
         >
           <div className="flex items-center gap-[0.3rem] ">
-            <div className="bg-black rounded-full">
+            <div className="bg-black/50 dark:bg-black/50 rounded-full theme-transition">
               {currentLanguage?.flag}
             </div>
-            <span className="capitalize text-xs xl:text-base">
+            <span className="capitalize text-xs xl:text-base text-black dark:text-soft-white theme-transition">
               {currentLanguage?.lang}
             </span>
           </div>
-          {isOpen ? <UpIcon className="w-2 h-2 xl:w-[0.6rem] xl:h-[0.6rem]" /> : <DownIcon className="w-2 h-2 xl:w-[0.6rem] xl:h-[0.6rem]" />}
+          {isOpen ? <UpIcon className={arrowIconClassName} /> : <DownIcon className={arrowIconClassName} />}
         </div>
 
         <AnimatePresence>
@@ -74,10 +71,12 @@ const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
                   <div
                     key={lang}
                     onClick={() => { handleLanguageChange(lang); }}
-                    className="group flex items-center gap-[0.3rem] cursor-pointer hover:bg-soft-gray/20 rounded-full transition-all duration-400 ease-in-out"
+                    className="group flex items-center gap-[0.3rem] cursor-pointer hover:bg-black/40 dark:hover:bg-soft-white/40 rounded-full theme-transition"
                   >
-                    {flag}
-                    <span className="capitalize text-xs xl:text-base text-soft-gray group-hover:text-soft-white">
+                    <div className="bg-black/50 dark:bg-black/50 rounded-full theme-transition">
+                      {flag}
+                    </div>
+                    <span className="capitalize text-xs xl:text-base text-black/80 dark:text-soft-white/80 group-hover:text-soft-white dark:group-hover:text-strong-black theme-transition">
                       {lang}
                     </span>
                   </div>

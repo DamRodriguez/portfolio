@@ -12,21 +12,21 @@ const LeftItem = (props: LeftItemProps) => {
       <Link
         href={routes.home}
         onClick={props.onClick}
-        className="text-soft-white text-xs xl:text-xl font-fira-code flex items-center gap-[0.2rem] xl:gap-[0.5rem] font-light group"
+        className="text-black dark:text-soft-white text-xs xl:text-xl font-fira-code flex items-center gap-[0.2rem] xl:gap-[0.5rem] font-light group theme-transition-all"
       >
-        <div className="text-3xl xl:text-6xl text-soft-gray group-hover:text-soft-white transition-all duration-400">
+        <div className="text-3xl xl:text-6xl text-dark-gray group-hover:text-strong-black dark:text-soft-gray dark:group-hover:text-soft-white theme-transition-all">
           &lt;
         </div>
         <div>
-          <p>
+          <p className="group-hover:font-medium theme-transition-all">
             Damián
           </p>
-          <p>
+          <p className="group-hover:font-medium theme-transition-all">
             Rodríguez
           </p>
         </div>
-        <div className="text-3xl xl:text-6xl flex text-soft-gray group-hover:text-soft-white transition-all duration-400">
-          <span className="group-hover:rotate-10 transition-all duration-400">
+        <div className="text-3xl xl:text-6xl flex text-dark-gray group-hover:text-strong-black dark:text-soft-gray dark:group-hover:text-soft-white theme-transition-all">
+          <span className="group-hover:rotate-10 theme-transition-all">
             /
           </span>
           &gt;

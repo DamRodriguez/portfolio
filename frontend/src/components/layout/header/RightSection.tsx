@@ -1,6 +1,7 @@
 import { CloseIcon, HamburgerIcon } from "@/components/icons/header";
 import MotionFade from "@/components/motion/MotionFade";
 import LanguageDropdown from "@/components/other/LanguageDropdown";
+import { ThemeToggle } from "@/components/ui/buttons/ThemeToggle";
 import { Locale } from "@/i18n/routing";
 
 type RightSectionProps = {
@@ -11,7 +12,10 @@ type RightSectionProps = {
 
 const RightSection = (props: RightSectionProps) => {
   return (
-    <div className="flex gap-[1rem] md:gap-[2rem]">
+    <div className="flex items-center gap-[1rem] md:gap-[1.5rem] xl:gap-[2rem] ">
+
+      <ThemeToggle />
+
       <MotionFade className="flex flex-col text-sm text-soft-white">
         <LanguageDropdown locale={props.locale} />
       </MotionFade>
@@ -23,7 +27,7 @@ const RightSection = (props: RightSectionProps) => {
             className="cursor-pointer"
             aria-label="Cerrar menú de navegación"
           >
-            <CloseIcon className="fill-[#fff]" />
+            <CloseIcon className="fill-black dark:fill-soft-white theme-transition" />
           </button>
         ) : (
           <button
@@ -31,7 +35,7 @@ const RightSection = (props: RightSectionProps) => {
             className="cursor-pointer"
             aria-label="Abrir menú de navegación"
           >
-            <HamburgerIcon />
+            <HamburgerIcon className="fill-black dark:fill-soft-white theme-transition" />
           </button>
         )}
       </MotionFade>

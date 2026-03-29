@@ -21,7 +21,7 @@ const FooterSection = () => {
             <Link
               key={index}
               href={route.href}
-              className="text-soft-gray text-base xl:text-lg hover:text-soft-white transition-all duration-400 ease-in-out cursor-pointer"
+              className="text-dark-gray dark:text-soft-gray text-base xl:text-lg hover:text-strong-black dark:hover:text-soft-white theme-transition cursor-pointer"
             >
               {route.text}
             </Link>

@@ -113,7 +113,7 @@ const ProjectsSection = () => {
     >
       <MotionSlide className="xl:flex xl:gap-[5rem]">
         <div className="xl:w-[45%]" />
-        <h2 className="project-title-gsap text-soft-white text-2xl xl:text-3xl font-fira-code xl:w-full">
+        <h2 className="project-title-gsap text-black dark:text-soft-white theme-transition text-2xl xl:text-3xl font-fira-code xl:w-full">
           {t("title")}
         </h2>
       </MotionSlide>

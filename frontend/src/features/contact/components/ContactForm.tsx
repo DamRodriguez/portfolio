@@ -43,9 +43,8 @@ const ContactForm = () => {
       });
       const json = await res.json();
       if (json.success) {
+        showToast("success", t("contactSection.toast.messages.contactFormSuccess"));
         methods.reset();
-        showToast("success", t("contactSection.toast.messages.contactFormSuccess")
-        );
         return;
       }
       showToast("error", t("contactSection.toast.messages.contactFormError"));
@@ -105,14 +104,14 @@ const ContactForm = () => {
             type="submit"
             full
             isLoading={methods.formState.isSubmitting}
-            className="shadow-s1"
+            className="shadow-s3 dark:shadow-s1"
           >
             {t("contactSection.buttons.sendMessage")}
             <SendIcon />
           </Button>
         </MotionFade>
       </Form>
-    </FormProvider>
+    </FormProvider >
   );
 };
 

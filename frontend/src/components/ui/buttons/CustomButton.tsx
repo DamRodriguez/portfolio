@@ -27,7 +27,7 @@ type CustomButtonProps = {
 }
 
 const CustomButtonContainer = (props: CustomButtonContainerProps) => {
-  const containerClassName = "flex group cursor-pointer w-fit transition-all";
+  const containerClassName = "flex group cursor-pointer w-fit theme-transition-all";
 
   return (
     <>
@@ -60,7 +60,7 @@ const CustomButton = (props: CustomButtonProps) => {
     <CustomButtonContainer {...props.variant}>
       <div
         className={clsx(
-          "flex shadow-s1 items-center text-soft-gray text-base xl:text-lg border border-soft-gray/80 h-[2.5rem] xl:h-[3rem] pl-[1rem] xl:pl-[1.5rem] pr-[2rem] group-hover:bg-soft-white group-hover:text-black transition-all duration-400 ease-in-out rounded-l-full border-r-0",
+          "bg-soft-white dark:bg-black flex shadow-s3 dark:shadow-s1 items-center text-dark-gray dark:text-soft-gray text-base xl:text-lg border border-black/30 dark:border-soft-gray/80 h-[2.5rem] xl:h-[3rem] pl-[1rem] xl:pl-[1.5rem] pr-[2rem] group-hover:bg-black dark:group-hover:bg-soft-white group-hover:text-soft-white dark:group-hover:text-black theme-transition-all rounded-l-full border-r-0",
           {
             "group-hover:pr-[1rem] xl:group-hover:pr-[1.5rem] group-hover:rounded-r-full": !isButton,
           }
@@ -70,13 +70,13 @@ const CustomButton = (props: CustomButtonProps) => {
       </div>
       <div
         className={clsx(
-          "bg-soft-white rounded-full w-[2.5rem] h-[2.5rem] xl:w-[3rem] xl:h-[3rem] flex justify-center items-center relative -left-[1.3rem] xl:-left-[1.5rem] transition-all duration-400 ease-in-out group-hover:border group-hover:border-soft-gray/80 group-hover:bg-black group-hover:[&_svg]:fill-soft-white shadow-s1",
+          "bg-black dark:bg-soft-white rounded-full w-[2.5rem] h-[2.5rem] xl:w-[3rem] xl:h-[3rem] flex justify-center items-center relative -left-[1.3rem] xl:-left-[1.5rem] theme-transition-all group-hover:border group-hover:border-black/30 dark:group-hover:border-soft-gray/80 group-hover:bg-soft-white dark:group-hover:bg-black group-hover:[&_svg]:fill-black dark:group-hover:[&_svg]:fill-soft-white shadow-s3 dark:shadow-s1",
           {
             "group-hover:left-2 -rotate-45 group-hover:rotate-180": !isButton,
           }
         )}
       >
-        <Icon className="w-[1.8rem] h-[1.8rem] xl:w-[2.2rem] xl:h-[2.2rem]" />
+        <Icon className="w-[1.8rem] h-[1.8rem] xl:w-[2.2rem] xl:h-[2.2rem] fill-soft-white dark:fill-black theme-transition" />
       </div>
     </CustomButtonContainer>
   );

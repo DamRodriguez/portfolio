@@ -16,7 +16,7 @@ export const RichText = ({
     <>
       {t.rich(translationKey, {
         strong: (chunks: React.ReactNode) => (
-          <span className={clsx("text-soft-white")}>{chunks}</span>
+          <span className={clsx("text-strong-black dark:text-soft-white theme-transition font-medium")}>{chunks}</span>
         ),
       })}
     </>

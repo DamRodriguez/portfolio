@@ -50,7 +50,6 @@ const TechnologiesSection = () => {
       ".tools-text-gsap": {
         rotate: -5,
         x: -100,
-        color: "var(--color-black)"
       },
     },
   })
@@ -82,9 +81,9 @@ const TechnologiesSection = () => {
       </div>
       <div className="flex items-end justify-between">
         <MotionFade className="w-[40%]">
-          <p className="tools-text-gsap text-soft-gray text-sm lg:text-lg whitespace-pre-line">
+          <p className="tools-text-gsap text-dark-gray/85 dark:text-soft-gray theme-transition text-sm lg:text-lg whitespace-pre-line">
             {t.rich("favoritesTools", {
-              strong: (chunks) => <span className="text-soft-white">{chunks}</span>,
+              strong: (chunks) => <span className="text-strong-black dark:text-soft-white theme-transition font-medium">{chunks}</span>,
             })}
           </p>
         </MotionFade>

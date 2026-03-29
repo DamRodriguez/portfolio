@@ -73,7 +73,7 @@ const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
               <Button
                 routerPathNewTab={item.href}
                 key={index}
-                className={clsx("h-fit shadow-s1", {
+                className={clsx("h-fit shadow-s3 dark:shadow-s1", {
                   "xl:mt-[0.7rem] ": (index === 0 || index === socialButtons.length - 1) && !props.withoutMt,
                 })}>
                 <Icon />

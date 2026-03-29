@@ -29,7 +29,7 @@ export const SourcePopUp = ({ source, onClose, children }: SourcePopUpProps) => 
         >
           <MotionScale duration={0.4}>
             <div
-              className="relative max-w-[90vw] max-h-[90vh] rounded-[0.5rem] xl:rounded-2xl overflow-hidden rounded-tr-[1.3rem] xl:rounded-tr-[2rem] shadow-s1 border border-soft-gray/10"
+              className="relative max-w-[90vw] max-h-[90vh] rounded-[0.5rem] xl:rounded-2xl overflow-hidden rounded-tr-[1.3rem] xl:rounded-tr-[2rem] shadow-s1 border border-soft-white/10"
               onClick={(e) => e.stopPropagation()}
             >
               {childWithClass}

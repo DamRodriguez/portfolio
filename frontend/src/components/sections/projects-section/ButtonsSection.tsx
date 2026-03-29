@@ -60,7 +60,7 @@ const ButtonsSection = ({ button, demoVideo, containerClassName }: ButtonsSectio
         )}
         {button.type === "inDevelopment" && (
           <MotionFade className="w-fit">
-            <div className="flex items-center text-soft-gray text-base xl:text-lg border border-soft-gray/80 h-[2.5rem] xl:h-[3rem] px-[1rem] xl:px-[1.5rem] hover:bg-soft-white hover:text-black transition-all duration-400 ease-in-out rounded-full group-hover:rounded-r-full shadow-s1">
+            <div className="bg-soft-white dark:bg-black flex items-center text-black dark:text-soft-gray text-base xl:text-lg border border-black/30 dark:border-soft-gray/80 h-[2.5rem] xl:h-[3rem] px-[1rem] xl:px-[1.5rem] hover:bg-black dark:hover:bg-soft-white hover:text-soft-white dark:hover:text-black theme-transition rounded-full group-hover:rounded-r-full shadow-s3 dark:shadow-s1">
               {t("inDevelopment")}
             </div>
           </MotionFade>

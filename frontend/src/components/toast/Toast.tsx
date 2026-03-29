@@ -18,26 +18,26 @@ const toastItems: Record<
   }
 > = {
   error: {
-    textClassName: "text-black",
-    bgClassName: "bg-light-white",
+    textClassName: "",
+    bgClassName: "",
   },
   success: {
-    textClassName: "text-black",
-    bgClassName: "bg-light-green",
+    textClassName: "",
+    bgClassName: "",
   },
   warning: {
-    textClassName: "text-yellow-200",
-    bgClassName: "bg-light-yellow",
+    textClassName: "",
+    bgClassName: "",
   },
   info: {
-    textClassName: "text-secondary-500",
-    bgClassName: "bg-light-blue",
+    textClassName: "",
+    bgClassName: "",
   },
 };
 
 const CustomCloseButton = ({ closeToast }: { closeToast: () => void }) => (
   <button onClick={closeToast} className="cursor-pointer">
-    <CloseIcon className="w-[1rem] h-[1rem] fill-[#000]" />
+    <CloseIcon className="w-[1rem] h-[1rem] fill-black dark:fill-soft-white" />
   </button>
 );
 
@@ -59,7 +59,7 @@ const Toast = ({ type, text, closeToast, manualClose }: ToastProps) => {
             {toastItem.title}
           </p>
         )}
-        <p className="text-base lg:text-lg text-soft-white font-fira-code">{text}</p>
+        <p className="text-base lg:text-lg text-black dark:text-soft-white font-fira-code">{text}</p>
       </div>
       {manualClose && (
         <CustomCloseButton closeToast={closeToast} />
@@ -74,10 +74,9 @@ const showToast = (type: ToastProps["type"], text: ToastProps["text"], manualClo
       <Toast text={text} type={type} closeToast={closeToast} manualClose={manualClose} />
     ),
     {
-      position: "top-left",
+      position: "bottom-left",
       autoClose: 2500,
       closeButton: false,
-      className: "top-[1rem]",
     },
   );
 };

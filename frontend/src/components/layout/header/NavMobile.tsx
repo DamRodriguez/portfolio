@@ -22,10 +22,10 @@ const NavMobile = ({ onClose }: NavMobileProps) => {
                 <Link
                   href={href}
                   onClick={onClose}
-                  className="cursor-pointer text-soft-white">
+                  className="cursor-pointer text-black dark:text-soft-white theme-transition">
                   {t(label)}
                 </Link>
-                <div className="h-[0.05rem] bg-soft-gray my-[0.5rem] group-hover:bg-soft-white transition-all duration-400 ease-in-out group-hover:w-[50%] mx-auto w-full" />
+                <div className="h-[0.05rem] bg-soft-gray dark:bg-soft-gray my-[0.5rem] group-hover:bg-black dark:group-hover:bg-soft-white group-hover:w-[50%] mx-auto w-full theme-transition-all" />
               </li>
             ))}
           </ul>
