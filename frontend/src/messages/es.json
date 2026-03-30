@@ -50,19 +50,19 @@
     "technologies": {
       "frontend": {
         "title": "Frontend", 
-        "items": "TypeScript, React, Next.js, React Native, Expo, Redux Toolkit"
+        "items": "JavaScript, TypeScript, React, Next.js, React Native, Expo, HTML, Redux Toolkit, Context"
       },
       "styles": {
         "title": "Styles", 
-        "items": "CSS, Tailwind"
+        "items": "CSS, Tailwind CSS"
       },
       "backend": {
         "title": "Backend", 
-        "items": "Python, C, MySQL"
+        "items": "Java, Python, MySQL, APIs REST"
       },
       "tools": {
         "title": "Herramientas", 
-        "items": "Motion, TanStack Query, React Toastify, React Hook Form, next-intl, i18next, Embla Carousel, Recharts, Zod, GSAP"
+        "items": "Framer Motion, GSAP, Reanimated, Zod, React Hook Form, TanStack Query, Git, GitHub, Figma, i18next, next-intl, React Toastify, Embla Carousel, Recharts"
       }
     },
     "certificationSection": {
