@@ -66,7 +66,7 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
           {items.map((item, index) => (
             <div
               key={index}
-              className={clsx("flex-[0_0_calc(100%)] xl:flex-[0_0_calc(100%/3)] px-[0.5rem] w-[1rem]",
+              className={clsx("flex-[0_0_calc(100%)] xl:flex-[0_0_calc(105%/3)] px-[0.5rem] w-[1rem]",
                 {
                   "xl:mt-[1rem]": index !== selectedIndex
                 }
