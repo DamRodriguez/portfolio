@@ -12,7 +12,13 @@ export function ThemeToggle() {
 
   useEffect(() => setMounted(true), []);
 
-  if (!mounted) return <div />;
+  if (!mounted) {
+    return (
+      <div className="container flex items-center justify-center opacity-0">
+        <div className="w-[2.17375rem] xl:w-[2.67375rem] aspect-square" />
+      </div>
+    );
+  }
 
   return (
     <MotionOpacity className="container flex items-center justify-center">

@@ -111,7 +111,7 @@ const ContactForm = () => {
           </Button>
         </MotionFade>
       </Form>
-    </FormProvider >
+    </FormProvider>
   );
 };
 
