@@ -65,6 +65,8 @@ jobs:
         working-directory: ./frontend
 
       - name: Build with Next.js
+        env:
+          NEXT_PUBLIC_VOICEFLOW_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_VOICEFLOW_PROJECT_ID }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
         working-directory: ./frontend
 
