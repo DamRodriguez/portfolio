@@ -1,10 +1,35 @@
 'use client';
 import Script from 'next/script';
-import { Locale } from 'next-intl';
+
+interface VoiceflowChatConfig {
+  verify: { projectID: string | undefined };
+  url: string;
+  versionID: string;
+  voice?: {
+    url: string;
+  };
+  initialize?: {
+    variables: {
+      user_language: string;
+    };
+  };
+}
+
+interface VoiceflowObject {
+  chat: {
+    load: (config: VoiceflowChatConfig) => void;
+  };
+}
+
+declare global {
+  interface Window {
+    voiceflow?: VoiceflowObject;
+  }
+}
 
 type VoiceflowChatProps = {
-  locale: Locale;
-}
+  locale: string;
+};
 
 const VoiceflowChat = ({ locale }: VoiceflowChatProps) => {
   return (
@@ -35,9 +60,3 @@ const VoiceflowChat = ({ locale }: VoiceflowChatProps) => {
 };
 
 export default VoiceflowChat;
-
-declare global {
-  interface Window {
-    voiceflow: any;
-  }
-}
