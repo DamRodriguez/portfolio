@@ -43,25 +43,27 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
-      <head>
-        <ThemeScript />
-      </head>
-      <body className={clsx("antialiased min-h-svh flex flex-col", openSans.variable, firaCode.variable)}>
-        <NextIntlClientProvider>
-          <ThemeProvider>
-            <ThemeTransitionBlocker />
-            <ProgressBarProvider>
-              <div className="min-w-[20rem] max-w-[120rem] mx-auto w-full font-open-sans theme-transition bg-white-bone dark:bg-black">
-                <Header locale={locale} />
-                <ToastContainer />
-                {children}
-                <VoiceflowChat locale={locale} />
-              </div>
-            </ProgressBarProvider>
-          </ThemeProvider>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <>
+      <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
+        <head>
+          <ThemeScript />
+        </head>
+        <body className={clsx("antialiased min-h-svh flex flex-col", openSans.variable, firaCode.variable)}>
+          <NextIntlClientProvider>
+            <ThemeProvider>
+              <ThemeTransitionBlocker />
+              <ProgressBarProvider>
+                <div className="min-w-[20rem] max-w-[120rem] mx-auto w-full font-open-sans theme-transition bg-white-bone dark:bg-black">
+                  <Header locale={locale} />
+                  <ToastContainer />
+                  {children}
+                  <VoiceflowChat locale={locale} />
+                </div>
+              </ProgressBarProvider>
+            </ThemeProvider>
+          </NextIntlClientProvider>
+        </body>
+      </html>
+    </>
   );
 }
