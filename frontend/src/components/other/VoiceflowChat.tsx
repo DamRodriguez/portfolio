@@ -32,10 +32,12 @@ declare global {
 }
 
 const VoiceflowChat = ({ locale }: { locale: string }) => {
-  // CSS: 
-  // textarea { background-color: white !important; color: black !important; color-scheme: light !important; }
-  // [class*="vfrc-chat-input"] { background-color: white !important; color-scheme: light !important; }
-  const customCSSBase64 = "data:text/css;base64,dGV4dGFyZWEgeyBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZSAhaW1wb3J0YW50OyBjb2xvcjogYmxhY2sgIWltcG9ydGFudDsgY29sb3Itc2NoZW1lOiBsaWdodCAhaW1wb3J0YW50OyB9CltjbGFzcyo9InZmcmMtY2hhdC1pbnB1dCJdIHsgYmFja2dyb3VuZC1jb2xvcjogd2hpdGUgIWltcG9ydGFudDsgY29sb3Itc2NoZW1lOiBsaWdodCAhaW1wb3J0YW50OyB9CltjbGFzcyo9InZmcmMtY2hhdC1pbnB1dC1jb250YWluZXIiXSB7IGJhY2tncm91bmQtY29sb3I6IHdoaXRlICFpbXBvcnRhbnQ7IGNvbG9yLXNjaGVtZTogbGlnaHQgIWltcG9ydGFudDsgfQ==";
+  // CSS Codificado:
+  // textarea { color-scheme: light !important; }
+  // [class*="vfrc-chat-input"] { color-scheme: light !important; }
+  // [class*="vfrc-chat-input-container"] { color-scheme: light !important; }
+
+  const customCSSBase64 = "data:text/css;base64,dGV4dGFyZWEgeyBjb2xvci1zY2hlbWU6IGxpZ2h0ICFpbXBvcnRhbnQ7IH0KW2NsYXNzKj0idmZyYy1jaGF0LWlucHV0Il0geyBjb2xvci1zY2hlbWU6IGxpZ2h0ICFpbXBvcnRhbnQ7IH0KW2NsYXNzKj0idmZyYy1jaGF0LWlucHV0LWNvbnRhaW5lciIgeyBjb2xvci1zY2hlbWU6IGxpZ2h0ICFpbXBvcnRhbnQ7IH0=";
 
   return (
     <Script
