@@ -36,11 +36,13 @@ const VoiceflowChat = ({ locale }: VoiceflowChatProps) => {
     <Script
       key={locale}
       id="voiceflow-widget"
-      strategy="lazyOnload"
+      src="https://cdn.voiceflow.com/widget-next/bundle.mjs"
+      strategy="afterInteractive"
+      type="text/javascript"
       onLoad={() => {
         if (window.voiceflow?.chat) {
           window.voiceflow.chat.load({
-            verify: { projectID: process.env.NEXT_PUBLIC_VOICEFLOW_PROJECT_ID },
+            verify: { projectID: process.env.NEXT_PUBLIC_VOICEFLOW_PROJECT_ID || '69d52d61a0f4d26214d370fc' },
             url: 'https://general-runtime.voiceflow.com',
             versionID: 'production',
             voice: {
@@ -54,7 +56,6 @@ const VoiceflowChat = ({ locale }: VoiceflowChatProps) => {
           });
         }
       }}
-      src="https://cdn.voiceflow.com/widget-next/bundle.mjs"
     />
   );
 };
