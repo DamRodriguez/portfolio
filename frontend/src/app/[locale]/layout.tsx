@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import ThemeProvider from "@/components/layout/ThemeProvider";
 import ThemeTransitionBlocker from "@/components/other/ThemeTransitionBlocker";
 import ThemeScript from "@/components/other/ThemeScript";
+import VoiceflowChat from "@/components/other/VoiceflowChat";
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
@@ -55,6 +56,7 @@ export default async function LocaleLayout({
                 <Header locale={locale} />
                 <ToastContainer />
                 {children}
+                <VoiceflowChat locale={locale} />
               </div>
             </ProgressBarProvider>
           </ThemeProvider>
