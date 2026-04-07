@@ -57,8 +57,8 @@ export default async function LocaleLayout({
                   <Header locale={locale} />
                   <ToastContainer />
                   {children}
-                  <VoiceflowChat locale={locale} />
                 </div>
+                <VoiceflowChat locale={locale} />
               </ProgressBarProvider>
             </ThemeProvider>
           </NextIntlClientProvider>
