@@ -42,7 +42,7 @@ const VoiceflowChat = ({ locale }: VoiceflowChatProps) => {
       onLoad={() => {
         if (window.voiceflow?.chat) {
           window.voiceflow.chat.load({
-            verify: { projectID: process.env.NEXT_PUBLIC_VOICEFLOW_PROJECT_ID || '69d52d61a0f4d26214d370fc' },
+            verify: { projectID: process.env.NEXT_PUBLIC_VOICEFLOW_PROJECT_ID },
             url: 'https://general-runtime.voiceflow.com',
             versionID: 'production',
             voice: {
