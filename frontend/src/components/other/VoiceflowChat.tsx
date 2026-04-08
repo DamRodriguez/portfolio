@@ -1,5 +1,5 @@
 'use client';
-
+import useBreakpoint from '@/hooks/useBreakpoint';
 import Script from 'next/script';
 
 interface VoiceflowChatConfig {
@@ -32,6 +32,7 @@ declare global {
 }
 
 const VoiceflowChat = ({ locale }: { locale: string }) => {
+  const isMobile = useBreakpoint();
   {/*
     CSS Codificado:
     textarea { color-scheme: light !important; }
@@ -80,6 +81,22 @@ const VoiceflowChat = ({ locale }: { locale: string }) => {
                 user_language: locale
               }
             },
+          });
+
+          window.addEventListener('message', (event) => {
+            if (!isMobile) return;
+            if (!event.data || typeof event.data !== 'string') return;
+
+            if (event.data.includes('voiceflow:open')) {
+              const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+              document.body.style.overflow = "hidden";
+              document.body.style.paddingRight = `${String(scrollbarWidth)}px`;
+            }
+
+            if (event.data.includes('voiceflow:close')) {
+              document.body.style.overflow = "";
+              document.body.style.paddingRight = "";
+            }
           });
         }
       }}
