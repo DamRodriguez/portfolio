@@ -27,13 +27,7 @@ import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 
 const ProjectsSection = () => {
   const t = useTranslations("projectsSection");
-  const basePath =
-    typeof window !== "undefined" &&
-      window.location.hostname.includes("github.io")
-      ? "/portfolio"
-      : "";
-
-  const spotifyDemoVideo = `${basePath}/videos/projects/spotify-mobile/spotify-mobile.mp4`;
+  const spotifyDemoVideo = "/videos/projects/spotify-mobile/spotify-mobile.mp4";
 
   const projectsData: ProjectItemData[] = [
     {
