@@ -28,6 +28,7 @@ export default function ViewportTrigger({
   onLeaveBack
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setIsInView] = useState(false);
 
   useGSAP(
