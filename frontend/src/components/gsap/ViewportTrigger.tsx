@@ -28,7 +28,7 @@ export default function ViewportTrigger({
   onLeaveBack
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
-  const [isInView, setIsInView] = useState(false);
+  const [_, setIsInView] = useState(false);
 
   useGSAP(
     () => {

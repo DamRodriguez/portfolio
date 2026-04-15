@@ -14,6 +14,7 @@
     "@hookform/resolvers": "^5.2.2",
     "@netlify/plugin-nextjs": "^5.15.9",
     "@reduxjs/toolkit": "^2.11.2",
+    "@typebot.io/react": "^0.10.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel": "^8.6.0",

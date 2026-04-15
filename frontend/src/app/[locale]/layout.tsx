@@ -12,6 +12,7 @@ import ThemeTransitionBlocker from "@/components/other/ThemeTransitionBlocker";
 import ThemeScript from "@/components/other/ThemeScript";
 import VoiceflowChat from "@/components/other/VoiceflowChat";
 import GoogleAnalytics from "@/components/other/GoogleAnalytics";
+import Typebot from "@/components/other/Typebot";
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
@@ -61,6 +62,7 @@ export default async function LocaleLayout({
                 </div>
                 <GoogleAnalytics />
                 <VoiceflowChat locale={locale} />
+                {/* <Typebot /> */}
               </ProgressBarProvider>
             </ThemeProvider>
           </NextIntlClientProvider>
