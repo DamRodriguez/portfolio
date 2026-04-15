@@ -1,5 +1,5 @@
 "use client"
-// @ts-ignore
+// @ts-expect-error
 import { Bubble } from "@typebot.io/react";
 
 const Typebot = () => {
