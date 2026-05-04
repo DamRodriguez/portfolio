@@ -16,9 +16,7 @@ const RightSection = (props: RightSectionProps) => {
 
       <ThemeToggle />
 
-      <MotionFade className="flex flex-col text-sm text-soft-white">
-        <LanguageDropdown locale={props.locale} />
-      </MotionFade>
+      <LanguageDropdown locale={props.locale} />
 
       <MotionFade className="flex xl:hidden">
         {props.isMobileNavVisible ? (

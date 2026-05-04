@@ -1,4 +1,5 @@
 "use client";
+
 import { useRef, ReactNode } from "react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
@@ -19,7 +20,7 @@ export default function SplitTextWrapper({
   children,
   order = 0,
   ease = "bounce.out",
-  ariaLabel
+  ariaLabel,
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const isMobile = useBreakpoint();
@@ -29,30 +30,40 @@ export default function SplitTextWrapper({
       const el = containerRef.current;
       if (!el) return;
 
-      const target = el.querySelector('[data-split-target]');
+      const target = el.querySelector("[data-split-target]");
       if (!target) return;
 
       const split = SplitText.create(target, {
         type: "chars",
+        charsClass: "split-char",
       });
 
       gsap.set(el, {
-        opacity: 1,
+        autoAlpha: 1,
+      });
+
+      gsap.set(split.chars, {
         willChange: "transform, opacity",
+        force3D: true,
       });
 
       const tween = gsap.from(split.chars, {
-        y: isMobile ? -45 : -75,
-        scale: 0.85,
+        y: isMobile ? -28 : -75,
         opacity: 0,
-        duration: 1,
-        ease: ease,
-        stagger: 0.09,
-        delay: order * 0.35,
+        duration: isMobile ? 0.7 : 1,
+        ease,
+        stagger: isMobile ? 0.05 : 0.07,
+        delay: order * 0.25,
+        force3D: true,
         scrollTrigger: {
           trigger: el,
           start: "top 85%",
-          toggleActions: "play none none reverse",
+          once: true,
+        },
+        onComplete: () => {
+          gsap.set(split.chars, {
+            clearProps: "willChange,transform,opacity",
+          });
         },
       });
 
@@ -61,7 +72,11 @@ export default function SplitTextWrapper({
         split.revert();
       };
     },
-    { scope: containerRef }
+    {
+      scope: containerRef,
+      dependencies: [isMobile, order, ease],
+      revertOnUpdate: true,
+    }
   );
 
   return (
@@ -69,6 +84,7 @@ export default function SplitTextWrapper({
       <span className="sr-only">
         {ariaLabel || (typeof children === "string" ? children : "")}
       </span>
+
       <div aria-hidden="true" data-split-target>
         {children}
       </div>

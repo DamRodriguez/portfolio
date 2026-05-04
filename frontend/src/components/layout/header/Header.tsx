@@ -11,6 +11,7 @@ import NavDesk from "./NavDesk";
 import LeftItem from "./LeftItem";
 import RightSection from "./RightSection";
 import useCloseMobileNavOnDesktop from "@/hooks/useCloseMobileNavOnDesktop";
+import MotionSlide from "@/components/motion/MotionSlide";
 
 type HeaderProps = {
   locale: Locale;
@@ -23,21 +24,23 @@ const Header = ({ locale }: HeaderProps) => {
 
   return (
     <header className="sticky top-0 z-9999">
-      <SpaceX className={clsx("sticky z-9999 min-h-[5rem] xl:min-h-[7rem] bg-white-bone dark:bg-black flex items-center justify-between theme-transition-all", {
-        "translate-y-4 mx-4 xl:translate-y-6 xl:mx-6 shadow-s9 dark:shadow-s1 rounded-full": hasScrolled,
-        "translate-y-0": !hasScrolled,
-      })}>
-        <ShineBorderCustom isVisible={hasScrolled} />
-        <LeftItem
-          onClick={() => { if (isMobileNavVisible) { setIsMobileNavVisible(false); } }}
-        />
-        <NavDesk />
-        <RightSection
-          locale={locale}
-          isMobileNavVisible={isMobileNavVisible}
-          setIsMobileNavVisible={setIsMobileNavVisible}
-        />
-      </SpaceX>
+      <MotionSlide direction="up" order={3}>
+        <SpaceX className={clsx("sticky z-9999 min-h-[5rem] xl:min-h-[7rem] bg-white-bone dark:bg-black flex items-center justify-between theme-transition-all", {
+          "translate-y-4 mx-4 xl:translate-y-6 xl:mx-6 shadow-s9 dark:shadow-s1 rounded-full": hasScrolled,
+          "translate-y-0": !hasScrolled,
+        })}>
+          <ShineBorderCustom isVisible={hasScrolled} />
+          <LeftItem
+            onClick={() => { if (isMobileNavVisible) { setIsMobileNavVisible(false); } }}
+          />
+          <NavDesk />
+          <RightSection
+            locale={locale}
+            isMobileNavVisible={isMobileNavVisible}
+            setIsMobileNavVisible={setIsMobileNavVisible}
+          />
+        </SpaceX>
+      </MotionSlide>
 
       <Drawer
         visible={isMobileNavVisible}

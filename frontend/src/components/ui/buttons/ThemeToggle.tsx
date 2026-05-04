@@ -1,6 +1,5 @@
 "use client";
 import { MoonIcon, SunIcon } from "@/components/icons/theme";
-import { MotionOpacity } from "@/components/motion/MotionOpacity";
 import clsx from "clsx";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -21,7 +20,7 @@ export function ThemeToggle() {
   }
 
   return (
-    <MotionOpacity className="container flex items-center justify-center">
+    <div className="container flex items-center justify-center">
       <label htmlFor="switch" className="relative grid w-[2.17375rem] xl:w-[2.67375rem] aspect-square cursor-pointer place-items-center rounded-full bg-white theme-transition-all border hover:bg-black dark:hover:bg-soft-white group dark:border-soft-gray/5 bg-soft-white dark:bg-soft-gray/20 shadow-s2 dark:shadow-s1">
         <input
           type="checkbox"
@@ -39,6 +38,6 @@ export function ThemeToggle() {
           <SunIcon className={clsx("fill-soft-white group-hover:fill-black", iconClassName)} />
         </div>
       </label>
-    </MotionOpacity>
+    </div>
   );
 }
