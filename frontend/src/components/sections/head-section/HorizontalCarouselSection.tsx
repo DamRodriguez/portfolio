@@ -1,36 +1,38 @@
 import HorizontalCarouselVariant from "@/components/carousel/horizontal-carousel-variant/HorizontalCarouselVariant";
 import { HorizontalCarouselVariantData } from "@/components/carousel/horizontal-carousel-variant/HorizontalCarouselVariantItem";
-import vanicraciaBg from "@/assets/images/vanicracia.png"
 import { useTranslations } from "next-intl";
 import { projectsRoutes } from "@/constants/projectsRoutes";
-import alfombrasTauroBg from "@/assets/images/alfombras-tauro.jpg"
-import dondeSalgoBg from "@/assets/images/donde-salgo.png"
-import spotifyBg from "@/assets/images/spotify.png"
 
 const HorizontalCarouselSection = () => {
   const t = useTranslations("headSection.horizontalCarousel.carouselData")
 
   const horizontalCarouselItems: HorizontalCarouselVariantData[] = [
     {
-      image: spotifyBg,
+      image: "/images/projects-carousel/spotify.webp",
       title: t("spotifyMobile.title"),
       description: t("spotifyMobile.description"),
       routerPath: projectsRoutes.spotifyMobile
     },
     {
-      image: vanicraciaBg,
+      image: "/images/projects-carousel/lopez-propiedades.webp",
+      title: t("lopezPropiedades.title"),
+      description: t("lopezPropiedades.description"),
+      routerPath: projectsRoutes.lopezPropiedades,
+    },
+    {
+      image: "/images/projects-carousel/vanicracia.webp",
       title: t("vanicracia.title"),
       description: t("vanicracia.description"),
       routerPath: projectsRoutes.vanicracia,
     },
     {
-      image: alfombrasTauroBg,
+      image: "/images/projects-carousel/alfombras-tauro.webp",
       title: t("alfombrasTauro.title"),
       description: t("alfombrasTauro.description"),
       routerPath: projectsRoutes.alfombrasTauro,
     },
     {
-      image: dondeSalgoBg,
+      image: "/images/projects-carousel/donde-salgo.webp",
       title: t("dondeSalgo.title"),
       description: t("dondeSalgo.description"),
       routerPath: projectsRoutes.dondeSalgo,

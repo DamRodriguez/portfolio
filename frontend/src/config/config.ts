@@ -20,6 +20,7 @@ const config = {
   projects: {
     vanicracia: "https://vanicracia.com/",
     alfombrasTauro: "https://alfombrastauro.com/",
+    lopezPropiedades: "https://lopez-propiedades-tau.vercel.app/"
   },
   repositories: {
     spotifyMobile: "https://github.com/DamRodriguez/spotify-mobile"

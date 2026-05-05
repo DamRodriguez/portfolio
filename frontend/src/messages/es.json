@@ -38,6 +38,10 @@
         "spotifyMobile": {
           "title": "Spotify Mobile",
           "description": "Clon de la aplicación móvil de Spotify utilizando React Native y Expo."
+        },
+        "lopezPropiedades": {
+          "title": "Lopez Propiedades",
+          "description": "Aplicación Web para inmobiliaria realizado con Next.js"
         }
       }
     }
@@ -130,6 +134,11 @@
         "title": "Spotify Mobile",
         "description": "Clon de la aplicación móvil de <strong>Spotify</strong> utilizando React Native y Expo.\n\nPosee una variedad de secciones y distintas listas con sus respectivas canciones, además del <strong>reproductor flotante funcional</strong> y su pantalla correspondiente.",
         "technologies": "React Native, Expo, TypeScript, Redux Toolkit, React Native Reanimated"
+      },
+      "lopezPropiedades": {
+        "title": "Lopez Propiedades",
+        "description": "Aplicación web para <strong>inmobiliaria</strong> desarrollada con Next.js y Supabase, orientada a la gestión y visualización de propiedades en <strong>venta</strong> y <strong>alquiler</strong>. Incluye listado y detalle de propiedades, secciones institucionales como <strong>servicios</strong>, <strong>sobre nosotros</strong> y <strong>contacto</strong> con formulario.\n\nAdemás, cuenta con un <strong>administrador completo</strong> con autenticación, dashboard, creación, edición y listado para la gestión de propiedades.",
+        "technologies": "Next.js, TypeScript, Tailwind, Zod, React Hook Form, Motion, Supabase"
       }
     }
   },

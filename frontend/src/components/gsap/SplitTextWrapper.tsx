@@ -50,9 +50,9 @@ export default function SplitTextWrapper({
       const tween = gsap.from(split.chars, {
         y: isMobile ? -28 : -75,
         opacity: 0,
-        duration: isMobile ? 0.7 : 1,
+        duration: 1,
         ease,
-        stagger: isMobile ? 0.05 : 0.07,
+        stagger: 0.07,
         delay: order * 0.25,
         force3D: true,
         scrollTrigger: {

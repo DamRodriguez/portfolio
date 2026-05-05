@@ -3,4 +3,5 @@ export const projectsRoutes = {
   alfombrasTauro: "#alfombras-tauro",
   dondeSalgo: "#donde-salgo",
   spotifyMobile: "#spotify-mobile",
+  lopezPropiedades: "#lopez-propiedades"
 };

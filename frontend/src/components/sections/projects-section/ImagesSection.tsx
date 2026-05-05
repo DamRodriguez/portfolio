@@ -1,26 +1,25 @@
 import MotionSlide from "@/components/motion/MotionSlide";
 import clsx from "clsx";
 import ProjectImage from "@/components/sections/projects-section/ProjectImage";
-import { StaticImageData } from "next/image";
 
 export type ImageSource =
   {
     type: "single";
-    image: StaticImageData;
+    image: string;
   }
   |
   {
     type: "mobile";
-    images: StaticImageData[];
+    images: string[];
   }
   |
   {
     type: "default";
     images: {
-      rectangular: StaticImageData;
-      vertical: StaticImageData;
-      square: StaticImageData;
-      horizontal: StaticImageData;
+      rectangular: string;
+      vertical: string;
+      square: string;
+      horizontal: string;
     };
   };
 
@@ -94,7 +93,7 @@ const ImagesSection = ({ imageSource, disablePopUp, odd, title }: ImagesSectionP
                 image={image}
                 alt={`${title} mobile image ${index + 1}`}
                 disablePopUp={disablePopUp}
-                className="w-full h-full"
+                className="h-full w-full"
               />
             </MotionSlide>
           ))}

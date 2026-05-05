@@ -6,23 +6,7 @@ import ProjectItem, { ProjectItemData } from "./ProjectItem";
 import config from "@/config/config";
 import { removeHash } from "@/utils/removeHash";
 import { routes } from "@/constants/routes";
-import vanicraciaImgRectangular from "@/assets/images/projects/vanicracia/rectangular.png"
-import vanicraciaImgVertical from "@/assets/images/projects/vanicracia/vertical.png"
-import vanicraciaImgSquare from "@/assets/images/projects/vanicracia/square.png"
-import vanicraciaImgHorizontal from "@/assets/images/projects/vanicracia/horizontal.png"
 import SectionSeparator from "@/components/other/SectionSeparator";
-import tauroImgHorizontal from "@/assets/images/projects/alfombras-tauro/horizontal.png"
-import tauroImgRectangular from "@/assets/images/projects/alfombras-tauro/rectangular.png"
-import tauroImgSquare from "@/assets/images/projects/alfombras-tauro/square.png"
-import tauroImgVertical from "@/assets/images/projects/alfombras-tauro/vertical.png"
-import dondeSalgoImgHorizontal from "@/assets/images/projects/donde-salgo/horizontal.png"
-import dondeSalgoImgVertical from "@/assets/images/projects/donde-salgo/vertical.png"
-import dondeSalgoImgRectangular from "@/assets/images/projects/donde-salgo/rectangular.png"
-import dondeSalgoImgSquare from "@/assets/images/projects/donde-salgo/square.png"
-import spotifyImg1 from "@/assets/images/projects/spotify-mobile/image1.jpeg"
-import spotifyImg2 from "@/assets/images/projects/spotify-mobile/image2.jpeg"
-import spotifyImg3 from "@/assets/images/projects/spotify-mobile/image3.jpeg"
-import spotifyImg4 from "@/assets/images/projects/spotify-mobile/image4.jpeg"
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 
 const ProjectsSection = () => {
@@ -38,9 +22,30 @@ const ProjectsSection = () => {
       },
       imageSource: {
         type: "mobile",
-        images: [spotifyImg1, spotifyImg2, spotifyImg3, spotifyImg4]
+        images: [
+          "/images/projects/spotify-mobile/image1.webp",
+          "/images/projects/spotify-mobile/image2.webp",
+          "/images/projects/spotify-mobile/image3.webp",
+          "/images/projects/spotify-mobile/image4.webp"
+        ]
       },
       demoVideo: spotifyDemoVideo
+    },
+    {
+      translationKey: "lopezPropiedades",
+      button: {
+        type: "site",
+        link: config.projects.lopezPropiedades
+      },
+      imageSource: {
+        type: "default",
+        images: {
+          rectangular: "/images/projects/lopez-propiedades/rectangular.webp",
+          vertical: "/images/projects/lopez-propiedades/vertical.webp",
+          square: "/images/projects/lopez-propiedades/square.webp",
+          horizontal: "/images/projects/lopez-propiedades/horizontal.webp",
+        },
+      }
     },
     {
       translationKey: "vanicracia",
@@ -51,10 +56,10 @@ const ProjectsSection = () => {
       imageSource: {
         type: "default",
         images: {
-          rectangular: vanicraciaImgRectangular,
-          vertical: vanicraciaImgVertical,
-          square: vanicraciaImgSquare,
-          horizontal: vanicraciaImgHorizontal,
+          rectangular: "/images/projects/vanicracia/rectangular.webp",
+          vertical: "/images/projects/vanicracia/vertical.webp",
+          square: "/images/projects/vanicracia/square.webp",
+          horizontal: "/images/projects/vanicracia/horizontal.webp",
         },
       }
     },
@@ -67,10 +72,10 @@ const ProjectsSection = () => {
       imageSource: {
         type: "default",
         images: {
-          rectangular: tauroImgRectangular,
-          vertical: tauroImgVertical,
-          square: tauroImgSquare,
-          horizontal: tauroImgHorizontal,
+          rectangular: "/images/projects/alfombras-tauro/rectangular.webp",
+          vertical: "/images/projects/alfombras-tauro/vertical.webp",
+          square: "/images/projects/alfombras-tauro/square.webp",
+          horizontal: "/images/projects/alfombras-tauro/horizontal.webp",
         },
       }
     },
@@ -82,10 +87,10 @@ const ProjectsSection = () => {
       imageSource: {
         type: "default",
         images: {
-          rectangular: dondeSalgoImgRectangular,
-          vertical: dondeSalgoImgVertical,
-          square: dondeSalgoImgSquare,
-          horizontal: dondeSalgoImgHorizontal,
+          rectangular: "/images/projects/donde-salgo/rectangular.webp",
+          vertical: "/images/projects/donde-salgo/vertical.webp",
+          square: "/images/projects/donde-salgo/square.webp",
+          horizontal: "/images/projects/donde-salgo/horizontal.webp",
         },
       }
     },
