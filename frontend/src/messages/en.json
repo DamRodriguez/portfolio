@@ -132,12 +132,12 @@
       },
       "spotifyMobile": {
         "title": "Spotify Mobile",
-        "description": "A clone of the <strong>Spotify</strong> mobile app using React Native and Expo.\n\nIt features a variety of sections and playlists with their respective songs, as well as a <strong>functional floating player</strong> and its corresponding screen.",
+        "description": "A clone of the <strong>Spotify</strong> mobile app.\n\nIt features a variety of sections and playlists with their respective songs, as well as a <strong>functional floating player</strong> and its corresponding screen.",
         "technologies": "React Native, Expo, TypeScript, Redux Toolkit, React Native Reanimated"
       },
       "lopezPropiedades": {
         "title": "Lopez Propiedades",
-        "description": "Web application for a <strong>real estate agency</strong> developed with Next.js and Supabase, focused on managing and displaying properties for <strong>sale</strong> and <strong>rent</strong>. It includes property listings and detail pages, institutional sections such as <strong>services</strong>, <strong>about us</strong>, and <strong>contact</strong> with a form.\n\nAdditionally, it includes a <strong>complete admin panel</strong> with authentication, a dashboard, and property creation, editing, and listing features for property management.",
+        "description": "Web application for a <strong>real estate agency</strong>, focused on managing and displaying properties for <strong>sale</strong> and <strong>rent</strong>. It includes property listings and detail pages, institutional sections such as <strong>services</strong>, <strong>about us</strong>, and <strong>contact</strong> with a form.\n\nAdditionally, it includes a <strong>complete admin panel</strong> with authentication, a dashboard, and property creation, editing, and listing features for property management.",
         "technologies": "Next.js, TypeScript, Tailwind, Zod, React Hook Form, Motion, Supabase"
       }
     }
