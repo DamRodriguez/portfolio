@@ -43,28 +43,26 @@ const HeadSection = () => {
       <div className="flex flex-col gap-[2rem]">
         <div className="w-full flex flex-col -space-y-[2rem] lg:-space-y-[3rem]">
           <div className="flex justify-center xl:justify-between items-center">
-            <SplitTextWrapper order={0}>
+            <MotionSlide order={0}>
               <h1 className="first-title-gsap text-6xl lg:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white font-bold font-fira-code theme-transition">
                 {t("headSection.title.first")}
               </h1>
-            </SplitTextWrapper>
+            </MotionSlide>
             <div className="project-button-gsap">
-              <MotionSlide
-                direction="right"
-                order={2}
+              <MotionFade
+                order={1}
                 className="hidden 2xl:flex"
               >
                 <ButtonWithArrow
                   text={projectsButtonText}
                   routerPath={routes.projects}
                 />
-              </MotionSlide>
+              </MotionFade>
             </div>
           </div>
           <div className="flex flex-col-reverse text-center xl:text-start items-center xl:flex xl:flex-row xl:justify-between xl:items-center gap-[1rem]">
-            <MotionSlide
-              direction="left"
-              order={2}
+            <MotionFade
+              order={1}
               className="max-w-[70%] xl:max-w-[25%]"
             >
               <p className="text-gsap text-base 2xl:text-xl text-dark-gray/85 dark:text-soft-gray theme-transition">
@@ -72,16 +70,16 @@ const HeadSection = () => {
                   strong: (chunks) => <span className="text-strong-black dark:text-soft-white theme-transition font-medium">{chunks}</span>,
                 })}
               </p>
-            </MotionSlide>
-            <SplitTextWrapper order={1}>
+            </MotionFade>
+            <MotionSlide direction="right" order={0}>
               <h1 className="second-title-gsap text-6xl lg:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white font-bold font-fira-code theme-transition">
                 {t("headSection.title.second")}
               </h1>
-            </SplitTextWrapper>
+            </MotionSlide>
           </div>
         </div>
         <div className="project-button-gsap">
-          <MotionFade order={2} className="flex 2xl:hidden justify-center">
+          <MotionFade order={1} className="flex 2xl:hidden justify-center">
             <ButtonWithArrow
               text={projectsButtonText}
               routerPath={routes.projects}
@@ -89,7 +87,7 @@ const HeadSection = () => {
           </MotionFade>
         </div>
       </div>
-      <SocialButtonsSection order={3} />
+      <SocialButtonsSection order={2} />
       <div className="carousel-gsap">
         <MotionSlide direction="down">
           <HorizontalCarouselSection />
