@@ -22,6 +22,7 @@ const ContactForm = () => {
     resolver: zodResolver(ContactSchema),
     mode: "onSubmit",
   });
+
   const { apiErrorMessage } = useFormError(methods.formState);
 
   const onSubmit = async (data: ContactSchemaType) => {
