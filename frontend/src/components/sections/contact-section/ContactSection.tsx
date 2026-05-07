@@ -4,9 +4,9 @@ import { useTranslations } from "next-intl";
 import { routes } from "@/constants/routes";
 import { removeHash } from "@/utils/removeHash";
 import MotionFade from "@/components/motion/MotionFade";
-import ContactForm from "@/features/contact/components/ContactForm";
 import FooterSection from "./FooterSection";
 import NameSection from "./NameSection";
+import ContactForm from "@/features/contact/components/ContactForm";
 
 const ContactSection = () => {
   const t = useTranslations("contactSection");

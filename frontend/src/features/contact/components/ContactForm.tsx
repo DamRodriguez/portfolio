@@ -12,7 +12,6 @@ import { SendIcon } from "@/components/icons/buttons";
 import showToast from "@/components/toast/Toast";
 
 const ContactForm = () => {
-  const key = "80a0cd9c-7b3a-4501-9224-e69df4e9ed56";
   const t = useTranslations();
   const methods = useForm<ContactSchemaType>({
     defaultValues: {
@@ -22,32 +21,26 @@ const ContactForm = () => {
     },
     resolver: zodResolver(ContactSchema),
     mode: "onSubmit",
-    criteriaMode: "all",
-    shouldFocusError: false,
-    reValidateMode: "onSubmit",
   });
   const { apiErrorMessage } = useFormError(methods.formState);
 
   const onSubmit = async (data: ContactSchemaType) => {
-    if (data.honeypot) return;
     try {
-      const formData = new FormData();
-      formData.append("access_key", key);
-      formData.append("name", data.name);
-      formData.append("email", data.email);
-      formData.append("message", data.message);
-      formData.append("subject", `Nuevo mensaje de ${data.name}`);
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
-      const json = await res.json();
-      if (json.success) {
-        showToast("success", t("contactSection.toast.messages.contactFormSuccess"));
-        methods.reset();
-        return;
+
+      if (!response.ok) {
+        throw new Error("Error en la respuesta del servidor");
       }
-      showToast("error", t("contactSection.toast.messages.contactFormError"));
+
+      showToast("success", t("contactSection.toast.messages.contactFormSuccess"));
+      methods.reset();
+
     } catch {
       showToast("error", t("contactSection.toast.messages.contactFormError"));
     }
