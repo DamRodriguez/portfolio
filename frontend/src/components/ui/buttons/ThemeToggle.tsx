@@ -16,9 +16,18 @@ export function ThemeToggle() {
   const handleThemeChange = () => {
     const currentTheme = resolvedTheme ?? theme;
     const newTheme = currentTheme === "dark" ? "light" : "dark";
+    const root = document.documentElement;
+
+    root.classList.add("theme-switching");
+
+    const cleanUp = () => {
+      root.classList.remove("theme-switching");
+    };
 
     if (!document.startViewTransition) {
       setTheme(newTheme);
+
+      window.setTimeout(cleanUp, 600);
       return;
     }
 
@@ -38,6 +47,8 @@ export function ThemeToggle() {
         }
       );
     });
+
+    transition.finished.finally(cleanUp);
   };
 
   if (!mounted) {

@@ -37,6 +37,14 @@
     transition-duration: 400ms;
     transition-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
   }
+
+  html.theme-switching .theme-transition {
+    transition: none;
+  }
+
+  html.theme-switching .theme-transition-all {
+    transition: none;
+  }
 }
 
 body {
