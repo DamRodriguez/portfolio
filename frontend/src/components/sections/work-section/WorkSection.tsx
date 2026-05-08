@@ -48,7 +48,7 @@ const WorkSection = () => {
     >
       <MotionSlide direction="right">
         <SpaceX>
-          <h2 className="title-gsap text-black dark:text-soft-white theme-transition text-end font-fira-code font-semibold text-5md xl:text-8xl">
+          <h2 className="title-gsap text-black dark:text-soft-white text-end font-fira-code font-semibold text-5md xl:text-8xl">
             {t("title")}
           </h2>
         </SpaceX>

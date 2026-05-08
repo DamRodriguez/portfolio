@@ -28,12 +28,12 @@ const HorizontalCarouselVariantItem = ({ data }: HorizontalCarouselVariantItemPr
           className="h-full w-full group-hover:scale-110 theme-transition-all object-cover"
         />
       </div>
-      <div className="w-[75%] h-full bg-soft-white/80 dark:bg-black/70 shadow-s4 backdrop-blur-[0.2rem] absolute right-0 bottom-0 pr-[4rem] xl:pr-[1rem] px-[1rem] xl:px-[1rem] py-[2rem] flex flex-col justify-between pointer-events-none items-start theme-transition rounded-r-3xl"
+      <div className="w-[75%] h-full bg-soft-white/80 dark:bg-black/70 shadow-s4 backdrop-blur-[0.2rem] absolute right-0 bottom-0 pr-[4rem] xl:pr-[1rem] px-[1rem] xl:px-[1rem] py-[2rem] flex flex-col justify-between pointer-events-none items-start rounded-r-3xl"
       >
-        <p className="text-black dark:text-soft-white text-xl xl:text-2xl font-fira-code theme-transition">
+        <p className="text-black dark:text-soft-white text-xl xl:text-2xl font-fira-code">
           {data.title}
         </p>
-        <p className="text-black dark:text-soft-white text-sm sm:text-base 2xl:text-lg w-full 2xl:w-[80%] line-clamp-4 theme-transition">
+        <p className="text-black dark:text-soft-white text-sm sm:text-base 2xl:text-lg w-full 2xl:w-[80%] line-clamp-4">
           {data.description}
         </p>
         <div className="pointer-events-auto">

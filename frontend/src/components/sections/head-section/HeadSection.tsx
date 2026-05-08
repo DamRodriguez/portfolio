@@ -44,7 +44,7 @@ const HeadSection = () => {
         <div className="w-full flex flex-col -space-y-[2rem] lg:-space-y-[3rem]">
           <div className="flex justify-center xl:justify-between items-center">
             <MotionSlide order={0}>
-              <h1 className="first-title-gsap text-6xl lg:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white font-bold font-fira-code theme-transition">
+              <h1 className="first-title-gsap text-6xl lg:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white font-bold font-fira-code">
                 {t("headSection.title.first")}
               </h1>
             </MotionSlide>
@@ -65,14 +65,14 @@ const HeadSection = () => {
               order={1}
               className="max-w-[70%] xl:max-w-[25%]"
             >
-              <p className="text-gsap text-base 2xl:text-xl text-dark-gray/85 dark:text-soft-gray theme-transition">
+              <p className="text-gsap text-base 2xl:text-xl text-dark-gray/85 dark:text-soft-gray">
                 {t.rich("headSection.personalDescription", {
-                  strong: (chunks) => <span className="text-strong-black dark:text-soft-white theme-transition font-medium">{chunks}</span>,
+                  strong: (chunks) => <span className="text-strong-black dark:text-soft-white font-medium">{chunks}</span>,
                 })}
               </p>
             </MotionFade>
             <MotionSlide direction="right" order={0}>
-              <h1 className="second-title-gsap text-6xl lg:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white font-bold font-fira-code theme-transition">
+              <h1 className="second-title-gsap text-6xl lg:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white font-bold font-fira-code">
                 {t("headSection.title.second")}
               </h1>
             </MotionSlide>

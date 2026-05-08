@@ -73,7 +73,7 @@ const WorkItem = (props: WorkItemProps) => {
               <Link
                 href={data.employerLink}
                 target="_blank"
-                className="text-black dark:text-soft-white text-base xl:text-xl group-hover:text-soft-white dark:group-hover:text-black theme-transition-all cursor-pointer w-fit hover:scale-105 font-medium"
+                className="text-black dark:text-soft-white text-base xl:text-xl group-hover:text-soft-white dark:group-hover:text-black theme-transition cursor-pointer w-fit hover:scale-105 font-medium"
               >
                 {data.employer}
               </Link>

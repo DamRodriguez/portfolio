@@ -21,7 +21,7 @@ const NameSection = () => {
       <div className="-space-y-4 xl:-space-y-10 4xl:-space-y-15">
         <div className="flex items-center gap-4">
           <MotionSlide order={0}>
-            <h4 className="text-black dark:text-soft-white theme-transition font-fira-code font-semibold text-5md xl:text-8xl 4xl:text-9xl">
+            <h4 className="text-black dark:text-soft-white font-fira-code font-semibold text-5md xl:text-8xl 4xl:text-9xl">
               {t("name.firstName")}
             </h4>
           </MotionSlide>
@@ -37,12 +37,12 @@ const NameSection = () => {
         </div>
         <div className="flex items-center gap-[1rem] xl:gap-[4rem]">
           <MotionFade order={2}>
-            <p className="text-dark-gray dark:text-soft-gray theme-transition text-xs xl:text-xl whitespace-break-spaces">
+            <p className="text-dark-gray dark:text-soft-gray text-xs xl:text-xl whitespace-break-spaces">
               {t("position")}
             </p>
           </MotionFade>
           <MotionSlide direction="right" order={1}>
-            <h4 className="text-black dark:text-soft-white theme-transition font-fira-code font-semibold text-5md xl:text-8xl 4xl:text-9xl">
+            <h4 className="text-black dark:text-soft-white font-fira-code font-semibold text-5md xl:text-8xl 4xl:text-9xl">
               {t("name.lastName")}
             </h4>
           </MotionSlide>

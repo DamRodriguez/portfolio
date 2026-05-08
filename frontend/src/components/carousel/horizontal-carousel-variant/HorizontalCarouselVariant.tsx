@@ -40,7 +40,7 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
     onSelect();
   }, [emblaApi]);
 
-  const arrowSvgClassName = "w-7 h-7 xl:w-10 xl:h-10 fill-soft-white dark:fill-soft-white theme-transition";
+  const arrowSvgClassName = "w-7 h-7 xl:w-10 xl:h-10 fill-soft-white dark:fill-soft-white theme-transition-all";
   const arrowButtonClassName = "pointer-events-auto backdrop-blur-[0.1rem] cursor-pointer hover:scale-105 theme-transition-all border border-soft-gray rounded-full w-15 h-15 xl:w-20 xl:h-20 flex items-center justify-center hover:[&_svg]:fill-[#000] hover:bg-soft-white shadow-s1 bg-black";
 
   useScrollAnimations({
@@ -79,13 +79,13 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
       </div>
 
       <div className="absolute inset-y-0 left-0 w-30 md:w-50 xl:w-100 2xl:w-150 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-r from-white-bone to-transparent opacity-100 dark:opacity-0 theme-transition-all" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-0 dark:opacity-100 theme-transition-all" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white-bone to-transparent opacity-100 dark:opacity-0" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-0 dark:opacity-100" />
       </div>
 
       <div className="absolute inset-y-0 right-0 w-30 md:w-50 xl:w-100 2xl:w-150 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-l from-white-bone to-transparent opacity-100 dark:opacity-0 theme-transition-all" />
-        <div className="absolute inset-0 bg-gradient-to-l from-black to-transparent opacity-0 dark:opacity-100 theme-transition-all" />
+        <div className="absolute inset-0 bg-gradient-to-l from-white-bone to-transparent opacity-100 dark:opacity-0" />
+        <div className="absolute inset-0 bg-gradient-to-l from-black to-transparent opacity-0 dark:opacity-100" />
       </div>
 
       <div className={clsx("absolute inset-0 flex items-center justify-between pointer-events-none",

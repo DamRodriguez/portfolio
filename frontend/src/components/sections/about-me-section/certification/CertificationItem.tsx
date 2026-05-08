@@ -46,13 +46,13 @@ const CertificationItem = (props: CertificationItemProps) => {
           className={clsx("bg-soft-white/20 dark:bg-black group-hover:bg-black/5 dark:group-hover:bg-soft-white/10 theme-transition flex items-center justify-between gap-[1rem] p-[1rem] rounded-[1rem] border border-transparent dark:border-soft-gray/15 shadow-s3 dark:shadow-s1", props.containerClassName)}
         >
           <div>
-            <p className="text-black dark:text-soft-white theme-transition text-sm xl:text-base">
+            <p className="text-black dark:text-soft-white text-sm xl:text-base">
               {data.title}
             </p>
           </div>
 
           <div>
-            <p className="text-black dark:text-soft-white theme-transition text-sm xl:text-base">
+            <p className="text-black dark:text-soft-white text-sm xl:text-base">
               {data.place}
             </p>
           </div>

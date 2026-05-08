@@ -91,7 +91,7 @@ const ProjectItem = (props: ProjectItemProps) => {
       <div className="flex flex-col justify-center gap-[2rem] xl:gap-[3rem] xl:w-[45%]">
         <div className="flex flex-col gap-[1.5rem] xl:gap-[2rem] ">
           <MotionSlide direction={(props.odd && !isMobile) ? "right" : "left"}>
-            <h3 className="project-item-title-gsap text-black dark:text-soft-white theme-transition text-xl xl:text-2xl font-semibold">
+            <h3 className="project-item-title-gsap text-black dark:text-soft-white text-xl xl:text-2xl font-semibold">
               {title}
             </h3>
           </MotionSlide>
@@ -111,7 +111,7 @@ const ProjectItem = (props: ProjectItemProps) => {
         </div>
 
         <MotionFade>
-          <p className="project-text-gsap text-dark-gray/85 dark:text-soft-gray theme-transition text-sm xl:text-lg whitespace-pre-line">
+          <p className="project-text-gsap text-dark-gray/85 dark:text-soft-gray text-sm xl:text-lg whitespace-pre-line">
             <RichText
               t={t}
               translationKey={`projectsData.${data.translationKey}.description`}

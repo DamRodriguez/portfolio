@@ -25,7 +25,7 @@ const RightSection = (props: RightSectionProps) => {
             className="cursor-pointer"
             aria-label="Cerrar menú de navegación"
           >
-            <CloseIcon className="fill-black dark:fill-soft-white theme-transition" />
+            <CloseIcon className="fill-black dark:fill-soft-white" />
           </button>
         ) : (
           <button
@@ -33,7 +33,7 @@ const RightSection = (props: RightSectionProps) => {
             className="cursor-pointer"
             aria-label="Abrir menú de navegación"
           >
-            <HamburgerIcon className="fill-black dark:fill-soft-white theme-transition" />
+            <HamburgerIcon className="fill-black dark:fill-soft-white" />
           </button>
         )}
       </MotionFade>

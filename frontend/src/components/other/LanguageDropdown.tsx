@@ -47,16 +47,16 @@ const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
       })}
       ref={dropdownRef}
       className="inline-block max-h-[2.17375rem] xl:max-h-[2.67375rem] w-[4.1rem] xl:w-[5.3rem] z-999">
-      <div className="py-[0.4rem] px-[0.3rem] xl:px-[0.5rem] rounded-[0.5rem] overflow-hidden theme-transition backdrop-blur-xs border dark:border-soft-gray/5 shadow-s2 bg-soft-white dark:bg-soft-gray/20">
+      <div className="py-[0.4rem] px-[0.3rem] xl:px-[0.5rem] rounded-[0.5rem] overflow-hidden backdrop-blur-xs border dark:border-soft-gray/5 shadow-s2 bg-soft-white dark:bg-soft-gray/20">
         <div
           onClick={() => { setIsOpen(!isOpen); }}
           className="flex items-center gap-[0.5rem] cursor-pointer"
         >
           <div className="flex items-center gap-[0.3rem] ">
-            <div className="bg-black/50 dark:bg-black/50 rounded-full theme-transition">
+            <div className="bg-black/50 dark:bg-black/50 rounded-full">
               {currentLanguage?.flag}
             </div>
-            <span className="capitalize text-xs xl:text-base text-black dark:text-soft-white theme-transition">
+            <span className="capitalize text-xs xl:text-base text-black dark:text-soft-white">
               {currentLanguage?.lang}
             </span>
           </div>
@@ -73,7 +73,7 @@ const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
                     onClick={() => { handleLanguageChange(lang); }}
                     className="group flex items-center gap-[0.3rem] cursor-pointer hover:bg-black/40 dark:hover:bg-soft-white/40 rounded-full theme-transition"
                   >
-                    <div className="bg-black/50 dark:bg-black/50 rounded-full theme-transition">
+                    <div className="bg-black/50 dark:bg-black/50 rounded-full">
                       {flag}
                     </div>
                     <span className="capitalize text-xs xl:text-base text-black/80 dark:text-soft-white/80 group-hover:text-soft-white dark:group-hover:text-strong-black theme-transition">

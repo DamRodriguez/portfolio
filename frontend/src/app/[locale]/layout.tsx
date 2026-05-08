@@ -54,7 +54,7 @@ export default async function LocaleLayout({
             <ThemeProvider>
               <ThemeTransitionBlocker />
               <ProgressBarProvider>
-                <div className="min-w-[20rem] max-w-[120rem] mx-auto w-full font-open-sans theme-transition bg-white-bone dark:bg-black">
+                <div className="min-w-[20rem] max-w-[120rem] mx-auto w-full font-open-sans bg-white-bone dark:bg-black">
                   <Header locale={locale} />
                   <ToastContainer />
                   {children}
