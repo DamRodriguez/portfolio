@@ -44,7 +44,7 @@ export function ThemeToggle() {
           duration: 600,
           easing: "ease-in-out",
           pseudoElement: "::view-transition-new(root)",
-        }
+        },
       );
     });
 
@@ -75,20 +75,20 @@ export function ThemeToggle() {
           onChange={handleThemeChange}
         />
 
-        <div className="col-start-1 row-start-1 theme-transition-all delay-200 line-height-[0.1] peer-checked:rotate-[360deg] peer-checked:scale-0">
+        <div className="col-start-1 row-start-1 transition-all delay-150 line-height-[0.1] peer-checked:rotate-[360deg] peer-checked:scale-0">
           <MoonIcon
             className={clsx(
               "fill-black group-hover:fill-soft-white",
-              iconClassName
+              iconClassName,
             )}
           />
         </div>
 
-        <div className="col-start-1 row-start-1 scale-0 theme-transition-all line-height-[0.1] peer-checked:delay-200 peer-checked:scale-100 peer-checked:rotate-[360deg]">
+        <div className="col-start-1 row-start-1 scale-0 transition-all line-height-[0.1] peer-checked:delay-150 peer-checked:scale-100 peer-checked:rotate-[360deg]">
           <SunIcon
             className={clsx(
               "fill-soft-white group-hover:fill-black",
-              iconClassName
+              iconClassName,
             )}
           />
         </div>
