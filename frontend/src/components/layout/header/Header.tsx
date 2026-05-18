@@ -24,12 +24,16 @@ const Header = ({ locale }: HeaderProps) => {
 
   return (
     <header>
-      <MotionEntrySlide direction="up" className="z-99999 fixed top-0 w-full">
+      <MotionEntrySlide
+        order={1}
+        direction="up"
+        className="z-99999 fixed top-0 w-full"
+      >
         <SpaceX
           className={clsx(
             "min-h-header-mobile xl:min-h-header-desktop bg-white-bone dark:bg-black flex items-center justify-between theme-transition-all",
             {
-              "translate-y-4 mx-4 xl:translate-y-6 xl:mx-6 shadow-s9 dark:shadow-s1 rounded-full":
+              "translate-y-4 mx-4 xl:translate-y-6 xl:mx-6 shadow-s9 dark:shadow-s1 rounded-full !bg-soft-white dark:!bg-strong-black":
                 hasScrolled,
               "translate-y-0": !hasScrolled,
             },
@@ -48,6 +52,7 @@ const Header = ({ locale }: HeaderProps) => {
             locale={locale}
             isMobileNavVisible={isMobileNavVisible}
             setIsMobileNavVisible={setIsMobileNavVisible}
+            hasScrolled={hasScrolled}
           />
         </SpaceX>
       </MotionEntrySlide>
@@ -60,7 +65,7 @@ const Header = ({ locale }: HeaderProps) => {
         position="top"
         closeButton={null}
         className={clsx(
-          "pb-[7rem] bg-white-bone/90 dark:bg-black/90 xl:hidden shadow-s2 dark:shadow-s1",
+          "pb-[7rem] bg-soft-white/90 dark:bg-strong-black/90 xl:hidden shadow-s2 dark:shadow-s1",
           {
             "translate-y-[calc(var(--height-header-mobile)+2.5rem)] border border-black/30 dark:border-soft-gray/15 rounded-t-[5rem]":
               hasScrolled,

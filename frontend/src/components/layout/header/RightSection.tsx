@@ -7,6 +7,7 @@ type RightSectionProps = {
   locale: Locale;
   isMobileNavVisible: boolean;
   setIsMobileNavVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  hasScrolled: boolean;
 };
 
 const RightSection = (props: RightSectionProps) => {
@@ -18,9 +19,9 @@ const RightSection = (props: RightSectionProps) => {
 
   return (
     <div className="flex items-center gap-[1rem] md:gap-[1.5rem] xl:gap-[2rem] ">
-      <ThemeToggle />
+      <ThemeToggle hasScrolled={props.hasScrolled} />
 
-      <LanguageDropdown locale={props.locale} />
+      <LanguageDropdown locale={props.locale} hasScrolled={props.hasScrolled} />
 
       <div className="flex xl:hidden">
         <button

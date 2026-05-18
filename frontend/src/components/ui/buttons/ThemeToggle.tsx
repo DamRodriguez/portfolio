@@ -4,7 +4,11 @@ import clsx from "clsx";
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
 
-export function ThemeToggle() {
+type ThemeToggleProps = {
+  hasScrolled: boolean;
+};
+
+export function ThemeToggle(props: ThemeToggleProps) {
   const { theme, resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const buttonRef = useRef<HTMLLabelElement | null>(null);
@@ -78,7 +82,13 @@ export function ThemeToggle() {
       <label
         ref={buttonRef}
         htmlFor="switch"
-        className="relative grid w-[2.17375rem] xl:w-[2.67375rem] aspect-square cursor-pointer place-items-center rounded-full border bg-soft-white shadow-s2 theme-transition-all hover:bg-black dark:border-soft-gray/5 dark:bg-soft-gray/20 dark:shadow-s1 dark:hover:bg-soft-white group"
+        className={clsx(
+          "relative grid w-[2.17375rem] xl:w-[2.67375rem] dark:bg-soft-gray/20 aspect-square cursor-pointer place-items-center rounded-full border shadow-s2 theme-transition-all hover:bg-black dark:border-soft-gray/5 dark:shadow-s1 dark:hover:bg-soft-white group",
+          {
+            "bg-white-bone": props.hasScrolled,
+            "bg-soft-white": !props.hasScrolled,
+          },
+        )}
       >
         <input
           type="checkbox"

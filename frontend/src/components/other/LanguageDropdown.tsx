@@ -7,6 +7,7 @@ import {
 import MotionHeight from "@/components/motion/MotionHeight";
 import useBreakpoint from "@/hooks/useBreakpoint";
 import { useClickOutside } from "@/utils/useClickOutside";
+import clsx from "clsx";
 import { AnimatePresence } from "framer-motion";
 import type { Locale } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
@@ -14,9 +15,10 @@ import { type JSX, useRef, useState } from "react";
 
 type LanguageDropdownProps = {
   locale: Locale;
+  hasScrolled: boolean;
 };
 
-const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
+const LanguageDropdown = ({ locale, hasScrolled }: LanguageDropdownProps) => {
   const router = useRouter();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
@@ -60,7 +62,15 @@ const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
       ref={dropdownRef}
       className="inline-block max-h-[2.17375rem] xl:max-h-[2.67375rem] w-[4.1rem] xl:w-[5.3rem] z-999"
     >
-      <div className="py-[0.4rem] px-[0.3rem] xl:px-[0.5rem] rounded-[0.5rem] overflow-hidden backdrop-blur-xs border dark:border-soft-gray/5 shadow-s2 bg-soft-white dark:bg-soft-gray/20">
+      <div
+        className={clsx(
+          "py-[0.4rem] px-[0.3rem] xl:px-[0.5rem] rounded-[0.5rem] overflow-hidden backdrop-blur-xs border dark:border-soft-gray/5 shadow-s2 dark:bg-soft-gray/20",
+          {
+            "bg-white-bone": hasScrolled,
+            "bg-soft-white": !hasScrolled,
+          },
+        )}
+      >
         <div
           onClick={() => {
             setIsOpen(!isOpen);
@@ -92,7 +102,7 @@ const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
                     onClick={() => {
                       handleLanguageChange(lang);
                     }}
-                    className="group flex items-center gap-[0.3rem] cursor-pointer hover:bg-black/40 dark:hover:bg-soft-white/40 rounded-full theme-transition"
+                    className="group flex items-center gap-[0.3rem] cursor-pointer hover:bg-black/90 dark:hover:bg-soft-white/90 rounded-full theme-transition"
                   >
                     <div className="bg-black/50 dark:bg-black/50 rounded-full">
                       {flag}
