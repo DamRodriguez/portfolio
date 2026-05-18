@@ -1,18 +1,16 @@
 import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
-import MotionStagger from "@/components/motion/MotionStagger";
-import useBreakpoint from "@/hooks/useBreakpoint";
-import clsx from "clsx";
-import { useTranslations } from "next-intl";
 import ItemHover from "@/components/other/ItemHover";
 import { RichText } from "@/components/other/RichText";
-import { Messages } from "next-intl";
-import { removeHash } from "@/utils/removeHash";
 import { projectsRoutes } from "@/constants/projectsRoutes";
+import useBreakpoint from "@/hooks/useBreakpoint";
+import { useScrollAnimations } from "@/hooks/useScrollAnimations";
+import { removeHash } from "@/utils/removeHash";
+import clsx from "clsx";
+import { Messages, useTranslations } from "next-intl";
+import { useRef } from "react";
 import ButtonsSection, { ProjectButton } from "./ButtonsSection";
 import ImagesSection, { ImageSource } from "./ImagesSection";
-import { useScrollAnimations } from "@/hooks/useScrollAnimations";
-import { useRef } from "react";
 
 export type ProjectKey = keyof Messages["projectsSection"]["projectsData"];
 export type DescriptionKey = `projectsData.${ProjectKey}.description`;
@@ -23,13 +21,13 @@ export type ProjectItemData = {
   imageSource: ImageSource;
   disablePopUp?: boolean;
   translationKey: ProjectKey;
-}
+};
 
 type ProjectItemProps = {
   data: ProjectItemData;
   odd?: boolean;
   containerClassName?: string;
-}
+};
 
 const ProjectItem = (props: ProjectItemProps) => {
   const data = props.data;
@@ -37,11 +35,9 @@ const ProjectItem = (props: ProjectItemProps) => {
   const title = t(`projectsData.${data.translationKey}.title`);
   const isMobile = useBreakpoint();
   const technologiesString = t(
-    `projectsData.${data.translationKey}.technologies`
+    `projectsData.${data.translationKey}.technologies`,
   );
-  const technologies = technologiesString
-    .split(",")
-    .map((tech) => tech.trim());
+  const technologies = technologiesString.split(",").map((tech) => tech.trim());
 
   const itemRef = useRef<HTMLDivElement>(null);
 
@@ -49,13 +45,13 @@ const ProjectItem = (props: ProjectItemProps) => {
     animations: {
       ".project-item-title-gsap": {
         y: -25,
-        rotate: 5
+        rotate: 5,
       },
       ".project-technologies-gsap": {
         scale: 0.7,
         rotate: -2,
         rotateZ: 10,
-        stagger: 0.1
+        stagger: 0.1,
       },
       ".project-image-gsap": {
         y: -25,
@@ -63,51 +59,60 @@ const ProjectItem = (props: ProjectItemProps) => {
         rotateZ: props.odd ? 4 : -4,
         x: props.odd ? -15 : 15,
         borderRadius: isMobile ? 30 : 60,
-        stagger: 0.1
+        stagger: 0.1,
       },
       ".project-text-gsap": {
         scale: 0.95,
-        x: 15
+        x: 15,
       },
       ".project-buttons-gsap": {
         rotate: -5,
         x: -50,
-        opacity: 0
-      }
+        opacity: 0,
+      },
     },
-    scope: itemRef
-  })
+    scope: itemRef,
+  });
 
   return (
     <div
       ref={itemRef}
       id={removeHash(projectsRoutes[data.translationKey])}
-      className={clsx("flex flex-col-reverse items-center xl:flex-row gap-[1.5rem] xl:gap-[5rem] scroll-mt-[8.5rem] xl:scroll-mt-[14rem]",
+      className={clsx(
+        "flex flex-col-reverse items-center xl:flex-row gap-[1.5rem] xl:gap-[5rem] scroll-mt-[8.5rem] xl:scroll-mt-[14rem]",
         {
           "xl:flex-row-reverse": props.odd,
-        }, props.containerClassName
+        },
+        props.containerClassName,
       )}
     >
       <div className="flex flex-col justify-center gap-[2rem] xl:gap-[3rem] xl:w-[45%]">
         <div className="flex flex-col gap-[1.5rem] xl:gap-[2rem] ">
-          <MotionSlide direction={(props.odd && !isMobile) ? "right" : "left"}>
+          <MotionSlide direction={props.odd && !isMobile ? "right" : "left"}>
             <h3 className="project-item-title-gsap text-black dark:text-soft-white text-xl xl:text-2xl font-semibold">
               {title}
             </h3>
           </MotionSlide>
 
-          <MotionStagger
-            duration={0.3}
-            className="flex flex-wrap gap-[0.7rem] xl:gap-[1rem]"
-          >
+          <div className="flex flex-wrap gap-[0.7rem] xl:gap-[1rem]">
             {technologies.map((tech, index) => (
-              <div key={index} className="project-technologies-gsap">
-                <ItemHover small cursorNormal className="dark:!border-soft-gray/30 !border-soft-white/50 shadow-s2 dark:shadow-s1 bg-black/80">
-                  {tech}
-                </ItemHover>
-              </div>
+              <MotionSlide
+                direction="down"
+                order={0.2 * index}
+                key={`${index} + ${tech}`}
+              >
+                <div className="project-technologies-gsap">
+                  <ItemHover
+                    small
+                    cursorNormal
+                    className="dark:!border-soft-gray/30 !border-soft-white/50 shadow-s2 dark:shadow-s1 bg-black/80"
+                  >
+                    {tech}
+                  </ItemHover>
+                </div>
+              </MotionSlide>
             ))}
-          </MotionStagger>
+          </div>
         </div>
 
         <MotionFade>

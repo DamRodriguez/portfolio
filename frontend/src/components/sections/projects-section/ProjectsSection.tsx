@@ -1,13 +1,13 @@
 "use client";
 import SpaceX from "@/components/layout/SpaceX";
 import MotionSlide from "@/components/motion/MotionSlide";
+import SectionSeparator from "@/components/other/SectionSeparator";
+import config from "@/config/config";
+import { routes } from "@/constants/routes";
+import { useScrollAnimations } from "@/hooks/useScrollAnimations";
+import { removeHash } from "@/utils/removeHash";
 import { useTranslations } from "next-intl";
 import ProjectItem, { ProjectItemData } from "./ProjectItem";
-import config from "@/config/config";
-import { removeHash } from "@/utils/removeHash";
-import { routes } from "@/constants/routes";
-import SectionSeparator from "@/components/other/SectionSeparator";
-import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 
 const ProjectsSection = () => {
   const t = useTranslations("projectsSection");
@@ -18,7 +18,7 @@ const ProjectsSection = () => {
       translationKey: "spotifyMobile",
       button: {
         type: "repository",
-        link: config.repositories.spotifyMobile
+        link: config.repositories.spotifyMobile,
       },
       imageSource: {
         type: "mobile",
@@ -26,16 +26,16 @@ const ProjectsSection = () => {
           "/images/projects/spotify-mobile/image1.webp",
           "/images/projects/spotify-mobile/image2.webp",
           "/images/projects/spotify-mobile/image3.webp",
-          "/images/projects/spotify-mobile/image4.webp"
-        ]
+          "/images/projects/spotify-mobile/image4.webp",
+        ],
       },
-      demoVideo: spotifyDemoVideo
+      demoVideo: spotifyDemoVideo,
     },
     {
       translationKey: "lopezPropiedades",
       button: {
         type: "site",
-        link: config.projects.lopezPropiedades
+        link: config.projects.lopezPropiedades,
       },
       imageSource: {
         type: "default",
@@ -45,13 +45,13 @@ const ProjectsSection = () => {
           square: "/images/projects/lopez-propiedades/square.webp",
           horizontal: "/images/projects/lopez-propiedades/horizontal.webp",
         },
-      }
+      },
     },
     {
       translationKey: "vanicracia",
       button: {
         type: "site",
-        link: config.projects.vanicracia
+        link: config.projects.vanicracia,
       },
       imageSource: {
         type: "default",
@@ -61,13 +61,13 @@ const ProjectsSection = () => {
           square: "/images/projects/vanicracia/square.webp",
           horizontal: "/images/projects/vanicracia/horizontal.webp",
         },
-      }
+      },
     },
     {
       translationKey: "alfombrasTauro",
       button: {
         type: "site",
-        link: config.projects.alfombrasTauro
+        link: config.projects.alfombrasTauro,
       },
       imageSource: {
         type: "default",
@@ -77,7 +77,7 @@ const ProjectsSection = () => {
           square: "/images/projects/alfombras-tauro/square.webp",
           horizontal: "/images/projects/alfombras-tauro/horizontal.webp",
         },
-      }
+      },
     },
     {
       translationKey: "dondeSalgo",
@@ -92,9 +92,9 @@ const ProjectsSection = () => {
           square: "/images/projects/donde-salgo/square.webp",
           horizontal: "/images/projects/donde-salgo/horizontal.webp",
         },
-      }
+      },
     },
-  ]
+  ];
 
   useScrollAnimations({
     animations: {
@@ -103,7 +103,7 @@ const ProjectsSection = () => {
         y: -100,
       },
     },
-  })
+  });
 
   return (
     <SpaceX
@@ -120,13 +120,8 @@ const ProjectsSection = () => {
       <div className="flex flex-col gap-[4rem] xl:gap-[6rem]">
         {projectsData.map((project, index) => (
           <div key={index} className="contents">
-            <ProjectItem
-              data={project}
-              odd={index % 2 !== 0}
-            />
-            {index !== projectsData.length - 1 && (
-              <SectionSeparator />
-            )}
+            <ProjectItem data={project} odd={index % 2 !== 0} />
+            {index !== projectsData.length - 1 && <SectionSeparator />}
           </div>
         ))}
       </div>

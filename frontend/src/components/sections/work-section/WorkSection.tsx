@@ -1,12 +1,13 @@
-"use client"
+"use client";
 import SpaceX from "@/components/layout/SpaceX";
+import MotionSlide from "@/components/motion/MotionSlide";
+import MotionStagger from "@/components/motion/MotionStagger";
+import config from "@/config/config";
+import { routes } from "@/constants/routes";
+import { useScrollAnimations } from "@/hooks/useScrollAnimations";
+import { removeHash } from "@/utils/removeHash";
 import { useTranslations } from "next-intl";
 import WorkItem, { WorkItemData } from "./WorkItem";
-import { removeHash } from "@/utils/removeHash";
-import { routes } from "@/constants/routes";
-import MotionSlide from "@/components/motion/MotionSlide";
-import config from "@/config/config";
-import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 
 const WorkSection = () => {
   const t = useTranslations("workSection");
@@ -22,15 +23,15 @@ const WorkSection = () => {
       initialDate: "2023-04-05",
       finalDate: "2024-01-05",
       employer: t("workData.telecentro.employer"),
-      position: t("workData.telecentro.position")
+      position: t("workData.telecentro.position"),
     },
     {
       initialDate: "2021-04-05",
       finalDate: "2021-12-05",
       employer: t("workData.mercadoLibre.employer"),
-      position: t("workData.mercadoLibre.position")
-    }
-  ]
+      position: t("workData.mercadoLibre.position"),
+    },
+  ];
 
   useScrollAnimations({
     animations: {
@@ -39,7 +40,7 @@ const WorkSection = () => {
         y: -100,
       },
     },
-  })
+  });
 
   return (
     <div
@@ -53,20 +54,17 @@ const WorkSection = () => {
           </h2>
         </SpaceX>
       </MotionSlide>
-      <div className="shadow-s3 dark:shadow-s1">
+      <MotionStagger direction="left">
         {workItems.map((item, index) => {
           const isLast = index === workItems.length - 1;
           const isPair = index % 2 === 0;
           return (
-            <MotionSlide
-              key={index}
-              order={0.4 * index}
-            >
+            <div key={index}>
               <WorkItem data={{ ...item }} isPair={isPair} isLast={isLast} />
-            </MotionSlide>
-          )
+            </div>
+          );
         })}
-      </div>
+      </MotionStagger>
     </div>
   );
 };

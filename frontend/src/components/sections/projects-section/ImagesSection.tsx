@@ -1,47 +1,50 @@
 import MotionSlide from "@/components/motion/MotionSlide";
-import clsx from "clsx";
 import ProjectImage from "@/components/sections/projects-section/ProjectImage";
+import clsx from "clsx";
 
 export type ImageSource =
-  {
-    type: "single";
-    image: string;
-  }
-  |
-  {
-    type: "mobile";
-    images: string[];
-  }
-  |
-  {
-    type: "default";
-    images: {
-      rectangular: string;
-      vertical: string;
-      square: string;
-      horizontal: string;
+  | {
+      type: "single";
+      image: string;
+    }
+  | {
+      type: "mobile";
+      images: string[];
+    }
+  | {
+      type: "default";
+      images: {
+        rectangular: string;
+        vertical: string;
+        square: string;
+        horizontal: string;
+      };
     };
-  };
 
 type ImagesSectionProps = {
   imageSource: ImageSource;
   disablePopUp?: boolean;
   odd?: boolean;
   title: string;
-}
+};
 
-const ImagesSection = ({ imageSource, disablePopUp, odd, title }: ImagesSectionProps) => {
-
+const ImagesSection = ({
+  imageSource,
+  disablePopUp,
+  odd,
+  title,
+}: ImagesSectionProps) => {
   return (
     <>
       {imageSource.type === "default" && (
         <div className="grid gap-[1rem] xl:gap-[1.5rem] h-full xl:w-full">
           <MotionSlide
             direction="down"
-            className={clsx("flex gap-[1rem] xl:gap-[1.5rem] h-[15rem] md:h-[20rem] xl:h-[25rem]",
+            className={clsx(
+              "flex gap-[1rem] xl:gap-[1.5rem] h-[15rem] md:h-[20rem] xl:h-[25rem]",
               {
-                "flex-row-reverse": odd
-              }
+                "flex-row-reverse": odd,
+              },
             )}
           >
             <ProjectImage
@@ -60,10 +63,11 @@ const ImagesSection = ({ imageSource, disablePopUp, odd, title }: ImagesSectionP
 
           <MotionSlide
             direction="down"
-            className={clsx("flex h-[10rem] md:h-[16rem] xl:h-[20rem] gap-[1rem] xl:gap-[1.5rem]",
+            className={clsx(
+              "flex h-[10rem] md:h-[16rem] xl:h-[20rem] gap-[1rem] xl:gap-[1.5rem]",
               {
-                "flex-row-reverse": odd
-              }
+                "flex-row-reverse": odd,
+              },
             )}
           >
             <ProjectImage
@@ -85,10 +89,7 @@ const ImagesSection = ({ imageSource, disablePopUp, odd, title }: ImagesSectionP
       {imageSource.type === "mobile" && (
         <div className="flex gap-[1rem] xl:grid xl:grid-cols-2 xl:w-[50%] 2xl:flex 2xl:gap-[1.5rem] h-full 2xl:w-full">
           {imageSource.images.map((image, index) => (
-            <MotionSlide
-              direction="down"
-              key={index}
-            >
+            <MotionSlide direction="down" key={index}>
               <ProjectImage
                 image={image}
                 alt={`${title} mobile image ${index + 1}`}
@@ -103,8 +104,7 @@ const ImagesSection = ({ imageSource, disablePopUp, odd, title }: ImagesSectionP
       {imageSource.type === "single" && (
         <MotionSlide
           direction="down"
-          className={clsx("flex w-full h-[15rem] md:h-[20rem] xl:h-[25rem]",
-          )}
+          className={clsx("flex w-full h-[15rem] md:h-[20rem] xl:h-[25rem]")}
         >
           <ProjectImage
             image={imageSource.image}

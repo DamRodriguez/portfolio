@@ -1,10 +1,10 @@
 "use client";
-import Link from "next/link";
 import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
-import { routeItems } from "@/constants/routeItems";
 import SocialButtons from "@/components/other/SocialButtons";
+import { routeItems } from "@/constants/routeItems";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 type NavMobileProps = {
   onClose: () => void;
@@ -18,14 +18,15 @@ const NavMobile = ({ onClose }: NavMobileProps) => {
         <nav>
           <ul className="flex flex-col items-center text-center text-base gap-[1rem] font-semibold">
             {routeItems.map(({ href, label }) => (
-              <li key={href} className="w-full group">
+              <li key={href} className="w-full max-w-[15rem]">
                 <Link
                   href={href}
                   onClick={onClose}
-                  className="cursor-pointer text-black dark:text-soft-white theme-transition">
+                  className="cursor-pointer text-black dark:text-soft-white"
+                >
                   {t(label)}
                 </Link>
-                <div className="h-[0.05rem] bg-soft-gray dark:bg-soft-gray my-[0.5rem] group-hover:bg-black dark:group-hover:bg-soft-white group-hover:w-[50%] mx-auto w-full theme-transition-all" />
+                <div className="h-[0.05rem] bg-soft-gray dark:bg-soft-gray my-[0.5rem] mx-auto w-full" />
               </li>
             ))}
           </ul>
