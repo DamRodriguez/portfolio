@@ -38,6 +38,7 @@ export const SourcePopUp = ({
     <AnimatePresence>
       {source && (
         <MotionOpacity
+          duration={0.3}
           className="fixed inset-0 z-[9999999] bg-black/90 flex items-center justify-center"
           onClick={onClose}
         >
