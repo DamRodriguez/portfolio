@@ -23,7 +23,7 @@ const Header = ({ locale }: HeaderProps) => {
   useCloseMobileNavOnDesktop({ setIsMobileNavVisible });
 
   return (
-    <header className="sticky top-0 z-999">
+    <header className="sticky top-0 z-9999">
       <MotionEntrySlide direction="up" className="z-9999 sticky">
         <SpaceX
           className={clsx(
