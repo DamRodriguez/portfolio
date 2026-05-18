@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
-import "@/styles/globals.css";
 import ReduxStoreProvider from "@/components/provider/ReduxStoreProvider";
+import "@/styles/globals.css";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Portfolio - Damian Rodriguez",
@@ -29,16 +29,9 @@ export const metadata: Metadata = {
 };
 
 type RootLayoutProps = {
-  children: React.ReactNode,
-}
+  children: React.ReactNode;
+};
 
-export default async function RootLayout({
-  children,
-}: RootLayoutProps) {
-
-  return (
-    <ReduxStoreProvider>
-      {children}
-    </ReduxStoreProvider>
-  );
+export default async function RootLayout({ children }: RootLayoutProps) {
+  return <ReduxStoreProvider>{children}</ReduxStoreProvider>;
 }

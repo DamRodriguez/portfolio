@@ -1,11 +1,16 @@
-import { AnimatePresence } from "framer-motion";
-import { usePathname, useRouter } from "next/navigation";
-import type { Locale } from "next-intl";
-import { type JSX, useRef, useState } from "react";
-import { ArgFlagIcon, DownIcon, EngFlagIcon, UpIcon } from "@/components/icons/languageDropdown";
+import {
+  ArgFlagIcon,
+  DownIcon,
+  EngFlagIcon,
+  UpIcon,
+} from "@/components/icons/languageDropdown";
+import MotionHeight from "@/components/motion/MotionHeight";
 import useBreakpoint from "@/hooks/useBreakpoint";
-import { MotionHeight } from "@/components/motion/MotionHeight";
 import { useClickOutside } from "@/utils/useClickOutside";
+import { AnimatePresence } from "framer-motion";
+import type { Locale } from "next-intl";
+import { usePathname, useRouter } from "next/navigation";
+import { type JSX, useRef, useState } from "react";
 
 type LanguageDropdownProps = {
   locale: Locale;
@@ -17,7 +22,9 @@ const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedLang, setSelectedLang] = useState<Locale>(locale);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  useClickOutside(dropdownRef as React.RefObject<HTMLElement>, () => { setIsOpen(false); });
+  useClickOutside(dropdownRef as React.RefObject<HTMLElement>, () => {
+    setIsOpen(false);
+  });
   const isMobile = useBreakpoint();
   const flagIconClassName = "w-5 h-5 xl:w-7 xl:h-7";
 
@@ -27,29 +34,37 @@ const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
   ];
 
   const handleLanguageChange = (newLang: Locale) => {
-    const langsRegex = Languages.map(l => l.lang).join("|");
+    const langsRegex = Languages.map((l) => l.lang).join("|");
     const newPathname = `/${newLang}${(pathname ?? "").replace(new RegExp(`^/(${langsRegex})`), "")}`;
     router.push(newPathname, { scroll: false });
     setSelectedLang(newLang);
     setIsOpen(false);
   };
 
-  const currentLanguage = Languages.find(l => l.lang === selectedLang);
-  const othersLanguages = Languages.filter(l => l.lang !== selectedLang);
+  const currentLanguage = Languages.find((l) => l.lang === selectedLang);
+  const othersLanguages = Languages.filter((l) => l.lang !== selectedLang);
 
-  const arrowIconClassName = "w-2 h-2 xl:w-[0.6rem] xl:h-[0.6rem] fill-black dark:fill-soft-white";
+  const arrowIconClassName =
+    "w-2 h-2 xl:w-[0.6rem] xl:h-[0.6rem] fill-black dark:fill-soft-white";
 
   return (
     <div
       {...(!isMobile && {
-        onMouseEnter: () => { setIsOpen(true); },
-        onMouseLeave: () => { setIsOpen(false); },
+        onMouseEnter: () => {
+          setIsOpen(true);
+        },
+        onMouseLeave: () => {
+          setIsOpen(false);
+        },
       })}
       ref={dropdownRef}
-      className="inline-block max-h-[2.17375rem] xl:max-h-[2.67375rem] w-[4.1rem] xl:w-[5.3rem] z-999">
+      className="inline-block max-h-[2.17375rem] xl:max-h-[2.67375rem] w-[4.1rem] xl:w-[5.3rem] z-999"
+    >
       <div className="py-[0.4rem] px-[0.3rem] xl:px-[0.5rem] rounded-[0.5rem] overflow-hidden backdrop-blur-xs border dark:border-soft-gray/5 shadow-s2 bg-soft-white dark:bg-soft-gray/20">
         <div
-          onClick={() => { setIsOpen(!isOpen); }}
+          onClick={() => {
+            setIsOpen(!isOpen);
+          }}
           className="flex items-center gap-[0.5rem] cursor-pointer"
         >
           <div className="flex items-center gap-[0.3rem] ">
@@ -60,7 +75,11 @@ const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
               {currentLanguage?.lang}
             </span>
           </div>
-          {isOpen ? <UpIcon className={arrowIconClassName} /> : <DownIcon className={arrowIconClassName} />}
+          {isOpen ? (
+            <UpIcon className={arrowIconClassName} />
+          ) : (
+            <DownIcon className={arrowIconClassName} />
+          )}
         </div>
 
         <AnimatePresence>
@@ -70,7 +89,9 @@ const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
                 {othersLanguages.map(({ lang, flag }) => (
                   <div
                     key={lang}
-                    onClick={() => { handleLanguageChange(lang); }}
+                    onClick={() => {
+                      handleLanguageChange(lang);
+                    }}
                     className="group flex items-center gap-[0.3rem] cursor-pointer hover:bg-black/40 dark:hover:bg-soft-white/40 rounded-full theme-transition"
                   >
                     <div className="bg-black/50 dark:bg-black/50 rounded-full">
@@ -86,9 +107,8 @@ const LanguageDropdown = ({ locale }: LanguageDropdownProps) => {
           )}
         </AnimatePresence>
       </div>
-    </div >
+    </div>
   );
 };
-
 
 export default LanguageDropdown;

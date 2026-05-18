@@ -1,17 +1,17 @@
-import { notFound } from "next/navigation";
-import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import Header from "@/components/layout/header/Header";
-import { routing } from "@/i18n/routing";
-import { setRequestLocale } from "next-intl/server";
-import clsx from "clsx";
-import ProgressBarProvider from "@/components/other/ProgressBarProvider";
-import { Open_Sans, Fira_Code } from "next/font/google";
-import { ToastContainer } from "react-toastify";
 import ThemeProvider from "@/components/layout/ThemeProvider";
-import ThemeTransitionBlocker from "@/components/other/ThemeTransitionBlocker";
-import ThemeScript from "@/components/other/ThemeScript";
-import VoiceflowChat from "@/components/other/VoiceflowChat";
 import GoogleAnalytics from "@/components/other/GoogleAnalytics";
+import ProgressBarProvider from "@/components/other/ProgressBarProvider";
+import ThemeScript from "@/components/other/ThemeScript";
+import ThemeTransitionBlocker from "@/components/other/ThemeTransitionBlocker";
+import VoiceflowChat from "@/components/other/VoiceflowChat";
+import { routing } from "@/i18n/routing";
+import clsx from "clsx";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
+import { Fira_Code, Open_Sans } from "next/font/google";
+import { notFound } from "next/navigation";
+import { ToastContainer } from "react-toastify";
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
@@ -24,17 +24,17 @@ const firaCode = Fira_Code({
 });
 
 type LocaleLayoutProps = {
-  children: React.ReactNode,
+  children: React.ReactNode;
   params: Promise<{ locale: string }>;
-}
+};
 
 export function generateStaticParams() {
-  return routing.locales.map(locale => ({ locale }));
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 export default async function LocaleLayout({
   children,
-  params
+  params,
 }: LocaleLayoutProps) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
@@ -48,7 +48,13 @@ export default async function LocaleLayout({
       <head>
         <ThemeScript />
       </head>
-      <body className={clsx("antialiased min-h-svh flex flex-col", openSans.variable, firaCode.variable)}>
+      <body
+        className={clsx(
+          "antialiased min-h-svh flex flex-col",
+          openSans.variable,
+          firaCode.variable,
+        )}
+      >
         <NextIntlClientProvider>
           <ThemeProvider>
             <ThemeTransitionBlocker />

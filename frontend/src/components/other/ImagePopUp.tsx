@@ -1,6 +1,6 @@
 "use client";
-import Image from "next/image";
 import { SourcePopUp } from "@/components/other/SourcePopUp";
+import Image from "next/image";
 
 type ImagePopUpProps = {
   image: string;
@@ -8,18 +8,14 @@ type ImagePopUpProps = {
   onClose: () => void;
 };
 
-export const ImagePopUp = ({ image, alt = "Imagen ampliada", onClose }: ImagePopUpProps) => {
+export const ImagePopUp = ({
+  image,
+  alt = "Imagen ampliada",
+  onClose,
+}: ImagePopUpProps) => {
   return (
-    <SourcePopUp
-      source={image}
-      onClose={onClose}
-    >
-      <Image
-        src={image}
-        alt={alt}
-        width={1200}
-        height={800}
-      />
+    <SourcePopUp source={image} onClose={onClose}>
+      <Image src={image} alt={alt} width={1200} height={800} />
     </SourcePopUp>
   );
 };

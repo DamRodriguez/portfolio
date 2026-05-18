@@ -24,7 +24,7 @@ const Header = ({ locale }: HeaderProps) => {
 
   return (
     <header className="sticky top-0 z-999">
-      <MotionSlide direction="up" className="z-9999999 sticky">
+      <MotionSlide direction="up" className="z-9999 sticky">
         <SpaceX
           className={clsx(
             "min-h-[5rem] xl:min-h-[7rem] bg-white-bone dark:bg-black flex items-center justify-between theme-transition-all",

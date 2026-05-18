@@ -1,4 +1,4 @@
-import { MotionOpacity } from "@/components/motion/MotionOpacity";
+import MotionOpacity from "@/components/motion/MotionOpacity";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
 
@@ -15,7 +15,9 @@ const FormErrorMessage = ({ errorMessage, className }: FormErrorProps) => {
   const t = useTranslations("contactSection");
   if (!errorMessage) return null;
 
-  const isTranslationKey = (key: string | ErrorMessageTranslationKey): key is ErrorMessageTranslationKey => {
+  const isTranslationKey = (
+    key: string | ErrorMessageTranslationKey,
+  ): key is ErrorMessageTranslationKey => {
     return typeof key === "string";
   };
 

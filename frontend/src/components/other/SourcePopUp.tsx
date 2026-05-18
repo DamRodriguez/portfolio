@@ -1,9 +1,10 @@
 "use client";
-import { AnimatePresence } from "framer-motion";
-import { CloseIcon } from "../icons/header";
+import MotionOpacity from "@/components/motion/MotionOpacity";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
-import React from "react";
-import { MotionOpacity } from "../motion/MotionOpacity";
+import { AnimatePresence } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+import { CloseIcon } from "../icons/header";
 
 type SourcePopUpProps = {
   source: string | null;
@@ -11,19 +12,33 @@ type SourcePopUpProps = {
   children: React.ReactElement<{ className?: string }>;
 };
 
-export const SourcePopUp = ({ source, onClose, children }: SourcePopUpProps) => {
+export const SourcePopUp = ({
+  source,
+  onClose,
+  children,
+}: SourcePopUpProps) => {
+  const [mounted, setMounted] = useState(false);
+
   useLockBodyScroll(!!source);
-  const mediaClassName = "h-auto w-auto max-w-full max-h-[90vh] rounded-[0.5rem] object-contain bg-black/75";
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  const mediaClassName =
+    "h-auto w-auto max-w-full max-h-[90vh] rounded-[0.5rem] object-contain bg-black/75";
+
   const childWithClass = React.cloneElement(children, {
     className: `${children.props.className ?? ""} ${mediaClassName}`,
   });
 
-  return (
+  return createPortal(
     <AnimatePresence>
       {source && (
         <MotionOpacity
-          duration={0.4}
-          className="fixed inset-0 bg-black/90 flex items-center justify-center z-99999"
+          className="fixed inset-0 z-[9999999] bg-black/90 flex items-center justify-center"
           onClick={onClose}
         >
           <div
@@ -31,7 +46,9 @@ export const SourcePopUp = ({ source, onClose, children }: SourcePopUpProps) => 
             onClick={(e) => e.stopPropagation()}
           >
             {childWithClass}
+
             <button
+              type="button"
               onClick={onClose}
               className="absolute top-0 right-0 cursor-pointer p-[0.4rem] xl:p-[0.5rem] bg-black/60 backdrop-blur-[0.2rem] border border-soft-gray rounded-full m-1 xl:m-2 transition-all duration-400 ease-in-out [&_svg]:fill-[#fff] hover:[&_svg]:fill-[#000] hover:bg-soft-white hover:border-black"
             >
@@ -40,6 +57,7 @@ export const SourcePopUp = ({ source, onClose, children }: SourcePopUpProps) => 
           </div>
         </MotionOpacity>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 };
