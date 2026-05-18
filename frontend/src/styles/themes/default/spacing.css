@@ -1,0 +1,17 @@
+@theme {
+  --spacing-xxs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+  --spacing-3xl: 4rem;
+  --spacing-huge: 6rem;
+  --spacing-margin-mobile: 1.25rem;
+  --spacing-margin-desktop: 5rem;
+  --spacing-header-mobile: var(--height-header-mobile);
+  --spacing-header-desktop: var(--height-header-desktop);
+  --spacing-vertical-mobile: 5rem;
+  --spacing-vertical-desktop: 10rem;
+}

@@ -1,15 +1,19 @@
 "use client";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { FormProvider, useForm } from "react-hook-form";
+import { SendIcon } from "@/components/icons/buttons";
 import MotionFade from "@/components/motion/MotionFade";
 import MotionStagger from "@/components/motion/MotionStagger";
-import Button from "@/components/ui/buttons/Button";
-import { ContactSchema, ContactSchemaFieldNames, type ContactSchemaType } from "@/features/contact/schemas/ContactSchema";
-import Form from "@/components/ui/form/Form";
-import useFormError from "@/hooks/useFormError";
-import { useTranslations } from "next-intl";
-import { SendIcon } from "@/components/icons/buttons";
 import showToast from "@/components/toast/Toast";
+import Button from "@/components/ui/buttons/Button";
+import Form from "@/components/ui/form/Form";
+import {
+  ContactSchema,
+  ContactSchemaFieldNames,
+  type ContactSchemaType,
+} from "@/features/contact/schemas/ContactSchema";
+import useFormError from "@/hooks/useFormError";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
+import { FormProvider, useForm } from "react-hook-form";
 
 const ContactForm = () => {
   const t = useTranslations();
@@ -39,9 +43,11 @@ const ContactForm = () => {
         throw new Error("Error en la respuesta del servidor");
       }
 
-      showToast("success", t("contactSection.toast.messages.contactFormSuccess"));
+      showToast(
+        "success",
+        t("contactSection.toast.messages.contactFormSuccess"),
+      );
       methods.reset();
-
     } catch {
       showToast("error", t("contactSection.toast.messages.contactFormError"));
     }

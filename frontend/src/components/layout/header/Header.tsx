@@ -27,7 +27,7 @@ const Header = ({ locale }: HeaderProps) => {
       <MotionSlide direction="up" className="z-9999 sticky">
         <SpaceX
           className={clsx(
-            "min-h-[5rem] xl:min-h-[7rem] bg-white-bone dark:bg-black flex items-center justify-between theme-transition-all",
+            "min-h-header-mobile xl:min-h-header-desktop bg-white-bone dark:bg-black flex items-center justify-between theme-transition-all",
             {
               "translate-y-4 mx-4 xl:translate-y-6 xl:mx-6 shadow-s9 dark:shadow-s1 rounded-full":
                 hasScrolled,

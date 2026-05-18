@@ -1,12 +1,12 @@
+import { CloseIcon } from "@/components/icons/header";
 import clsx from "clsx";
 import { toast } from "react-toastify";
-import { CloseIcon } from "@/components/icons/header";
 
 interface ToastProps {
   type: "error" | "success" | "warning" | "info";
   text: string;
   closeToast: () => void;
-  manualClose?: boolean
+  manualClose?: boolean;
 }
 
 const toastItems: Record<
@@ -47,7 +47,7 @@ const Toast = ({ type, text, closeToast, manualClose }: ToastProps) => {
   return (
     <div
       className={clsx(
-        "w-full flex justify-between items-center px-[0.75rem] py-[0.5rem]",
+        "w-full flex justify-between items-center pl-[0.2rem] sm:py-[1rem]",
         toastItem.bgClassName,
       )}
     >
@@ -59,24 +59,35 @@ const Toast = ({ type, text, closeToast, manualClose }: ToastProps) => {
             {toastItem.title}
           </p>
         )}
-        <p className="text-base lg:text-lg text-black dark:text-soft-white font-fira-code">{text}</p>
+        <p className="text-base lg:text-lg text-black dark:text-soft-white font-fira-code">
+          {text}
+        </p>
       </div>
-      {manualClose && (
-        <CustomCloseButton closeToast={closeToast} />
-      )}
+      {manualClose && <CustomCloseButton closeToast={closeToast} />}
     </div>
   );
 };
 
-const showToast = (type: ToastProps["type"], text: ToastProps["text"], manualClose?: ToastProps["manualClose"]) => {
+const showToast = (
+  type: ToastProps["type"],
+  text: ToastProps["text"],
+  manualClose?: ToastProps["manualClose"],
+) => {
   toast[type](
     ({ closeToast }) => (
-      <Toast text={text} type={type} closeToast={closeToast} manualClose={manualClose} />
+      <Toast
+        text={text}
+        type={type}
+        closeToast={closeToast}
+        manualClose={manualClose}
+      />
     ),
     {
-      position: "bottom-left",
-      autoClose: 2500,
+      position: "top-left",
+      autoClose: 3000,
       closeButton: false,
+      className:
+        "top-[calc(var(--height-header-mobile)+1.5rem)] lg:top-[calc(var(--height-header-desktop)+2rem)]",
     },
   );
 };
