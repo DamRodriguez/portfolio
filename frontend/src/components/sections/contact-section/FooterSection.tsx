@@ -1,9 +1,8 @@
-import MotionFade from '@/components/motion/MotionFade';
-import React from 'react';
-import SocialButtonsSection from '../head-section/SocialButtonsSection';
-import { Link } from '@/i18n/navigation';
-import { useTranslations } from 'next-intl';
-import { routes } from '@/constants/routes';
+import MotionFade from "@/components/motion/MotionFade";
+import { routes } from "@/constants/routes";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
+import SocialButtonsSection from "../head-section/SocialButtonsSection";
 
 const FooterSection = () => {
   const t = useTranslations("contactSection");
@@ -12,7 +11,7 @@ const FooterSection = () => {
     { text: t("routes.aboutMe"), href: routes.aboutMe },
     { text: t("routes.work"), href: routes.work },
     { text: t("routes.projects"), href: routes.projects },
-  ]
+  ];
   return (
     <div className="flex flex-col gap-6 xl:gap-10">
       <div className="flex flex-col items-center gap-10">

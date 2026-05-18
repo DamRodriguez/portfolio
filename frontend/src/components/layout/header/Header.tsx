@@ -1,17 +1,17 @@
 "use client";
+import Drawer from "@/components/drawer/Drawer";
+import LeftItem from "@/components/layout/header/LeftItem";
+import NavDesk from "@/components/layout/header/NavDesk";
 import NavMobile from "@/components/layout/header/NavMobile";
+import RightSection from "@/components/layout/header/RightSection";
 import SpaceX from "@/components/layout/SpaceX";
-import MotionSlide from "@/components/motion/MotionSlide";
-import Drawer from "@/components/other/Drawer";
+import MotionEntrySlide from "@/components/motion/MotionEntrySlide";
 import ShineBorderCustom from "@/components/other/ShineBorderCustom";
 import useCloseMobileNavOnDesktop from "@/hooks/useCloseMobileNavOnDesktop";
 import useHasScrolled from "@/hooks/useHasScrolled";
 import { Locale } from "@/i18n/routing";
 import clsx from "clsx";
 import { useState } from "react";
-import LeftItem from "./LeftItem";
-import NavDesk from "./NavDesk";
-import RightSection from "./RightSection";
 
 type HeaderProps = {
   locale: Locale;
@@ -24,7 +24,7 @@ const Header = ({ locale }: HeaderProps) => {
 
   return (
     <header className="sticky top-0 z-999">
-      <MotionSlide direction="up" className="z-9999 sticky">
+      <MotionEntrySlide direction="up" className="z-9999 sticky">
         <SpaceX
           className={clsx(
             "min-h-header-mobile xl:min-h-header-desktop bg-white-bone dark:bg-black flex items-center justify-between theme-transition-all",
@@ -50,7 +50,7 @@ const Header = ({ locale }: HeaderProps) => {
             setIsMobileNavVisible={setIsMobileNavVisible}
           />
         </SpaceX>
-      </MotionSlide>
+      </MotionEntrySlide>
 
       <Drawer
         visible={isMobileNavVisible}
@@ -60,11 +60,11 @@ const Header = ({ locale }: HeaderProps) => {
         position="top"
         closeButton={null}
         className={clsx(
-          "pb-[7rem] bg-white-bone/90 dark:bg-black/90 xl:hidden shadow-s2 dark:shadow-s1 theme-transition",
+          "pb-[7rem] bg-white-bone dark:bg-black xl:hidden shadow-s2 dark:shadow-s1",
           {
-            "translate-y-[7.5rem] md:translate-y-[8rem] border border-black/30 dark:border-soft-gray/15 rounded-t-[5rem]":
+            "translate-y-[calc(var(--height-header-mobile)+2.5rem)] border border-black/30 dark:border-soft-gray/15 rounded-t-[5rem]":
               hasScrolled,
-            "translate-y-[5rem]": !hasScrolled,
+            "translate-y-header-mobile": !hasScrolled,
           },
         )}
       >

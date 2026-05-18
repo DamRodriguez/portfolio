@@ -1,18 +1,25 @@
-import { useEffect, useState } from "react";
 import config from "@/config/config";
+import { useEffect, useState } from "react";
 
 const useBreakpoint = (breakpoint = Number(config.breakpoints.md)) => {
-  const [isMobile, setIsMobile] = useState(
-    typeof window !== "undefined" ? window.innerWidth <= breakpoint : false,
-  );
+  const getQuery = (breakpoint: number) => `(max-width: ${breakpoint}px)`;
+
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < breakpoint);
+    const mediaQuery = window.matchMedia(getQuery(breakpoint));
+
+    setIsMobile(mediaQuery.matches);
+
+    const handleChange = (event: MediaQueryListEvent) => {
+      setIsMobile(event.matches);
     };
 
-    window.addEventListener("resize", handleResize);
-    return () => { window.removeEventListener("resize", handleResize); };
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
   }, [breakpoint]);
 
   return isMobile;

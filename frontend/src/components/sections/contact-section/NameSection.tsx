@@ -1,13 +1,12 @@
-import { DownloadIcon } from '@/components/icons/buttons';
-import MotionFade from '@/components/motion/MotionFade';
-import MotionSlide from '@/components/motion/MotionSlide';
-import Button from '@/components/ui/buttons/Button';
-import { useTranslations } from 'next-intl';
-import React from 'react';
+import { DownloadIcon } from "@/components/icons/buttons";
+import MotionFade from "@/components/motion/MotionFade";
+import MotionSlide from "@/components/motion/MotionSlide";
+import Button from "@/components/ui/buttons/Button";
+import { useTranslations } from "next-intl";
 
 const NameSection = () => {
   const t = useTranslations("contactSection");
-  const CV = "/pdf/CV_Damian-Rodriguez.pdf"
+  const CV = "/pdf/CV_Damian-Rodriguez.pdf";
 
   const handleDownloadCV = () => {
     const link = document.createElement("a");
@@ -25,7 +24,7 @@ const NameSection = () => {
               {t("name.firstName")}
             </h4>
           </MotionSlide>
-          <MotionFade order={2} className="flex justify-center flex-1">
+          <MotionFade order={1} className="flex justify-center flex-1">
             <Button
               onClick={handleDownloadCV}
               className="!px-4 shadow-s3 dark:shadow-s1"
@@ -36,12 +35,12 @@ const NameSection = () => {
           </MotionFade>
         </div>
         <div className="flex items-center gap-[1rem] xl:gap-[4rem]">
-          <MotionFade order={2}>
+          <MotionFade order={1}>
             <p className="text-dark-gray dark:text-soft-gray text-xs xl:text-xl whitespace-break-spaces">
               {t("position")}
             </p>
           </MotionFade>
-          <MotionSlide direction="right" order={1}>
+          <MotionSlide direction="right" order={0}>
             <h4 className="text-black dark:text-soft-white font-fira-code font-semibold text-5md xl:text-8xl 4xl:text-9xl">
               {t("name.lastName")}
             </h4>

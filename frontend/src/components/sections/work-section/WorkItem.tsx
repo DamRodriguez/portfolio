@@ -42,15 +42,21 @@ const WorkItem = (props: WorkItemProps) => {
         x: props.isPair ? 50 : -50,
       },
     },
-    scope: itemRef
-  })
+    scope: itemRef,
+  });
 
   return (
     <div ref={itemRef}>
       <div className="work-item-gsap">
-        <SpaceX className={clsx("grid grid-cols-[0.5fr_1fr] xl:grid-cols-[0.5fr_1fr_1fr] items-center group hover:bg-black dark:hover:bg-soft-white theme-transition py-[1rem] xl:py-[1.5rem] gap-[1rem] xl:gap-[2rem] border-t border-t-black/60 dark:border-t-soft-gray/60 bg-soft-white/40 dark:bg-strong-black/40", {
-          "border-b border-b-black/60 dark:border-b-soft-gray/60": props.isLast
-        })}>
+        <SpaceX
+          className={clsx(
+            "grid grid-cols-[0.5fr_1fr] xl:grid-cols-[0.5fr_1fr_1fr] items-center group hover:bg-black dark:hover:bg-soft-white theme-transition py-[1rem] xl:py-[1.5rem] gap-[1rem] xl:gap-[2rem] border-t border-t-black/60 dark:border-t-soft-gray/60 bg-soft-white/40 dark:bg-strong-black/40",
+            {
+              "border-b border-b-black/60 dark:border-b-soft-gray/60":
+                props.isLast,
+            },
+          )}
+        >
           <div className="text-dark-gray dark:text-medium-gray group-hover:text-soft-white dark:group-hover:text-black theme-transition">
             <div className="text-sm xl:text-xl">
               {initialYear === finalYear ? (
@@ -63,9 +69,7 @@ const WorkItem = (props: WorkItemProps) => {
                 </>
               )}
             </div>
-            <p className="text-xs xl:text-sm">
-              {totalTime}
-            </p>
+            <p className="text-xs xl:text-sm">{totalTime}</p>
           </div>
 
           <div className="grid gap-[0.5rem] xl:contents">

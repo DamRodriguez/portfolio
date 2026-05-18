@@ -1,15 +1,14 @@
 "use client";
 import SpaceX from "@/components/layout/SpaceX";
-import ButtonWithArrow from "@/components/ui/buttons/ButtonWithArrow";
-import MotionFade from "@/components/motion/MotionFade";
-import { useTranslations } from "next-intl";
+import MotionEntryFade from "@/components/motion/MotionEntryFade";
+import MotionEntrySlide from "@/components/motion/MotionEntrySlide";
 import HorizontalCarouselSection from "@/components/sections/head-section/HorizontalCarouselSection";
 import SocialButtonsSection from "@/components/sections/head-section/SocialButtonsSection";
+import ButtonWithArrow from "@/components/ui/buttons/ButtonWithArrow";
 import { routes } from "@/constants/routes";
-import SplitTextWrapper from "@/components/gsap/SplitTextWrapper";
-import MotionSlide from "@/components/motion/MotionSlide";
-import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import useBreakpoint from "@/hooks/useBreakpoint";
+import { useScrollAnimations } from "@/hooks/useScrollAnimations";
+import { useTranslations } from "next-intl";
 
 const HeadSection = () => {
   const t = useTranslations();
@@ -36,62 +35,60 @@ const HeadSection = () => {
         opacity: 0,
       },
     },
-  })
+  });
 
   return (
     <SpaceX className="flex flex-col gap-[3rem] xl:gap-[4rem]">
       <div className="flex flex-col gap-[2rem]">
         <div className="w-full flex flex-col -space-y-[2rem] lg:-space-y-[3rem]">
           <div className="flex justify-center xl:justify-between items-center">
-            <MotionSlide order={0}>
+            <MotionEntrySlide order={0}>
               <h1 className="first-title-gsap text-6xl lg:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white font-bold font-fira-code">
                 {t("headSection.title.first")}
               </h1>
-            </MotionSlide>
+            </MotionEntrySlide>
             <div className="project-button-gsap">
-              <MotionFade
-                order={1}
-                className="hidden 2xl:flex"
-              >
+              <MotionEntryFade order={1} className="hidden 2xl:flex">
                 <ButtonWithArrow
                   text={projectsButtonText}
                   routerPath={routes.projects}
                 />
-              </MotionFade>
+              </MotionEntryFade>
             </div>
           </div>
           <div className="flex flex-col-reverse text-center xl:text-start items-center xl:flex xl:flex-row xl:justify-between xl:items-center gap-[1rem]">
-            <MotionFade
-              order={1}
-              className="max-w-[70%] xl:max-w-[25%]"
-            >
+            <MotionEntryFade order={1} className="max-w-[70%] xl:max-w-[25%]">
               <p className="text-gsap text-base 2xl:text-xl text-dark-gray/85 dark:text-soft-gray">
                 {t.rich("headSection.personalDescription", {
-                  strong: (chunks) => <span className="text-strong-black dark:text-soft-white font-medium">{chunks}</span>,
+                  strong: (chunks) => (
+                    <span className="text-strong-black dark:text-soft-white font-medium">
+                      {chunks}
+                    </span>
+                  ),
                 })}
               </p>
-            </MotionFade>
-            <MotionSlide direction="right" order={0}>
+            </MotionEntryFade>
+            <MotionEntrySlide direction="right" order={0}>
               <h1 className="second-title-gsap text-6xl lg:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white font-bold font-fira-code">
                 {t("headSection.title.second")}
               </h1>
-            </MotionSlide>
+            </MotionEntrySlide>
           </div>
         </div>
         <div className="project-button-gsap">
-          <MotionFade order={1} className="flex 2xl:hidden justify-center">
+          <MotionEntryFade order={1} className="flex 2xl:hidden justify-center">
             <ButtonWithArrow
               text={projectsButtonText}
               routerPath={routes.projects}
             />
-          </MotionFade>
+          </MotionEntryFade>
         </div>
       </div>
       <SocialButtonsSection order={2} />
       <div className="carousel-gsap">
-        <MotionSlide direction="down">
+        <MotionEntrySlide direction="down" order={3}>
           <HorizontalCarouselSection />
-        </MotionSlide>
+        </MotionEntrySlide>
       </div>
     </SpaceX>
   );
