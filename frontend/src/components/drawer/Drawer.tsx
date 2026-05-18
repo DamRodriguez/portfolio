@@ -86,7 +86,7 @@ const Drawer = ({
             transition={transition}
             style={{ willChange: "transform" }}
             className={clsx(
-              "fixed top-0 z-999 w-full h-screen overflow-hidden",
+              "fixed top-0 z-9999 w-full h-screen overflow-hidden",
               "backface-visibility-hidden",
               className,
               drawerPosition[position].className,
@@ -109,7 +109,7 @@ const Drawer = ({
           {!disableOutsideOnClose && (
             <div
               onClick={onClose}
-              className="fixed top-0 left-0 w-full h-full inset-0 z-900"
+              className="fixed top-0 left-0 w-full h-full inset-0 z-999"
             />
           )}
 
@@ -120,7 +120,7 @@ const Drawer = ({
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               className={clsx(
-                "fixed top-0 left-0 right-0 w-screen h-screen bg-black/90 dark:bg-black theme-transition-all",
+                "fixed z-999 top-0 left-0 right-0 w-screen h-screen bg-black/90 dark:bg-black theme-transition-all",
                 overlayClassName,
               )}
             />
