@@ -1,13 +1,13 @@
 "use client";
-
 import { MoonIcon, SunIcon } from "@/components/icons/theme";
 import clsx from "clsx";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function ThemeToggle() {
   const { theme, resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const buttonRef = useRef<HTMLLabelElement | null>(null);
 
   const iconClassName = "w-[1rem] h-[1rem] xl:w-[1.5rem] xl:h-[1.5rem]";
 
@@ -18,6 +18,16 @@ export function ThemeToggle() {
     const newTheme = currentTheme === "dark" ? "light" : "dark";
     const root = document.documentElement;
 
+    const rect = buttonRef.current?.getBoundingClientRect();
+
+    const x = rect ? rect.left + rect.width / 2 : window.innerWidth / 2;
+    const y = rect ? rect.top + rect.height / 2 : window.innerHeight / 2;
+
+    const endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y),
+    );
+
     root.classList.add("theme-switching");
 
     const cleanUp = () => {
@@ -26,7 +36,6 @@ export function ThemeToggle() {
 
     if (!document.startViewTransition) {
       setTheme(newTheme);
-
       window.setTimeout(cleanUp, 600);
       return;
     }
@@ -38,10 +47,13 @@ export function ThemeToggle() {
     transition.ready.then(() => {
       document.documentElement.animate(
         {
-          clipPath: ["inset(0 0 100% 0)", "inset(0 0 0 0)"],
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`,
+          ],
         },
         {
-          duration: 600,
+          duration: 700,
           easing: "ease-in-out",
           pseudoElement: "::view-transition-new(root)",
         },
@@ -64,8 +76,9 @@ export function ThemeToggle() {
   return (
     <div className="container flex items-center justify-center">
       <label
+        ref={buttonRef}
         htmlFor="switch"
-        className="relative grid w-[2.17375rem] xl:w-[2.67375rem] aspect-square cursor-pointer place-items-center rounded-full bg-white theme-transition-all border hover:bg-black dark:hover:bg-soft-white group dark:border-soft-gray/5 bg-soft-white dark:bg-soft-gray/20 shadow-s2 dark:shadow-s1"
+        className="relative grid w-[2.17375rem] xl:w-[2.67375rem] aspect-square cursor-pointer place-items-center rounded-full border bg-soft-white shadow-s2 theme-transition-all hover:bg-black dark:border-soft-gray/5 dark:bg-soft-gray/20 dark:shadow-s1 dark:hover:bg-soft-white group"
       >
         <input
           type="checkbox"

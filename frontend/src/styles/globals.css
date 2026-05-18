@@ -20,14 +20,14 @@
 }
 
 @layer components {
-
   .theme-transition,
   .theme-transition-all {
     transition: none;
   }
 
   html.theme-ready .theme-transition {
-    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-property:
+      color, background-color, border-color, text-decoration-color, fill, stroke;
     transition-duration: 400ms;
     transition-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
   }
@@ -49,15 +49,21 @@
 
 body {
   font-family: var(--font-work-sans);
-  cursor: url("../assets/images/cursor.png") 4 4, auto;
+  cursor:
+    url("../assets/images/cursor.png") 4 4,
+    auto;
 }
 
 .cursor-default {
-  cursor: url('../assets/images/cursor.png') 4 4, auto;
+  cursor:
+    url("../assets/images/cursor.png") 4 4,
+    auto;
 }
 
 .cursor-pointer {
-  cursor: url('../assets/images/cursor-pointer.png') 4 4, pointer;
+  cursor:
+    url("../assets/images/cursor-pointer.png") 4 4,
+    pointer;
 }
 
 ::-webkit-scrollbar {
