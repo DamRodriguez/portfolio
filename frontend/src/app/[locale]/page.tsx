@@ -8,7 +8,7 @@ import WorkSection from "@/components/sections/work-section/WorkSection";
 
 const HomePage = () => {
   return (
-    <Main className="gap-[6rem] xl:gap-[12rem] -mt-[1px]">
+    <Main className="gap-[6rem] xl:gap-[12rem]">
       <HeadSection />
       <ViewportActiveSection section="aboutme">
         <AboutMeSection />

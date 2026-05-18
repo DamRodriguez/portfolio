@@ -4,24 +4,51 @@ import clsx from "clsx";
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
 
+type CircleOrigin = {
+  x: number;
+  y: number;
+};
+
 export function ThemeToggle() {
   const { theme, resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+
   const buttonRef = useRef<HTMLLabelElement | null>(null);
+  const circleOriginRef = useRef<CircleOrigin | null>(null);
 
   const iconClassName = "w-[1rem] h-[1rem] xl:w-[1.5rem] xl:h-[1.5rem]";
 
   useEffect(() => setMounted(true), []);
+
+  const getFallbackOrigin = () => {
+    const rect = buttonRef.current?.getBoundingClientRect();
+
+    if (!rect) {
+      return {
+        x: window.innerWidth / 2,
+        y: window.innerHeight / 2,
+      };
+    }
+
+    return {
+      x: rect.left + rect.width / 2,
+      y: rect.top + rect.height / 2,
+    };
+  };
+
+  const handlePointerDown = (event: React.PointerEvent<HTMLLabelElement>) => {
+    circleOriginRef.current = {
+      x: event.clientX,
+      y: event.clientY,
+    };
+  };
 
   const handleThemeChange = () => {
     const currentTheme = resolvedTheme ?? theme;
     const newTheme = currentTheme === "dark" ? "light" : "dark";
     const root = document.documentElement;
 
-    const rect = buttonRef.current?.getBoundingClientRect();
-
-    const x = rect ? rect.left + rect.width / 2 : window.innerWidth / 2;
-    const y = rect ? rect.top + rect.height / 2 : window.innerHeight / 2;
+    const { x, y } = circleOriginRef.current ?? getFallbackOrigin();
 
     const endRadius = Math.hypot(
       Math.max(x, window.innerWidth - x),
@@ -32,11 +59,12 @@ export function ThemeToggle() {
 
     const cleanUp = () => {
       root.classList.remove("theme-switching");
+      circleOriginRef.current = null;
     };
 
     if (!document.startViewTransition) {
       setTheme(newTheme);
-      window.setTimeout(cleanUp, 600);
+      window.setTimeout(cleanUp, 700);
       return;
     }
 
@@ -78,6 +106,7 @@ export function ThemeToggle() {
       <label
         ref={buttonRef}
         htmlFor="switch"
+        onPointerDown={handlePointerDown}
         className="relative grid w-[2.17375rem] xl:w-[2.67375rem] aspect-square cursor-pointer place-items-center rounded-full border bg-soft-white shadow-s2 theme-transition-all hover:bg-black dark:border-soft-gray/5 dark:bg-soft-gray/20 dark:shadow-s1 dark:hover:bg-soft-white group"
       >
         <input
