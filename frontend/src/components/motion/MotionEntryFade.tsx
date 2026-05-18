@@ -8,7 +8,7 @@ type MotionEntryFadeProps = MotionDefaults;
 
 const initialState = {
   opacity: 0,
-  scale: 0.96,
+  scale: 0.95,
 };
 
 const visibleState = {
@@ -25,7 +25,7 @@ const MotionEntryFade = (props: MotionEntryFadeProps) => {
   const transition = useMemo(
     () => ({
       duration,
-      delay: order * 0.25,
+      delay: order * 0.4,
       ease: "easeOut" as const,
     }),
     [duration, order],

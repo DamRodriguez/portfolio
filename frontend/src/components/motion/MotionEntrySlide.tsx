@@ -49,7 +49,7 @@ const MotionEntrySlide = ({
   const transition = useMemo(
     () => ({
       duration,
-      delay: order * 0.25,
+      delay: order * 0.4,
       ease: "easeOut" as const,
     }),
     [duration, order],
