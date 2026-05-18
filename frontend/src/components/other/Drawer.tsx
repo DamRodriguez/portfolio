@@ -1,7 +1,7 @@
-import { AnimatePresence, motion, type Transition } from "framer-motion";
-import { useEffect, useCallback } from "react";
-import clsx from "clsx";
 import { CloseIcon } from "@/components/icons/header";
+import clsx from "clsx";
+import { AnimatePresence, motion, type Transition } from "framer-motion";
+import { useCallback, useEffect } from "react";
 
 type DrawerProps = {
   children: React.ReactNode;
@@ -31,14 +31,35 @@ const Drawer = ({
   disableOutsideOnClose,
 }: DrawerProps) => {
   const drawerPosition = {
-    left: { initial: { x: "-100%" }, animate: { x: 0 }, exit: { x: "-100%" }, className: "top-0 bottom-0 left-0" },
-    right: { initial: { x: "100%" }, animate: { x: 0 }, exit: { x: "100%" }, className: "top-0 bottom-0 right-0" },
-    top: { initial: { y: "-100%" }, animate: { y: 0 }, exit: { y: "-100%" }, className: "left-0 right-0 top-0" },
-    bottom: { initial: { y: "100%" }, animate: { y: 0 }, exit: { y: "100%" }, className: "left-0 right-0 bottom-0" },
+    left: {
+      initial: { x: "-100%" },
+      animate: { x: 0 },
+      exit: { x: "-100%" },
+      className: "top-0 bottom-0 left-0",
+    },
+    right: {
+      initial: { x: "100%" },
+      animate: { x: 0 },
+      exit: { x: "100%" },
+      className: "top-0 bottom-0 right-0",
+    },
+    top: {
+      initial: { y: "-100%" },
+      animate: { y: 0 },
+      exit: { y: "-100%" },
+      className: "left-0 right-0 top-0",
+    },
+    bottom: {
+      initial: { y: "100%" },
+      animate: { y: 0 },
+      exit: { y: "100%" },
+      className: "left-0 right-0 bottom-0",
+    },
   };
 
   const lockScroll = useCallback(() => {
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
     document.body.style.overflow = "hidden";
     document.body.style.paddingRight = `${String(scrollbarWidth)}px`;
   }, []);
@@ -55,10 +76,7 @@ const Drawer = ({
   }, [visible, lockScroll]);
 
   return (
-    <AnimatePresence
-      mode="wait"
-      onExitComplete={unlockScroll}
-    >
+    <AnimatePresence mode="wait" onExitComplete={unlockScroll}>
       {visible && (
         <>
           <motion.div
@@ -77,7 +95,10 @@ const Drawer = ({
             {closeButton && (
               <button
                 onClick={onClose}
-                className={clsx("z-999 absolute cursor-pointer right-[1.5rem] top-[1.5rem]", closeButtonClassName)}
+                className={clsx(
+                  "z-999 absolute cursor-pointer right-[1.5rem] top-[1.5rem]",
+                  closeButtonClassName,
+                )}
               >
                 {closeButton}
               </button>
@@ -98,7 +119,10 @@ const Drawer = ({
               animate={{ opacity: 0.9 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className={clsx("fixed top-0 left-0 right-0 w-screen h-screen bg-black/90 dark:bg-black theme-transition-all", overlayClassName)}
+              className={clsx(
+                "fixed top-0 left-0 right-0 w-screen h-screen bg-black/90 dark:bg-black theme-transition-all",
+                overlayClassName,
+              )}
             />
           )}
         </>

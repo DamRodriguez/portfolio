@@ -3,7 +3,7 @@ import { Link } from "@/i18n/navigation";
 
 type LeftItemProps = {
   onClick: () => void;
-}
+};
 
 const LeftItem = (props: LeftItemProps) => {
   return (
@@ -16,17 +16,13 @@ const LeftItem = (props: LeftItemProps) => {
         &lt;
       </div>
       <div>
-        <p className="group-hover:font-medium theme-transition-all">
-          Damián
-        </p>
+        <p className="group-hover:font-medium theme-transition-all">Damián</p>
         <p className="group-hover:font-medium theme-transition-all">
           Rodríguez
         </p>
       </div>
       <div className="text-3xl xl:text-6xl flex text-dark-gray group-hover:text-strong-black dark:text-soft-gray dark:group-hover:text-soft-white theme-transition-all">
-        <span className="group-hover:rotate-10 theme-transition-all">
-          /
-        </span>
+        <span className="group-hover:rotate-10 theme-transition-all">/</span>
         &gt;
       </div>
     </Link>
