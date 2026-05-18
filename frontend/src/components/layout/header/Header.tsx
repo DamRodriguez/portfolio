@@ -60,7 +60,7 @@ const Header = ({ locale }: HeaderProps) => {
         position="top"
         closeButton={null}
         className={clsx(
-          "pb-[7rem] bg-white-bone dark:bg-black xl:hidden shadow-s2 dark:shadow-s1",
+          "pb-[7rem] bg-white-bone/90 dark:bg-black/90 xl:hidden shadow-s2 dark:shadow-s1",
           {
             "translate-y-[calc(var(--height-header-mobile)+2.5rem)] border border-black/30 dark:border-soft-gray/15 rounded-t-[5rem]":
               hasScrolled,
