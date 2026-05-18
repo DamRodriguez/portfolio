@@ -27,11 +27,11 @@ const Header = ({ locale }: HeaderProps) => {
       <MotionEntrySlide direction="up" className="z-99999 fixed top-0 w-full">
         <SpaceX
           className={clsx(
-            "min-h-header-mobile xl:min-h-header-desktop bg-white-bone dark:bg-black flex items-center justify-between theme-transition-all",
+            "min-h-header-mobile xl:min-h-header-desktop flex items-center justify-between theme-transition-all",
             {
-              "translate-y-4 mx-4 xl:translate-y-6 xl:mx-6 shadow-s9 dark:shadow-s1 rounded-full !bg-soft-white dark:!bg-strong-black":
+              "translate-y-4 mx-4 xl:translate-y-6 xl:mx-6 shadow-s9 dark:shadow-s1 rounded-full bg-soft-white dark:bg-strong-black":
                 hasScrolled,
-              "translate-y-0": !hasScrolled,
+              "translate-y-0 bg-white-bone dark:bg-black": !hasScrolled,
             },
           )}
         >
