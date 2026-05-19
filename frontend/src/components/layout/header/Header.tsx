@@ -6,7 +6,6 @@ import NavMobile from "@/components/layout/header/NavMobile";
 import RightSection from "@/components/layout/header/RightSection";
 import SpaceX from "@/components/layout/SpaceX";
 import MotionEntrySlide from "@/components/motion/MotionEntrySlide";
-import ShineBorderCustom from "@/components/other/ShineBorderCustom";
 import useCloseMobileNavOnDesktop from "@/hooks/useCloseMobileNavOnDesktop";
 import useHasScrolled from "@/hooks/useHasScrolled";
 import { Locale } from "@/i18n/routing";
@@ -38,7 +37,7 @@ const Header = ({ locale }: HeaderProps) => {
             },
           )}
         >
-          <ShineBorderCustom isVisible={hasScrolled} />
+          {/* <ShineBorderCustom isVisible={hasScrolled} /> */}
           <LeftItem
             onClick={() => {
               if (isMobileNavVisible) {
