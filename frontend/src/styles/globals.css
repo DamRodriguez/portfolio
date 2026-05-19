@@ -20,6 +20,11 @@
 }
 
 @layer components {
+  html.theme-switching .theme-transition,
+  html.theme-switching .theme-transition-all {
+    transition: none !important;
+  }
+
   html.theme-ready .theme-transition {
     transition-property:
       color, background-color, border-color, text-decoration-color, fill, stroke;
@@ -32,15 +37,6 @@
     transition-duration: 400ms;
     transition-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
   }
-}
-
-html.theme-switching .theme-transition,
-html.theme-switching .theme-transition::before,
-html.theme-switching .theme-transition::after,
-html.theme-switching .theme-transition-all,
-html.theme-switching .theme-transition-all::before,
-html.theme-switching .theme-transition-all::after {
-  transition: none !important;
 }
 
 body {
