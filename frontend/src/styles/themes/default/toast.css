@@ -1,29 +1,23 @@
-.dark .Toastify__toast {
+.Toastify__toast {
   padding: 0 !important;
   padding-left: 1rem !important;
-  width: 22rem;
-  background-color: var(--color-black) !important;
-  box-shadow: var(--shadow-s6) !important;
-  backdrop-filter: blur(3px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 22rem !important;
   border-radius: 6px !important;
+  backdrop-filter: blur(3px);
+
+  background-color: var(--color-soft-white) !important;
+  box-shadow: var(--shadow-s1) !important;
+  border: 1px solid rgba(0, 0, 0, 0.3) !important;
 
   @media (max-width: 1023px) {
-    width: 20rem;
+    width: 20rem !important;
   }
 }
 
-.Toastify__toast {
-  padding: 0 !important;
-  width: 22rem;
-  background-color: var(--color-soft-white) !important;
-  box-shadow: var(--shadow-s1) !important;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 6px !important;
-
-  @media (max-width: 1023px) {
-    width: 20rem;
-  }
+.dark .Toastify__toast {
+  background-color: var(--color-black) !important;
+  box-shadow: var(--shadow-s6) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 .Toastify__toast-icon svg {
