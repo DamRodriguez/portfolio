@@ -26,7 +26,7 @@ const Header = ({ locale }: HeaderProps) => {
     <header>
       <MotionEntrySlide
         direction="up"
-        className="z-99999 fixed top-0 w-full min-w-[20rem] max-w-[120rem]"
+        className="z-9999 fixed top-0 w-full min-w-[20rem] max-w-[120rem]"
       >
         <SpaceX
           className={clsx(
