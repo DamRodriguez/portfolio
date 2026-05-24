@@ -47,7 +47,7 @@ const Toast = ({ type, text, closeToast, manualClose }: ToastProps) => {
   return (
     <div
       className={clsx(
-        "w-full flex justify-between items-center pl-[0.2rem] sm:py-[1rem]",
+        "w-full flex justify-between items-center pl-[0.1rem] xl:pl-[0.5rem] py-[0.8rem] sm:py-[1rem]",
         toastItem.bgClassName,
       )}
     >
@@ -59,7 +59,7 @@ const Toast = ({ type, text, closeToast, manualClose }: ToastProps) => {
             {toastItem.title}
           </p>
         )}
-        <p className="text-base lg:text-lg text-black dark:text-soft-white font-fira-code">
+        <p className="text-sm lg:text-lg text-black dark:text-soft-white font-fira-code">
           {text}
         </p>
       </div>
@@ -87,7 +87,7 @@ const showToast = (
       autoClose: 3000,
       closeButton: false,
       className:
-        "top-[calc(var(--height-header-mobile)+1.5rem)] lg:top-[calc(var(--height-header-desktop)+2rem)]",
+        "top-[calc(var(--height-header-mobile)+1.5rem)] xl:top-[calc(var(--height-header-desktop)+2rem)]",
     },
   );
 };
