@@ -39,7 +39,7 @@ export const SourcePopUp = ({
       {source && (
         <MotionOpacity
           duration={0.3}
-          className="fixed inset-0 z-999999999999 bg-black/90 flex items-center justify-center"
+          className="fixed inset-0 z-99999999 bg-black/90 flex items-center justify-center"
           onClick={onClose}
         >
           <div

@@ -63,12 +63,15 @@ const Header = ({ locale }: HeaderProps) => {
         }}
         position="top"
         closeButton={null}
-        className={clsx("pb-[7rem] xl:hidden shadow-s2 dark:shadow-s1", {
-          "translate-y-[calc(var(--height-header-mobile)+2.5rem)] border border-black/30 dark:border-soft-gray/15 rounded-t-[5rem] bg-soft-white/90 dark:bg-strong-black/90 z-999999":
-            hasScrolled,
-          "translate-y-header-mobile bg-white-bone/90 dark:bg-black/90":
-            !hasScrolled,
-        })}
+        className={clsx(
+          "pb-[7rem] xl:hidden shadow-s2 dark:shadow-s1 z-99999",
+          {
+            "translate-y-[calc(var(--height-header-mobile)+2.5rem)] border border-black/30 dark:border-soft-gray/15 rounded-t-[5rem] bg-soft-white/90 dark:bg-strong-black/90":
+              hasScrolled,
+            "translate-y-header-mobile bg-white-bone/90 dark:bg-black/90":
+              !hasScrolled,
+          },
+        )}
       >
         <NavMobile
           onClose={() => {
