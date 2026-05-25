@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Damian Rodriguez Portfolio",
 
-  title: "Portfolio | Damian Rodriguez",
+  title: "Damian Rodriguez | Portfolio",
 
   description:
     "Portfolio personal de Damian Rodriguez, Frontend Developer especializado en React, Next.js, TypeScript, Tailwind CSS y desarrollo de interfaces modernas, responsivas y performantes.",
