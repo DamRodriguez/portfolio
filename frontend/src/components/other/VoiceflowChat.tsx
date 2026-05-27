@@ -1,6 +1,6 @@
-'use client';
-import useBreakpoint from '@/hooks/useBreakpoint';
-import Script from 'next/script';
+"use client";
+import useBreakpoint from "@/hooks/useBreakpoint";
+import Script from "next/script";
 
 interface VoiceflowChatConfig {
   verify: { projectID: string | undefined };
@@ -33,7 +33,8 @@ declare global {
 
 const VoiceflowChat = ({ locale }: { locale: string }) => {
   const isMobile = useBreakpoint();
-  {/*
+  {
+    /*
     CSS Codificado:
     textarea { color-scheme: light !important; }
 
@@ -53,9 +54,11 @@ const VoiceflowChat = ({ locale }: { locale: string }) => {
       bottom: 15px !important;
       right: 15px !important;
     }
-  */}
+  */
+  }
 
-  const customCSSBase64 = "data:text/css;base64,dGV4dGFyZWEgeyBjb2xvci1zY2hlbWU6IGxpZ2h0ICFpbXBvcnRhbnQ7IH0KW2NsYXNzKj0idmZyYy1idXR0b24iXSwgW2NsYXNzKj0idmZyYy1jaGF0LWRpYWxvZ19fY29udGFpbmVyIl0geyBib3gtc2hhZG93OiAwIDAgMzBweCAwIHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wMykgaW5zZXQsIDAgMnB4IDRweCAwIHJnYmEoMCwgMCwgMCwgMC4yKSwgMCA0cHggNXB4IDAgcmdiYSgwLCAwLCAwLCAwLjIpLCAwIDFweCAxMHB4IDAgcmdiYSgwLCAwLCAwLCAwLjIpICFpbXBvcnRhbnQ7IGJvcmRlcjogMXB4IHNvbGlkIHJnYmEoMjU1LCAyNTUsIDI1NSwgMC41KSAhaW1wb3J0YW50OyB9CltjbGFzcyo9InZmcmMtaGVhZGVyLS1idXR0b24iXSB7IGJveC1zaGFkb3c6IG5vbmUgIWltcG9ydGFudDsgYm9yZGVyOiBub25lICFpbXBvcnRhbnQ7IH0KW2NsYXNzKj0idmZyYy1sYXVuY2hlcl9fY29udGFpbmVyIl0geyBwb3NpdGlvbjogZml4ZWQgIWltcG9ydGFudDsgYm90dG9tOiAxNXB4ICFpbXBvcnRhbnQ7IHJpZ2h0OiAxNXB4ICFpbXBvcnRhbnQ7IH0=";
+  const customCSSBase64 =
+    "data:text/css;base64,dGV4dGFyZWEgeyBjb2xvci1zY2hlbWU6IGxpZ2h0ICFpbXBvcnRhbnQ7IH0KW2NsYXNzKj0idmZyYy1idXR0b24iXSwgW2NsYXNzKj0idmZyYy1jaGF0LWRpYWxvZ19fY29udGFpbmVyIl0geyBib3gtc2hhZG93OiAwIDAgMzBweCAwIHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wMykgaW5zZXQsIDAgMnB4IDRweCAwIHJnYmEoMCwgMCwgMCwgMC4yKSwgMCA0cHggNXB4IDAgcmdiYSgwLCAwLCAwLCAwLjIpLCAwIDFweCAxMHB4IDAgcmdiYSgwLCAwLCAwLCAwLjIpICFpbXBvcnRhbnQ7IGJvcmRlcjogMXB4IHNvbGlkIHJnYmEoMjU1LCAyNTUsIDI1NSwgMC41KSAhaW1wb3J0YW50OyB9CltjbGFzcyo9InZmcmMtaGVhZGVyLS1idXR0b24iXSB7IGJveC1zaGFkb3c6IG5vbmUgIWltcG9ydGFudDsgYm9yZGVyOiBub25lICFpbXBvcnRhbnQ7IH0KW2NsYXNzKj0idmZyYy1sYXVuY2hlcl9fY29udGFpbmVyIl0geyBwb3NpdGlvbjogZml4ZWQgIWltcG9ydGFudDsgYm90dG9tOiAxNXB4ICFpbXBvcnRhbnQ7IHJpZ2h0OiAxNXB4ICFpbXBvcnRhbnQ7IH0=";
 
   return (
     <Script
@@ -68,32 +71,33 @@ const VoiceflowChat = ({ locale }: { locale: string }) => {
         if (window.voiceflow?.chat) {
           window.voiceflow.chat.load({
             verify: { projectID: process.env.NEXT_PUBLIC_VOICEFLOW_PROJECT_ID },
-            url: 'https://general-runtime.voiceflow.com',
-            versionID: 'production',
+            url: "https://general-runtime.voiceflow.com",
+            versionID: "production",
             assistant: {
-              stylesheet: customCSSBase64
+              stylesheet: customCSSBase64,
             },
             voice: {
-              url: "https://runtime-api.voiceflow.com"
+              url: "https://runtime-api.voiceflow.com",
             },
             initialize: {
               variables: {
-                user_language: locale
-              }
+                user_language: locale,
+              },
             },
           });
 
-          window.addEventListener('message', (event) => {
+          window.addEventListener("message", (event) => {
             if (!isMobile) return;
-            if (!event.data || typeof event.data !== 'string') return;
+            if (!event.data || typeof event.data !== "string") return;
 
-            if (event.data.includes('voiceflow:open')) {
-              const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+            if (event.data.includes("voiceflow:open")) {
+              const scrollbarWidth =
+                window.innerWidth - document.documentElement.clientWidth;
               document.body.style.overflow = "hidden";
               document.body.style.paddingRight = `${String(scrollbarWidth)}px`;
             }
 
-            if (event.data.includes('voiceflow:close')) {
+            if (event.data.includes("voiceflow:close")) {
               document.body.style.overflow = "";
               document.body.style.paddingRight = "";
             }
