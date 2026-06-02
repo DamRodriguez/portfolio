@@ -7,6 +7,7 @@ import ThemeTransitionBlocker from "@/components/other/ThemeTransitionBlocker";
 import VoiceflowChat from "@/components/other/VoiceflowChat";
 import PersonSchema from "@/components/seo/PersonSchema";
 import { routing } from "@/i18n/routing";
+import { Analytics } from "@vercel/analytics/next";
 import clsx from "clsx";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -51,7 +52,7 @@ export default async function LocaleLayout({
       </head>
       <body
         className={clsx(
-          "antialiased min-h-svh flex flex-col",
+          "antialiased min-h-svh flex flex-col bg-white-bone dark:bg-black",
           openSans.variable,
           firaCode.variable,
         )}
@@ -60,12 +61,13 @@ export default async function LocaleLayout({
           <ThemeProvider>
             <ThemeTransitionBlocker />
             <ProgressBarProvider>
-              <div className="min-w-[20rem] max-w-[120rem] pt-header-mobile xl:pt-header-desktop mx-auto w-full font-open-sans bg-white-bone dark:bg-black">
+              <div className="min-w-[20rem] max-w-[120rem] pt-header-mobile xl:pt-header-desktop mx-auto w-full font-open-sans">
                 <Header locale={locale} />
                 <ToastContainer />
                 <PersonSchema />
                 {children}
               </div>
+              <Analytics />
               <GoogleAnalytics />
               <VoiceflowChat locale={locale} />
             </ProgressBarProvider>
