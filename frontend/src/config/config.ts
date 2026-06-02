@@ -15,16 +15,16 @@ const config = {
     whatsapp: "https://wa.me/5491159641031",
   },
   work: {
-    webSpace: "https://webspace.com.ar/"
+    webSpace: "https://webspace.com.ar/",
   },
   projects: {
     vanicracia: "https://vanicracia.com/",
     alfombrasTauro: "https://alfombrastauro.com/",
-    lopezPropiedades: "https://lopez-propiedades-tau.vercel.app/"
+    lopezPropiedades: "https://lopez-propiedades-tau.vercel.app/",
   },
   repositories: {
-    spotifyMobile: "https://github.com/DamRodriguez/spotify-mobile"
-  }
+    spotifyMobile: "https://github.com/DamRodriguez/spotify-mobile",
+  },
 };
 
 export default config;

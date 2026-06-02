@@ -5,6 +5,7 @@ import ProgressBarProvider from "@/components/other/ProgressBarProvider";
 import ThemeScript from "@/components/other/ThemeScript";
 import ThemeTransitionBlocker from "@/components/other/ThemeTransitionBlocker";
 import VoiceflowChat from "@/components/other/VoiceflowChat";
+import PersonSchema from "@/components/seo/PersonSchema";
 import { routing } from "@/i18n/routing";
 import clsx from "clsx";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
@@ -62,6 +63,7 @@ export default async function LocaleLayout({
               <div className="min-w-[20rem] max-w-[120rem] pt-header-mobile xl:pt-header-desktop mx-auto w-full font-open-sans bg-white-bone dark:bg-black">
                 <Header locale={locale} />
                 <ToastContainer />
+                <PersonSchema />
                 {children}
               </div>
               <GoogleAnalytics />

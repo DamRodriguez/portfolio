@@ -3,12 +3,14 @@ export const siteConfig = {
 
   title: "Damian Rodriguez | Portfolio",
 
+  category: "technology",
+
   description:
-    "Portfolio personal de Damian Rodriguez, Frontend Developer especializado en React, Next.js, TypeScript, Tailwind CSS y desarrollo de interfaces modernas, responsivas y performantes.",
+    "Portfolio de Damian Rodriguez, Frontend Developer especializado en React, Next.js, TypeScript y Tailwind CSS. Desarrollo aplicaciones modernas, responsivas y optimizadas para rendimiento y experiencia de usuario.",
 
   url: "https://damrod.dev",
 
-  ogImage: "/images/code.png",
+  ogImage: "https://damrod.dev/images/code.png",
 
   locale: "es_AR",
 
@@ -32,5 +34,17 @@ export const siteConfig = {
     "Next.js",
     "JavaScript",
     "Argentina",
+    "damrod",
+    "Frontend Developer Argentina",
+    "Frontend Developer React",
+    "Desarrollador Frontend Argentina",
+    "Desarrollador React",
+    "Desarrollador Next.js",
+    "React Developer Argentina",
+    "Next.js Developer Argentina",
+    "Portfolio Damian Rodriguez",
+    "Portfolio React Developer",
+    "Frontend Engineer",
+    "TypeScript Developer",
   ],
 };

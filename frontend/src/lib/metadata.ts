@@ -20,7 +20,7 @@ export function createMetadata({
   const fullTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.title;
 
   return {
-    title: title ?? {
+    title: {
       default: siteConfig.title,
       template: `%s | ${siteConfig.name}`,
     },
@@ -36,7 +36,14 @@ export function createMetadata({
     ],
 
     creator: siteConfig.creator.name,
+
     publisher: siteConfig.name,
+
+    category: siteConfig.category,
+
+    applicationName: siteConfig.name,
+
+    referrer: "origin-when-cross-origin",
 
     metadataBase: new URL(siteConfig.url),
 
@@ -83,6 +90,13 @@ export function createMetadata({
     robots: {
       index: !noIndex,
       follow: !noIndex,
+      googleBot: {
+        index: !noIndex,
+        follow: !noIndex,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   };
 }
