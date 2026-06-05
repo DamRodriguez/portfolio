@@ -1,6 +1,6 @@
 "use client";
-import useActiveSection from "@/redux/active-section/useActiveSection";
 import { ActiveSection } from "@/redux/active-section/activeSectionSlice";
+import useActiveSection from "@/redux/active-section/useActiveSection";
 import ViewportTrigger from "../gsap/ViewportTrigger";
 
 type Props = {
@@ -21,5 +21,5 @@ export default function ViewportActiveSection({ section, children }: Props) {
     >
       {children}
     </ViewportTrigger>
-  )
+  );
 }

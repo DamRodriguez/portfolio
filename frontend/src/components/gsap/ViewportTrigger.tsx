@@ -1,8 +1,8 @@
 "use client";
-import { ReactNode, useRef, useState } from "react";
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import { ReactNode, useRef, useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,7 +25,7 @@ export default function ViewportTrigger({
   onEnter,
   onLeave,
   onEnterBack,
-  onLeaveBack
+  onLeaveBack,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -60,7 +60,7 @@ export default function ViewportTrigger({
 
       return () => trigger.kill();
     },
-    { scope: ref }
+    { scope: ref },
   );
 
   return (

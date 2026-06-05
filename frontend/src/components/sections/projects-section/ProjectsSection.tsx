@@ -13,6 +13,8 @@ const ProjectsSection = () => {
   const t = useTranslations("projectsSection");
   const spotifyDemoVideo = "/videos/projects/spotify-mobile/spotify-mobile.mp4";
 
+  // Primero se cargan los textos del proyecto en messages (es - en) y luego con la clave del nombre se completa el objeto.
+
   const projectsData: ProjectItemData[] = [
     {
       translationKey: "spotifyMobile",
