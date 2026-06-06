@@ -105,6 +105,7 @@ const ProjectsSection = () => {
   ];
 
   const isMobile = useBreakpoint(config.breakpoints.xl);
+  const topPosition = isMobile ? "top top+=80" : "top top+=70";
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -118,7 +119,7 @@ const ProjectsSection = () => {
 
         ScrollTrigger.create({
           trigger: card,
-          start: "top top+=70",
+          start: topPosition,
           end: isLast ? "+=70" : undefined,
           pin: true,
           pinSpacing: false,
@@ -131,7 +132,7 @@ const ProjectsSection = () => {
               trigger: card,
               start: "top bottom",
               end: "center center",
-              scrub: 2,
+              scrub: 2.5,
             },
           });
           gsap.to(contents[index - 1], {
@@ -142,7 +143,7 @@ const ProjectsSection = () => {
               trigger: card,
               start: "top bottom",
               end: "center center",
-              scrub: 2,
+              scrub: 2.5,
             },
           });
         }
@@ -174,8 +175,8 @@ const ProjectsSection = () => {
               className={clsx(
                 "project-card relative flex items-center bg-white-bone dark:bg-black",
                 {
-                  "pt-[3rem] xl:pt-[2rem] pb-[2rem]": !isLastProject,
-                  "pt-[3rem] xl:pt-[2rem]": isLastProject,
+                  "pt-[2rem] pb-[2rem]": !isLastProject,
+                  "pt-[2rem]": isLastProject,
                 },
               )}
               style={{
@@ -193,7 +194,10 @@ const ProjectsSection = () => {
               <ProjectItem
                 data={project}
                 odd={index % 2 !== 0}
-                containerClassName={"overflow-clip project-card-content"}
+                containerClassName={clsx(
+                  "overflow-clip project-card-content",
+                  {},
+                )}
               />
             </div>
           );
