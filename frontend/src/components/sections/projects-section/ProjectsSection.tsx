@@ -105,7 +105,7 @@ const ProjectsSection = () => {
   ];
 
   const isMobile = useBreakpoint(config.breakpoints.xl);
-  const topPosition = isMobile ? "top top+=80" : "top top+=70";
+  const topPosition = isMobile ? "top top+=90" : "top top+=70";
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -155,7 +155,7 @@ const ProjectsSection = () => {
   return (
     <SpaceX
       id={removeHash(routes.projects)}
-      className="w-full flex flex-col gap-[1rem] xl:gap-0 "
+      className="w-full flex flex-col gap-[1rem] xl:gap-0"
     >
       <MotionSlide className="xl:flex xl:gap-[5rem]">
         <div className="xl:w-[45%]" />
@@ -195,7 +195,7 @@ const ProjectsSection = () => {
                 data={project}
                 odd={index % 2 !== 0}
                 containerClassName={clsx(
-                  "overflow-clip project-card-content",
+                  "overflow-clip project-card-content will-change-transform",
                   {},
                 )}
               />
