@@ -36,7 +36,7 @@ const ImagesSection = ({
   return (
     <>
       {imageSource.type === "default" && (
-        <div className="w-full h-[30%] xl:h-[70%] grid xl:flex-1 xl:w-full xl:grid-rows-[0.5fr_0.5fr] gap-[1rem] xl:gap-[1.5rem]">
+        <div className="w-full h-[25%] xl:h-[70%] grid xl:flex-1 xl:w-full xl:grid-rows-[0.5fr_0.5fr] gap-[1rem] xl:gap-[1.5rem]">
           <div
             className={clsx(
               "flex h-full min-h-0 xl:h-full gap-[1rem] xl:gap-[1.5rem]",
@@ -101,7 +101,7 @@ const ImagesSection = ({
       )}
 
       {imageSource.type === "single" && (
-        <div className="flex h-[30%] xl:h-[70%] w-full">
+        <div className="flex h-[25%] xl:h-[70%] w-full">
           <ProjectImage
             image={imageSource.image}
             alt={`${title} image`}

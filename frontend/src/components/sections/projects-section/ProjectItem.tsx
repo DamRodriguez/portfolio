@@ -47,27 +47,29 @@ const ProjectItem = (props: ProjectItemProps) => {
         props.containerClassName,
       )}
     >
-      <div className="flex flex-col justify-start xl:justify-center gap-[2rem] xl:gap-[3rem] xl:w-[45%] w-full h-[65%] xl:h-full">
-        <div className="flex flex-col gap-[1.5rem] xl:gap-[2rem]">
+      <div className="flex flex-col justify-start xl:justify-center gap-[1rem] xl:gap-[3rem] xl:w-[45%] w-full h-[70%] xl:h-full">
+        <div className="flex flex-col gap-[1rem] xl:gap-[2rem]">
           <h3 className="text-black dark:text-soft-white text-xl xl:text-2xl font-semibold">
             {title}
           </h3>
 
-          <div className="hidden xl:flex xl:flex-wrap gap-[0.7rem] xl:gap-[1rem]">
-            {technologies.map((tech, index) => (
-              <ItemHover
-                key={index}
-                small
-                cursorNormal
-                className="dark:!border-soft-gray/30 !border-soft-white/50 shadow-s2 dark:shadow-s1 bg-black/80"
-              >
-                {tech}
-              </ItemHover>
-            ))}
-          </div>
+          <div>
+            <div className="hidden xl:flex xl:flex-wrap gap-[0.7rem] xl:gap-[1rem]">
+              {technologies.map((tech, index) => (
+                <ItemHover
+                  key={index}
+                  small
+                  cursorNormal
+                  className="dark:!border-soft-gray/30 !border-soft-white/50 shadow-s2 dark:shadow-s1 bg-black/80"
+                >
+                  {tech}
+                </ItemHover>
+              ))}
+            </div>
 
-          <div className="flex xl:hidden">
-            <InfiniteCarousel items={technologies} />
+            <div className="flex xl:hidden">
+              <InfiniteCarousel items={technologies} />
+            </div>
           </div>
         </div>
 
@@ -78,7 +80,11 @@ const ProjectItem = (props: ProjectItemProps) => {
           />
         </p>
 
-        <ButtonsSection button={data.button} demoVideo={data.demoVideo} />
+        <ButtonsSection
+          button={data.button}
+          demoVideo={data.demoVideo}
+          containerClassName="mt-[1rem] "
+        />
       </div>
 
       <ImagesSection

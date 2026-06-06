@@ -128,7 +128,7 @@ const ProjectsSection = () => {
 
         if (index > 0) {
           gsap.from(card, {
-            scale: 1.15,
+            scale: 1.05,
             scrollTrigger: {
               trigger: card,
               start: "top bottom",
@@ -173,7 +173,7 @@ const ProjectsSection = () => {
             <div
               key={index}
               className={clsx(
-                "project-card relative flex items-center bg-white-bone dark:bg-black",
+                "project-card relative flex items-center bg-white-bone dark:bg-black h-full pt-[1rem] xl:pt-0 ",
               )}
               style={{
                 zIndex: index + 1,
@@ -194,7 +194,7 @@ const ProjectsSection = () => {
                   "overflow-clip project-card-content will-change-transform",
                   {
                     "pt-[2rem] pb-[2rem]": !isLastProject,
-                    "pt-[2rem]": isLastProject,
+                    "pt-[2rem] pb-[0rem]": isLastProject,
                   },
                 )}
               />
