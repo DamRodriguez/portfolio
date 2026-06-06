@@ -138,7 +138,6 @@ const ProjectsSection = () => {
           gsap.to(contents[index - 1], {
             opacity: 0.3,
             scale: 0.85,
-            y: -30,
             scrollTrigger: {
               trigger: card,
               start: "top bottom",
