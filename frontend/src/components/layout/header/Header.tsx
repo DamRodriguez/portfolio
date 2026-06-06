@@ -28,6 +28,14 @@ const Header = ({ locale }: HeaderProps) => {
         direction="up"
         className="z-9999 fixed top-0 w-full min-w-[20rem] max-w-[120rem]"
       >
+        <div
+          className={clsx(
+            "pointer-events-none absolute left-0 top-0 h-[calc(var(--height-header-mobile)+1.5rem)] xl:h-[calc(var(--height-header-desktop)+3rem)] w-full bg-gradient-to-b from-white-bone via-white-bone dark:from-black dark:via-black to-transparent",
+            {
+              hidden: !hasScrolled,
+            },
+          )}
+        />
         <SpaceX
           className={clsx(
             "min-h-header-mobile xl:min-h-header-desktop flex items-center justify-between theme-transition-all",

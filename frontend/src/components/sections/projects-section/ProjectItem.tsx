@@ -1,14 +1,13 @@
+import InfiniteCarousel from "@/components/carousel/InfiniteCarousel";
 import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
 import ItemHover from "@/components/other/ItemHover";
 import { RichText } from "@/components/other/RichText";
 import { projectsRoutes } from "@/constants/projectsRoutes";
 import useBreakpoint from "@/hooks/useBreakpoint";
-import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import { removeHash } from "@/utils/removeHash";
 import clsx from "clsx";
 import { Messages, useTranslations } from "next-intl";
-import { useRef } from "react";
 import ButtonsSection, { ProjectButton } from "./ButtonsSection";
 import ImagesSection, { ImageSource } from "./ImagesSection";
 
@@ -39,84 +38,50 @@ const ProjectItem = (props: ProjectItemProps) => {
   );
   const technologies = technologiesString.split(",").map((tech) => tech.trim());
 
-  const itemRef = useRef<HTMLDivElement>(null);
-
-  useScrollAnimations({
-    animations: {
-      ".project-item-title-gsap": {
-        y: -25,
-        rotate: 5,
-      },
-      ".project-technologies-gsap": {
-        scale: 0.7,
-        rotate: -2,
-        rotateZ: 10,
-        stagger: 0.1,
-      },
-      ".project-image-gsap": {
-        y: -25,
-        scale: 0.9,
-        rotateZ: props.odd ? 4 : -4,
-        x: props.odd ? -15 : 15,
-        borderRadius: isMobile ? 30 : 60,
-        stagger: 0.1,
-      },
-      ".project-text-gsap": {
-        scale: 0.95,
-        x: 15,
-      },
-      ".project-buttons-gsap": {
-        rotate: -5,
-        x: -50,
-        opacity: 0,
-      },
-    },
-    scope: itemRef,
-  });
-
   return (
     <div
-      ref={itemRef}
       id={removeHash(projectsRoutes[data.translationKey])}
       className={clsx(
-        "flex flex-col-reverse items-center xl:flex-row gap-[1.5rem] xl:gap-[5rem] scroll-mt-[8.5rem] xl:scroll-mt-[14rem]",
+        "w-full h-[calc(100dvh-var(--height-header-mobile)-0rem)] xl:min-h-[calc(100dvh-var(--height-header-desktop))] flex justify-end flex-col-reverse items-start xl:items-center xl:flex-row gap-[1.5rem] xl:gap-[5rem] scroll-mt-[5rem] xl:scroll-mt-[3rem]",
         {
           "xl:flex-row-reverse": props.odd,
         },
         props.containerClassName,
       )}
     >
-      <div className="flex flex-col justify-center gap-[2rem] xl:gap-[3rem] xl:w-[45%]">
-        <div className="flex flex-col gap-[1.5rem] xl:gap-[2rem] ">
+      <div className="flex flex-col justify-start xl:justify-center gap-[2rem] xl:gap-[3rem] xl:w-[45%] w-full h-[65%] xl:h-full">
+        <div className="flex flex-col gap-[1.5rem] xl:gap-[2rem]">
           <MotionSlide direction={props.odd && !isMobile ? "right" : "left"}>
-            <h3 className="project-item-title-gsap text-black dark:text-soft-white text-xl xl:text-2xl font-semibold">
+            <h3 className="text-black dark:text-soft-white text-xl xl:text-2xl font-semibold">
               {title}
             </h3>
           </MotionSlide>
 
-          <div className="flex flex-wrap gap-[0.7rem] xl:gap-[1rem]">
+          <div className="hidden xl:flex xl:flex-wrap gap-[0.7rem] xl:gap-[1rem]">
             {technologies.map((tech, index) => (
               <MotionSlide
                 direction="down"
                 order={0.2 * index}
                 key={`${index} + ${tech}`}
               >
-                <div className="project-technologies-gsap">
-                  <ItemHover
-                    small
-                    cursorNormal
-                    className="dark:!border-soft-gray/30 !border-soft-white/50 shadow-s2 dark:shadow-s1 bg-black/80"
-                  >
-                    {tech}
-                  </ItemHover>
-                </div>
+                <ItemHover
+                  small
+                  cursorNormal
+                  className="dark:!border-soft-gray/30 !border-soft-white/50 shadow-s2 dark:shadow-s1 bg-black/80"
+                >
+                  {tech}
+                </ItemHover>
               </MotionSlide>
             ))}
+          </div>
+
+          <div className="flex xl:hidden">
+            <InfiniteCarousel items={technologies} />
           </div>
         </div>
 
         <MotionFade>
-          <p className="project-text-gsap text-dark-gray/85 dark:text-soft-gray text-sm xl:text-lg whitespace-pre-line">
+          <p className="text-dark-gray/85 dark:text-soft-gray text-sm xl:text-lg whitespace-pre-line">
             <RichText
               t={t}
               translationKey={`projectsData.${data.translationKey}.description`}
@@ -124,11 +89,7 @@ const ProjectItem = (props: ProjectItemProps) => {
           </p>
         </MotionFade>
 
-        <ButtonsSection
-          button={data.button}
-          demoVideo={data.demoVideo}
-          containerClassName="project-buttons-gsap"
-        />
+        <ButtonsSection button={data.button} demoVideo={data.demoVideo} />
       </div>
 
       <ImagesSection

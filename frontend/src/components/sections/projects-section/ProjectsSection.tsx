@@ -1,13 +1,19 @@
 "use client";
 import SpaceX from "@/components/layout/SpaceX";
 import MotionSlide from "@/components/motion/MotionSlide";
-import SectionSeparator from "@/components/other/SectionSeparator";
 import config from "@/config/config";
 import { routes } from "@/constants/routes";
-import { useScrollAnimations } from "@/hooks/useScrollAnimations";
+import useBreakpoint from "@/hooks/useBreakpoint";
 import { removeHash } from "@/utils/removeHash";
+import { useGSAP } from "@gsap/react";
+import clsx from "clsx";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useTranslations } from "next-intl";
+import { useRef } from "react";
 import ProjectItem, { ProjectItemData } from "./ProjectItem";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ProjectsSection = () => {
   const t = useTranslations("projectsSection");
@@ -98,19 +104,57 @@ const ProjectsSection = () => {
     },
   ];
 
-  useScrollAnimations({
-    animations: {
-      ".project-title-gsap": {
-        x: 100,
-        y: -100,
-      },
+  const isMobile = useBreakpoint(config.breakpoints.xl);
+
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      const cards = gsap.utils.toArray<HTMLElement>(".project-card");
+      const contents = gsap.utils.toArray<HTMLElement>(".project-card-content");
+
+      cards.forEach((card, index) => {
+        const isLast = index === cards.length - 1;
+
+        ScrollTrigger.create({
+          trigger: card,
+          start: "top top+=70",
+          end: isLast ? "+=70" : undefined,
+          pin: true,
+          pinSpacing: false,
+        });
+
+        if (index > 0) {
+          gsap.from(card, {
+            scale: 1.15,
+            scrollTrigger: {
+              trigger: card,
+              start: "top bottom",
+              end: "center center",
+              scrub: 2,
+            },
+          });
+          gsap.to(contents[index - 1], {
+            opacity: 0.3,
+            scale: 0.85,
+            y: -30,
+            scrollTrigger: {
+              trigger: card,
+              start: "top bottom",
+              end: "center center",
+              scrub: 2,
+            },
+          });
+        }
+      });
     },
-  });
+    { scope: containerRef, dependencies: [isMobile], revertOnUpdate: true },
+  );
 
   return (
     <SpaceX
       id={removeHash(routes.projects)}
-      className="w-full flex flex-col gap-[3rem] xl:gap-[4rem]"
+      className="w-full flex flex-col gap-[1rem] xl:gap-0 "
     >
       <MotionSlide className="xl:flex xl:gap-[5rem]">
         <div className="xl:w-[45%]" />
@@ -119,13 +163,41 @@ const ProjectsSection = () => {
         </h2>
       </MotionSlide>
 
-      <div className="flex flex-col gap-[4rem] xl:gap-[6rem]">
-        {projectsData.map((project, index) => (
-          <div key={index} className="contents">
-            <ProjectItem data={project} odd={index % 2 !== 0} />
-            {index !== projectsData.length - 1 && <SectionSeparator />}
-          </div>
-        ))}
+      <div ref={containerRef} className="projects-stack">
+        {projectsData.map((project, index) => {
+          const isLastProject = index === projectsData.length - 1;
+          const isFirstProject = index === 0;
+
+          return (
+            <div
+              key={index}
+              className={clsx(
+                "project-card relative flex items-center bg-white-bone dark:bg-black",
+                {
+                  "pt-[2rem] pb-[2rem]": !isLastProject,
+                  "pt-[2rem]": isLastProject,
+                },
+              )}
+              style={{
+                zIndex: index + 1,
+              }}
+            >
+              <div
+                className={clsx(
+                  "pointer-events-none absolute left-0 top-[-3.5rem] h-[4rem] xl:top-[-2.5rem] xl:h-[3rem] z-20 w-full bg-gradient-to-t from-white-bone via-white-bone dark:from-black dark:via-black to-transparent",
+                  {
+                    hidden: isFirstProject,
+                  },
+                )}
+              />
+              <ProjectItem
+                data={project}
+                odd={index % 2 !== 0}
+                containerClassName={"overflow-clip project-card-content"}
+              />
+            </div>
+          );
+        })}
       </div>
     </SpaceX>
   );

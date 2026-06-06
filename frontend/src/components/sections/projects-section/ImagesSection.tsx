@@ -37,11 +37,11 @@ const ImagesSection = ({
   return (
     <>
       {imageSource.type === "default" && (
-        <div className="grid gap-[1rem] xl:gap-[1.5rem] h-full xl:w-full">
+        <div className="w-full h-[35%] xl:h-[70%] grid xl:flex-1 xl:w-full xl:grid-rows-[0.5fr_0.5fr] gap-[1rem] xl:gap-[1.5rem]">
           <MotionSlide
             direction="down"
             className={clsx(
-              "flex gap-[1rem] xl:gap-[1.5rem] h-[15rem] md:h-[20rem] xl:h-[25rem]",
+              "flex h-full min-h-0 xl:h-full gap-[1rem] xl:gap-[1.5rem]",
               {
                 "flex-row-reverse": odd,
               },
@@ -51,20 +51,21 @@ const ImagesSection = ({
               image={imageSource.images.rectangular}
               alt={`${title} rectangular image`}
               disablePopUp={disablePopUp}
-              className="w-full object-center"
+              className="h-full w-full object-center"
             />
+
             <ProjectImage
               image={imageSource.images.vertical}
               alt={`${title} vertical image`}
               disablePopUp={disablePopUp}
-              className="w-[65%] 2xl:w-[30%]"
+              className="h-full w-[65%] 2xl:w-[30%]"
             />
           </MotionSlide>
 
           <MotionSlide
             direction="down"
             className={clsx(
-              "flex h-[10rem] md:h-[16rem] xl:h-[20rem] gap-[1rem] xl:gap-[1.5rem]",
+              "flex h-full min-h-0 xl:h-full gap-[1rem] xl:gap-[1.5rem]",
               {
                 "flex-row-reverse": odd,
               },
@@ -74,20 +75,21 @@ const ImagesSection = ({
               image={imageSource.images.square}
               alt={`${title} square image`}
               disablePopUp={disablePopUp}
-              className="w-[60%]"
+              className="h-full w-[60%]"
             />
+
             <ProjectImage
               image={imageSource.images.horizontal}
               alt={`${title} horizontal image`}
               disablePopUp={disablePopUp}
-              className="w-full"
+              className="h-full w-full"
             />
           </MotionSlide>
         </div>
       )}
 
       {imageSource.type === "mobile" && (
-        <div className="flex gap-[1rem] xl:grid xl:grid-cols-2 xl:w-[50%] 2xl:flex 2xl:gap-[1.5rem] h-full 2xl:w-full">
+        <div className="flex h-fit xl:w-[75%] justify-center gap-[1rem] 2xl:gap-[1.5rem] w-full">
           {imageSource.images.map((image, index) => (
             <MotionSlide direction="down" key={index}>
               <ProjectImage
@@ -102,15 +104,12 @@ const ImagesSection = ({
       )}
 
       {imageSource.type === "single" && (
-        <MotionSlide
-          direction="down"
-          className={clsx("flex w-full h-[15rem] md:h-[20rem] xl:h-[25rem]")}
-        >
+        <MotionSlide direction="down" className="flex h-full w-full">
           <ProjectImage
             image={imageSource.image}
             alt={`${title} image`}
             disablePopUp={disablePopUp}
-            className="w-full"
+            className="h-full w-full"
           />
         </MotionSlide>
       )}
