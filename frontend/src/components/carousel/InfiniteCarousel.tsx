@@ -7,9 +7,10 @@ type InfiniteCarouselProps = {
 };
 
 export default function InfiniteCarousel({ items }: InfiniteCarouselProps) {
+  // carousel-track en el div sobre el map
   return (
     <div className="w-full overflow-x-auto scrollbar-none">
-      <div className="carousel-track flex w-max gap-3 pr-4">
+      <div className=" flex w-max gap-3 pr-4">
         {items.map((item) => (
           <div key={item} className="shrink-0">
             <ItemHover
