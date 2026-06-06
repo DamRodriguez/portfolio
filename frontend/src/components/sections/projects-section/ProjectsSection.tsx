@@ -105,7 +105,8 @@ const ProjectsSection = () => {
   ];
 
   const isMobile = useBreakpoint(config.breakpoints.xl);
-  const topPosition = isMobile ? "top top+=90" : "top top+=70";
+  const topPosition = isMobile ? "top top+=80" : "top top+=70";
+  const endPosition = isMobile ? "+=80" : "+=70";
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -120,7 +121,7 @@ const ProjectsSection = () => {
         ScrollTrigger.create({
           trigger: card,
           start: topPosition,
-          end: isLast ? "+=70" : undefined,
+          end: isLast ? endPosition : undefined,
           pin: true,
           pinSpacing: false,
         });
@@ -132,7 +133,7 @@ const ProjectsSection = () => {
               trigger: card,
               start: "top bottom",
               end: "center center",
-              scrub: 2.5,
+              scrub: 1,
             },
           });
           gsap.to(contents[index - 1], {
@@ -142,7 +143,7 @@ const ProjectsSection = () => {
               trigger: card,
               start: "top bottom",
               end: "center center",
-              scrub: 2.5,
+              scrub: 1,
             },
           });
         }
@@ -173,10 +174,6 @@ const ProjectsSection = () => {
               key={index}
               className={clsx(
                 "project-card relative flex items-center bg-white-bone dark:bg-black",
-                {
-                  "pt-[2rem] pb-[2rem]": !isLastProject,
-                  "pt-[2rem]": isLastProject,
-                },
               )}
               style={{
                 zIndex: index + 1,
@@ -195,7 +192,10 @@ const ProjectsSection = () => {
                 odd={index % 2 !== 0}
                 containerClassName={clsx(
                   "overflow-clip project-card-content will-change-transform",
-                  {},
+                  {
+                    "pt-[2rem] pb-[2rem]": !isLastProject,
+                    "pt-[2rem]": isLastProject,
+                  },
                 )}
               />
             </div>
