@@ -174,8 +174,8 @@ const ProjectsSection = () => {
               className={clsx(
                 "project-card relative flex items-center bg-white-bone dark:bg-black",
                 {
-                  "pt-[2rem] pb-[2rem]": !isLastProject,
-                  "pt-[2rem]": isLastProject,
+                  "pt-[3rem] xl:pt-[2rem] pb-[2rem]": !isLastProject,
+                  "pt-[3rem] xl:pt-[2rem]": isLastProject,
                 },
               )}
               style={{

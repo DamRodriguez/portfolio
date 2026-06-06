@@ -1,6 +1,4 @@
 import InfiniteCarousel from "@/components/carousel/InfiniteCarousel";
-import MotionFade from "@/components/motion/MotionFade";
-import MotionSlide from "@/components/motion/MotionSlide";
 import ItemHover from "@/components/other/ItemHover";
 import { RichText } from "@/components/other/RichText";
 import { projectsRoutes } from "@/constants/projectsRoutes";
@@ -51,27 +49,20 @@ const ProjectItem = (props: ProjectItemProps) => {
     >
       <div className="flex flex-col justify-start xl:justify-center gap-[2rem] xl:gap-[3rem] xl:w-[45%] w-full h-[65%] xl:h-full">
         <div className="flex flex-col gap-[1.5rem] xl:gap-[2rem]">
-          <MotionSlide direction={props.odd && !isMobile ? "right" : "left"}>
-            <h3 className="text-black dark:text-soft-white text-xl xl:text-2xl font-semibold">
-              {title}
-            </h3>
-          </MotionSlide>
+          <h3 className="text-black dark:text-soft-white text-xl xl:text-2xl font-semibold">
+            {title}
+          </h3>
 
           <div className="hidden xl:flex xl:flex-wrap gap-[0.7rem] xl:gap-[1rem]">
             {technologies.map((tech, index) => (
-              <MotionSlide
-                direction="down"
-                order={0.2 * index}
-                key={`${index} + ${tech}`}
+              <ItemHover
+                key={index}
+                small
+                cursorNormal
+                className="dark:!border-soft-gray/30 !border-soft-white/50 shadow-s2 dark:shadow-s1 bg-black/80"
               >
-                <ItemHover
-                  small
-                  cursorNormal
-                  className="dark:!border-soft-gray/30 !border-soft-white/50 shadow-s2 dark:shadow-s1 bg-black/80"
-                >
-                  {tech}
-                </ItemHover>
-              </MotionSlide>
+                {tech}
+              </ItemHover>
             ))}
           </div>
 
@@ -80,14 +71,12 @@ const ProjectItem = (props: ProjectItemProps) => {
           </div>
         </div>
 
-        <MotionFade>
-          <p className="text-dark-gray/85 dark:text-soft-gray text-sm xl:text-lg whitespace-pre-line">
-            <RichText
-              t={t}
-              translationKey={`projectsData.${data.translationKey}.description`}
-            />
-          </p>
-        </MotionFade>
+        <p className="text-dark-gray/85 dark:text-soft-gray text-sm xl:text-lg whitespace-pre-line">
+          <RichText
+            t={t}
+            translationKey={`projectsData.${data.translationKey}.description`}
+          />
+        </p>
 
         <ButtonsSection button={data.button} demoVideo={data.demoVideo} />
       </div>
