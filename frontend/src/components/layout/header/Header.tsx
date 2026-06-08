@@ -30,7 +30,7 @@ const Header = ({ locale }: HeaderProps) => {
       >
         <div
           className={clsx(
-            "pointer-events-none absolute left-0 top-0 h-[calc(var(--height-header-mobile)+1.5rem)] xl:h-[calc(var(--height-header-desktop)+3rem)] w-full bg-gradient-to-b from-white-bone via-white-bone dark:from-black dark:via-black to-transparent custom-transition-all",
+            "pointer-events-none absolute left-0 -top-[2px] h-[calc(var(--height-header-mobile)+1.5rem)] xl:h-[calc(var(--height-header-desktop)+3rem)] w-full bg-gradient-to-b from-white-bone via-white-bone dark:from-black dark:via-black to-transparent custom-transition-all",
             {
               hidden: !hasScrolled,
               "!from-black/40 !via-black/15": isMobileNavVisible,
