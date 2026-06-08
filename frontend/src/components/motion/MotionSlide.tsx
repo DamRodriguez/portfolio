@@ -6,6 +6,7 @@ import { memo, useMemo } from "react";
 
 type MotionSlideProps = MotionDefaults & {
   direction?: "left" | "right" | "up" | "down";
+  id?: string;
 };
 
 const getInitialPosition = (direction: MotionSlideProps["direction"]) => {
@@ -29,7 +30,11 @@ const visibleState = {
   y: 0,
 };
 
-const MotionSlide = ({ direction = "left", ...props }: MotionSlideProps) => {
+const MotionSlide = ({
+  id,
+  direction = "left",
+  ...props
+}: MotionSlideProps) => {
   const { duration, order, viewAmount, children, className, onClick } = {
     ...DEFAULT_MOTION,
     ...props,
@@ -62,6 +67,7 @@ const MotionSlide = ({ direction = "left", ...props }: MotionSlideProps) => {
 
   return (
     <motion.div
+      id={id}
       initial={initial}
       whileInView={visibleState}
       viewport={viewport}

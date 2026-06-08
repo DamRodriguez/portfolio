@@ -7,8 +7,10 @@ import ThemeTransitionBlocker from "@/components/other/ThemeTransitionBlocker";
 import VoiceflowChat from "@/components/other/VoiceflowChat";
 import PersonSchema from "@/components/seo/PersonSchema";
 import { routing } from "@/i18n/routing";
+import { createMetadata } from "@/lib/metadata";
 import { Analytics } from "@vercel/analytics/next";
 import clsx from "clsx";
+import { Metadata } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { Fira_Code, Open_Sans } from "next/font/google";
@@ -32,6 +34,18 @@ type LocaleLayoutProps = {
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  return createMetadata({
+    path: `/${locale}`,
+  });
 }
 
 export default async function LocaleLayout({
