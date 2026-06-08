@@ -7,7 +7,7 @@ import { memo, useMemo } from "react";
 type MotionEntryFadeProps = MotionDefaults;
 
 const initialState = {
-  opacity: 0,
+  opacity: 0.0001,
   scale: 0.95,
 };
 

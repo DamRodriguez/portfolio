@@ -1,5 +1,4 @@
 "use client";
-
 import { DEFAULT_MOTION, type MotionDefaults } from "@/config/motion";
 import clsx from "clsx";
 import { motion } from "framer-motion";
@@ -38,7 +37,7 @@ const MotionSlide = ({ direction = "left", ...props }: MotionSlideProps) => {
 
   const initial = useMemo(
     () => ({
-      opacity: 0,
+      opacity: 0.0001,
       ...getInitialPosition(direction),
     }),
     [direction],

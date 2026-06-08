@@ -7,7 +7,7 @@ import { memo, useMemo } from "react";
 type MotionOpacityProps = MotionDefaults;
 
 const initialState = {
-  opacity: 0,
+  opacity: 0.0001,
 };
 
 const animateState = {

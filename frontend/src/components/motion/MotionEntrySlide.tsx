@@ -40,7 +40,7 @@ const MotionEntrySlide = ({
 
   const initial = useMemo(
     () => ({
-      opacity: 0,
+      opacity: 0.0001,
       ...getInitialPosition(direction),
     }),
     [direction],

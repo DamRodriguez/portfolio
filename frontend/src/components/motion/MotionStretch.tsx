@@ -8,7 +8,7 @@ type MotionStretchProps = MotionDefaults;
 
 const initialState = {
   scaleX: 0,
-  opacity: 0,
+  opacity: 0.0001,
 };
 
 const visibleState = {

@@ -24,7 +24,7 @@ const MotionScale = ({
   const initialState = useMemo(
     () => ({
       scale: initialScale,
-      opacity: withOpacity ? 0 : 1,
+      opacity: withOpacity ? 0.0001 : 1,
     }),
     [initialScale, withOpacity],
   );
@@ -40,7 +40,7 @@ const MotionScale = ({
   const exitState = useMemo(
     () => ({
       scale: initialScale,
-      opacity: withOpacity ? 0 : 1,
+      opacity: withOpacity ? 0.0001 : 1,
     }),
     [initialScale, withOpacity],
   );

@@ -8,7 +8,7 @@ type MotionHeightProps = MotionDefaults;
 
 const initialState = {
   height: 0,
-  opacity: 0,
+  opacity: 0.0001,
 };
 
 const animateState = {

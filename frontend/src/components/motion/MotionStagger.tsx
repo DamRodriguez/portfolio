@@ -50,7 +50,7 @@ const MotionStagger = ({
   const childVariants: Variants = useMemo(
     () => ({
       hidden: {
-        opacity: 0,
+        opacity: 0.0001,
         scale: 0.95,
         ...getInitialPosition(direction),
       },

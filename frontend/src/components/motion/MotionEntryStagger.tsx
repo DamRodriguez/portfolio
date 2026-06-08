@@ -1,5 +1,4 @@
 "use client";
-
 import { DEFAULT_MOTION, type MotionDefaults } from "@/config/motion";
 import clsx from "clsx";
 import { motion, type Variants } from "framer-motion";
@@ -53,7 +52,7 @@ const MotionEntryStagger = ({
   const childVariants: Variants = useMemo(
     () => ({
       hidden: {
-        opacity: 0,
+        opacity: 0.0001,
         scale: 0.95,
         ...getInitialPosition(direction),
       },
