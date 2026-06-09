@@ -1,11 +1,10 @@
 "use client";
-
-import { useRef, ReactNode } from "react";
-import gsap from "gsap";
-import { SplitText } from "gsap/SplitText";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import useBreakpoint from "@/hooks/useBreakpoint";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+import { ReactNode, useRef } from "react";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -45,11 +44,12 @@ export default function SplitTextWrapper({
       gsap.set(split.chars, {
         willChange: "transform, opacity",
         force3D: true,
+        z: 0,
       });
 
       const tween = gsap.from(split.chars, {
         y: isMobile ? -28 : -75,
-        opacity: 0,
+        opacity: 0.0001,
         duration: 1,
         ease,
         stagger: 0.07,
@@ -76,7 +76,7 @@ export default function SplitTextWrapper({
       scope: containerRef,
       dependencies: [isMobile, order, ease],
       revertOnUpdate: true,
-    }
+    },
   );
 
   return (

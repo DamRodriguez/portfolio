@@ -14,22 +14,24 @@ type HorizontalCarouselVariantItemProps = {
   data: HorizontalCarouselVariantData;
 };
 
-const HorizontalCarouselVariantItem = ({ data }: HorizontalCarouselVariantItemProps) => {
-  const t = useTranslations("headSection.horizontalCarousel")
+const HorizontalCarouselVariantItem = ({
+  data,
+}: HorizontalCarouselVariantItemProps) => {
+  const t = useTranslations("headSection.horizontalCarousel");
+
   return (
     <div className="relative overflow-hidden rounded-3xl shadow-s1">
       <div className="group h-[17rem] xl:h-[20rem]">
         <Image
           src={data.image}
           alt={data.title}
-          priority={true}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          loading="lazy"
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 40vw, 33vw"
           fill
-          className="h-full w-full group-hover:scale-110 theme-transition-all object-cover"
+          className="h-full w-full group-hover:scale-110 theme-transition-all object-cover transform-gpu"
         />
       </div>
-      <div className="w-[75%] h-full bg-soft-white/80 dark:bg-black/70 shadow-s4 backdrop-blur-[0.2rem] absolute right-0 bottom-0 pr-[4rem] xl:pr-[1rem] px-[1rem] xl:px-[1rem] py-[2rem] flex flex-col justify-between pointer-events-none items-start rounded-r-3xl"
-      >
+      <div className="w-[75%] h-full bg-soft-white/80 dark:bg-black/70 shadow-s4 backdrop-blur-[0.2rem] absolute right-0 bottom-0 pr-[4rem] xl:pr-[1rem] px-[1rem] xl:px-[1rem] py-[2rem] flex flex-col justify-between pointer-events-none items-start rounded-r-3xl">
         <p className="text-black dark:text-soft-white text-xl xl:text-2xl font-fira-code">
           {data.title}
         </p>
@@ -48,4 +50,4 @@ const HorizontalCarouselVariantItem = ({ data }: HorizontalCarouselVariantItemPr
   );
 };
 
-export default React.memo(HorizontalCarouselVariantItem)
+export default React.memo(HorizontalCarouselVariantItem);

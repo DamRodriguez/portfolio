@@ -1,22 +1,25 @@
 "use client";
+import HorizontalCarouselVariantItem, {
+  type HorizontalCarouselVariantData,
+} from "@/components/carousel/horizontal-carousel-variant/HorizontalCarouselVariantItem";
+import { ArrowIcon } from "@/components/icons/buttons";
+import { useHorizontalCarousel } from "@/hooks/useHorizontalCarousel";
+import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import "@/styles/scrollbarVertical.css";
 import clsx from "clsx";
-import type {
-  EmblaOptionsType,
-} from "embla-carousel";
-import HorizontalCarouselVariantItem, { type HorizontalCarouselVariantData } from "@/components/carousel/horizontal-carousel-variant/HorizontalCarouselVariantItem";
-import { useHorizontalCarousel } from "@/hooks/useHorizontalCarousel";
-import { ArrowIcon } from "@/components/icons/buttons";
+import type { EmblaOptionsType } from "embla-carousel";
 import { useEffect, useState } from "react";
 import { DotButton } from "./HorizontalCarouselDotButtons";
-import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 
 type HorizontalCarouselVariantProps = {
   options?: EmblaOptionsType;
   items: HorizontalCarouselVariantData[];
 };
 
-const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariantProps) => {
+const HorizontalCarouselVariant = ({
+  options,
+  items,
+}: HorizontalCarouselVariantProps) => {
   const {
     emblaRef,
     emblaApi,
@@ -24,7 +27,7 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
     nextBtnDisabled,
     onPrevButtonClick,
     onNextButtonClick,
-    onDotButtonClick
+    onDotButtonClick,
   } = useHorizontalCarousel({ options });
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -40,36 +43,43 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
     onSelect();
   }, [emblaApi]);
 
-  const arrowSvgClassName = "w-7 h-7 xl:w-10 xl:h-10 fill-soft-white dark:fill-soft-white theme-transition-all";
-  const arrowButtonClassName = "pointer-events-auto backdrop-blur-[0.1rem] cursor-pointer hover:scale-105 theme-transition-all border border-soft-gray rounded-full w-15 h-15 xl:w-20 xl:h-20 flex items-center justify-center hover:[&_svg]:fill-[#000] hover:bg-soft-white shadow-s1 bg-black";
+  const arrowSvgClassName =
+    "w-7 h-7 xl:w-10 xl:h-10 fill-soft-white dark:fill-soft-white theme-transition-all";
+  const arrowButtonClassName =
+    "pointer-events-auto backdrop-blur-[0.1rem] cursor-pointer hover:scale-105 theme-transition-all border border-soft-gray rounded-full w-15 h-15 xl:w-20 xl:h-20 flex items-center justify-center hover:[&_svg]:fill-[#000] hover:bg-soft-white shadow-s1 bg-black";
 
   useScrollAnimations({
     animations: {
       ".left-arrow-gsap": {
         rotate: -50,
         x: -100,
-        y: -100
+        y: -100,
       },
       ".right-arrow-gsap": {
         rotate: 50,
         x: 100,
-        y: -100
-      }
-    }
-  })
+        y: -100,
+      },
+    },
+  });
 
   return (
     <div className="relative w-full mb-7 md:mb-8 xl:mb-0">
-
-      <div className="overflow-hidden rounded-[0.625rem] h-[18rem] xl:h-[22rem]" ref={emblaRef}>
-        <div className={`flex items-center ${items.length <= 3 ? "xl:justify-center" : ""}`}>
+      <div
+        className="overflow-hidden rounded-[0.625rem] h-[18rem] xl:h-[22rem]"
+        ref={emblaRef}
+      >
+        <div
+          className={`flex items-center ${items.length <= 3 ? "xl:justify-center" : ""}`}
+        >
           {items.map((item, index) => (
             <div
               key={index}
-              className={clsx("flex-[0_0_calc(100%)] xl:flex-[0_0_calc(105%/3)] px-[0.5rem] w-[1rem]",
+              className={clsx(
+                "flex-[0_0_calc(100%)] xl:flex-[0_0_calc(105%/3)] px-[0.5rem] w-[1rem]",
                 {
-                  "xl:mt-[1rem]": index !== selectedIndex
-                }
+                  "xl:mt-[1rem]": index !== selectedIndex,
+                },
               )}
             >
               <HorizontalCarouselVariantItem data={{ ...item }} />
@@ -88,11 +98,15 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
         <div className="absolute inset-0 bg-gradient-to-l from-black to-transparent opacity-0 dark:opacity-100" />
       </div>
 
-      <div className={clsx("absolute inset-0 flex items-center justify-between pointer-events-none",
-        {
-          "xl:hidden": items.length <= 3,
-          hidden: items.length === 1,
-        })}>
+      <div
+        className={clsx(
+          "absolute inset-0 flex items-center justify-between pointer-events-none",
+          {
+            "xl:hidden": items.length <= 3,
+            hidden: items.length === 1,
+          },
+        )}
+      >
         <div className="left-arrow-gsap">
           <button
             onClick={onPrevButtonClick}
@@ -121,23 +135,23 @@ const HorizontalCarouselVariant = ({ options, items }: HorizontalCarouselVariant
         {items.map((_, index) => {
           const isActive = index === selectedIndex;
           return (
-            (
-              <DotButton
-                key={index}
-                onClick={() => { onDotButtonClick(index); }}
-                className={clsx(
-                  "w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-alpha-50/50 border border-black dark:border-soft-gray cursor-pointer hover:scale-105 theme-transition",
-                  {
-                    "bg-black dark:bg-soft-white hover:bg-black dark:hover:bg-soft-white": isActive,
-                    "hover:bg-black dark:hover:border-soft-white": !isActive,
-                  }
-                )}
-              />
-            )
-          )
+            <DotButton
+              key={index}
+              onClick={() => {
+                onDotButtonClick(index);
+              }}
+              className={clsx(
+                "w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-alpha-50/50 border border-black dark:border-soft-gray cursor-pointer hover:scale-105 theme-transition",
+                {
+                  "bg-black dark:bg-soft-white hover:bg-black dark:hover:bg-soft-white":
+                    isActive,
+                  "hover:bg-black dark:hover:border-soft-white": !isActive,
+                },
+              )}
+            />
+          );
         })}
       </div>
-
     </div>
   );
 };
