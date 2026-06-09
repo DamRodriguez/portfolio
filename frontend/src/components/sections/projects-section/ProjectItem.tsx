@@ -2,7 +2,6 @@ import InfiniteCarousel from "@/components/carousel/InfiniteCarousel";
 import ItemHover from "@/components/other/ItemHover";
 import { RichText } from "@/components/other/RichText";
 import { projectsRoutes } from "@/constants/projectsRoutes";
-import useBreakpoint from "@/hooks/useBreakpoint";
 import { removeHash } from "@/utils/removeHash";
 import clsx from "clsx";
 import { Messages, useTranslations } from "next-intl";
@@ -30,7 +29,6 @@ const ProjectItem = (props: ProjectItemProps) => {
   const data = props.data;
   const t = useTranslations("projectsSection");
   const title = t(`projectsData.${data.translationKey}.title`);
-  const isMobile = useBreakpoint();
   const technologiesString = t(
     `projectsData.${data.translationKey}.technologies`,
   );
@@ -40,7 +38,7 @@ const ProjectItem = (props: ProjectItemProps) => {
     <div
       id={removeHash(projectsRoutes[data.translationKey])}
       className={clsx(
-        "w-full h-svh xl:min-h-[calc(100dvh-var(--height-header-desktop))] flex justify-end flex-col-reverse items-start xl:items-center xl:flex-row gap-[1.5rem] xl:gap-[5rem] scroll-mt-[5rem] xl:scroll-mt-[3rem]",
+        "w-full h-svh xl:h-[calc(100svh-var(--height-header-desktop))] flex justify-end flex-col-reverse items-start xl:items-center xl:flex-row gap-[1.5rem] xl:gap-[5rem] scroll-mt-[5rem] xl:scroll-mt-[3rem]",
         {
           "xl:flex-row-reverse": props.odd,
         },

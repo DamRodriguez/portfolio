@@ -105,8 +105,8 @@ const ProjectsSection = () => {
   ];
 
   const isMobile = useBreakpoint(config.breakpoints.xl);
-  const topPosition = isMobile ? "top top+=80" : "top top+=70";
-  const endPosition = isMobile ? "+=80" : "+=70";
+  const topPosition = isMobile ? "top top+=80" : "top top+=90";
+  const endPosition = isMobile ? "+=80" : "+=90";
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -181,7 +181,7 @@ const ProjectsSection = () => {
             >
               <div
                 className={clsx(
-                  "pointer-events-none absolute left-0 top-[-3.5rem] h-[4rem] xl:top-[-2.5rem] xl:h-[3rem] z-20 w-full bg-gradient-to-t from-white-bone via-white-bone dark:from-black dark:via-black to-transparent",
+                  "pointer-events-none absolute left-0 top-[-3.5rem] h-[4rem] xl:top-[-1.5rem] xl:h-[2rem] z-20 w-full bg-gradient-to-t from-white-bone via-white-bone dark:from-black dark:via-black to-transparent",
                   {
                     hidden: isFirstProject,
                   },

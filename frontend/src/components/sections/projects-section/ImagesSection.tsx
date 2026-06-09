@@ -36,7 +36,7 @@ const ImagesSection = ({
   return (
     <>
       {imageSource.type === "default" && (
-        <div className="w-full h-[25%] xl:h-[70%] grid xl:flex-1 xl:w-full xl:grid-rows-[0.5fr_0.5fr] gap-[1rem] xl:gap-[1.5rem]">
+        <div className="w-full h-[25%] md:h-[35%] xl:h-[70%] grid xl:flex-1 xl:w-full xl:grid-rows-[0.5fr_0.5fr] gap-[1rem] xl:gap-[1.5rem]">
           <div
             className={clsx(
               "flex h-full min-h-0 xl:h-full gap-[1rem] xl:gap-[1.5rem]",
@@ -86,7 +86,7 @@ const ImagesSection = ({
       )}
 
       {imageSource.type === "mobile" && (
-        <div className="flex h-fit xl:w-[75%] justify-center gap-[1rem] 2xl:gap-[1.5rem] w-full">
+        <div className="flex h-fit md:h-[35%] xl:h-fit min-h-0 xl:w-[75%] justify-center gap-[1rem] 2xl:gap-[1.5rem] w-full">
           {imageSource.images.map((image, index) => (
             <div key={index}>
               <ProjectImage
