@@ -69,8 +69,16 @@ export function ThemeToggle(props: ThemeToggleProps) {
 
   if (!mounted) {
     return (
-      <div className="container flex items-center justify-center opacity-0">
-        <div className="w-[2.17375rem] xl:w-[2.67375rem] aspect-square" />
+      <div className="container flex items-center justify-center">
+        <div
+          className={clsx(
+            "relative w-[2.17375rem] xl:w-[2.67375rem] aspect-square rounded-full border shadow-s2 dark:bg-soft-gray/20 dark:border-soft-gray/5 dark:shadow-s1 animate-pulse",
+            {
+              "bg-white-bone": props.hasScrolled,
+              "bg-soft-white": !props.hasScrolled,
+            },
+          )}
+        />
       </div>
     );
   }

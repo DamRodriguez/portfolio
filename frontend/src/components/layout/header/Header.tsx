@@ -5,7 +5,6 @@ import NavDesk from "@/components/layout/header/NavDesk";
 import NavMobile from "@/components/layout/header/NavMobile";
 import RightSection from "@/components/layout/header/RightSection";
 import SpaceX from "@/components/layout/SpaceX";
-import MotionEntrySlide from "@/components/motion/MotionEntrySlide";
 import ShineBorderCustom from "@/components/other/ShineBorderCustom";
 import useCloseMobileNavOnDesktop from "@/hooks/useCloseMobileNavOnDesktop";
 import useHasScrolled from "@/hooks/useHasScrolled";
@@ -24,10 +23,7 @@ const Header = ({ locale }: HeaderProps) => {
 
   return (
     <header>
-      <MotionEntrySlide
-        direction="up"
-        className="z-9999 fixed top-0 w-full min-w-[20rem] max-w-[120rem]"
-      >
+      <div className="z-9999 fixed top-0 w-full min-w-[20rem] max-w-[120rem]">
         <div
           className={clsx(
             "pointer-events-none absolute left-0 -top-[2px] h-[calc(var(--height-header-mobile)+1.5rem)] xl:h-[calc(var(--height-header-desktop)+3rem)] w-full bg-gradient-to-b from-white-bone via-white-bone dark:from-black dark:via-black to-transparent theme-transition-all",
@@ -63,7 +59,7 @@ const Header = ({ locale }: HeaderProps) => {
             hasScrolled={hasScrolled}
           />
         </SpaceX>
-      </MotionEntrySlide>
+      </div>
 
       <Drawer
         visible={isMobileNavVisible}
