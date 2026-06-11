@@ -4,7 +4,10 @@ import { useEffect, useState } from "react";
 const useBreakpoint = (breakpoint = Number(config.breakpoints.md)) => {
   const getQuery = (breakpoint: number) => `(max-width: ${breakpoint}px)`;
 
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia(getQuery(breakpoint)).matches;
+  });
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(getQuery(breakpoint));
