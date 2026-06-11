@@ -105,8 +105,8 @@ const ProjectsSection = () => {
   ];
 
   const isMobile = useBreakpoint(config.breakpoints.xl);
-  const topPosition = isMobile ? "top top+=70" : "top top+=80";
-  const endPosition = isMobile ? "+=70" : "+=80";
+  const topPosition = isMobile ? "top top+=70" : "top top+=90";
+  const endPosition = isMobile ? "+=70" : "+=90";
 
   const containerRef = useRef<HTMLDivElement>(null);
 

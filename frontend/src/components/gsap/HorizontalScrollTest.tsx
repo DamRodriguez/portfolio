@@ -1,22 +1,20 @@
-"use client"
-import { useRef } from "react"
-import { useScrollAnimations } from "@/hooks/useScrollAnimations"
+"use client";
+import { useHorizontalScrollAnimations } from "@/hooks/useHorizontalScrollAnimations";
+import { useRef } from "react";
 
 export default function HorizontalScrollTest() {
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  useScrollAnimations({
+  useHorizontalScrollAnimations({
     scope: containerRef,
     horizontal: {
-      panels: ".panel"
-    }
-  })
+      panels: ".panel",
+    },
+  });
 
   return (
     <section className="relative">
       <div ref={containerRef} className="flex h-screen">
-
         <div className="panel min-w-screen h-screen flex items-center justify-center text-5xl bg-red-error">
           Section 1
         </div>
@@ -32,8 +30,7 @@ export default function HorizontalScrollTest() {
         <div className="panel min-w-screen h-screen flex items-center justify-center text-5xl bg-soft-white">
           Section 4
         </div>
-
       </div>
     </section>
-  )
+  );
 }

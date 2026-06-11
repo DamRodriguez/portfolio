@@ -22,14 +22,8 @@ export type ScrollAnimationConfig = {
   };
 } & gsap.TweenVars;
 
-type HorizontalConfig = {
-  panels: string;
-  container?: string;
-};
-
 type UseScrollAnimationsProps = {
   animations?: Record<string, ScrollAnimationConfig>;
-  horizontal?: HorizontalConfig;
   scope?: RefObject<Element | null>;
   disabled?: boolean;
   scrollTriggerDefaults?: Partial<ScrollTrigger.Vars>;
@@ -37,7 +31,6 @@ type UseScrollAnimationsProps = {
 
 export function useScrollAnimations({
   animations = {},
-  horizontal,
   scope,
   disabled = false,
   scrollTriggerDefaults,
@@ -48,7 +41,7 @@ export function useScrollAnimations({
   const BASE_SCROLL_TRIGGER: ScrollTrigger.Vars = {
     start: `top ${topDistance}`,
     end: "+=300",
-    scrub: 2.5,
+    scrub: 2,
   };
 
   const DEFAULT_SCROLL_TRIGGER: ScrollTrigger.Vars = {
@@ -62,10 +55,6 @@ export function useScrollAnimations({
         context.revert();
         return;
       }
-
-      const root = scope?.current || document;
-
-      /* ---------- NORMAL ANIMATIONS ---------- */
 
       Object.entries(animations).forEach(([target, animation]) => {
         const { from, to, scrollTrigger, ...vars } = animation;
@@ -93,39 +82,10 @@ export function useScrollAnimations({
           });
         }
       });
-
-      /* ---------- HORIZONTAL SCROLL ---------- */
-
-      if (horizontal) {
-        const panels = gsap.utils.toArray<HTMLElement>(horizontal.panels, root);
-
-        if (!panels.length) return;
-
-        const container = horizontal.container
-          ? (root as Element).querySelector<HTMLElement>(horizontal.container)!
-          : panels[0].parentElement!;
-
-        gsap.to(panels, {
-          xPercent: -100 * (panels.length - 1),
-          ease: "none",
-          scrollTrigger: {
-            trigger: container,
-            start: "top top",
-            pin: true,
-            scrub: 0.2,
-            snap: {
-              snapTo: 1 / (panels.length - 1),
-              duration: 0,
-              inertia: false,
-            },
-            end: () => `+=${container.offsetWidth}`,
-          },
-        });
-      }
     },
     {
       scope,
-      dependencies: [animations, horizontal, disabled],
+      dependencies: [animations, disabled, scrollTriggerDefaults],
       revertOnUpdate: true,
     },
   );

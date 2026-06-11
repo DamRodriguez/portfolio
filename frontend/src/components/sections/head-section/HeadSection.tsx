@@ -2,18 +2,35 @@
 import SpaceX from "@/components/layout/SpaceX";
 import MotionEntryFade from "@/components/motion/MotionEntryFade";
 import MotionEntrySlide from "@/components/motion/MotionEntrySlide";
-import HorizontalCarouselSection from "@/components/sections/head-section/HorizontalCarouselSection";
 import SocialButtonsSection from "@/components/sections/head-section/SocialButtonsSection";
 import ButtonWithArrow from "@/components/ui/buttons/ButtonWithArrow";
 import { routes } from "@/constants/routes";
 import useBreakpoint from "@/hooks/useBreakpoint";
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import { useTranslations } from "next-intl";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
+
+const HorizontalCarouselSection = dynamic(
+  () => import("@/components/sections/head-section/HorizontalCarouselSection"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-[18rem] xl:h-[22rem] rounded-[0.625rem] bg-soft-white/10 dark:bg-black/10 animate-pulse" />
+    ),
+  },
+);
 
 const HeadSection = () => {
   const t = useTranslations();
   const projectsButtonText = t("headSection.projectsButton");
   const isMobile = useBreakpoint();
+  const [isScrollAnimationEnabled, setIsScrollAnimationEnabled] =
+    useState(false);
+
+  useEffect(() => {
+    setIsScrollAnimationEnabled(true);
+  }, []);
 
   useScrollAnimations({
     animations: {
@@ -35,6 +52,7 @@ const HeadSection = () => {
         opacity: 0,
       },
     },
+    disabled: !isScrollAnimationEnabled,
   });
 
   return (
