@@ -52,7 +52,7 @@ const HeadSection = () => {
         opacity: 0,
       },
     },
-    disabled: !isScrollAnimationEnabled,
+    disabled: !isScrollAnimationEnabled || isMobile,
   });
 
   return (
