@@ -1,21 +1,27 @@
 "use client";
+import personalImage from "@/assets/images/damian.jpg";
 import SpaceX from "@/components/layout/SpaceX";
 import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
-import { useTranslations } from "next-intl";
-import TechnologiesSection from "./technologies/TechnologiesSection";
-import { removeHash } from "@/utils/removeHash";
-import { routes } from "@/constants/routes";
-import Image from "next/image";
-import personalImage from "@/assets/images/damian.jpg"
-import CertificationSection from "./certification/CertificationSection";
-import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import FadeShadow from "@/components/other/FadeShadow";
+import { routes } from "@/constants/routes";
+import { useScrollAnimations } from "@/hooks/useScrollAnimations";
+import { removeHash } from "@/utils/removeHash";
+import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import CertificationSection from "./certification/CertificationSection";
+import TechnologiesSection from "./technologies/TechnologiesSection";
 
 const AboutMeSection = () => {
   const t = useTranslations("aboutMeSection");
   const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useScrollAnimations({
     animations: {
@@ -36,7 +42,7 @@ const AboutMeSection = () => {
         x: -100,
       },
     },
-  })
+  });
 
   return (
     <SpaceX
@@ -52,7 +58,11 @@ const AboutMeSection = () => {
         <MotionFade>
           <p className="description-gsap text-dark-gray/85 dark:text-soft-gray text-base lg:text-xl whitespace-pre-line">
             {t.rich("header.description", {
-              strong: (chunks) => <span className="text-strong-black dark:text-soft-white font-medium">{chunks}</span>,
+              strong: (chunks) => (
+                <span className="text-strong-black dark:text-soft-white font-medium">
+                  {chunks}
+                </span>
+              ),
             })}
           </p>
         </MotionFade>
@@ -62,14 +72,18 @@ const AboutMeSection = () => {
         <TechnologiesSection />
 
         <div className="personal-image-gsap">
-          <MotionSlide viewAmount={0.2} direction="down" className=" relative overflow-hidden shadow-s1 dark:shadow-none rounded-full dark:rounded-none border border-soft-white/50 dark:border-none">
+          <MotionSlide
+            viewAmount={0.2}
+            direction="down"
+            className=" relative overflow-hidden shadow-s1 dark:shadow-none rounded-full dark:rounded-none border border-soft-white/50 dark:border-none"
+          >
             <Image
               src={personalImage}
               priority={true}
               alt="Personal image"
               className="object-cover w-fit h-120 md:h-150 xl:h-full hover:scale-110 theme-transition-all"
             />
-            {theme === "dark" && (
+            {mounted && theme === "dark" && (
               <>
                 <FadeShadow direction="left" sizeClasses="w-20 xl:w-30" />
                 <FadeShadow direction="right" sizeClasses="w-20 xl:w-20" />

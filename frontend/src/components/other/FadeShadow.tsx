@@ -3,7 +3,7 @@ import clsx from "clsx";
 type FadeShadowProps = {
   direction: "top" | "bottom" | "left" | "right";
   sizeClasses: string;
-}
+};
 
 const FadeShadow = ({ direction, sizeClasses }: FadeShadowProps) => {
   const directionMap = {
@@ -33,7 +33,7 @@ const FadeShadow = ({ direction, sizeClasses }: FadeShadowProps) => {
         className={clsx(
           "absolute inset-0",
           gradient,
-          "from-black to-transparent"
+          "from-black to-transparent",
         )}
       />
     </div>
