@@ -10,7 +10,7 @@ const useHasScrolled = () => {
     const handleScroll = () => {
       const scrolled = window.scrollY > 0;
 
-      setHasScrolled(prev => {
+      setHasScrolled((prev) => {
         if (prev !== scrolled) {
           sessionStorage.setItem("hasScrolled", String(scrolled));
           return scrolled;
