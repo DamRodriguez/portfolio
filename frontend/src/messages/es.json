@@ -156,8 +156,8 @@
     },
     "form": {
       "nameInput": {
-        "label": "Nombre y Apellido",
-        "placeholder": "Ingrese su nombre y apellido"
+        "label": "Nombre Completo",
+        "placeholder": "Ingrese su nombre completo"
       },
       "emailInput": {
         "label": "Correo Electrónico",
@@ -165,7 +165,7 @@
       },
       "textAreaInput": {
         "label": "Mensaje",
-        "placeholder": "Detalle a continuación su mensaje"
+        "placeholder": "Detalle su mensaje a continuación"
       },
       "errors": {
         "empty": "Debe completar el campo",
