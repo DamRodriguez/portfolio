@@ -9,10 +9,10 @@
   },
   "headSection": {
     "title": {
-        "first": "Frontend",
-        "second": "Developer"
-      },
-    "personalDescription" : "Mi objetivo es desarrollar <strong>interfaces atractivas</strong> utilizando <strong>tecnologías modernas</strong>, manteniendo un <strong>código limpio</strong>, <strong>eficiente</strong> y <strong>escalable</strong>.",
+      "first": "Frontend",
+      "second": "Developer"
+    },
+    "personalDescription": "Mi objetivo es desarrollar <strong>interfaces atractivas</strong> utilizando <strong>tecnologías modernas</strong>, manteniendo un <strong>código limpio</strong>, <strong>eficiente</strong> y <strong>escalable</strong>.",
     "projectsButton": "Proyectos",
     "socialButtons": {
       "telegram": "Telegram",
@@ -53,19 +53,19 @@
     },
     "technologies": {
       "frontend": {
-        "title": "Frontend", 
+        "title": "Frontend",
         "items": "JavaScript, TypeScript, React, Next.js, React Native, Expo, HTML, Redux Toolkit, Context"
       },
       "styles": {
-        "title": "Styles", 
+        "title": "Styles",
         "items": "CSS, Tailwind CSS"
       },
       "backend": {
-        "title": "Backend", 
+        "title": "Backend",
         "items": "Java, Python, MySQL, APIs REST"
       },
       "tools": {
-        "title": "Herramientas", 
+        "title": "Herramientas",
         "items": "Framer Motion, GSAP, Reanimated, Zod, React Hook Form, TanStack Query, Git, GitHub, Figma, i18next, next-intl, React Toastify, Embla Carousel, Recharts"
       }
     },
@@ -87,22 +87,18 @@
   "workSection": {
     "title": "Trabajos",
     "workItem": {
-      "present": "Actualidad",
+      "present": "Presente",
       "months": "{count, plural, one {# mes} other {# meses}}",
       "years": "{count, plural, one {# año} other {# años}}"
     },
     "workData": {
+      "freelance": {
+        "employer": "Desarrollador Independiente",
+        "position": "Full Stack Developer | Next.js & Supabase"
+      },
       "webSpace": {
         "employer": "Web Space",
         "position": "Frontend Developer | React & React Native"
-      },
-      "telecentro": {
-        "employer": "Telecentro",
-        "position": "Soporte Técnico"
-      },
-      "mercadoLibre": {
-        "employer": "Mercado Libre",
-        "position": "Representante de envíos"
       }
     }
   },

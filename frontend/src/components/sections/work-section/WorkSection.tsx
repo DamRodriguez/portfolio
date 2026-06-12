@@ -13,23 +13,17 @@ const WorkSection = () => {
   const t = useTranslations("workSection");
   const workItems: WorkItemData[] = [
     {
+      initialDate: "2026-02-02",
+      finalDate: "present",
+      employer: t("workData.freelance.employer"),
+      position: t("workData.freelance.position"),
+    },
+    {
       initialDate: "2024-12-02",
       finalDate: "2025-10-02",
       employer: t("workData.webSpace.employer"),
       position: t("workData.webSpace.position"),
       employerLink: config.work.webSpace,
-    },
-    {
-      initialDate: "2023-04-05",
-      finalDate: "2024-01-05",
-      employer: t("workData.telecentro.employer"),
-      position: t("workData.telecentro.position"),
-    },
-    {
-      initialDate: "2021-04-05",
-      finalDate: "2021-12-05",
-      employer: t("workData.mercadoLibre.employer"),
-      position: t("workData.mercadoLibre.position"),
     },
   ];
 

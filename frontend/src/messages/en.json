@@ -53,19 +53,19 @@
     },
     "technologies": {
       "frontend": {
-        "title": "Frontend", 
+        "title": "Frontend",
         "items": "JavaScript, TypeScript, React, Next.js, React Native, Expo, HTML, Redux Toolkit, Context"
       },
       "styles": {
-        "title": "Styles", 
+        "title": "Styles",
         "items": "CSS, Tailwind CSS"
       },
       "backend": {
-        "title": "Backend", 
+        "title": "Backend",
         "items": "Java, Python, MySQL, APIs REST"
       },
       "tools": {
-        "title": "Tools", 
+        "title": "Tools",
         "items": "Framer Motion, GSAP, Reanimated, Zod, React Hook Form, TanStack Query, Git, GitHub, Figma, i18next, next-intl, React Toastify, Embla Carousel, Recharts"
       }
     },
@@ -92,17 +92,13 @@
       "years": "{count, plural, one {# year} other {# years}}"
     },
     "workData": {
+      "freelance": {
+        "employer": "Independent Developer",
+        "position": "Full Stack Developer | Next.js & Supabase"
+      },
       "webSpace": {
         "employer": "Web Space",
         "position": "Frontend Developer | React & React Native"
-      },
-      "telecentro": {
-        "employer": "Telecentro",
-        "position": "Technical Support"
-      },
-      "mercadoLibre": {
-        "employer": "Mercado Libre",
-        "position": "Shipping Representative"
       }
     }
   },
