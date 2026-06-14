@@ -1,15 +1,20 @@
 "use client";
+import Spinner from "@/components/spinner/Spinner";
+import {
+  buttonClass,
+  type ButtonVariants,
+} from "@/components/ui/buttons/Button.style";
 import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import type { ReactNode } from "react";
-import Spinner from "@/components/spinner/Spinner";
-import { buttonClass, type ButtonVariants } from "@/components/ui/buttons/Button.style";
 
 type ButtonProps = {
   children: ReactNode;
   type?: "submit" | "reset" | "button" | undefined;
   isLoading?: boolean;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void | Promise<void>;
+  onClick?: (
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) => void | Promise<void>;
   routerPath?: string;
   routerPathNewTab?: string;
   disabled?: boolean;
@@ -24,23 +29,23 @@ type ButtonProps = {
   cursorNormal?: boolean;
 };
 
-const Button = ({
-  cursorNormal = false,
-  ...props
-}: ButtonProps) => {
+const Button = ({ cursorNormal = false, ...props }: ButtonProps) => {
   const router = useRouter();
 
-  const className = clsx(buttonClass({
-    intent: props.variant,
-    disabled: props.disabled,
-    outline: props.outline,
-    full: props.full,
-    small: props.small,
-    cursorNormal: cursorNormal,
-  }), props.className);
+  const className = clsx(
+    buttonClass({
+      intent: props.variant,
+      disabled: props.disabled,
+      outline: props.outline,
+      full: props.full,
+      small: props.small,
+      cursorNormal: cursorNormal,
+    }),
+    props.className,
+  );
   return (
     <button
-      onClick={event => {
+      onClick={(event) => {
         if (props.routerPathNewTab) {
           window.open(props.routerPathNewTab, "_blank");
           return;
@@ -60,15 +65,13 @@ const Button = ({
       className={clsx("", className)}
       form={props.form}
     >
-      {
-        props.isLoading ? (
-          <div className="flex gap-x-[1rem] h-[1.5rem]">
-            <Spinner size={20} color={props.spinnerColor} />
-          </div>
-        ) : (
-          props.children
-        )
-      }
+      {props.isLoading ? (
+        <div className="flex gap-x-[1rem] h-[1.5rem]">
+          <Spinner size={20} color={props.spinnerColor} />
+        </div>
+      ) : (
+        props.children
+      )}
     </button>
   );
 };

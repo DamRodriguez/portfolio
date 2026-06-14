@@ -56,7 +56,7 @@ const AboutMeSection = () => {
           </h2>
         </MotionSlide>
         <MotionFade>
-          <p className="description-gsap text-dark-gray/85 dark:text-soft-gray text-base lg:text-xl whitespace-pre-line">
+          <p className="description-gsap text-dark-gray dark:text-soft-gray text-base lg:text-xl whitespace-pre-line">
             {t.rich("header.description", {
               strong: (chunks) => (
                 <span className="text-strong-black dark:text-soft-white font-medium">

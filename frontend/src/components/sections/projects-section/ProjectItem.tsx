@@ -71,7 +71,7 @@ const ProjectItem = (props: ProjectItemProps) => {
           </div>
         </div>
 
-        <p className="text-dark-gray/85 dark:text-soft-gray text-sm xl:text-lg whitespace-pre-line">
+        <p className="text-dark-gray dark:text-soft-gray text-sm xl:text-lg whitespace-pre-line">
           <RichText
             t={t}
             translationKey={`projectsData.${data.translationKey}.description`}

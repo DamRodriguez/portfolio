@@ -12,12 +12,12 @@ export type CertificationItemData = {
   place: string;
   image: StaticImageData;
   pdf: string;
-}
+};
 
 type CertificationItemProps = {
   data: CertificationItemData;
   containerClassName?: string;
-}
+};
 
 const CertificationItem = (props: CertificationItemProps) => {
   const data = props.data;
@@ -37,13 +37,16 @@ const CertificationItem = (props: CertificationItemProps) => {
         rotate: 2,
       },
     },
-  })
+  });
 
   return (
     <>
       <div className="relative group certification-item-gsap md:w-[70%] xl:w-[60%]">
         <div
-          className={clsx("bg-soft-white/20 dark:bg-black group-hover:bg-black/5 dark:group-hover:bg-soft-white/10 theme-transition flex items-center justify-between gap-[1rem] p-[1rem] rounded-[1rem] border border-transparent dark:border-soft-gray/15 shadow-s3 dark:shadow-s1", props.containerClassName)}
+          className={clsx(
+            "bg-soft-white/40 dark:bg-black group-hover:bg-soft-white dark:group-hover:bg-soft-white/10 theme-transition flex items-center justify-between gap-[1rem] p-[1rem] rounded-[1rem] border border-dark-gray/15 dark:border-soft-gray/15 shadow-s3 dark:shadow-s1",
+            props.containerClassName,
+          )}
         >
           <div>
             <p className="text-black dark:text-soft-white text-sm xl:text-base">
@@ -59,16 +62,15 @@ const CertificationItem = (props: CertificationItemProps) => {
 
           <div className="flex gap-2 xl:gap-4">
             <Button
-              onClick={() => { setSelectedImage(data.image.src); }}
+              onClick={() => {
+                setSelectedImage(data.image.src);
+              }}
               variant="secondary"
               small
             >
               {t("buttons.see")}
             </Button>
-            <Button
-              onClick={handleDownload}
-              small
-            >
+            <Button onClick={handleDownload} small>
               {t("buttons.download")}
             </Button>
           </div>

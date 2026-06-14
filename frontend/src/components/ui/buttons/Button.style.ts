@@ -1,7 +1,7 @@
-import { tv } from "tailwind-variants"
+import { tv } from "tailwind-variants";
 
 export const buttonClass = tv({
-  base: "text-sm xl:text-xl leading-[1.5rem] font-semibold rounded-[0.375rem] flex items-center justify-center flex gap-[0.7rem] min-h-[2.5rem]",
+  base: "text-sm xl:text-xl leading-[1.5rem] font-semibold rounded-[0.375rem] flex items-center justify-center gap-[0.7rem] min-h-[2.5rem]",
 
   variants: {
     intent: {
@@ -42,7 +42,8 @@ export const buttonClass = tv({
     {
       intent: "primary",
       outline: true,
-      class: "border-secondary-300 text-secondary-300 [&_svg]:stroke-secondary-300",
+      class:
+        "border-secondary-300 text-secondary-300 [&_svg]:stroke-secondary-300",
     },
     {
       intent: "primary",
@@ -52,7 +53,8 @@ export const buttonClass = tv({
     {
       intent: "secondary",
       small: true,
-      class: "!h-0 !lg:h-[3rem] !text-xs lg:!text-sm !px-[0.7rem] lg:!px-[1rem]",
+      class:
+        "!h-0 !lg:h-[3rem] !text-xs lg:!text-sm !px-[0.7rem] lg:!px-[1rem]",
     },
   ],
 
@@ -60,6 +62,6 @@ export const buttonClass = tv({
     intent: "primary",
     disabled: false,
   },
-})
+});
 
-export type ButtonVariants = "primary" | "secondary" | "empty"
+export type ButtonVariants = "primary" | "secondary" | "empty";

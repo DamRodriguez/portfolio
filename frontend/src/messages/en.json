@@ -25,23 +25,23 @@
       "carouselData": {
         "dondeSalgo": {
           "title": "Dónde Salgo",
-          "description": "Mobile application for Android and iOS developed with React Native and Expo."
+          "description": "Mobile app for discovering parties, events, and more"
         },
         "vanicracia": {
           "title": "Vanicracia",
-          "description": "E-commerce focused on astrology built with Next.js."
+          "description": "E-commerce specialized in astrology"
         },
         "alfombrasTauro": {
           "title": "Alfombras Tauro",
-          "description": "Website for a carpet business built with Next.js."
+          "description": "Corporate website for a carpet company"
         },
         "spotifyMobile": {
           "title": "Spotify Mobile",
-          "description": "Clone of the Spotify mobile application using React Native and Expo."
+          "description": "Clone of the Spotify mobile app"
         },
         "lopezPropiedades": {
           "title": "Lopez Propiedades",
-          "description": "Web application for a real estate agency built with Next.js"
+          "description": "Real estate platform for property search"
         }
       }
     }
@@ -49,7 +49,7 @@
   "aboutMeSection": {
     "header": {
       "sectionName": "../About me",
-      "description": "Hi! I'm Damián, currently a <strong>Frontend Developer</strong>.\nOver <strong>2 years</strong> of experience."
+      "description": "Hi! I'm Damián Rodríguez, a <strong>Frontend Developer</strong> based in Buenos Aires, Argentina.\nMore than <strong>2 years</strong> of experience building modern user interfaces."
     },
     "technologies": {
       "frontend": {

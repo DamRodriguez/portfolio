@@ -68,7 +68,7 @@ const HeadSection = () => {
           </div>
           <div className="flex flex-col-reverse text-center xl:text-start items-center xl:flex xl:flex-row xl:justify-between xl:items-center gap-[1rem]">
             <MotionEntryFade order={1} className="max-w-[70%] xl:max-w-[25%]">
-              <p className="text-gsap text-base 2xl:text-xl text-dark-gray/85 dark:text-soft-gray">
+              <p className="text-gsap text-base 2xl:text-xl text-dark-gray dark:text-soft-gray">
                 {t.rich("headSection.personalDescription", {
                   strong: (chunks) => (
                     <span className="text-strong-black dark:text-soft-white font-medium">

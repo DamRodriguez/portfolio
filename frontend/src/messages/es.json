@@ -25,23 +25,23 @@
       "carouselData": {
         "dondeSalgo": {
           "title": "Dónde Salgo",
-          "description": "Aplicación móvil para Android e iOS desarrollada con React Native y Expo."
+          "description": "Aplicación móvil para descubrir fiestas, eventos, entre otros"
         },
         "vanicracia": {
           "title": "Vanicracia",
-          "description": "E-commerce enfocado en la astrología realizado con Next.js."
+          "description": "E-commerce especializado en astrología"
         },
         "alfombrasTauro": {
           "title": "Alfombras Tauro",
-          "description": "Sitio Web para negocio de alfombras realizado con Next.js."
+          "description": "Sitio Web corporativo para una empresa de alfombras"
         },
         "spotifyMobile": {
           "title": "Spotify Mobile",
-          "description": "Clon de la aplicación móvil de Spotify utilizando React Native y Expo."
+          "description": "Clon de la aplicación móvil de Spotify"
         },
         "lopezPropiedades": {
           "title": "Lopez Propiedades",
-          "description": "Aplicación Web para inmobiliaria realizado con Next.js"
+          "description": "Plataforma inmobiliaria para la búsqueda de propiedades"
         }
       }
     }
@@ -49,7 +49,7 @@
   "aboutMeSection": {
     "header": {
       "sectionName": "../Sobre mí",
-      "description": "Hola! Soy Damián, actualmente <strong>Desarrollador Frontend</strong>.\nMás de <strong>2 años</strong> de experiencia."
+      "description": "Hola! Soy Damián Rodríguez, <strong>Desarrollador Frontend</strong> de Buenos Aires, Argentina.\nMás de <strong>2 años</strong> de experiencia construyendo interfaces modernas."
     },
     "technologies": {
       "frontend": {
