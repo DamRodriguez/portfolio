@@ -51,7 +51,7 @@ const ProjectItem = (props: ProjectItemProps) => {
             {title}
           </h3>
 
-          <div>
+          <div className="relative">
             <div className="hidden xl:flex xl:flex-wrap gap-[0.7rem] xl:gap-[1rem]">
               {technologies.map((tech, index) => (
                 <ItemHover
@@ -67,6 +67,7 @@ const ProjectItem = (props: ProjectItemProps) => {
 
             <div className="flex xl:hidden">
               <InfiniteCarousel items={technologies} />
+              <div className="absolute z-2 top-0 -right-1 bg-gradient-to-r from-transparent to-white-bone dark:to-black w-6 h-full" />
             </div>
           </div>
         </div>

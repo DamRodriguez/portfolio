@@ -1,10 +1,12 @@
 "use client";
 import clsx from "clsx";
+import { CSSProperties } from "react";
 
 type SectionProps = {
   children: React.ReactNode;
   className?: string;
   id?: string;
+  style?: CSSProperties;
 };
 
 const SpaceX = ({ children, className, id }: SectionProps) => {

@@ -70,13 +70,13 @@ const HorizontalCarouselVariant = ({
         ref={emblaRef}
       >
         <div
-          className={`flex items-center ${items.length <= 3 ? "xl:justify-center" : ""}`}
+          className={`flex items-center ${items.length <= 3 ? "2xl:justify-center" : ""}`}
         >
           {items.map((item, index) => (
             <div
               key={index}
               className={clsx(
-                "flex-[0_0_calc(100%)] xl:flex-[0_0_calc(105%/3)] px-[0.5rem] w-[1rem]",
+                "flex-[0_0_calc(100%)] 2xl:flex-[0_0_calc(105%/3)] px-[0.5rem] w-[1rem]",
                 {
                   "xl:mt-[1rem]": index !== selectedIndex,
                 },

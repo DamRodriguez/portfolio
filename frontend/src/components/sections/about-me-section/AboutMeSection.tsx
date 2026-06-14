@@ -49,9 +49,9 @@ const AboutMeSection = () => {
       id={removeHash(routes.aboutMe)}
       className="flex flex-col gap-[3rem] xl:gap-[6rem] w-full"
     >
-      <div className="flex md:flex-row md:justify-between xl:w-[80%] flex-col gap-[2rem]">
+      <div className="flex md:flex-row md:justify-between w-full flex-col gap-[2rem] md:gap-[5rem] 2xl:w-[85%]">
         <MotionSlide>
-          <h2 className="section-name-gsap text-black dark:text-soft-white text-2xl xl:text-3xl font-fira-code">
+          <h2 className="section-name-gsap text-black dark:text-soft-white text-2xl xl:text-3xl font-fira-code text-nowrap">
             {t("header.sectionName")}
           </h2>
         </MotionSlide>
