@@ -46,7 +46,7 @@ const HorizontalCarouselVariant = ({
   const arrowSvgClassName =
     "w-7 h-7 xl:w-10 xl:h-10 fill-soft-white dark:fill-soft-white theme-transition-all";
   const arrowButtonClassName =
-    "pointer-events-auto backdrop-blur-[0.1rem] cursor-pointer hover:scale-105 theme-transition-all border border-soft-gray rounded-full w-15 h-15 xl:w-20 xl:h-20 flex items-center justify-center hover:[&_svg]:fill-[#000] hover:bg-soft-white shadow-s1 bg-black";
+    "pointer-events-auto backdrop-blur-[0.1rem] cursor-pointer hover:scale-105 theme-transition-all border border-soft-gray/30 rounded-full w-15 h-15 xl:w-20 xl:h-20 flex items-center justify-center hover:[&_svg]:fill-[#000] hover:bg-soft-white shadow-s1 bg-black";
 
   useScrollAnimations({
     animations: {

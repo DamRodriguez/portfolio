@@ -1,17 +1,17 @@
 import HorizontalCarouselVariant from "@/components/carousel/horizontal-carousel-variant/HorizontalCarouselVariant";
 import { HorizontalCarouselVariantData } from "@/components/carousel/horizontal-carousel-variant/HorizontalCarouselVariantItem";
-import { useTranslations } from "next-intl";
 import { projectsRoutes } from "@/constants/projectsRoutes";
+import { useTranslations } from "next-intl";
 
 const HorizontalCarouselSection = () => {
-  const t = useTranslations("headSection.horizontalCarousel.carouselData")
+  const t = useTranslations("headSection.horizontalCarousel.carouselData");
 
   const horizontalCarouselItems: HorizontalCarouselVariantData[] = [
     {
       image: "/images/projects-carousel/spotify.webp",
       title: t("spotifyMobile.title"),
       description: t("spotifyMobile.description"),
-      routerPath: projectsRoutes.spotifyMobile
+      routerPath: projectsRoutes.spotifyMobile,
     },
     {
       image: "/images/projects-carousel/lopez-propiedades.webp",
@@ -37,11 +37,9 @@ const HorizontalCarouselSection = () => {
       description: t("dondeSalgo.description"),
       routerPath: projectsRoutes.dondeSalgo,
     },
-  ]
+  ];
 
-  return (
-    <HorizontalCarouselVariant items={horizontalCarouselItems} />
-  );
+  return <HorizontalCarouselVariant items={horizontalCarouselItems} />;
 };
 
 export default HorizontalCarouselSection;
