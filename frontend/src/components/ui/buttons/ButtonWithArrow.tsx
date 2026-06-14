@@ -28,7 +28,7 @@ const ButtonWithArrow = (props: ButtonWithArrowProps) => {
           },
         )}
       >
-        {props.text}
+        <p className="line-clamp-1">{props.text}</p>
       </div>
       <div
         className={clsx(
