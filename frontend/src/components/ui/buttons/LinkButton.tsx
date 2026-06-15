@@ -28,6 +28,7 @@ const LinkButton = ({
 }: LinkButtonProps) => {
   const cleanQuery = props.query
     ? Object.fromEntries(
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         Object.entries(props.query).filter(
           ([_, value]) => value !== undefined && value !== null && value !== "",
         ),
