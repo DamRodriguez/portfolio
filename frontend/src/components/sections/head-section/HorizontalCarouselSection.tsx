@@ -18,6 +18,7 @@ const HorizontalCarouselSection = () => {
       title: t("lopezPropiedades.title"),
       description: t("lopezPropiedades.description"),
       routerPath: projectsRoutes.lopezPropiedades,
+      isNew: true,
     },
     {
       image: "/images/projects-carousel/vanicracia.webp",

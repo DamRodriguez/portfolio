@@ -22,6 +22,7 @@
     },
     "horizontalCarousel": {
       "seeMoreButton": "Ver más",
+      "isNew": "Nuevo",
       "carouselData": {
         "dondeSalgo": {
           "title": "Dónde Salgo",

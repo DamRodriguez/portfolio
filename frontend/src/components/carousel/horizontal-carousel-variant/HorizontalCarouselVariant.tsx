@@ -88,12 +88,12 @@ const HorizontalCarouselVariant = ({
         </div>
       </div>
 
-      <div className="absolute inset-y-0 left-0 w-30 md:w-50 xl:w-100 2xl:w-150 pointer-events-none">
+      <div className="absolute inset-y-0 left-0 w-20 md:w-50 xl:w-100 2xl:w-150 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-r from-white-bone to-transparent opacity-100 dark:opacity-0" />
         <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-0 dark:opacity-100" />
       </div>
 
-      <div className="absolute inset-y-0 right-0 w-30 md:w-50 xl:w-100 2xl:w-150 pointer-events-none">
+      <div className="absolute inset-y-0 right-0 w-20 md:w-50 xl:w-100 2xl:w-150 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-l from-white-bone to-transparent opacity-100 dark:opacity-0" />
         <div className="absolute inset-0 bg-gradient-to-l from-black to-transparent opacity-0 dark:opacity-100" />
       </div>
