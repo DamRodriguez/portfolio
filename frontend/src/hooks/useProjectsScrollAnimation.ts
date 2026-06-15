@@ -44,7 +44,6 @@ export const useProjectsScrollAnimation = (
           gsap.to(contents[index - 1], {
             opacity: 0.3,
             scale: 0.85,
-            filter: "blur(2px)",
             scrollTrigger: {
               trigger: card,
               start: "top bottom",
