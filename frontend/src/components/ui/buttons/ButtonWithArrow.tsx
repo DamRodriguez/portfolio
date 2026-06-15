@@ -1,17 +1,17 @@
 import { ArrowIcon } from "@/components/icons/buttons";
-import Button from "@/components/ui/buttons/Button";
+import LinkButton from "@/components/ui/buttons/LinkButton";
 import clsx from "clsx";
 
 type ButtonWithArrowProps = {
   text: string;
   small?: boolean;
-  routerPath?: string;
+  routerPath: string;
 };
 
 const ButtonWithArrow = (props: ButtonWithArrowProps) => {
   return (
-    <Button
-      routerPath={props.routerPath}
+    <LinkButton
+      href={props.routerPath}
       variant="empty"
       cursorNormal
       className="flex cursor-pointer group h-fit gap-[0.1rem] xl:gap-[0.5rem]"
@@ -48,7 +48,7 @@ const ButtonWithArrow = (props: ButtonWithArrowProps) => {
           })}
         />
       </div>
-    </Button>
+    </LinkButton>
   );
 };
 

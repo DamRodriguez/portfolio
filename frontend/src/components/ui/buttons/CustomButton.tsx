@@ -2,15 +2,14 @@ import clsx from "clsx";
 import Link from "next/link";
 
 type CustomButtonVariant =
-  {
-    type: "link",
-    href: string
-  }
-  |
-  {
-    type: "button",
-    onClick: () => void;
-  }
+  | {
+      type: "link";
+      href: string;
+    }
+  | {
+      type: "button";
+      onClick: () => void;
+    };
 
 type CustomButtonContainerProps = CustomButtonVariant & {
   children: React.ReactNode;
@@ -24,33 +23,27 @@ type CustomButtonProps = {
   text: string;
   icon: IconComponent;
   variant: CustomButtonVariant;
-}
+};
 
 const CustomButtonContainer = (props: CustomButtonContainerProps) => {
-  const containerClassName = "flex group cursor-pointer w-fit theme-transition-all";
+  const containerClassName =
+    "flex group cursor-pointer w-fit theme-transition-all";
 
   return (
     <>
       {props.type === "link" && (
-        <Link
-          href={props.href}
-          target="_blank"
-          className={containerClassName}
-        >
+        <Link href={props.href} target="_blank" className={containerClassName}>
           {props.children}
         </Link>
       )}
       {props.type === "button" && (
-        <button
-          onClick={props.onClick}
-          className={containerClassName}
-        >
+        <button onClick={props.onClick} className={containerClassName}>
           {props.children}
         </button>
       )}
     </>
-  )
-}
+  );
+};
 
 const CustomButton = (props: CustomButtonProps) => {
   const Icon = props.icon;
@@ -62,8 +55,9 @@ const CustomButton = (props: CustomButtonProps) => {
         className={clsx(
           "bg-soft-white dark:bg-black flex shadow-s3 dark:shadow-s1 items-center text-dark-gray dark:text-soft-gray text-base xl:text-lg border border-black/30 dark:border-soft-gray/80 h-[2.5rem] xl:h-[3rem] pl-[1rem] xl:pl-[1.5rem] pr-[2rem] group-hover:bg-black dark:group-hover:bg-soft-white group-hover:text-soft-white dark:group-hover:text-black theme-transition-all rounded-l-full border-r-0",
           {
-            "group-hover:pr-[1rem] xl:group-hover:pr-[1.5rem] group-hover:rounded-r-full": !isButton,
-          }
+            "group-hover:pr-[1rem] xl:group-hover:pr-[1.5rem] group-hover:rounded-r-full":
+              !isButton,
+          },
         )}
       >
         {props.text}
@@ -73,7 +67,7 @@ const CustomButton = (props: CustomButtonProps) => {
           "bg-black dark:bg-soft-white rounded-full w-[2.5rem] h-[2.5rem] xl:w-[3rem] xl:h-[3rem] flex justify-center items-center relative -left-[1.3rem] xl:-left-[1.5rem] theme-transition-all group-hover:border group-hover:border-black/30 dark:group-hover:border-soft-gray/80 group-hover:bg-soft-white dark:group-hover:bg-black group-hover:[&_svg]:fill-black dark:group-hover:[&_svg]:fill-soft-white shadow-s3 dark:shadow-s1",
           {
             "group-hover:left-2 -rotate-45 group-hover:rotate-180": !isButton,
-          }
+          },
         )}
       >
         <Icon className="w-[1.8rem] h-[1.8rem] xl:w-[2.2rem] xl:h-[2.2rem] fill-soft-white dark:fill-black theme-transition" />

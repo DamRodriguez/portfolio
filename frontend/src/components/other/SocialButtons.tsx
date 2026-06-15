@@ -1,13 +1,18 @@
-import Link from "next/link";
 import config from "@/config/config";
-import { GithubIcon, LinkedInIcon, TelegramIcon, WhatsAppIcon } from "../icons/social";
+import Link from "next/link";
+import {
+  GithubIcon,
+  LinkedInIcon,
+  TelegramIcon,
+  WhatsAppIcon,
+} from "../icons/social";
 
 const SocialButtons = () => {
   const socialItems = [
-    { href: config.urls.telegram, icon: <TelegramIcon /> },
+    { href: config.urls.whatsapp, icon: <WhatsAppIcon /> },
     { href: config.urls.linkedin, icon: <LinkedInIcon /> },
     { href: config.urls.github, icon: <GithubIcon /> },
-    { href: config.urls.whatsapp, icon: <WhatsAppIcon /> },
+    { href: config.urls.telegram, icon: <TelegramIcon /> },
   ];
   return (
     <div className="flex flex-wrap justify-center gap-[1.5rem] [&_svg]:fill-dark-gray dark:[&_svg]:fill-soft-white">

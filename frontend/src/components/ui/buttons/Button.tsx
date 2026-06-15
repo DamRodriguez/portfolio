@@ -5,7 +5,6 @@ import {
   type ButtonVariants,
 } from "@/components/ui/buttons/Button.style";
 import clsx from "clsx";
-import { useRouter } from "next/navigation";
 import type { ReactNode } from "react";
 
 type ButtonProps = {
@@ -15,8 +14,6 @@ type ButtonProps = {
   onClick?: (
     event: React.MouseEvent<HTMLButtonElement>,
   ) => void | Promise<void>;
-  routerPath?: string;
-  routerPathNewTab?: string;
   disabled?: boolean;
   spinnerColor?: string;
   className?: string;
@@ -24,14 +21,11 @@ type ButtonProps = {
   outline?: boolean;
   full?: boolean;
   form?: string;
-  backButton?: boolean;
   small?: boolean;
   cursorNormal?: boolean;
 };
 
 const Button = ({ cursorNormal = false, ...props }: ButtonProps) => {
-  const router = useRouter();
-
   const className = clsx(
     buttonClass({
       intent: props.variant,
@@ -45,21 +39,7 @@ const Button = ({ cursorNormal = false, ...props }: ButtonProps) => {
   );
   return (
     <button
-      onClick={(event) => {
-        if (props.routerPathNewTab) {
-          window.open(props.routerPathNewTab, "_blank");
-          return;
-        }
-        if (props.routerPath) {
-          router.push(props.routerPath);
-        }
-        if (props.backButton) {
-          router.back();
-        }
-        if (props.onClick) {
-          void props.onClick(event);
-        }
-      }}
+      onClick={props.onClick}
       type={props.type}
       disabled={props.disabled || props.isLoading}
       className={clsx("", className)}

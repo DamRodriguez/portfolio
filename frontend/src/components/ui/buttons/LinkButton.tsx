@@ -18,56 +18,49 @@ type LinkButtonProps = {
   full?: boolean;
   cursorNormal?: boolean;
   external?: boolean;
-  customUppercase?: boolean;
-  border?: boolean;
   small?: boolean;
 };
 
 const LinkButton = ({
-  children,
-  href,
-  query,
-  className,
-  variant,
-  outline,
-  full,
   cursorNormal = false,
   external = false,
-  customUppercase,
-  border = false,
-  small = false,
+  ...props
 }: LinkButtonProps) => {
-  const cleanQuery = query
+  const cleanQuery = props.query
     ? Object.fromEntries(
-        Object.entries(query).filter(
+        Object.entries(props.query).filter(
           ([_, value]) => value !== undefined && value !== null && value !== "",
         ),
       )
     : undefined;
 
-  const classes = clsx(
+  const href = props.href.includes("#")
+    ? props.href
+    : {
+        pathname: props.href,
+        query:
+          Object.keys(cleanQuery || {}).length > 0 ? cleanQuery : undefined,
+      };
+
+  const className = clsx(
     buttonClass({
-      intent: variant,
-      outline,
-      full,
-      cursorNormal,
-      small,
+      intent: props.variant,
+      outline: props.outline,
+      full: props.full,
+      small: props.small,
+      cursorNormal: cursorNormal,
     }),
-    className,
+    props.className,
   );
 
   return (
     <Link
-      href={{
-        pathname: href,
-        query:
-          Object.keys(cleanQuery || {}).length > 0 ? cleanQuery : undefined,
-      }}
+      href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className={classes}
+      className={clsx("", className)}
     >
-      {children}
+      {props.children}
     </Link>
   );
 };

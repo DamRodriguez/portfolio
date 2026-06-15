@@ -5,7 +5,7 @@ import {
   WhatsAppIcon,
 } from "@/components/icons/social";
 import MotionEntryStagger from "@/components/motion/MotionEntryStagger";
-import Button from "@/components/ui/buttons/Button";
+import LinkButton from "@/components/ui/buttons/LinkButton";
 import config from "@/config/config";
 import useBreakpoint from "@/hooks/useBreakpoint";
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";
@@ -25,10 +25,10 @@ const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
   const isTablet = useBreakpoint(Number(config.breakpoints.lg));
 
   const socialButtons = [
-    { icon: TelegramIcon, text: t("telegram"), href: config.urls.telegram },
+    { icon: WhatsAppIcon, text: t("whatsApp"), href: config.urls.whatsapp },
     { icon: LinkedInIcon, text: t("linkedIn"), href: config.urls.linkedin },
     { icon: GithubIcon, text: t("github"), href: config.urls.github },
-    { icon: WhatsAppIcon, text: t("whatsApp"), href: config.urls.whatsapp },
+    { icon: TelegramIcon, text: t("telegram"), href: config.urls.telegram },
   ];
 
   useScrollAnimations({
@@ -80,9 +80,9 @@ const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
                 "item-odd-gsap": !isPair,
               })}
             >
-              <Button
-                routerPathNewTab={item.href}
-                key={index}
+              <LinkButton
+                href={item.href}
+                external
                 className={clsx("h-fit shadow-s3 dark:shadow-s1", {
                   "xl:mt-[0.7rem] ":
                     (index === 0 || index === socialButtons.length - 1) &&
@@ -91,7 +91,7 @@ const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
               >
                 <Icon />
                 <p>{item.text}</p>
-              </Button>
+              </LinkButton>
             </div>
           );
         })}

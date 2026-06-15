@@ -1,4 +1,5 @@
 import ReduxStoreProvider from "@/components/provider/ReduxStoreProvider";
+import { SmoothScrollProvider } from "@/components/provider/SmoothScrollProvider";
 import "@/styles/globals.css";
 
 type RootLayoutProps = {
@@ -6,5 +7,9 @@ type RootLayoutProps = {
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  return <ReduxStoreProvider>{children}</ReduxStoreProvider>;
+  return (
+    <SmoothScrollProvider>
+      <ReduxStoreProvider>{children}</ReduxStoreProvider>
+    </SmoothScrollProvider>
+  );
 }
