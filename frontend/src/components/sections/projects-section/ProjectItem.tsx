@@ -1,10 +1,14 @@
 import InfiniteCarousel from "@/components/carousel/InfiniteCarousel";
 import ItemHover from "@/components/other/ItemHover";
 import { RichText } from "@/components/other/RichText";
+import ImageCarouselModal from "@/components/sections/projects-section/carousel-modal/ImageCarouselModal";
 import { projectsRoutes } from "@/constants/projectsRoutes";
+import { useScrollLock } from "@/hooks/useScrollLock";
 import { removeHash } from "@/utils/removeHash";
 import clsx from "clsx";
+import { AnimatePresence } from "framer-motion";
 import { Messages, useTranslations } from "next-intl";
+import { useMemo, useState } from "react";
 import ButtonsSection, { ProjectButton } from "./ButtonsSection";
 import ImagesSection, { ImageSource } from "./ImagesSection";
 
@@ -33,6 +37,44 @@ const ProjectItem = (props: ProjectItemProps) => {
     `projectsData.${data.translationKey}.technologies`,
   );
   const technologies = technologiesString.split(",").map((tech) => tech.trim());
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useScrollLock(isOpen);
+
+  const allImages = useMemo(() => {
+    switch (data.imageSource.type) {
+      case "single":
+        return [data.imageSource.image];
+
+      case "mobile":
+        return [...data.imageSource.images];
+
+      case "default":
+        return props.odd
+          ? [
+              data.imageSource.images.vertical,
+              data.imageSource.images.rectangular,
+              data.imageSource.images.horizontal,
+              data.imageSource.images.square,
+            ]
+          : [
+              data.imageSource.images.rectangular,
+              data.imageSource.images.vertical,
+              data.imageSource.images.square,
+              data.imageSource.images.horizontal,
+            ];
+
+      default:
+        return [];
+    }
+  }, [data.imageSource, props.odd]);
+
+  const openCarousel = (index: number) => {
+    setCurrentIndex(index);
+    setIsOpen(true);
+  };
 
   return (
     <div
@@ -91,7 +133,18 @@ const ProjectItem = (props: ProjectItemProps) => {
         disablePopUp={data.disablePopUp}
         odd={props.odd}
         title={title}
+        onImageClick={openCarousel}
       />
+
+      <AnimatePresence>
+        {isOpen && (
+          <ImageCarouselModal
+            images={allImages}
+            initialIndex={currentIndex}
+            onClose={() => setIsOpen(false)}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 };

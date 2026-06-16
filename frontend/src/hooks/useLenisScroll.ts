@@ -1,4 +1,5 @@
 "use client";
+import { setLenis } from "@/constants/lenis";
 import useBreakpoint from "@/hooks/useBreakpoint";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -23,6 +24,8 @@ export const useLenisScroll = () => {
         easing: (t: number) => 1 - Math.pow(1 - t, 3),
       });
 
+      setLenis(lenis);
+
       lenis.on("scroll", ScrollTrigger.update);
 
       const update = (time: number) => {
@@ -45,7 +48,9 @@ export const useLenisScroll = () => {
 
     return () => {
       cleanup?.();
+
       lenis?.destroy();
+      setLenis(null);
     };
-  }, []);
+  }, [isMobile]);
 };

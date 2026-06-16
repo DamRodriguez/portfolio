@@ -11,7 +11,7 @@ type MotionScaleProps = MotionDefaults & {
 };
 
 const MotionScale = ({
-  initialScale = 0.9,
+  initialScale = 0.93,
   finalScale = 1,
   withOpacity = false,
   ...props

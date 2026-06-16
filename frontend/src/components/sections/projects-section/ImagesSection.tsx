@@ -1,3 +1,4 @@
+"use client";
 import ProjectImage from "@/components/sections/projects-section/ProjectImage";
 import clsx from "clsx";
 
@@ -25,6 +26,7 @@ type ImagesSectionProps = {
   disablePopUp?: boolean;
   odd?: boolean;
   title: string;
+  onImageClick: (index: number) => void;
 };
 
 const ImagesSection = ({
@@ -32,6 +34,7 @@ const ImagesSection = ({
   disablePopUp,
   odd,
   title,
+  onImageClick,
 }: ImagesSectionProps) => {
   return (
     <>
@@ -46,6 +49,7 @@ const ImagesSection = ({
             )}
           >
             <ProjectImage
+              onClick={() => onImageClick(odd ? 1 : 0)}
               image={imageSource.images.rectangular}
               alt={`${title} rectangular image`}
               disablePopUp={disablePopUp}
@@ -53,6 +57,7 @@ const ImagesSection = ({
             />
 
             <ProjectImage
+              onClick={() => onImageClick(odd ? 0 : 1)}
               image={imageSource.images.vertical}
               alt={`${title} vertical image`}
               disablePopUp={disablePopUp}
@@ -69,6 +74,7 @@ const ImagesSection = ({
             )}
           >
             <ProjectImage
+              onClick={() => onImageClick(odd ? 3 : 2)}
               image={imageSource.images.square}
               alt={`${title} square image`}
               disablePopUp={disablePopUp}
@@ -76,6 +82,7 @@ const ImagesSection = ({
             />
 
             <ProjectImage
+              onClick={() => onImageClick(odd ? 2 : 3)}
               image={imageSource.images.horizontal}
               alt={`${title} horizontal image`}
               disablePopUp={disablePopUp}
@@ -90,6 +97,7 @@ const ImagesSection = ({
           {imageSource.images.map((image, index) => (
             <div key={index}>
               <ProjectImage
+                onClick={() => onImageClick(index)}
                 image={image}
                 alt={`${title} mobile image ${index + 1}`}
                 disablePopUp={disablePopUp}
@@ -103,6 +111,7 @@ const ImagesSection = ({
       {imageSource.type === "single" && (
         <div className="flex h-[25%] xl:h-[70%] w-full">
           <ProjectImage
+            onClick={() => onImageClick(0)}
             image={imageSource.image}
             alt={`${title} image`}
             disablePopUp={disablePopUp}
