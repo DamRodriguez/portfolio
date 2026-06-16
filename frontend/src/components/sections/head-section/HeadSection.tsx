@@ -78,7 +78,7 @@ const HeadSection = () => {
                 })}
               </p>
             </MotionEntryFade>
-            <MotionEntrySlide direction="right" order={0}>
+            <MotionEntrySlide direction="right" order={0.2}>
               <h1 className="second-title-gsap text-6xl lg:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white font-bold font-fira-code">
                 {t("headSection.title.second")}
               </h1>
