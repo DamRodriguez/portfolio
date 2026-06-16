@@ -84,7 +84,7 @@ const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
                 href={item.href}
                 external
                 className={clsx("h-fit shadow-s3 dark:shadow-s1", {
-                  "xl:mt-[0.7rem] ":
+                  "2xl:mt-[0.7rem] ":
                     (index === 0 || index === socialButtons.length - 1) &&
                     !props.withoutMt,
                 })}
