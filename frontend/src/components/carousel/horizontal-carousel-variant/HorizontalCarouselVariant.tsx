@@ -141,7 +141,7 @@ const HorizontalCarouselVariant = ({
               className={clsx(
                 " h-2.5 md:h-3 rounded-full bg-alpha-50/50 border border-dark-gray dark:border-soft-gray cursor-pointer hover:scale-105 theme-transition-all",
                 {
-                  "bg-dark-gray dark:bg-soft-gray hover:bg-black dark:hover:bg-soft-gray w-6 xl:w-8":
+                  "bg-dark-gray dark:bg-soft-gray hover:bg-black dark:hover:bg-soft-gray w-6 xl:w-8 dark:border-soft-white border-black":
                     isActive,
                   "hover:bg-dark-gray dark:hover:border-soft-white w-2.5 md:w-3":
                     !isActive,

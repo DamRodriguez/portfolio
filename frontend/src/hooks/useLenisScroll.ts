@@ -10,10 +10,12 @@ export const useLenisScroll = () => {
     const init = async () => {
       const { default: Lenis } = await import("lenis");
 
+      const isMobile = window.innerWidth < 768;
+
       lenis = new Lenis({
-        duration: 1.1,
+        duration: isMobile ? 0.7 : 1.1,
         smoothWheel: true,
-        syncTouch: true,
+        syncTouch: !isMobile,
         easing: (t: number) => 1 - Math.pow(1 - t, 3),
       });
 
