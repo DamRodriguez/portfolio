@@ -47,7 +47,7 @@ const ImageCarouselModal = ({
     <MotionOpacity
       duration={0.3}
       onClick={onClose}
-      className="fixed inset-0 z-9999 bg-black/60 backdrop-blur-[0.5rem] flex items-center justify-center"
+      className="fixed inset-0 z-99999 bg-black/60 backdrop-blur-[0.5rem] flex items-center justify-center"
     >
       <CarouselHeader
         current={index + 1}
