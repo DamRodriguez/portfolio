@@ -1,5 +1,44 @@
 @theme {
   --text-shadow-*: initial;
-  --text-shadow-green: 2px 2px 0 #003A21;
-  --text-shadow-purple: 2px 2px 0 #480069;
+
+  /* Más suave */
+  --text-shadow-soft: 0 2px 8px rgb(0 0 0 / 0.25);
+
+  /* Glow */
+  --text-shadow-glow-green: 0 0 8px #00ff88, 0 0 16px #00ff88;
+
+  --text-shadow-glow-purple: 0 0 8px #a855f7, 0 0 16px #a855f7;
+
+  /* Glow intenso */
+  --text-shadow-neon:
+    0 0 4px #fff, 0 0 8px #fff, 0 0 16px #00f7ff, 0 0 32px #00f7ff;
+
+  /* Retro / arcade */
+  --text-shadow-retro: 3px 3px 0 #ff0080, 6px 6px 0 #6a00ff;
+
+  /* Profundidad */
+  --text-shadow-depth:
+    1px 1px 0 #111, 2px 2px 0 #111, 3px 3px 0 #111, 4px 4px 0 #111;
+
+  /* 3D */
+  --text-shadow-3d:
+    1px 1px 0 #444, 2px 2px 0 #444, 3px 3px 0 #444, 4px 4px 0 #444,
+    5px 5px 0 #444;
+
+  /* Biselado */
+  --text-shadow-emboss: 0 1px 0 #fff, 0 -1px 0 #000;
+
+  /* Elegante */
+  --text-shadow-luxury:
+    0 1px 2px rgb(0 0 0 / 0.3), 0 4px 12px rgb(0 0 0 / 0.15);
+
+  /* Cyberpunk */
+  --text-shadow-cyber: -2px 0 #ff00ff, 2px 0 #00ffff;
+
+  /* Error RGB */
+  --text-shadow-glitch:
+    -2px 0 #ff004c, 2px 0 #00f7ff, 0 0 8px rgb(255 255 255 / 0.2);
+
+  /* Dramática */
+  --text-shadow-heavy: 0 2px 0 #111, 0 4px 0 #111, 0 6px 12px rgb(0 0 0 / 0.5);
 }

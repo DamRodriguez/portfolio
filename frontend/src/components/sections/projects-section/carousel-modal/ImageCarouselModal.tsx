@@ -55,9 +55,9 @@ const ImageCarouselModal = ({
         onClose={onClose}
       />
 
-      <SpaceX className="relative w-full h-dvh flex items-center justify-center pb-[calc(env(safe-area-inset-bottom)+1rem)] xl:pb-0 pt-header-mobile xl:pt-header-desktop">
+      <SpaceX className="relative w-full h-dvh flex items-center justify-center xl:pb-0 pt-header-mobile xl:pt-header-desktop">
         <div
-          className="relative w-full h-[calc(100%-var(--height-header-mobile)-5rem)] xl:h-[calc(100%-var(--height-header-desktop)-1rem)]"
+          className="relative w-full h-[calc(100%-2rem)] pb-[calc(env(safe-area-inset-bottom)+5rem)] xl:pb-[2rem] xl:px-[6rem] xl:h-[calc(100%-2rem)]"
           onClick={(e) => e.stopPropagation()}
         >
           <CarouselImage src={images[index]} index={index} />
