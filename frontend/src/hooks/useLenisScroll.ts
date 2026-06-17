@@ -1,6 +1,5 @@
 "use client";
 import { setLenis } from "@/constants/lenis";
-import useBreakpoint from "@/hooks/useBreakpoint";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type Lenis from "lenis";
@@ -9,8 +8,6 @@ import { useEffect } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 export const useLenisScroll = () => {
-  const isMobile = useBreakpoint();
-
   useEffect(() => {
     let lenis: Lenis | null = null;
 
@@ -18,7 +15,7 @@ export const useLenisScroll = () => {
       const { default: Lenis } = await import("lenis");
 
       lenis = new Lenis({
-        duration: isMobile ? 1 : 1.1,
+        duration: 1.1,
         smoothWheel: true,
         syncTouch: false,
         easing: (t: number) => 1 - Math.pow(1 - t, 3),
@@ -52,5 +49,5 @@ export const useLenisScroll = () => {
       lenis?.destroy();
       setLenis(null);
     };
-  }, [isMobile]);
+  }, []);
 };
