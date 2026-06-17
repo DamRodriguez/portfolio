@@ -38,7 +38,7 @@ const CarouselImage = ({ src, index }: CarouselImageProps) => {
           quality={80}
           onLoad={() => setLoaded(true)}
           className={clsx(
-            "object-contain transition-opacity duration-300",
+            "object-contain transition-opacity duration-300 z-10",
             loaded ? "opacity-100" : "opacity-0",
           )}
         />

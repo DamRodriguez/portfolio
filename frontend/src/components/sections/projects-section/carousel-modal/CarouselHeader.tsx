@@ -23,9 +23,9 @@ const CarouselHeader = ({ current, total, onClose }: CarouselHeaderProps) => {
       <button
         type="button"
         onClick={onClose}
-        className="pointer-events-auto p-[0.6rem] xl:p-[0.8rem] backdrop-blur-[0.1rem] cursor-pointer hover:scale-105 theme-transition-all border border-soft-gray/30 rounded-full flex items-center justify-center hover:[&_svg]:stroke-[#000] hover:bg-soft-white shadow-s1 bg-black"
+        className="bg-white-bone dark:bg-strong-black border border-black/15 dark:border-soft-gray/30 rounded-md shadow-s1 w-[2.8rem] h-[2.8rem] xl:w-[3.5rem] xl:h-[3.5rem] flex items-center justify-center cursor-pointer pointer-events-auto dark:hover:border-soft-gray/70 theme-transition-all hover:border-soft-white hover:bg-white-bone/50 hover:[&_svg]:stroke-soft-white "
       >
-        <X className="w-[1.5rem] h-[1.5rem] xl:w-[1.7rem] xl:h-[1.7rem] stroke-soft-white dark:stroke-soft-white theme-transition-all" />
+        <X className="w-[1.5rem] h-[1.5rem] xl:w-[1.7rem] xl:h-[1.7rem] stroke-black dark:stroke-soft-white theme-transition-all" />
       </button>
     </SpaceX>
   );
