@@ -15,14 +15,14 @@ const WorkSection = () => {
     {
       initialDate: "2026-02-02",
       finalDate: "present",
-      employer: t("workData.freelance.employer"),
-      position: t("workData.freelance.position"),
+      employer: t("data.freelance.employer"),
+      position: t("data.freelance.position"),
     },
     {
       initialDate: "2024-12-02",
       finalDate: "2025-10-02",
-      employer: t("workData.webSpace.employer"),
-      position: t("workData.webSpace.position"),
+      employer: t("data.webSpace.employer"),
+      position: t("data.webSpace.position"),
       employerLink: config.work.webSpace,
     },
   ];

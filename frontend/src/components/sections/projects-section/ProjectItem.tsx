@@ -12,9 +12,9 @@ import { useMemo, useState } from "react";
 import ButtonsSection, { ProjectButton } from "./ButtonsSection";
 import ImagesSection, { ImageSource } from "./ImagesSection";
 
-export type ProjectKey = keyof Messages["projectsSection"]["projectsData"];
-export type DescriptionKey = `projectsData.${ProjectKey}.description`;
-export type ProjectCategory = "E-commerce" | "";
+export type ProjectKey = keyof Messages["projectsSection"]["data"];
+export type DescriptionKey = `data.${ProjectKey}.description`;
+export type ProjectCategory = keyof Messages["projectsSection"]["categories"];
 
 export type ProjectItemData = {
   button: ProjectButton;
@@ -33,10 +33,8 @@ type ProjectItemProps = {
 const ProjectItem = (props: ProjectItemProps) => {
   const data = props.data;
   const t = useTranslations("projectsSection");
-  const title = t(`projectsData.${data.translationKey}.title`);
-  const technologiesString = t(
-    `projectsData.${data.translationKey}.technologies`,
-  );
+  const title = t(`data.${data.translationKey}.title`);
+  const technologiesString = t(`data.${data.translationKey}.technologies`);
   const technologies = technologiesString.split(",").map((tech) => tech.trim());
 
   const [isOpen, setIsOpen] = useState(false);
@@ -120,7 +118,7 @@ const ProjectItem = (props: ProjectItemProps) => {
         <p className="text-dark-gray dark:text-soft-gray text-sm xl:text-lg whitespace-pre-line">
           <RichText
             t={t}
-            translationKey={`projectsData.${data.translationKey}.description`}
+            translationKey={`data.${data.translationKey}.description`}
           />
         </p>
 

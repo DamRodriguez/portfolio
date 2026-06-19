@@ -26,7 +26,7 @@ const WorkItem = (props: WorkItemProps) => {
   const t = useTranslations("workSection");
   const totalTime = calculateTotalTime(data.initialDate, data.finalDate, t);
   const getYear = (date: string) => {
-    if (date === "present") return t("workItem.present");
+    if (date === "present") return t("item.present");
     return new Date(date).getFullYear();
   };
 

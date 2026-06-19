@@ -1,7 +1,7 @@
 export function calculateTotalTime(
   initialDate: string,
   finalDate: string,
-  t: ReturnType<typeof import("next-intl").useTranslations>
+  t: ReturnType<typeof import("next-intl").useTranslations>,
 ): string {
   const start = new Date(initialDate);
   const end = finalDate === "present" ? new Date() : new Date(finalDate);
@@ -22,8 +22,10 @@ export function calculateTotalTime(
   }
 
   const totalTime =
-    (years > 0 ? `${t("workItem.years", { count: years })} ` : "") +
-    (remainingMonths > 0 ? `${t("workItem.months", { count: remainingMonths })}` : "");
+    (years > 0 ? `${t("item.years", { count: years })} ` : "") +
+    (remainingMonths > 0
+      ? `${t("item.months", { count: remainingMonths })}`
+      : "");
 
   return totalTime.trim();
 }
