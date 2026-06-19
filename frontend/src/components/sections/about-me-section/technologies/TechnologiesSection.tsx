@@ -1,8 +1,6 @@
 "use client";
-import ViewportTrigger from "@/components/gsap/ViewportTrigger";
 import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
-import LeftTechnologyMarker from "@/components/sections/about-me-section/technologies/LeftTechnologyMarker";
 import TechnologyItem, {
   TechnologyItemData,
 } from "@/components/sections/about-me-section/technologies/TechnologyItem";
@@ -61,103 +59,88 @@ const TechnologiesSection = () => {
     });
   });
 
-  const [isSectionOnScreen, setIsSectionOnScreen] = useState(false);
-
   return (
-    <ViewportTrigger
-      onEnter={() => setIsSectionOnScreen(true)}
-      onEnterBack={() => setIsSectionOnScreen(true)}
-      onLeave={() => setIsSectionOnScreen(false)}
-      onLeaveBack={() => setIsSectionOnScreen(false)}
-      className="xl:w-1/2"
-    >
-      <div className="gap-[1.5rem] xl:gap-[2rem] flex flex-col">
-        <LeftTechnologyMarker
-          isSectionOnScreen={isSectionOnScreen}
-          activeIndex={activeIndex}
-        />
+    <div className="gap-[1.5rem] xl:gap-[2rem] flex flex-col xl:w-1/2">
+      <div
+        ref={(el) => {
+          technologyRefs.current[0] = el;
+        }}
+      >
+        <MotionSlide direction="right">
+          <TechnologyItem
+            data={frontTechnologyData}
+            animation="left"
+            isActive={activeIndex === 0}
+          />
+        </MotionSlide>
+      </div>
 
+      <div className="flex justify-between items-center">
         <div
           ref={(el) => {
-            technologyRefs.current[0] = el;
+            technologyRefs.current[1] = el;
           }}
+          className="w-1/2"
         >
-          <MotionSlide direction="right">
+          <MotionSlide>
             <TechnologyItem
-              data={frontTechnologyData}
-              animation="left"
-              isActive={activeIndex === 0}
+              data={stylesTechnologyData}
+              animation="right"
+              isActive={activeIndex === 1}
             />
           </MotionSlide>
         </div>
 
-        <div className="flex justify-between items-center">
-          <div
-            ref={(el) => {
-              technologyRefs.current[1] = el;
-            }}
-            className="w-1/2"
-          >
-            <MotionSlide>
-              <TechnologyItem
-                data={stylesTechnologyData}
-                animation="right"
-                isActive={activeIndex === 1}
-              />
-            </MotionSlide>
-          </div>
-
-          <div className="w-1/2 flex justify-center">
-            <MotionFade>
-              <GithubButton />
-            </MotionFade>
-          </div>
-        </div>
-
-        <div className="flex items-end justify-between">
-          <MotionFade className="w-[40%]">
-            <p className="text-dark-gray dark:text-soft-gray text-sm lg:text-lg whitespace-pre-line">
-              {t.rich("favoritesTools", {
-                strong: (chunks) => (
-                  <span className="text-strong-black dark:text-soft-white font-medium">
-                    {chunks}
-                  </span>
-                ),
-              })}
-            </p>
+        <div className="w-1/2 flex justify-center">
+          <MotionFade>
+            <GithubButton />
           </MotionFade>
-
-          <div
-            ref={(el) => {
-              technologyRefs.current[2] = el;
-            }}
-            className="w-1/2"
-          >
-            <MotionSlide direction="right">
-              <TechnologyItem
-                data={backendTechnologyData}
-                animation="left"
-                isActive={activeIndex === 2}
-              />
-            </MotionSlide>
-          </div>
         </div>
+      </div>
+
+      <div className="flex items-end justify-between">
+        <MotionFade className="w-[40%]">
+          <p className="text-dark-gray dark:text-soft-gray text-sm lg:text-lg whitespace-pre-line">
+            {t.rich("favoritesTools", {
+              strong: (chunks) => (
+                <span className="text-strong-black dark:text-soft-white font-medium">
+                  {chunks}
+                </span>
+              ),
+            })}
+          </p>
+        </MotionFade>
 
         <div
           ref={(el) => {
-            technologyRefs.current[3] = el;
+            technologyRefs.current[2] = el;
           }}
+          className="w-1/2"
         >
-          <MotionSlide>
+          <MotionSlide direction="right">
             <TechnologyItem
-              data={toolsData}
-              animation="right"
-              isActive={activeIndex === 3}
+              data={backendTechnologyData}
+              animation="left"
+              isActive={activeIndex === 2}
             />
           </MotionSlide>
         </div>
       </div>
-    </ViewportTrigger>
+
+      <div
+        ref={(el) => {
+          technologyRefs.current[3] = el;
+        }}
+      >
+        <MotionSlide>
+          <TechnologyItem
+            data={toolsData}
+            animation="right"
+            isActive={activeIndex === 3}
+          />
+        </MotionSlide>
+      </div>
+    </div>
   );
 };
 
