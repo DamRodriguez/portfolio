@@ -14,6 +14,7 @@ import ImagesSection, { ImageSource } from "./ImagesSection";
 
 export type ProjectKey = keyof Messages["projectsSection"]["projectsData"];
 export type DescriptionKey = `projectsData.${ProjectKey}.description`;
+export type ProjectCategory = "E-commerce" | "";
 
 export type ProjectItemData = {
   button: ProjectButton;

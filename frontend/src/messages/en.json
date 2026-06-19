@@ -50,7 +50,7 @@
   "aboutMeSection": {
     "header": {
       "sectionName": "../About me",
-      "description": "Hi! I'm Damián Rodríguez, a <strong>Frontend Developer</strong> based in Buenos Aires, Argentina.\nMore than <strong>2 years</strong> of experience building modern user interfaces."
+      "description": "Hello! I'm Damián Rodríguez, a <strong>Frontend Developer</strong> from Buenos Aires, Argentina.\nOver <strong>2 years</strong> of experience building modern digital solutions."
     },
     "technologies": {
       "frontend": {
