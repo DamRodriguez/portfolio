@@ -58,12 +58,14 @@ const ProjectItem = (props: ProjectItemProps) => {
               data.imageSource.images.rectangular,
               data.imageSource.images.horizontal,
               data.imageSource.images.square,
+              ...(data.imageSource.images.extra ?? []),
             ]
           : [
               data.imageSource.images.rectangular,
               data.imageSource.images.vertical,
               data.imageSource.images.square,
               data.imageSource.images.horizontal,
+              ...(data.imageSource.images.extra ?? []),
             ];
 
       default:

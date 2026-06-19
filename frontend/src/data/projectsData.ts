@@ -33,6 +33,13 @@ export const projectsData: ProjectItemData[] = [
         vertical: "/images/projects/lopez-propiedades/vertical.webp",
         square: "/images/projects/lopez-propiedades/square.webp",
         horizontal: "/images/projects/lopez-propiedades/horizontal.webp",
+        extra: [
+          "/images/projects/lopez-propiedades/actualizar-propiedad.webp",
+          "/images/projects/lopez-propiedades/lista-propiedades.webp",
+          "/images/projects/lopez-propiedades/contacto.webp",
+          "/images/projects/lopez-propiedades/detalle-propiedad.webp",
+          "/images/projects/lopez-propiedades/venta-propiedades.webp",
+        ],
       },
     },
   },

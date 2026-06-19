@@ -18,6 +18,7 @@ export type ImageSource =
         vertical: string;
         square: string;
         horizontal: string;
+        extra?: string[];
       };
     };
 
