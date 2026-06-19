@@ -1,6 +1,7 @@
 "use client";
 import SpaceX from "@/components/layout/SpaceX";
-import MotionQuantity from "@/components/motion/MotionQuantity";
+import { AnimatedNumber } from "@/components/motion/AnimatedNumber";
+import { formatTwoDigits } from "@/utils/formatTwoDigits";
 import { X } from "lucide-react";
 
 type CarouselHeaderProps = {
@@ -13,11 +14,11 @@ const CarouselHeader = ({ current, total, onClose }: CarouselHeaderProps) => {
   return (
     <SpaceX className="min-w-[20rem] max-w-[120rem] mx-auto absolute top-[2rem] xl:top-[3rem] left-0 right-0 flex justify-between items-center z-50">
       <span className="text-base xl:text-xl font-medium text-soft-white font-fira-code text-shadow-soft flex gap-2">
-        <MotionQuantity duration={0.2} motionKey={current}>
-          {current}
-        </MotionQuantity>
+        <div>
+          <AnimatedNumber value={current} />
+        </div>
         <span>/</span>
-        <span>{total}</span>
+        <span>{formatTwoDigits(total)}</span>
       </span>
 
       <button
