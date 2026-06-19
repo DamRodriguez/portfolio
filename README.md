@@ -10,6 +10,7 @@ Portfolio personal enfocado en construir **soluciones modernas, escalables y cen
 🚀 Sitio Web
 </a>
 </br>
+</br>
 <a href="https://github.com/DamRodriguez" style="display:inline-block; padding:10px 18px; margin:6px; border-radius:10px; border:1px solid #2a2a2a; text-decoration:none; font-weight:500;">
 📦 Repositorio
 </a>
@@ -141,11 +142,13 @@ React Native · Expo · Redux Toolkit
 </a>
 
 </br>
+</br>
 
 <a href="mailto:damrod1999@gmail.com" style="padding:8px 14px; border-radius:8px; border:1px solid #2a2a2a; text-decoration:none;">
 📧 Email
 </a>
 
+</br>
 </br>
 
 <a href="https://wa.me/5491159641031" style="padding:8px 14px; border-radius:8px; border:1px solid #2a2a2a; text-decoration:none;">
