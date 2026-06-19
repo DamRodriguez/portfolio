@@ -14,9 +14,7 @@ const CarouselHeader = ({ current, total, onClose }: CarouselHeaderProps) => {
   return (
     <SpaceX className="min-w-[20rem] max-w-[120rem] mx-auto absolute top-[2rem] xl:top-[3rem] left-0 right-0 flex justify-between items-center z-50">
       <span className="text-base xl:text-xl font-medium text-soft-white font-fira-code text-shadow-soft flex gap-2">
-        <div>
-          <AnimatedNumber value={current} />
-        </div>
+        <AnimatedNumber value={current} />
         <span>/</span>
         <span>{formatTwoDigits(total)}</span>
       </span>
