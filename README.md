@@ -9,7 +9,7 @@ Portfolio personal enfocado en construir **soluciones modernas, escalables y cen
 <a href="https://damrod.dev" style="display:inline-block; padding:10px 18px; margin:6px; border-radius:10px; border:1px solid #2a2a2a; text-decoration:none; font-weight:500;">
 🚀 Sitio Web
 </a>
-
+</br>
 <a href="https://github.com/DamRodriguez" style="display:inline-block; padding:10px 18px; margin:6px; border-radius:10px; border:1px solid #2a2a2a; text-decoration:none; font-weight:500;">
 📦 Repositorio
 </a>
@@ -136,18 +136,18 @@ React Native · Expo · Redux Toolkit
 
 <h2 style="border-bottom: none;">📬 Contacto</h2>
 
-<div style="display:flex; gap:10px; flex-wrap:wrap;">
-
 <a href="https://www.linkedin.com/in/damianagustinrodriguez/" style="padding:8px 14px; border-radius:8px; border:1px solid #2a2a2a; text-decoration:none;">
 💼 LinkedIn
 </a>
+
+</br>
 
 <a href="mailto:damrod1999@gmail.com" style="padding:8px 14px; border-radius:8px; border:1px solid #2a2a2a; text-decoration:none;">
 📧 Email
 </a>
 
+</br>
+
 <a href="https://wa.me/5491159641031" style="padding:8px 14px; border-radius:8px; border:1px solid #2a2a2a; text-decoration:none;">
 💬 WhatsApp
 </a>
-
-</div>
