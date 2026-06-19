@@ -6,12 +6,12 @@ Portfolio personal enfocado en construir **soluciones modernas, escalables y cen
 
 ### 🔗 Links
 
-<a href="https://damrod.dev" style="display:inline-block; padding:10px 18px; margin:6px; border-radius:10px; border:1px solid #2a2a2a; text-decoration:none; font-weight:500;">
+<a href="https://damrod.dev" target="_blank" rel="noopener noreferrer" style="display:inline-block; padding:10px 18px; margin:6px; border-radius:10px; border:1px solid #2a2a2a; text-decoration:none; font-weight:500;">
 🚀 Sitio Web
 </a>
 </br>
 </br>
-<a href="https://github.com/DamRodriguez" style="display:inline-block; padding:10px 18px; margin:6px; border-radius:10px; border:1px solid #2a2a2a; text-decoration:none; font-weight:500;">
+<a href="https://github.com/DamRodriguez" target="_blank" rel="noopener noreferrer" style="display:inline-block; padding:10px 18px; margin:6px; border-radius:10px; border:1px solid #2a2a2a; text-decoration:none; font-weight:500;">
 📦 Repositorio
 </a>
 
@@ -62,7 +62,7 @@ Plataforma inmobiliaria para la búsqueda de propiedades
 <br/>
 Next.js · TypeScript · Supabase
 
-<a href="https://www.loppezinmobiliaria.com/" style="display:inline-block; padding:8px 14px; border-radius:8px; border:1px solid #333; text-decoration:none;">
+<a href="https://www.loppezinmobiliaria.com/" target="_blank" rel="noopener noreferrer" style="display:inline-block; padding:8px 14px; border-radius:8px; border:1px solid #333; text-decoration:none;">
 🌐 Visitar Sitio
 </a>
 </div>
@@ -78,7 +78,7 @@ E-commerce especializado en astrología
 <br/>
 Next.js · TypeScript · Redux Toolkit · TanStack Query
 
-<a href="https://vanicracia.com" style="display:inline-block; padding:8px 14px; border-radius:8px; border:1px solid #333; text-decoration:none;">
+<a href="https://vanicracia.com" target="_blank" rel="noopener noreferrer" style="display:inline-block; padding:8px 14px; border-radius:8px; border:1px solid #333; text-decoration:none;">
 🌐 Visitar Sitio
 </a>
 
@@ -95,7 +95,7 @@ Sitio Web corporativo para una empresa de alfombras
 <br/>
 Next.js · TypeScript · TanStack Query
 
-<a href="https://alfombrastauro.com" style="display:inline-block; padding:8px 14px; border-radius:8px; border:1px solid #333; text-decoration:none;">
+<a href="https://alfombrastauro.com" target="_blank" rel="noopener noreferrer" style="display:inline-block; padding:8px 14px; border-radius:8px; border:1px solid #333; text-decoration:none;">
 🌐 Visitar Sitio
 </a>
 
@@ -125,7 +125,7 @@ Clon de la aplicación móvil de Spotify
 <br/>
 React Native · Expo · Redux Toolkit
 
-<a href="https://github.com/DamRodriguez/spotify-mobile" style="display:inline-block; padding:8px 14px; border-radius:8px; border:1px solid #333; text-decoration:none;">
+<a href="https://github.com/DamRodriguez/spotify-mobile" target="_blank" rel="noopener noreferrer" style="display:inline-block; padding:8px 14px; border-radius:8px; border:1px solid #333; text-decoration:none;">
 🌐 Ver Código
 </a>
 
@@ -137,20 +137,20 @@ React Native · Expo · Redux Toolkit
 
 <h2 style="border-bottom: none;">📬 Contacto</h2>
 
-<a href="https://www.linkedin.com/in/damianagustinrodriguez/" style="padding:8px 14px; border-radius:8px; border:1px solid #2a2a2a; text-decoration:none;">
+<a href="https://www.linkedin.com/in/damianagustinrodriguez/" target="_blank" rel="noopener noreferrer" style="padding:8px 14px; border-radius:8px; border:1px solid #2a2a2a; text-decoration:none;">
 💼 LinkedIn
 </a>
 
 </br>
 </br>
 
-<a href="mailto:damrod1999@gmail.com" style="padding:8px 14px; border-radius:8px; border:1px solid #2a2a2a; text-decoration:none;">
+<a href="mailto:damrod1999@gmail.com" target="_blank" rel="noopener noreferrer" style="padding:8px 14px; border-radius:8px; border:1px solid #2a2a2a; text-decoration:none;">
 📧 Email
 </a>
 
 </br>
 </br>
 
-<a href="https://wa.me/5491159641031" style="padding:8px 14px; border-radius:8px; border:1px solid #2a2a2a; text-decoration:none;">
+<a href="https://wa.me/5491159641031" target="_blank" rel="noopener noreferrer" style="padding:8px 14px; border-radius:8px; border:1px solid #2a2a2a; text-decoration:none;">
 💬 WhatsApp
 </a>
