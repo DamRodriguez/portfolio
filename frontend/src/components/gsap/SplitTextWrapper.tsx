@@ -48,7 +48,7 @@ export default function SplitTextWrapper({
       });
 
       const tween = gsap.from(split.chars, {
-        y: isMobile ? -28 : -75,
+        y: isMobile ? -28 : -80,
         opacity: 0.0001,
         duration: 1,
         ease,

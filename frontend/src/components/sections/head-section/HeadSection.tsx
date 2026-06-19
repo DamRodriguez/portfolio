@@ -1,4 +1,5 @@
 "use client";
+import SplitTextWrapper from "@/components/gsap/SplitTextWrapper";
 import SpaceX from "@/components/layout/SpaceX";
 import MotionEntryFade from "@/components/motion/MotionEntryFade";
 import MotionEntrySlide from "@/components/motion/MotionEntrySlide";
@@ -52,13 +53,13 @@ const HeadSection = () => {
       <div className="flex flex-col gap-[2rem]">
         <div className="w-full flex flex-col -space-y-[2rem] lg:-space-y-[3rem]">
           <div className="flex justify-center xl:justify-between items-center">
-            <MotionEntrySlide order={0}>
+            <SplitTextWrapper order={0}>
               <h1 className="first-title-gsap text-6xl lg:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white font-bold font-fira-code">
                 {t("headSection.title.first")}
               </h1>
-            </MotionEntrySlide>
+            </SplitTextWrapper>
             <div className="project-button-gsap">
-              <MotionEntryFade order={1} className="hidden 2xl:flex">
+              <MotionEntryFade order={1.5} className="hidden 2xl:flex">
                 <ButtonWithArrow
                   text={projectsButtonText}
                   routerPath={routes.projects}
@@ -67,7 +68,7 @@ const HeadSection = () => {
             </div>
           </div>
           <div className="flex flex-col-reverse text-center xl:text-start items-center xl:flex xl:flex-row xl:justify-between xl:items-center gap-[1rem]">
-            <MotionEntryFade order={1} className="max-w-[70%] xl:max-w-[25%]">
+            <MotionEntryFade order={1.5} className="max-w-[70%] xl:max-w-[25%]">
               <p className="text-gsap text-base 2xl:text-xl text-dark-gray dark:text-soft-gray">
                 {t.rich("headSection.personalDescription", {
                   strong: (chunks) => (
@@ -78,15 +79,18 @@ const HeadSection = () => {
                 })}
               </p>
             </MotionEntryFade>
-            <MotionEntrySlide direction="right" order={0.2}>
+            <SplitTextWrapper order={1}>
               <h1 className="second-title-gsap text-6xl lg:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white font-bold font-fira-code">
                 {t("headSection.title.second")}
               </h1>
-            </MotionEntrySlide>
+            </SplitTextWrapper>
           </div>
         </div>
         <div className="project-button-gsap">
-          <MotionEntryFade order={1} className="flex 2xl:hidden justify-center">
+          <MotionEntryFade
+            order={1.5}
+            className="flex 2xl:hidden justify-center"
+          >
             <ButtonWithArrow
               text={projectsButtonText}
               routerPath={routes.projects}
