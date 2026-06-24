@@ -9,13 +9,15 @@ const FooterSection = () => {
   const routeItems = [
     { text: t("routes.home"), href: routes.home },
     { text: t("routes.aboutMe"), href: routes.aboutMe },
+    { text: t("routes.services"), href: routes.services },
     { text: t("routes.work"), href: routes.work },
     { text: t("routes.projects"), href: routes.projects },
   ];
+
   return (
-    <div className="flex flex-col gap-6 xl:gap-10">
+    <div className="flex flex-col gap-8 xl:gap-10">
       <div className="flex flex-col items-center gap-10">
-        <MotionFade className="flex flex-wrap gap-y-[0.8rem] gap-x-[2rem] xl:gap-x-[3rem] xl:gap-y-[1rem]">
+        <MotionFade className="flex flex-wrap gap-y-[0.8rem] gap-x-[2rem] xl:gap-x-[3rem] xl:gap-y-[1rem] justify-center max-w-[18rem] sm:max-w-full ">
           {routeItems.map((route, index) => (
             <Link
               key={index}

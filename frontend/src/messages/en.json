@@ -187,6 +187,7 @@
     "routes": {
       "home": "Home",
       "aboutMe": "About me",
+      "services": "Services",
       "work": "Work",
       "projects": "Projects"
     },
