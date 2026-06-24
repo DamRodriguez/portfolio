@@ -89,6 +89,7 @@ export default function ServicesSection() {
             const isPair = index % 2 === 0;
             return (
               <div
+                key={index}
                 className={clsx("h-full", {
                   "services-first-card-gsap": index === 0,
                   "services-second-card-gsap": index === 1,
