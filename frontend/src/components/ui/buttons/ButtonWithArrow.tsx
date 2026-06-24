@@ -6,12 +6,14 @@ type ButtonWithArrowProps = {
   text: string;
   small?: boolean;
   routerPath: string;
+  external?: boolean;
 };
 
 const ButtonWithArrow = (props: ButtonWithArrowProps) => {
   return (
     <LinkButton
       href={props.routerPath}
+      external={props.external}
       variant="empty"
       cursorNormal
       className="flex cursor-pointer group h-fit gap-[0.1rem] xl:gap-[0.5rem]"

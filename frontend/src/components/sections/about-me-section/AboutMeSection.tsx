@@ -4,6 +4,7 @@ import SpaceX from "@/components/layout/SpaceX";
 import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
 import FadeShadow from "@/components/other/FadeShadow";
+import SecondTitle from "@/components/text/SecondTitle";
 import { routes } from "@/constants/routes";
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import { removeHash } from "@/utils/removeHash";
@@ -51,9 +52,10 @@ const AboutMeSection = () => {
     >
       <div className="flex md:items-end md:flex-row md:justify-between w-full flex-col gap-[2rem] md:gap-[5rem] 2xl:w-[85%]">
         <MotionSlide>
-          <h2 className="section-name-gsap text-black dark:text-soft-white text-2xl xl:text-3xl font-fira-code text-nowrap">
-            {t("header.sectionName")}
-          </h2>
+          <SecondTitle
+            text={t("header.sectionName")}
+            className="section-name-gsap"
+          />
         </MotionSlide>
         <MotionFade>
           <p className="description-gsap text-dark-gray dark:text-soft-gray text-base lg:text-xl whitespace-pre-line">

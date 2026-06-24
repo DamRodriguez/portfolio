@@ -1,6 +1,7 @@
 "use client";
 import SpaceX from "@/components/layout/SpaceX";
 import MotionSlide from "@/components/motion/MotionSlide";
+import SecondTitle from "@/components/text/SecondTitle";
 import { routes } from "@/constants/routes";
 import { projectsData } from "@/data/projectsData";
 import { useProjectsScrollAnimation } from "@/hooks/useProjectsScrollAnimation";
@@ -22,9 +23,10 @@ const ProjectsSection = () => {
     >
       <MotionSlide className="xl:flex xl:gap-[5rem]">
         <div className="xl:w-[60%]" />
-        <h2 className="project-title-gsap text-black dark:text-soft-white text-2xl xl:text-3xl font-fira-code xl:w-full">
-          {t("title")}
-        </h2>
+        <SecondTitle
+          text={t("title")}
+          className="project-title-gsap xl:w-full"
+        />
       </MotionSlide>
 
       <div ref={containerRef} className="projects-stack">

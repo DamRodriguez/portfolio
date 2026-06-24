@@ -23,6 +23,26 @@ html {
   z-index: 2;
 }
 
+@layer utilities {
+  .animate-flow {
+    stroke-dasharray: 12 12;
+    animation: flow 1.5s linear infinite;
+  }
+
+  .anchor-offset {
+    @apply scroll-mt-[8.5rem] xl:scroll-mt-[12rem];
+  }
+
+  @keyframes flow {
+    from {
+      stroke-dashoffset: 24;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
 @layer components {
   html.theme-switching .theme-transition,
   html.theme-switching .theme-transition-all {

@@ -2,6 +2,7 @@
   "header": {
     "navItems": {
       "aboutme": "Sobre mí",
+      "services": "Servicios",
       "work": "Trabajos",
       "projects": "Proyectos",
       "contact": "Contacto"
@@ -85,6 +86,38 @@
     },
     "favoritesTools": "Algunas de mis <strong>tecnologías</strong> y <strong>herramientas favoritas</strong> con las que trabajo"
   },
+  "servicesSection": {
+    "title": "../Servicios",
+    "subtitle": "Soluciones completas y personalizadas para transformar una <strong>idea</strong> en un producto <strong>listo para lanzar</strong>",
+    "extra": {
+      "free": "Sin costo"
+    },
+    "contactSection": {
+      "title": "¿Tenés una idea o proyecto en mente?",
+      "subtitle": "Hablemos y lo hacemos realidad",
+      "buttonText": "Hablemos"
+    },
+    "data": {
+      "design": {
+        "title": "Diseño",
+        "description": "Interfaces <strong>modernas</strong> e <strong>intuitivas</strong>, enfocadas en la <strong>conversión</strong> y <strong>experiencia del usuario</strong>",
+        "technologies": "UX / UI, Responsive, SEO",
+        "backItems": "Experiencia de Usuario, Diseño de Interfaces, Flujos de Navegación, Prototipos Interactivos, Sistemas de Diseño"
+      },
+      "development": {
+        "title": "Desarrollo",
+        "description": "Productos digitales de <strong>alto rendimiento</strong> construidos con las <strong>mejores tecnologías</strong> y <strong>buenas prácticas</strong>",
+        "technologies": "Next.js, TypeScript, Supabase",
+        "backItems": "Páginas y Aplicaciones Web, Landing Pages, Animaciones Profesionales, Optimización SEO, Alto rendimiento"
+      },
+      "hosting": {
+        "title": "Hosting",
+        "description": "Despliegue profesional con una <strong>infraestructura veloz</strong>, <strong>segura</strong> y preparada para <strong>crecer</strong> desde el primer día",
+        "technologies": "Vercel, SSL, CDN Global",
+        "backItems": "Despliegues Automáticos, Seguridad contra ataques, Certificados SSL incluidos, CDN para mayor velocidad, Escalado en la nube"
+      }
+    }
+  },
   "workSection": {
     "title": "Trabajos",
     "item": {
@@ -150,7 +183,7 @@
     }
   },
   "contactSection": {
-    "title": "../Contacto",
+    "title": "Contacto",
     "routes": {
       "home": "Inicio",
       "aboutMe": "Sobre mí",

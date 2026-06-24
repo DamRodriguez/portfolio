@@ -23,7 +23,7 @@ const RightSection = (props: RightSectionProps) => {
 
       <LanguageDropdown locale={props.locale} hasScrolled={props.hasScrolled} />
 
-      <div className="flex xl:hidden">
+      <div className="flex 2xl:hidden">
         <button
           onClick={handleToggleMobileNav}
           className="relative flex h-[2rem] w-[2rem] cursor-pointer items-center justify-center"

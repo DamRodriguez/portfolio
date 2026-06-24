@@ -39,7 +39,7 @@ const WorkSection = () => {
   return (
     <div
       id={removeHash(routes.work)}
-      className="w-full flex flex-col gap-[1.5rem] xl:gap-[2rem] scroll-mt-[8.5rem] xl:scroll-mt-[14rem]"
+      className="w-full flex flex-col gap-[1.5rem] xl:gap-[2rem] anchor-offset"
     >
       <MotionSlide direction="right">
         <SpaceX>

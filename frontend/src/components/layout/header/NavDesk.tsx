@@ -9,7 +9,7 @@ const NavDesk = () => {
   const { activeSection } = useActiveSection();
 
   return (
-    <nav className="hidden xl:flex">
+    <nav className="hidden 2xl:flex">
       <ul className="text-lg leading-[1.5rem]">
         <li className="flex gap-[3rem]">
           {routeItems.map((item, index) => {

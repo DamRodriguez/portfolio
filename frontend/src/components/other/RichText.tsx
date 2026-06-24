@@ -1,24 +1,16 @@
-"use client";
-import clsx from "clsx";
 import { useTranslations } from "next-intl";
-import { DescriptionKey } from "../sections/projects-section/ProjectItem";
 
 type RichTextProps = {
   t: ReturnType<typeof useTranslations>;
-  translationKey: DescriptionKey;
+  translationKey: Parameters<ReturnType<typeof useTranslations>["rich"]>[0];
 };
 
-export const RichText = ({
-  t,
-  translationKey,
-}: RichTextProps) => {
-  return (
-    <>
-      {t.rich(translationKey, {
-        strong: (chunks: React.ReactNode) => (
-          <span className={clsx("text-strong-black dark:text-soft-white font-medium")}>{chunks}</span>
-        ),
-      })}
-    </>
-  );
+export const RichText = ({ t, translationKey }: RichTextProps) => {
+  return t.rich(translationKey, {
+    strong: (chunks: React.ReactNode) => (
+      <span className="text-strong-black dark:text-soft-white font-medium">
+        {chunks}
+      </span>
+    ),
+  });
 };

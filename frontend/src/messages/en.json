@@ -2,6 +2,7 @@
   "header": {
     "navItems": {
       "aboutme": "About me",
+      "services": "Services",
       "work": "Work",
       "projects": "Projects",
       "contact": "Contact"
@@ -85,6 +86,38 @@
     },
     "favoritesTools": "Some of my favorite <strong>technologies</strong> and <strong>tools</strong> that I work with"
   },
+  "servicesSection": {
+    "title": "../Services",
+    "subtitle": "Complete and tailored solutions to transform an <strong>idea</strong> into a <strong>launch-ready product</strong>",
+    "extra": {
+      "free": "Free"
+    },
+    "contactSection": {
+      "title": "Do you have an idea or project in mind?",
+      "subtitle": "Let's talk and bring it to life",
+      "buttonText": "Let's Talk"
+    },
+    "data": {
+      "design": {
+        "title": "Design",
+        "description": "<strong>Modern</strong> and <strong>intuitive</strong> interfaces focused on <strong>conversion</strong> and <strong>user experience</strong>",
+        "technologies": "UX / UI, Responsive, SEO",
+        "backItems": "User Experience, Interface Design, Navigation Flows, Interactive Prototypes, Design Systems"
+      },
+      "development": {
+        "title": "Development",
+        "description": "<strong>High-performance</strong> digital products built with the <strong>best technologies</strong> and <strong>industry best practices</strong>",
+        "technologies": "Next.js, TypeScript, Supabase",
+        "backItems": "Websites & Web Applications, Landing Pages, Professional Animations, SEO Optimization, High Performance"
+      },
+      "hosting": {
+        "title": "Hosting",
+        "description": "Professional deployment with a <strong>fast</strong>, <strong>secure</strong> infrastructure designed to <strong>scale</strong> from day one",
+        "technologies": "Vercel, SSL, Global CDN",
+        "backItems": "Automated Deployments, Attack Protection, Included SSL Certificates, CDN for Faster Loading, Cloud Scalability"
+      }
+    }
+  },
   "workSection": {
     "title": "Work",
     "item": {
@@ -150,7 +183,7 @@
     }
   },
   "contactSection": {
-    "title": "../Contact",
+    "title": "Contact",
     "routes": {
       "home": "Home",
       "aboutMe": "About me",

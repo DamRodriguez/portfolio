@@ -18,7 +18,7 @@ const NavMobile = ({ onClose }: NavMobileProps) => {
         <nav>
           <ul className="flex flex-col items-center text-center text-base gap-[1rem] font-semibold">
             {routeItems.map(({ href, label }) => (
-              <li key={href} className="w-full max-w-[15rem]">
+              <li key={href} className="w-full max-w-[12rem]">
                 <Link
                   href={href}
                   onClick={onClose}
@@ -26,7 +26,7 @@ const NavMobile = ({ onClose }: NavMobileProps) => {
                 >
                   {t(label)}
                 </Link>
-                <div className="h-[0.05rem] bg-soft-gray dark:bg-soft-gray my-[0.5rem] mx-auto w-full" />
+                <div className="h-[0.05rem] bg-soft-gray dark:bg-soft-gray/30 my-[0.5rem] mx-auto w-full" />
               </li>
             ))}
           </ul>
