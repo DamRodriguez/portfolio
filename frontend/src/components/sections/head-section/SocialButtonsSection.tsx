@@ -63,7 +63,7 @@ const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
   });
 
   return (
-    <div ref={containerRef} className="flex justify-center">
+    <div ref={containerRef} className="flex justify-center z-10">
       <MotionEntryStagger
         order={props.order}
         className="grid grid-cols-2 w-fit justify-items-center-safe gap-[1.5rem] lg:flex lg:justify-center xl:gap-[3rem]"
