@@ -34,7 +34,7 @@ const FooterSection = () => {
 
       <MotionSlide
         direction="down"
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none"
+        className="absolute bottom-0 xl:-bottom-12 left-1/2 -translate-x-1/2 pointer-events-none"
       >
         <p className="relative text-black dark:text-soft-white whitespace-nowrap font-fira-code font-extrabold text-[clamp(4.5rem,14vw,17rem)] opacity-6 leading-none">
           Developer
