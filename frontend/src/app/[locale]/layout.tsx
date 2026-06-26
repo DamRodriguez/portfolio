@@ -1,5 +1,6 @@
 import Header from "@/components/layout/header/Header";
 import ThemeProvider from "@/components/layout/ThemeProvider";
+import BackgroundText from "@/components/other/BackgroundText";
 import GoogleAnalytics from "@/components/other/GoogleAnalytics";
 import ProgressBarProvider from "@/components/other/ProgressBarProvider";
 import ThemeScript from "@/components/other/ThemeScript";
@@ -83,6 +84,7 @@ export default async function LocaleLayout({
                 <Header locale={locale} />
                 <ToastContainer />
                 <PersonSchema />
+                <BackgroundText />
                 {children}
               </div>
               <Analytics />

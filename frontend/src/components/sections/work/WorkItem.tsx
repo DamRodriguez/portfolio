@@ -50,7 +50,7 @@ const WorkItem = (props: WorkItemProps) => {
       <div className="work-item-gsap">
         <SpaceX
           className={clsx(
-            "grid grid-cols-[0.5fr_1fr] xl:grid-cols-[0.5fr_1fr_1fr] items-center group hover:bg-black dark:hover:bg-soft-white theme-transition py-[1rem] xl:py-[1.5rem] gap-[1rem] xl:gap-[2rem] border-t border-t-black/60 dark:border-t-soft-gray/60 bg-soft-white/40 dark:bg-strong-black/40",
+            "grid grid-cols-[0.5fr_1fr] xl:grid-cols-[0.5fr_1fr_1fr] items-center group hover:bg-black dark:hover:bg-soft-white theme-transition py-[1rem] xl:py-[1.5rem] gap-[1rem] xl:gap-[2rem] border-t border-t-black/60 dark:border-t-soft-gray/60 bg-soft-white dark:bg-strong-black",
             {
               "border-b border-b-black/60 dark:border-b-soft-gray/60":
                 props.isLast,
