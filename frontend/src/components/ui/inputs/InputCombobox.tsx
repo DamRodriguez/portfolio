@@ -124,7 +124,7 @@ export const InputCombobox = <T extends BaseOption>({
         {isOpen && (
           <div
             className={clsx(
-              "absolute mt-1 z-50 w-full border border-black dark:border-soft-white/80 shadow-s3 bg-soft-white dark:bg-black rounded-[0.5rem] overflow-hidden text-sm sm:text-base",
+              "absolute mt-1 z-50 w-full border border-black dark:border-soft-white/80 shadow-s3 bg-soft-white dark:bg-black rounded-[0.5rem] overflow-hidden text-base",
               optionsContainerClassName,
             )}
           >
