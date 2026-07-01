@@ -78,7 +78,9 @@ const LanguageDropdown = ({ locale, hasScrolled }: LanguageDropdownProps) => {
               {currentLanguage?.lang}
             </span>
           </div>
-          <AnimatedChevron small isOpen={isOpen} />
+          <div>
+            <AnimatedChevron small isOpen={isOpen} />
+          </div>
         </div>
 
         <AnimatePresence>
