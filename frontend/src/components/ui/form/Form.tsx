@@ -1,5 +1,6 @@
 import FormField, { type FormFieldProps } from "@/components/ui/form/FormField";
 import {
+  BaseOption,
   InputCombobox as InputComboboxComponent,
   type InputComboboxProps,
 } from "@/components/ui/inputs/InputCombobox";
@@ -81,7 +82,7 @@ Form.InputText = createFormInputComponent<InputTextProps>(InputTextComponent);
 Form.InputTextArea = createFormInputComponent<InputTextAreaProps>(
   InputTextAreaComponent,
 );
-Form.InputCombobox = createFormInputComponent<InputComboboxProps<any>>(
+Form.InputCombobox = createFormInputComponent<InputComboboxProps<BaseOption>>(
   InputComboboxComponent,
 );
 

@@ -55,7 +55,6 @@ export const InputCombobox = <T extends BaseOption>({
 
   useEffect(() => {
     if (value && value.id) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSelected(value);
     } else {
       setSelected(undefined);
