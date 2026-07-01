@@ -1,7 +1,8 @@
-import clsx from "clsx";
-import type { JSX, ReactNode } from "react";
-import type { FieldValues, SubmitHandler, UseFormReturn } from "react-hook-form";
 import FormField, { type FormFieldProps } from "@/components/ui/form/FormField";
+import {
+  InputCombobox as InputComboboxComponent,
+  type InputComboboxProps,
+} from "@/components/ui/inputs/InputCombobox";
 import {
   InputText as InputTextComponent,
   type InputTextProps,
@@ -10,6 +11,13 @@ import {
   InputTextArea as InputTextAreaComponent,
   type InputTextAreaProps,
 } from "@/components/ui/inputs/InputTextArea";
+import clsx from "clsx";
+import type { JSX, ReactNode } from "react";
+import type {
+  FieldValues,
+  SubmitHandler,
+  UseFormReturn,
+} from "react-hook-form";
 
 type FormProps<T extends FieldValues> = {
   methods: UseFormReturn<T>;
@@ -31,7 +39,7 @@ function Form<T extends FieldValues>({
   return (
     <form
       className={clsx("flex flex-col w-full", className)}
-      onSubmit={e => {
+      onSubmit={(e) => {
         e.preventDefault();
         void methods.handleSubmit(onSubmit)(e);
       }}
@@ -45,9 +53,7 @@ function Form<T extends FieldValues>({
 function createFormInputComponent<
   P extends Record<string, unknown>,
   T extends FieldValues = FieldValues,
->(
-  InputComponent: React.ComponentType<P>,
-) {
+>(InputComponent: React.ComponentType<P>) {
   const Component = ({
     label,
     name,
@@ -62,9 +68,9 @@ function createFormInputComponent<
       error={error}
       errorMessage={errorMessage}
       isLastErrorMessageField={isLastErrorMessageField}
-      input={props =>
+      input={(props) => (
         <InputComponent {...(props as P)} {...(inputProps as P)} />
-      }
+      )}
     />
   );
   Component.displayName = `FormInput${InputComponent.displayName || InputComponent.name || "Component"}`;
@@ -72,6 +78,11 @@ function createFormInputComponent<
 }
 
 Form.InputText = createFormInputComponent<InputTextProps>(InputTextComponent);
-Form.InputTextArea = createFormInputComponent<InputTextAreaProps>(InputTextAreaComponent);
+Form.InputTextArea = createFormInputComponent<InputTextAreaProps>(
+  InputTextAreaComponent,
+);
+Form.InputCombobox = createFormInputComponent<InputComboboxProps<any>>(
+  InputComboboxComponent,
+);
 
 export default Form;

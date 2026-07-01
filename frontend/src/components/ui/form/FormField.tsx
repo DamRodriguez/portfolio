@@ -1,15 +1,18 @@
-import type { ReactElement } from "react";
-import { Controller, type FieldValues, type Path, useFormContext } from "react-hook-form";
 import FormErrorMessage from "@/components/ui/form/FormErrorMessage";
 import Label from "@/components/ui/inputs/Label";
+import type { ReactElement } from "react";
+import {
+  Controller,
+  type FieldValues,
+  type Path,
+  useFormContext,
+} from "react-hook-form";
 
 export type FormFieldProps<T extends FieldValues> = {
   name: Path<T>;
   label?: string;
   error?: boolean;
-  input?: (
-    props: Record<string, unknown>
-  ) => ReactElement;
+  input?: (props: Record<string, unknown>) => ReactElement;
   errorMessage?: string;
   isLastErrorMessageField?: boolean;
 };
@@ -20,7 +23,7 @@ function FormField<T extends FieldValues>({
   error,
   input,
   errorMessage,
-  isLastErrorMessageField,
+  isLastErrorMessageField = false,
 }: FormFieldProps<T>): ReactElement {
   const { control } = useFormContext();
 
@@ -52,15 +55,18 @@ function FormField<T extends FieldValues>({
                 )}
               </div>
             </div>
-            {(isLastErrorMessageField && errorMessage) || fieldState.error?.message ? (
+            {(isLastErrorMessageField && errorMessage) ||
+            fieldState.error?.message ? (
               <FormErrorMessage
-                errorMessage={isLastErrorMessageField && errorMessage
-                  ? errorMessage
-                  : fieldState.error?.message}
+                errorMessage={
+                  isLastErrorMessageField && errorMessage
+                    ? errorMessage
+                    : fieldState.error?.message
+                }
               />
             ) : null}
           </div>
-        )
+        );
       }}
     />
   );

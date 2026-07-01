@@ -208,6 +208,16 @@
         "label": "Email Address",
         "placeholder": "Enter your email address"
       },
+      "optionsInput": {
+        "label": "Inquiry type",
+        "placeholder": "Select an option",
+        "options": {
+          "jobOpportunity": "Job opportunity",
+          "freelanceProject": "Freelance project",
+          "collaboration": "Collaboration",
+          "generalInquiry": "General inquiry"
+        }
+      },
       "textAreaInput": {
         "label": "Message",
         "placeholder": "Enter your message below"
@@ -215,6 +225,7 @@
       "errors": {
         "empty": "This field is required",
         "email": "The email format entered is not valid",
+        "options": "You must select an option",
         "api": "An error has occurred, please try again"
       }
     },

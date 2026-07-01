@@ -1,10 +1,6 @@
-import {
-  ArgFlagIcon,
-  DownIcon,
-  EngFlagIcon,
-  UpIcon,
-} from "@/components/icons/languageDropdown";
+import { ArgFlagIcon, EngFlagIcon } from "@/components/icons/languageDropdown";
 import MotionHeight from "@/components/motion/MotionHeight";
+import { AnimatedChevron } from "@/components/other/AnimatedChevron";
 import useBreakpoint from "@/hooks/useBreakpoint";
 import { useClickOutside } from "@/utils/useClickOutside";
 import clsx from "clsx";
@@ -46,9 +42,6 @@ const LanguageDropdown = ({ locale, hasScrolled }: LanguageDropdownProps) => {
   const currentLanguage = Languages.find((l) => l.lang === selectedLang);
   const othersLanguages = Languages.filter((l) => l.lang !== selectedLang);
 
-  const arrowIconClassName =
-    "w-2 h-2 xl:w-[0.6rem] xl:h-[0.6rem] fill-black dark:fill-soft-white";
-
   return (
     <div
       {...(!isMobile && {
@@ -85,11 +78,7 @@ const LanguageDropdown = ({ locale, hasScrolled }: LanguageDropdownProps) => {
               {currentLanguage?.lang}
             </span>
           </div>
-          {isOpen ? (
-            <UpIcon className={arrowIconClassName} />
-          ) : (
-            <DownIcon className={arrowIconClassName} />
-          )}
+          <AnimatedChevron small isOpen={isOpen} />
         </div>
 
         <AnimatePresence>

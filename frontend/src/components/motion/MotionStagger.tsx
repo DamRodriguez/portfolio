@@ -79,11 +79,7 @@ const MotionStagger = ({
   const animatedChildren = useMemo(
     () =>
       Children.toArray(children).map((child, index) => (
-        <motion.div
-          key={index}
-          variants={childVariants}
-          className="will-change-[opacity,transform]"
-        >
+        <motion.div key={index} variants={childVariants}>
           {child}
         </motion.div>
       )),

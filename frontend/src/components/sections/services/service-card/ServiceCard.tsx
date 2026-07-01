@@ -50,7 +50,16 @@ export default function ServiceCard({
         },
       )}
     >
-      <div className="relative w-full h-full theme-transition-all [transform-style:preserve-3d] 2xl:group-hover:[transform:rotateY(180deg)]">
+      <div
+        className={clsx(
+          "relative w-full h-full theme-transition-all [transform-style:preserve-3d]",
+          {
+            "2xl:group-hover:[transform:rotateY(180deg)]": index === 0,
+            "2xl:group-hover:[transform:rotateX(180deg)]": index === 1,
+            "2xl:group-hover:[transform:rotateY(-180deg)]": index === 2,
+          },
+        )}
+      >
         {/* --- LADO FRONTAL --- */}
         <article
           className={clsx(
@@ -99,8 +108,12 @@ export default function ServiceCard({
         {/* --- LADO TRASERO --- */}
         <article
           className={clsx(
-            "hidden 2xl:flex absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)]",
+            "hidden 2xl:flex absolute inset-0 w-full h-full [backface-visibility:hidden]",
             "border border-black/20 dark:border-soft-gray/20 p-[1.5rem] xl:p-[2rem] rounded-[3rem] bg-soft-white dark:bg-strong-black shadow-s2 dark:shadow-s1 flex flex-col justify-between group-hover:dark:border-soft-gray group-hover:border-black/20 theme-transition-all",
+            {
+              "[transform:rotateY(180deg)]": index !== 1,
+              "[transform:rotateX(180deg)]": index === 1,
+            },
           )}
         >
           <div className="flex flex-col justify-between h-full">

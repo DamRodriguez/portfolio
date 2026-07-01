@@ -5,6 +5,7 @@ import MotionStagger from "@/components/motion/MotionStagger";
 import showToast from "@/components/toast/Toast";
 import Button from "@/components/ui/buttons/Button";
 import Form from "@/components/ui/form/Form";
+import { BaseOption } from "@/components/ui/inputs/InputCombobox";
 import {
   ContactSchema,
   ContactSchemaFieldNames,
@@ -21,6 +22,7 @@ const ContactForm = () => {
     defaultValues: {
       name: "",
       email: "",
+      option: undefined,
       message: "",
     },
     resolver: zodResolver(ContactSchema),
@@ -28,6 +30,39 @@ const ContactForm = () => {
   });
 
   const { apiErrorMessage } = useFormError(methods.formState);
+
+  const inputCommonProps = {
+    error: apiErrorMessage !== undefined,
+    errorMessage: apiErrorMessage,
+  };
+
+  const consultationOptions = [
+    {
+      id: 1,
+      text: t("contactSection.form.optionsInput.options.jobOpportunity"),
+    },
+    {
+      id: 2,
+      text: t("contactSection.form.optionsInput.options.freelanceProject"),
+    },
+    {
+      id: 3,
+      text: t("contactSection.form.optionsInput.options.collaboration"),
+    },
+    {
+      id: 4,
+      text: t("contactSection.form.optionsInput.options.generalInquiry"),
+    },
+  ];
+
+  interface ConsultationOptionType extends BaseOption {
+    text: string;
+  }
+
+  const renderConsultationOption = (option: BaseOption) => {
+    const consultation = option as ConsultationOptionType;
+    return <p>{consultation.text}</p>;
+  };
 
   const onSubmit = async (data: ContactSchemaType) => {
     try {
@@ -62,28 +97,30 @@ const ContactForm = () => {
       >
         <MotionStagger className="flex flex-col gap-[1.5rem]">
           <Form.InputText
+            {...inputCommonProps}
             label={t("contactSection.form.nameInput.label")}
             placeholder={t("contactSection.form.nameInput.placeholder")}
             name={ContactSchemaFieldNames.name}
-            error={apiErrorMessage !== undefined}
-            errorMessage={apiErrorMessage}
-            isLastErrorMessageField={false}
           />
           <Form.InputText
+            {...inputCommonProps}
             label={t("contactSection.form.emailInput.label")}
             placeholder={t("contactSection.form.emailInput.placeholder")}
             name={ContactSchemaFieldNames.email}
-            error={apiErrorMessage !== undefined}
-            errorMessage={apiErrorMessage}
-            isLastErrorMessageField={false}
-            className="input-gsap"
+          />
+          <Form.InputCombobox
+            {...inputCommonProps}
+            label={t("contactSection.form.optionsInput.label")}
+            placeholder={t("contactSection.form.optionsInput.placeholder")}
+            name={ContactSchemaFieldNames.option}
+            options={consultationOptions}
+            renderOption={renderConsultationOption}
           />
           <Form.InputTextArea
+            {...inputCommonProps}
             label={t("contactSection.form.textAreaInput.label")}
             placeholder={t("contactSection.form.textAreaInput.placeholder")}
             name={ContactSchemaFieldNames.message}
-            error={apiErrorMessage !== undefined}
-            errorMessage={apiErrorMessage}
             isLastErrorMessageField
             className="min-h-[11rem]"
           />
