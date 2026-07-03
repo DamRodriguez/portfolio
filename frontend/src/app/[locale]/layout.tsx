@@ -71,7 +71,7 @@ export default async function LocaleLayout({
       </head>
       <body
         className={clsx(
-          "antialiased min-h-dvh flex flex-col bg-white-bone dark:bg-black overflow-x-hidden",
+          "antialiased min-h-dvh flex flex-col bg-white-bone dark:bg-black",
           openSans.variable,
           firaCode.variable,
         )}
@@ -80,7 +80,7 @@ export default async function LocaleLayout({
           <ThemeProvider>
             <ThemeTransitionBlocker />
             <ProgressBarProvider>
-              <div className="min-w-[20rem] max-w-[120rem] mx-auto w-full font-open-sans">
+              <div className="min-w-[20rem] max-w-[120rem] mx-auto w-full font-open-sans overflow-clip">
                 <Header locale={locale} />
                 <ToastContainer />
                 <PersonSchema />
