@@ -1,7 +1,7 @@
 import { CloseIcon } from "@/components/icons/header";
+import { useScrollLock } from "@/hooks/useScrollLock";
 import clsx from "clsx";
 import { AnimatePresence, motion, type Transition } from "framer-motion";
-import { useCallback, useEffect } from "react";
 
 type DrawerProps = {
   children: React.ReactNode;
@@ -57,26 +57,10 @@ const Drawer = ({
     },
   };
 
-  const lockScroll = useCallback(() => {
-    const scrollbarWidth =
-      window.innerWidth - document.documentElement.clientWidth;
-    document.body.style.overflow = "hidden";
-    document.body.style.paddingRight = `${String(scrollbarWidth)}px`;
-  }, []);
-
-  const unlockScroll = useCallback(() => {
-    document.body.style.overflow = "";
-    document.body.style.paddingRight = "";
-  }, []);
-
-  useEffect(() => {
-    if (visible) {
-      lockScroll();
-    }
-  }, [visible, lockScroll]);
+  useScrollLock(visible);
 
   return (
-    <AnimatePresence mode="wait" onExitComplete={unlockScroll}>
+    <AnimatePresence mode="popLayout">
       {visible && (
         <>
           <motion.div

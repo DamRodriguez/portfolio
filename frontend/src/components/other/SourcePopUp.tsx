@@ -1,6 +1,6 @@
 "use client";
 import MotionOpacity from "@/components/motion/MotionOpacity";
-import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
+import { useScrollLock } from "@/hooks/useScrollLock";
 import { AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
@@ -19,7 +19,7 @@ export const SourcePopUp = ({
 }: SourcePopUpProps) => {
   const [mounted, setMounted] = useState(false);
 
-  useLockBodyScroll(!!source);
+  useScrollLock(!!source);
 
   useEffect(() => {
     setMounted(true);
