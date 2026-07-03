@@ -16,7 +16,7 @@ const FooterSection = () => {
   ];
 
   return (
-    <div className="relative flex flex-col gap-8 xl:gap-10 pb-[5rem] xl:pb-[8rem]">
+    <div className="relative flex flex-col gap-8 xl:gap-10 pb-[5rem] xl:pb-[8rem] xl:mb-[3rem] ">
       <div className="flex flex-col items-center gap-10 z-10">
         <MotionFade className="flex flex-wrap gap-y-[0.8rem] gap-x-[2rem] xl:gap-x-[3rem] xl:gap-y-[1rem] justify-center max-w-[18rem] sm:max-w-full ">
           {routeItems.map((route, index) => (
