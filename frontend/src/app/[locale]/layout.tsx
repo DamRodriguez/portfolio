@@ -71,7 +71,7 @@ export default async function LocaleLayout({
       </head>
       <body
         className={clsx(
-          "antialiased min-h-svh flex flex-col bg-white-bone dark:bg-black",
+          "antialiased min-h-dvh flex flex-col bg-white-bone dark:bg-black overflow-x-hidden",
           openSans.variable,
           firaCode.variable,
         )}

@@ -38,7 +38,7 @@ const ProjectsSection = () => {
             <div
               key={index}
               className={clsx(
-                "project-card relative flex items-center bg-white-bone dark:bg-black h-full pt-[1rem] xl:pt-0 ",
+                "project-card relative flex items-center bg-white-bone dark:bg-black h-full pt-[1rem] xl:pt-0",
               )}
               style={{
                 zIndex: index + 1,
