@@ -8,13 +8,12 @@ const useActiveSection = () => {
   const dispatch = useAppDispatch();
   const state = useAppSelector((state) => state.activeSection);
 
-  const setActiveSection = (section: ActiveSection) => (
-    dispatch(setActiveSectionAction(section))
-  )
+  const setActiveSection = (section: ActiveSection) =>
+    dispatch(setActiveSectionAction(section));
 
   return {
     setActiveSection,
-    activeSection: state.activeSection
+    activeSection: state.activeSection,
   };
 };
 

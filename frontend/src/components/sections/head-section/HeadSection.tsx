@@ -8,6 +8,7 @@ import ButtonWithArrow from "@/components/ui/buttons/ButtonWithArrow";
 import { routes } from "@/constants/routes";
 import useBreakpoint from "@/hooks/useBreakpoint";
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";
+import { removeHash } from "@/utils/removeHash";
 import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
 
@@ -49,7 +50,10 @@ const HeadSection = () => {
   });
 
   return (
-    <SpaceX className="flex flex-col gap-[3rem] xl:gap-[4rem]">
+    <SpaceX
+      id={removeHash(routes.home)}
+      className="flex flex-col gap-[3rem] xl:gap-[4rem]"
+    >
       <div className="flex flex-col gap-[2rem]">
         <div className="w-full flex flex-col -space-y-[2rem] lg:-space-y-[3rem]">
           <div className="flex justify-center xl:justify-between items-center">

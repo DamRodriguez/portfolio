@@ -8,7 +8,7 @@ export type ActiveSectionState = {
 };
 
 const initialState: ActiveSectionState = {
-  activeSection: undefined
+  activeSection: undefined,
 };
 
 const ActiveSectionSlice = createSlice({

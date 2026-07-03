@@ -80,7 +80,7 @@ export default async function LocaleLayout({
           <ThemeProvider>
             <ThemeTransitionBlocker />
             <ProgressBarProvider>
-              <div className="min-w-[20rem] max-w-[120rem] pt-header-mobile xl:pt-header-desktop mx-auto w-full font-open-sans">
+              <div className="min-w-[20rem] max-w-[120rem] mx-auto w-full font-open-sans">
                 <Header locale={locale} />
                 <ToastContainer />
                 <PersonSchema />

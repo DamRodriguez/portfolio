@@ -30,6 +30,7 @@ const FooterSection = () => {
           ))}
         </MotionFade>
       </div>
+
       <SocialButtonsSection withoutMt gsapDisabled />
 
       <MotionSlide

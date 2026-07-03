@@ -27,11 +27,7 @@ const NavDesk = () => {
                   },
                 )}
               >
-                <Link
-                  href={item.href}
-                  onClick={() => {}}
-                  className="cursor-pointer p-[0.5rem]"
-                >
+                <Link href={item.href} className="cursor-pointer p-[0.5rem]">
                   {t(item.label)}
                 </Link>
                 <div
