@@ -9,7 +9,7 @@ export default function SecondTitle({ text, className }: SecondTitleProps) {
   return (
     <h2
       className={clsx(
-        "text-black dark:text-soft-white text-4xl xl:text-5xl font-fira-code text-nowrap",
+        "text-black dark:text-soft-white text-3xl xl:text-5xl font-fira-code text-nowrap",
         className,
       )}
     >
