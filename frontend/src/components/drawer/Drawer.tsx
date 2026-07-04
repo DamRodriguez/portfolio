@@ -60,7 +60,7 @@ const Drawer = ({
   useScrollLock(visible);
 
   return (
-    <AnimatePresence mode="popLayout">
+    <AnimatePresence>
       {visible && (
         <>
           <motion.div
