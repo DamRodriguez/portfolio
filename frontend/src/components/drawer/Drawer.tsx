@@ -104,7 +104,7 @@ const Drawer = ({
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               className={clsx(
-                "fixed z-99 top-0 left-0 right-0 w-screen h-screen bg-black/60 backdrop-blur-[0.5rem]",
+                "fixed z-99 top-0 left-0 right-0 w-screen h-screen popup-glass",
                 overlayClassName,
               )}
             />

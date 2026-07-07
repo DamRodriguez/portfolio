@@ -8,11 +8,7 @@ type ProvidersProps = {
 
 const ThemeProvider: FC<ProvidersProps> = ({ children }) => {
   return (
-    <NextThemesProvider
-      attribute="class"
-      defaultTheme="dark"
-      enableSystem
-    >
+    <NextThemesProvider attribute="class" defaultTheme="dark" enableSystem>
       {children}
     </NextThemesProvider>
   );

@@ -1,42 +1,39 @@
 "use client";
-import { useRef, useEffect } from "react";
-import { SourcePopUp } from "./SourcePopUp";
+import { PopUp } from "@/components/other/PopUp";
+import { useEffect, useRef } from "react";
 
 type VideoPopUpProps = {
   video: string;
   onClose: () => void;
+  lockScroll?: boolean;
 };
 
-export const VideoPopUp = ({ video, onClose }: VideoPopUpProps) => {
+export const VideoPopUp = ({ video, onClose, lockScroll }: VideoPopUpProps) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const videoPosterImg = "../../assets/images/video-poster.png"
 
   useEffect(() => {
     const videoElement = videoRef.current;
     if (!video || !videoElement) return;
 
-    videoElement.play().catch(() => { });
+    videoElement.play().catch(() => {});
 
     return () => {
       videoElement?.pause();
       if (videoElement) {
-        videoElement.currentTime = 0
+        videoElement.currentTime = 0;
       }
     };
   }, [video]);
 
   return (
-    <SourcePopUp
-      source={video}
+    <PopUp
+      isOpen={!!video}
       onClose={onClose}
+      lockScroll={lockScroll}
+      containerClassName="border-soft-white/10 border shadow-s1 rounded-[0.5rem] xl:rounded-2xl overflow-hidden rounded-tr-[1.3rem] xl:rounded-tr-[2rem] w-fit mx-auto"
+      closeButtonClassName="m-2"
     >
-      <video
-        ref={videoRef}
-        src={video}
-        controls
-        playsInline
-        poster={videoPosterImg}
-      />
-    </SourcePopUp>
+      <video ref={videoRef} src={video} controls playsInline />
+    </PopUp>
   );
 };

@@ -80,7 +80,7 @@ export default function SplitTextWrapper({
   );
 
   return (
-    <div ref={containerRef} className="opacity-0">
+    <div ref={containerRef} className="opacity-0 text-nowrap">
       <span className="sr-only">
         {ariaLabel || (typeof children === "string" ? children : "")}
       </span>

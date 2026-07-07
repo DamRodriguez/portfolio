@@ -1,6 +1,7 @@
 "use client";
 import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
+import { RichText } from "@/components/other/RichText";
 import TechnologyItem, {
   TechnologyItemData,
 } from "@/components/sections/about-me-section/technologies/TechnologyItem";
@@ -100,14 +101,8 @@ const TechnologiesSection = () => {
 
       <div className="flex items-end justify-between">
         <MotionFade className="w-[40%]">
-          <p className="text-dark-gray dark:text-soft-gray text-sm lg:text-lg whitespace-pre-line">
-            {t.rich("favoritesTools", {
-              strong: (chunks) => (
-                <span className="text-strong-black dark:text-soft-white font-medium">
-                  {chunks}
-                </span>
-              ),
-            })}
+          <p className="text-dark-gray dark:text-soft-gray text-sm xl:text-lg">
+            <RichText t={t} translationKey={"favoritesTools"} />
           </p>
         </MotionFade>
 

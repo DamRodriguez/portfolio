@@ -3,6 +3,7 @@ import SplitTextWrapper from "@/components/gsap/SplitTextWrapper";
 import SpaceX from "@/components/layout/SpaceX";
 import MotionEntryFade from "@/components/motion/MotionEntryFade";
 import MotionEntrySlide from "@/components/motion/MotionEntrySlide";
+import { RichText } from "@/components/other/RichText";
 import SocialButtonsSection from "@/components/sections/head-section/SocialButtonsSection";
 import ButtonWithArrow from "@/components/ui/buttons/ButtonWithArrow";
 import { routes } from "@/constants/routes";
@@ -22,8 +23,8 @@ const HorizontalCarouselSection = dynamic(
 );
 
 const HeadSection = () => {
-  const t = useTranslations();
-  const projectsButtonText = t("headSection.projectsButton");
+  const t = useTranslations("headSection");
+  const projectsButtonText = t("projectsButton");
   const isMobile = useBreakpoint();
 
   useScrollAnimations({
@@ -55,7 +56,7 @@ const HeadSection = () => {
           <div className="flex justify-center xl:justify-between items-center">
             <SplitTextWrapper order={0}>
               <h1 className="first-title-gsap text-6xl lg:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white font-bold font-fira-code">
-                {t("headSection.title.first")}
+                {t("title.first")}
               </h1>
             </SplitTextWrapper>
             <div className="project-button-gsap">
@@ -69,19 +70,13 @@ const HeadSection = () => {
           </div>
           <div className="flex flex-col-reverse text-center xl:text-start items-center xl:flex xl:flex-row xl:justify-between xl:items-center gap-[1rem]">
             <MotionEntryFade order={1.5} className="max-w-[70%] xl:max-w-[25%]">
-              <p className="text-gsap text-base 2xl:text-xl text-dark-gray dark:text-soft-gray">
-                {t.rich("headSection.personalDescription", {
-                  strong: (chunks) => (
-                    <span className="text-strong-black dark:text-soft-white font-medium">
-                      {chunks}
-                    </span>
-                  ),
-                })}
+              <p className="text-gsap text-dark-gray dark:text-soft-gray text-lg 2xl:text-xl">
+                <RichText t={t} translationKey={"personalDescription"} />
               </p>
             </MotionEntryFade>
             <SplitTextWrapper order={1}>
               <h1 className="second-title-gsap text-6xl lg:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white font-bold font-fira-code">
-                {t("headSection.title.second")}
+                {t("title.second")}
               </h1>
             </SplitTextWrapper>
           </div>

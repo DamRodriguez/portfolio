@@ -16,7 +16,7 @@ const ButtonWithArrow = (props: ButtonWithArrowProps) => {
       external={props.external}
       variant="empty"
       cursorNormal
-      className="flex cursor-pointer group h-fit gap-[0.1rem] xl:gap-[0.5rem]"
+      className="flex cursor-pointer group h-fit gap-[0.1rem] xl:gap-[0.5rem] z-10"
     >
       <div
         className={clsx(

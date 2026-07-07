@@ -22,12 +22,14 @@ type ButtonsSectionProps = {
   button: ProjectButton;
   demoVideo?: string;
   containerClassName?: string;
+  lockScroll?: boolean;
 };
 
 const ButtonsSection = ({
   button,
   demoVideo,
   containerClassName,
+  lockScroll,
 }: ButtonsSectionProps) => {
   const t = useTranslations("projectsSection.buttons");
   const [demoVideoState, setDemoVideoState] = useState<string>("");
@@ -80,6 +82,7 @@ const ButtonsSection = ({
       </div>
       <VideoPopUp
         video={demoVideoState}
+        lockScroll={lockScroll}
         onClose={() => {
           setDemoVideoState("");
         }}

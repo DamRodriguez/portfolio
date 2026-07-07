@@ -7,10 +7,12 @@ import ProjectsSection from "@/components/sections/projects-section/ProjectsSect
 import ServicesSection from "@/components/sections/services/ServicesSection";
 import WorkSection from "@/components/sections/work/WorkSection";
 
-const HomePage = () => {
+export default function HomePage() {
   return (
     <Main className="gap-[9rem] xl:gap-[15rem]">
-      <HeadSection />
+      <ViewportActiveSection section={undefined}>
+        <HeadSection />
+      </ViewportActiveSection>
 
       <ViewportActiveSection section="aboutme">
         <AboutMeSection />
@@ -33,6 +35,4 @@ const HomePage = () => {
       </ViewportActiveSection>
     </Main>
   );
-};
-
-export default HomePage;
+}

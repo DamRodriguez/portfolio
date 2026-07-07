@@ -5,10 +5,21 @@ export const buttonClass = tv({
 
   variants: {
     intent: {
-      primary:
-        "bg-soft-white dark:bg-black text-dark-gray dark:text-medium-gray rounded-full border border-black/60 dark:border-soft-gray/60 italic dark:hover:border-soft-white dark:hover:[&_svg]:fill-black [&_svg]:fill-black hover:[&_svg]:fill-soft-white dark:[&_svg]:fill-soft-white dark:hover:text-dark-gray hover:bg-black hover:text-soft-white/90 dark:hover:bg-soft-white xl:py-[0.5rem] px-[1.5rem] theme-transition-all",
-      secondary:
-        "bg-black dark:bg-soft-white hover:dark:bg-black text-soft-white dark:text-dark-gray text-xl flex items-center rounded-full italic font-medium hover:bg-soft-white hover:text-dark-gray dark:hover:text-soft-white border border-black dark:border-transparent hover:border-black/60 dark:hover:border-soft-gray/60 hover:[&_svg]:fill-black [&_svg]:fill-soft-white theme-transition-all py-[0.62rem] px-[1.62rem]",
+      primary: [
+        "rounded-full border italic xl:py-[0.5rem] px-[1.5rem] theme-transition-all",
+
+        "bg-soft-white text-dark-gray border-black/60 [&_svg]:fill-black hover:bg-black hover:text-soft-white/90 hover:border-black/60 hover:[&_svg]:fill-soft-white",
+
+        "dark:bg-black dark:text-medium-gray dark:border-soft-gray/60 dark:[&_svg]:fill-soft-white dark:hover:bg-soft-white dark:hover:text-dark-gray dark:hover:border-soft-white dark:hover:[&_svg]:fill-black",
+      ],
+
+      secondary: [
+        "rounded-full border italic xl:py-[0.5rem] px-[1.5rem] theme-transition-all",
+
+        "bg-black text-soft-white border-black [&_svg]:fill-soft-white hover:bg-soft-white hover:text-dark-gray hover:border-black/60 hover:[&_svg]:fill-black",
+
+        "dark:bg-soft-white dark:text-dark-gray dark:border-transparent dark:hover:bg-black dark:hover:text-soft-white dark:hover:border-soft-gray/60",
+      ],
       empty: "",
     },
 

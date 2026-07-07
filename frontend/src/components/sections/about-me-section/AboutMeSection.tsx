@@ -4,6 +4,7 @@ import SpaceX from "@/components/layout/SpaceX";
 import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
 import FadeShadow from "@/components/other/FadeShadow";
+import { RichText } from "@/components/other/RichText";
 import SecondTitle from "@/components/text/SecondTitle";
 import { routes } from "@/constants/routes";
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";
@@ -58,14 +59,8 @@ const AboutMeSection = () => {
           />
         </MotionSlide>
         <MotionFade>
-          <p className="description-gsap text-dark-gray dark:text-soft-gray text-base lg:text-xl whitespace-pre-line">
-            {t.rich("header.description", {
-              strong: (chunks) => (
-                <span className="text-strong-black dark:text-soft-white font-medium">
-                  {chunks}
-                </span>
-              ),
-            })}
+          <p className="description-gsap whitespace-pre-line text-dark-gray dark:text-soft-gray text-lg xl:text-xl">
+            <RichText t={t} translationKey={"header.description"} />
           </p>
         </MotionFade>
       </div>

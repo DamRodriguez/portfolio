@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Damian Rodriguez Portfolio",
+  name: "Damian Rodriguez",
 
   title: "Damian Rodriguez | Portfolio",
 

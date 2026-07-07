@@ -9,6 +9,7 @@ export const projectsData: ProjectItemData[] = [
       type: "repository",
       link: config.repositories.spotifyMobile,
     },
+    imageLogo: "/images/projects/spotify-mobile/logo.webp",
     imageSource: {
       type: "mobile",
       images: [
@@ -26,6 +27,7 @@ export const projectsData: ProjectItemData[] = [
       type: "site",
       link: config.projects.lopezPropiedades,
     },
+    imageLogo: "/images/projects/lopez-propiedades/logo.webp",
     imageSource: {
       type: "default",
       images: {
@@ -49,6 +51,7 @@ export const projectsData: ProjectItemData[] = [
       type: "site",
       link: config.projects.vanicracia,
     },
+    imageLogo: "/images/projects/vanicracia/logo.webp",
     imageSource: {
       type: "default",
       images: {
@@ -65,6 +68,7 @@ export const projectsData: ProjectItemData[] = [
       type: "site",
       link: config.projects.alfombrasTauro,
     },
+    imageLogo: "/images/projects/alfombras-tauro/logo.webp",
     imageSource: {
       type: "default",
       images: {
@@ -80,6 +84,7 @@ export const projectsData: ProjectItemData[] = [
     button: {
       type: "inDevelopment",
     },
+    imageLogo: "/images/projects/donde-salgo/logo.webp",
     imageSource: {
       type: "default",
       images: {

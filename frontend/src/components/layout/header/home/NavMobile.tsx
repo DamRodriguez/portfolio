@@ -12,6 +12,7 @@ type NavMobileProps = {
 
 const NavMobile = ({ onClose }: NavMobileProps) => {
   const t = useTranslations("header.navItems");
+
   return (
     <MotionFade className="h-full">
       <div className="pt-[1.5rem] px-[5rem] lg:px-[15rem] pb-[8rem] justify-between flex flex-col h-full">

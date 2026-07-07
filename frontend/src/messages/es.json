@@ -142,12 +142,16 @@
       "visitSite": "Visitar sitio",
       "inDevelopment": "En desarrollo",
       "seeCode": "Ver código",
-      "seeDemo": "Ver demo"
+      "seeDemo": "Ver demo",
+      "allProjects": "Ver más proyectos"
     },
     "categories": {
       "ecommerce": "E-commerce",
       "webPlatform": "Plataforma Web",
       "mobileApp": "Aplicación Móvil"
+    },
+    "filter": {
+      "all": "Todos"
     },
     "data": {
       "vanicracia": {
@@ -235,6 +239,15 @@
         "contactFormSuccess": "Mensaje enviado con éxito!",
         "contactFormError": "Ha ocurrido un error, intente nuevamente"
       }
+    }
+  },
+  "allProjectsPage": {
+    "header": {
+      "title": "Proyectos",
+      "homeButton": "Página principal"
+    },
+    "projectCard": {
+      "seeMore": "Ver más"
     }
   }
 }

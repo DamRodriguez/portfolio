@@ -2,8 +2,8 @@ import {
   buttonClass,
   type ButtonVariants,
 } from "@/components/ui/buttons/Button.style";
+import { Link } from "@/i18n/navigation";
 import clsx from "clsx";
-import Link from "next/link";
 import type { ReactNode } from "react";
 
 type QueryValue = string | number | boolean | undefined | null;

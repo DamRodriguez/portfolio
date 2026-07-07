@@ -83,7 +83,7 @@ export default function ServiceCard({
                 </span>
               )}
             </p>
-            <p className="text-dark-gray dark:text-soft-gray text-base xl:text-lg whitespace-pre-line mb-[2rem] ">
+            <p className="text-dark-gray dark:text-soft-gray text-base xl:text-lg whitespace-pre-line mb-[2rem]">
               <RichText
                 t={t}
                 translationKey={`data.${data.translationKey}.description`}

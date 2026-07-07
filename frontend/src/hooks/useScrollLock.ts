@@ -20,12 +20,12 @@ export const useScrollLock = (isVisible: boolean) => {
   }, []);
 
   useEffect(() => {
-    if (isVisible) {
-      lockScroll();
-    } else {
-      unlockScroll();
-    }
+    if (!isVisible) return;
 
-    return () => unlockScroll();
+    lockScroll();
+
+    return () => {
+      unlockScroll();
+    };
   }, [isVisible, lockScroll, unlockScroll]);
 };

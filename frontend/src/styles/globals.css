@@ -5,6 +5,14 @@
 
 @custom-variant dark (&:is(.dark *));
 
+:root {
+  --progress-color: var(--color-black);
+}
+
+.dark {
+  --progress-color: var(--color-soft-white);
+}
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
@@ -27,6 +35,10 @@
 
   .anchor-offset {
     @apply scroll-mt-[8.5rem] xl:scroll-mt-[12rem];
+  }
+
+  .popup-glass {
+    @apply bg-white-bone/60 dark:bg-black/60 backdrop-blur-[0.5rem];
   }
 
   @keyframes flow {

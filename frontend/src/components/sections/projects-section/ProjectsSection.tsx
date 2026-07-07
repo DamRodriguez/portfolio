@@ -1,7 +1,9 @@
 "use client";
 import SpaceX from "@/components/layout/SpaceX";
+import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
 import SecondTitle from "@/components/text/SecondTitle";
+import ButtonWithArrow from "@/components/ui/buttons/ButtonWithArrow";
 import { routes } from "@/constants/routes";
 import { projectsData } from "@/data/projectsData";
 import { useProjectsScrollAnimation } from "@/hooks/useProjectsScrollAnimation";
@@ -29,43 +31,52 @@ const ProjectsSection = () => {
         />
       </MotionSlide>
 
-      <div ref={containerRef} className="projects-stack">
-        {projectsData.map((project, index) => {
-          const isLastProject = index === projectsData.length - 1;
-          const isFirstProject = index === 0;
+      <div className="flex flex-col gap-[2.5rem] xl:gap-[6rem]">
+        <div ref={containerRef} className="projects-stack">
+          {projectsData.map((project, index) => {
+            const isLastProject = index === projectsData.length - 1;
+            const isFirstProject = index === 0;
 
-          return (
-            <div
-              key={index}
-              className={clsx(
-                "project-card relative flex items-center bg-white-bone dark:bg-black h-full pt-[1rem] xl:pt-0",
-              )}
-              style={{
-                zIndex: index + 1,
-              }}
-            >
+            return (
               <div
+                key={index}
                 className={clsx(
-                  "pointer-events-none absolute left-0 top-[-3.5rem] h-[4rem] xl:top-[-1.5rem] xl:h-[2rem] z-20 w-full bg-gradient-to-t from-white-bone via-white-bone dark:from-black dark:via-black to-transparent",
-                  {
-                    hidden: isFirstProject,
-                  },
+                  "project-card relative flex items-center bg-white-bone dark:bg-black h-full pt-[1rem] xl:pt-0",
                 )}
-              />
-              <ProjectItem
-                data={project}
-                odd={index % 2 !== 0}
-                containerClassName={clsx(
-                  "overflow-clip project-card-content will-change-transform",
-                  {
-                    "pt-[2rem] pb-[2rem]": !isLastProject,
-                    "pt-[2rem] pb-[0rem]": isLastProject,
-                  },
-                )}
-              />
-            </div>
-          );
-        })}
+                style={{
+                  zIndex: index + 1,
+                }}
+              >
+                <div
+                  className={clsx(
+                    "pointer-events-none absolute left-0 top-[-3.5rem] h-[4rem] xl:top-[-1.5rem] xl:h-[2rem] z-20 w-full bg-gradient-to-t from-white-bone via-white-bone dark:from-black dark:via-black to-transparent",
+                    {
+                      hidden: isFirstProject,
+                    },
+                  )}
+                />
+                {/*si falla algo cambiar overflow-y-clip por overflow-clip */}
+                <ProjectItem
+                  data={project}
+                  odd={index % 2 !== 0}
+                  containerClassName={clsx(
+                    "overflow-y-clip project-card-content will-change-transform",
+                    {
+                      "pt-[2rem] pb-[2rem]": !isLastProject,
+                      "pt-[2rem] pb-[0rem]": isLastProject,
+                    },
+                  )}
+                />
+              </div>
+            );
+          })}
+        </div>
+        <MotionFade className="z-10 w-fit mx-auto">
+          <ButtonWithArrow
+            text={t("buttons.allProjects")}
+            routerPath={routes.allProjects}
+          />
+        </MotionFade>
       </div>
     </SpaceX>
   );

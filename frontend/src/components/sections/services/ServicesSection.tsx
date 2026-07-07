@@ -3,6 +3,7 @@ import SpaceX from "@/components/layout/SpaceX";
 import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
 import MotionStagger from "@/components/motion/MotionStagger";
+import { RichText } from "@/components/other/RichText";
 import ServiceCard, {
   ServiceCardData,
 } from "@/components/sections/services/service-card/ServiceCard";
@@ -71,14 +72,8 @@ export default function ServicesSection() {
           <SecondTitle text={t("title")} className="services-title-gsap" />
         </MotionSlide>
         <MotionFade>
-          <p className="services-description-gsap max-w-[34rem] mx-auto services-description-gsap text-dark-gray dark:text-soft-gray text-base lg:text-xl whitespace-pre-line">
-            {t.rich("subtitle", {
-              strong: (chunks) => (
-                <span className="text-strong-black dark:text-soft-white font-medium">
-                  {chunks}
-                </span>
-              ),
-            })}
+          <p className="services-description-gsap max-w-[34rem] mx-auto text-dark-gray dark:text-soft-gray text-lg xl:text-xl">
+            <RichText t={t} translationKey={"subtitle"} />
           </p>
         </MotionFade>
       </div>

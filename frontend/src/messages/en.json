@@ -142,12 +142,16 @@
       "visitSite": "Visit site",
       "inDevelopment": "In development",
       "seeCode": "Source code",
-      "seeDemo": "Live demo"
+      "seeDemo": "Live demo",
+      "allProjects": "View more projects"
     },
     "categories": {
       "ecommerce": "E-commerce",
       "webPlatform": "Web Platform",
       "mobileApp": "Mobile App"
+    },
+    "filter": {
+      "all": "All"
     },
     "data": {
       "vanicracia": {
@@ -235,6 +239,15 @@
         "contactFormSuccess": "Message sent successfully!",
         "contactFormError": "An error has occurred, please try again"
       }
+    }
+  },
+  "allProjectsPage": {
+    "header": {
+      "title": "Projects",
+      "homeButton": "Home page"
+    },
+    "projectCard": {
+      "seeMore": "See more"
     }
   }
 }

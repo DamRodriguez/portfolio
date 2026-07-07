@@ -1,3 +1,4 @@
+"use client";
 import InfiniteCarousel from "@/components/carousel/InfiniteCarousel";
 import ItemHover from "@/components/other/ItemHover";
 import { RichText } from "@/components/other/RichText";
@@ -20,6 +21,7 @@ export type ProjectItemData = {
   button: ProjectButton;
   demoVideo?: string;
   imageSource: ImageSource;
+  imageLogo: string;
   disablePopUp?: boolean;
   translationKey: ProjectKey;
 };
@@ -28,6 +30,7 @@ type ProjectItemProps = {
   data: ProjectItemData;
   odd?: boolean;
   containerClassName?: string;
+  lockScroll?: boolean;
 };
 
 const ProjectItem = (props: ProjectItemProps) => {
@@ -40,7 +43,7 @@ const ProjectItem = (props: ProjectItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  useScrollLock(isOpen);
+  useScrollLock(isOpen && !props.lockScroll);
 
   const allImages = useMemo(() => {
     switch (data.imageSource.type) {
@@ -110,7 +113,7 @@ const ProjectItem = (props: ProjectItemProps) => {
 
             <div className="flex xl:hidden">
               <InfiniteCarousel items={technologies} />
-              <div className="absolute z-2 top-0 -right-1 bg-gradient-to-r from-transparent to-white-bone dark:to-black w-6 h-full" />
+              {/* <div className="absolute z-2 top-0 -right-1 bg-gradient-to-r from-transparent to-white-bone dark:to-black w-6 h-full" /> */}
             </div>
           </div>
         </div>
@@ -125,7 +128,8 @@ const ProjectItem = (props: ProjectItemProps) => {
         <ButtonsSection
           button={data.button}
           demoVideo={data.demoVideo}
-          containerClassName="mt-[1rem] "
+          lockScroll={props.lockScroll}
+          containerClassName="mt-[1rem]"
         />
       </div>
 

@@ -1,4 +1,5 @@
 "use client";
+
 import MotionScale from "@/components/motion/MotionScale";
 import Spinner from "@/components/spinner/Spinner";
 import clsx from "clsx";
@@ -26,22 +27,31 @@ const CarouselImage = ({ src, index }: CarouselImageProps) => {
       )}
 
       <MotionScale
-        duration={0.3}
         key={index}
-        className="w-full h-full inset-0 z-10"
+        duration={0.3}
+        className="absolute inset-0 z-10 flex items-center justify-center"
       >
-        <Image
-          src={src}
-          alt={`Galería ${index}`}
-          sizes="(max-width: 768px) 100vw, 1200px"
-          fill
-          quality={80}
-          onLoad={() => setLoaded(true)}
+        <div
           className={clsx(
-            "object-contain transition-opacity duration-300 z-10",
+            "overflow-hidden rounded-[0.5rem] xl:rounded-2xl border border-soft-white/10 shadow-s1 transition-opacity duration-300 xl:mx-20",
             loaded ? "opacity-100" : "opacity-0",
           )}
-        />
+        >
+          <Image
+            src={src}
+            alt={`Galería ${index}`}
+            width={1920}
+            height={1080}
+            quality={80}
+            onLoad={() => setLoaded(true)}
+            className="object-contain"
+            style={{
+              maxHeight: "calc(100vh - 16rem)",
+              width: "auto",
+              height: "auto",
+            }}
+          />
+        </div>
       </MotionScale>
     </>
   );

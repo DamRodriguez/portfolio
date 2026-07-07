@@ -1,21 +1,17 @@
-import Header from "@/components/layout/header/Header";
-import ThemeProvider from "@/components/layout/ThemeProvider";
-import BackgroundText from "@/components/other/BackgroundText";
 import GoogleAnalytics from "@/components/other/GoogleAnalytics";
-import ProgressBarProvider from "@/components/other/ProgressBarProvider";
 import ThemeScript from "@/components/other/ThemeScript";
 import ThemeTransitionBlocker from "@/components/other/ThemeTransitionBlocker";
 import VoiceflowChat from "@/components/other/VoiceflowChat";
+import Providers from "@/components/provider/Providers";
 import PersonSchema from "@/components/seo/PersonSchema";
 import { routing } from "@/i18n/routing";
 import { createMetadata } from "@/lib/metadata";
-import { Analytics } from "@vercel/analytics/next";
+import "@/styles/globals.css";
+import { getValidatedLocale } from "@/utils/getValidatedLocale";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import clsx from "clsx";
 import { Metadata } from "next";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
 import { Fira_Code, Open_Sans } from "next/font/google";
-import { notFound } from "next/navigation";
 import { ToastContainer } from "react-toastify";
 
 const openSans = Open_Sans({
@@ -32,7 +28,7 @@ const firaCode = Fira_Code({
   weight: ["400", "500", "600", "700"],
 });
 
-type LocaleLayoutProps = {
+type RootLocaleLayoutProps = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 };
@@ -53,16 +49,11 @@ export async function generateMetadata({
   });
 }
 
-export default async function LocaleLayout({
+export default async function RootLocaleLayout({
   children,
   params,
-}: LocaleLayoutProps) {
-  const { locale } = await params;
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
-
-  setRequestLocale(locale);
+}: RootLocaleLayoutProps) {
+  const locale = await getValidatedLocale(params);
 
   return (
     <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
@@ -76,23 +67,17 @@ export default async function LocaleLayout({
           firaCode.variable,
         )}
       >
-        <NextIntlClientProvider>
-          <ThemeProvider>
-            <ThemeTransitionBlocker />
-            <ProgressBarProvider>
-              <div className="min-w-[20rem] max-w-[120rem] mx-auto w-full font-open-sans overflow-clip">
-                <Header locale={locale} />
-                <ToastContainer />
-                <PersonSchema />
-                <BackgroundText />
-                {children}
-              </div>
-              <Analytics />
-              <GoogleAnalytics />
-              <VoiceflowChat locale={locale} />
-            </ProgressBarProvider>
-          </ThemeProvider>
-        </NextIntlClientProvider>
+        <Providers>
+          <div className="min-w-[20rem] max-w-[120rem] mx-auto w-full font-open-sans overflow-clip">
+            <ToastContainer />
+            {children}
+          </div>
+          <ThemeTransitionBlocker />
+          <PersonSchema />
+          <GoogleAnalytics />
+          <VercelAnalytics />
+          <VoiceflowChat locale={locale} />
+        </Providers>
       </body>
     </html>
   );
