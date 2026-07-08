@@ -10,7 +10,6 @@ type Params = Promise<{
 
 export async function getValidatedLocale(params: Params): Promise<Locale> {
   const { locale } = await params;
-
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
