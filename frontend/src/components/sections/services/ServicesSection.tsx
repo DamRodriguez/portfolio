@@ -72,7 +72,7 @@ export default function ServicesSection() {
           <SecondTitle text={t("title")} className="services-title-gsap" />
         </MotionSlide>
         <MotionFade>
-          <p className="services-description-gsap max-w-[34rem] mx-auto text-dark-gray dark:text-soft-gray text-lg xl:text-xl">
+          <p className="services-description-gsap max-w-[34rem] mx-auto text-dark-gray dark:text-soft-gray text-base xl:text-xl">
             <RichText t={t} translationKey={"subtitle"} />
           </p>
         </MotionFade>

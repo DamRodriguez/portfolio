@@ -59,7 +59,7 @@ const AboutMeSection = () => {
           />
         </MotionSlide>
         <MotionFade>
-          <p className="description-gsap whitespace-pre-line text-dark-gray dark:text-soft-gray text-lg xl:text-xl">
+          <p className="description-gsap whitespace-pre-line text-dark-gray dark:text-soft-gray text-base xl:text-xl">
             <RichText t={t} translationKey={"header.description"} />
           </p>
         </MotionFade>

@@ -70,7 +70,7 @@ const HeadSection = () => {
           </div>
           <div className="flex flex-col-reverse text-center xl:text-start items-center xl:flex xl:flex-row xl:justify-between xl:items-center gap-[1rem]">
             <MotionEntryFade order={1.5} className="max-w-[70%] xl:max-w-[25%]">
-              <p className="text-gsap text-dark-gray dark:text-soft-gray text-lg 2xl:text-xl">
+              <p className="text-gsap text-dark-gray dark:text-soft-gray text-base 2xl:text-xl">
                 <RichText t={t} translationKey={"personalDescription"} />
               </p>
             </MotionEntryFade>
