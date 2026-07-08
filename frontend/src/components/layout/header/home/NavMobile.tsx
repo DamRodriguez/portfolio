@@ -15,7 +15,7 @@ const NavMobile = ({ onClose }: NavMobileProps) => {
   return (
     <div className="pt-[1.5rem] px-[4rem] justify-between pb-[calc(env(safe-area-inset-bottom)+2rem)] gap-[2.5rem] flex flex-col h-full">
       <nav>
-        <ul className="flex flex-col gap-[2rem] max-w-[18rem] items-stretch mx-auto">
+        <ul className="flex flex-col gap-[1.5rem] max-w-[18rem] items-stretch mx-auto">
           {navRoutes.map((item, index) => {
             const { href, label, icon } = item;
             const Icon = icon;
@@ -28,12 +28,12 @@ const NavMobile = ({ onClose }: NavMobileProps) => {
                     onClick={onClose}
                     className="cursor-pointer w-full pb-2"
                   >
-                    <div className="flex gap-3 items-center w-full">
-                      <div className="bg-white-bone/70 dark:bg-soft-gray/5 border border-dark-gray/10 dark:border-soft-gray/10 p-2 rounded-full">
-                        <Icon className="w-5 h-5 stroke-dark-gray/90 dark:stroke-soft-gray" />
+                    <div className="flex gap-2.5 items-center w-full">
+                      <div className="bg-white-bone/70 dark:bg-soft-gray/5 border border-dark-gray/10 dark:border-soft-gray/10 p-[0.5rem] rounded-full">
+                        <Icon className="w-4 h-4 stroke-dark-gray/90 dark:stroke-soft-gray" />
                       </div>
 
-                      <span className="text-black/90 dark:text-soft-white/90 font-medium text-base">
+                      <span className="text-black/90 dark:text-soft-white/90 font-medium text-sm">
                         {t(label)}
                       </span>
                     </div>
