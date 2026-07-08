@@ -1,4 +1,5 @@
 "use client";
+import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
 import SocialButtons from "@/components/other/SocialButtons";
 import { navRoutes } from "@/constants/navRoutes";
@@ -45,9 +46,9 @@ const NavMobile = ({ onClose }: NavMobileProps) => {
           })}
         </ul>
       </nav>
-      <MotionSlide direction="down" order={2.5}>
+      <MotionFade order={2.5}>
         <SocialButtons />
-      </MotionSlide>
+      </MotionFade>
     </div>
   );
 };
