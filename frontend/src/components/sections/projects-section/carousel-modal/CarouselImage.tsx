@@ -44,9 +44,9 @@ const CarouselImage = ({ src, index }: CarouselImageProps) => {
             height={1080}
             quality={80}
             onLoad={() => setLoaded(true)}
-            className="object-contain"
+            className="object-contain max-h-[65vh]"
             style={{
-              maxHeight: "calc(100vh - 16rem)",
+              // maxHeight: "calc(100vh - 16rem)",
               width: "auto",
               height: "auto",
             }}

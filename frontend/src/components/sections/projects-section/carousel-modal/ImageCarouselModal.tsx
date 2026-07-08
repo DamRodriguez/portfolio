@@ -49,15 +49,15 @@ const ImageCarouselModal = ({
       onClick={onClose}
       className="fixed inset-0 z-9999999999 popup-glass flex items-center justify-center"
     >
-      <div className="w-full max-h-[90vh] relative">
+      <div className="w-full relative">
         <CarouselHeader
           current={index + 1}
           total={images.length}
           onClose={onClose}
         />
-        <SpaceX className="min-w-[20rem] max-w-[120rem] relative w-full h-svh flex items-center justify-center">
+        <SpaceX className="min-w-[20rem] max-w-[120rem] relative w-full h-[90vh] flex items-center justify-center">
           <div
-            className="relative w-full h-full mb-[calc(env(safe-area-inset-bottom)+2rem)] xl:pb-[4rem]"
+            className="relative w-full pb-[calc(env(safe-area-inset-bottom)+1rem)] h-full xl:pb-[4rem]"
             onClick={(e) => e.stopPropagation()}
           >
             <CarouselImage src={images[index]} index={index} />
