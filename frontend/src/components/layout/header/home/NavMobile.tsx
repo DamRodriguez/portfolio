@@ -13,7 +13,7 @@ const NavMobile = ({ onClose }: NavMobileProps) => {
   const t = useTranslations("header.navItems");
 
   return (
-    <div className="pt-[1.5rem] px-[4rem] justify-between pb-[calc(env(safe-area-inset-bottom)+2rem)] gap-[2.5rem] flex flex-col h-full">
+    <div className="pt-[2rem] px-[4rem] justify-between pb-[calc(env(safe-area-inset-bottom)+3rem)] gap-[2.5rem] flex flex-col h-full">
       <nav>
         <ul className="flex flex-col gap-[1.7rem] max-w-[15rem] items-stretch mx-auto">
           {navRoutes.map((item, index) => {
