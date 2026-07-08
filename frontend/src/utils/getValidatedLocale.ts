@@ -1,11 +1,11 @@
+import type { Locale } from "@/i18n/routing";
 import { routing } from "@/i18n/routing";
 import { hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import type { Locale } from "@/i18n/routing";
 
 type Params = Promise<{
-  locale: string;
+  locale: Locale;
 }>;
 
 export async function getValidatedLocale(params: Params): Promise<Locale> {
