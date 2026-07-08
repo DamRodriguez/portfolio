@@ -1,5 +1,6 @@
 import ProjectsHeader from "@/components/layout/header/projects/ProjectsHeader";
 import { routes } from "@/constants/routes";
+import { Locale } from "@/i18n/routing";
 import { createMetadata } from "@/lib/metadata";
 import { getValidatedLocale } from "@/utils/getValidatedLocale";
 import { Metadata } from "next";
@@ -17,7 +18,7 @@ const projectDescriptions = {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
   const { locale } = await params;
   const description =

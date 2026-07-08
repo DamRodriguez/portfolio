@@ -1,4 +1,5 @@
-// Site configuration with i18n support
+import { Locale } from "@/i18n/routing";
+
 export const siteTranslations = {
   es: {
     name: "Damian Rodriguez",
@@ -53,7 +54,7 @@ export const siteConfig = {
   ],
 };
 
-export function getSiteConfig(locale: string) {
+export function getSiteConfig(locale: Locale) {
   return (
     siteTranslations[locale as keyof typeof siteTranslations] ??
     siteTranslations.es

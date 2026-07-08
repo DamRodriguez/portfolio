@@ -1,4 +1,5 @@
 import { getSiteConfig, siteConfig } from "@/config/site";
+import { Locale } from "@/i18n/routing";
 import { ogLocales } from "@/utils/ogLocales";
 import type { Metadata } from "next";
 
@@ -8,7 +9,7 @@ type CreateMetadataProps = {
   path?: string;
   image?: string;
   noIndex?: boolean;
-  locale?: string;
+  locale?: Locale;
 };
 
 export function createMetadata({
