@@ -1,5 +1,6 @@
 "use client";
 import useBreakpoint from "@/hooks/useBreakpoint";
+import { Locale } from "@/i18n/routing";
 import Script from "next/script";
 
 interface VoiceflowChatConfig {
@@ -31,7 +32,7 @@ declare global {
   }
 }
 
-const VoiceflowChat = ({ locale }: { locale: string }) => {
+const VoiceflowChat = ({ locale }: { locale: Locale }) => {
   const isMobile = useBreakpoint();
   {
     /*
