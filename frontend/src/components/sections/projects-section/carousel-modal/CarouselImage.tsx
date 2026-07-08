@@ -29,7 +29,7 @@ const CarouselImage = ({ src, index }: CarouselImageProps) => {
       <MotionScale
         key={index}
         duration={0.3}
-        className="absolute inset-0 z-10 flex items-center justify-center"
+        className="absolute inset-0 z-10 flex items-center justify-center pb-[2rem] "
       >
         <div
           className={clsx(
