@@ -13,7 +13,6 @@ export default async function HomeLayout({
   params,
 }: HomeLayoutProps) {
   const locale = await getValidatedLocale(params);
-
   return (
     <>
       <HomeHeader locale={locale} />
