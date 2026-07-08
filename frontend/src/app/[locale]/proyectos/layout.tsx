@@ -1,6 +1,5 @@
 import ProjectsHeader from "@/components/layout/header/projects/ProjectsHeader";
 import { routes } from "@/constants/routes";
-import { Locale } from "@/i18n/routing";
 import { createMetadata } from "@/lib/metadata";
 import { getValidatedLocale } from "@/utils/getValidatedLocale";
 import { Metadata } from "next";
@@ -38,7 +37,7 @@ export async function generateMetadata({
 
 type ProjectsLayoutProps = {
   children: React.ReactNode;
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 };
 
 export default async function ProjectsLayout({
