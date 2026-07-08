@@ -20,7 +20,7 @@ export function createMetadata({
   noIndex = false,
   locale,
 }: CreateMetadataProps = {}): Metadata {
-  const localeToUse = locale ?? siteConfig.defaultLocale;
+  const localeToUse = (locale ?? siteConfig.defaultLocale) as Locale;
   const config = getSiteConfig(localeToUse);
 
   const url = new URL(path, siteConfig.url).toString();
