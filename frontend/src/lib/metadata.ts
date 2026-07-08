@@ -9,7 +9,7 @@ type CreateMetadataProps = {
   path?: string;
   image?: string;
   noIndex?: boolean;
-  locale?: Locale;
+  locale?: string;
 };
 
 export function createMetadata({

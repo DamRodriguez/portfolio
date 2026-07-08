@@ -30,7 +30,7 @@ const firaCode = Fira_Code({
 
 type RootLocaleLayoutProps = {
   children: React.ReactNode;
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 };
 
 export function generateStaticParams() {
@@ -40,13 +40,13 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
 
   return createMetadata({
     path: `/${locale}`,
-    locale: locale,
+    locale: locale as Locale,
   });
 }
 

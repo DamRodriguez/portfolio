@@ -5,7 +5,7 @@ import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 type Params = Promise<{
-  locale: Locale;
+  locale: string;
 }>;
 
 export async function getValidatedLocale(params: Params): Promise<Locale> {
