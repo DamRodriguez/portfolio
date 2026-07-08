@@ -21,8 +21,8 @@ const NavMobile = ({ onClose }: NavMobileProps) => {
             const Icon = icon;
 
             return (
-              <MotionSlide order={index * 0.4}>
-                <li key={href} className="flex flex-col w-full">
+              <MotionSlide key={index} order={index * 0.4}>
+                <li className="flex flex-col w-full">
                   <Link
                     href={href}
                     onClick={onClose}
