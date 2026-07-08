@@ -13,7 +13,7 @@ export default function ServicesContactSection() {
           <div className="flex justify-center items-center bg-black/10 dark:bg-soft-white/30 border border-dark-gray/30 dark:border-soft-gray/50 w-[3.5rem] h-[3.5rem] xl:w-[4rem] xl:h-[4rem] rounded-full group-hover/second:animate-pulse">
             <Lightbulb className="stroke-black dark:stroke-soft-white" />
           </div>
-          <div className="flex flex-col gap-[0.5rem] ">
+          <div className="flex flex-col gap-[1rem] xl:gap-[0.5rem]">
             <p className="text-black dark:text-soft-white font-medium text-lg">
               {t("title")}
             </p>
