@@ -1,5 +1,6 @@
 .Toastify__toast {
   padding: 0 !important;
+  margin-left: 1rem !important;
   padding-left: 1rem !important;
   width: min(25rem, calc(100vw - 2rem)) !important;
   min-width: 0 !important;
@@ -7,12 +8,13 @@
   backdrop-filter: blur(3px);
   background-color: var(--color-soft-white) !important;
   box-shadow: var(--shadow-s1) !important;
-  border: 1px solid rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(0, 0, 0, 0.4) !important;
   overflow: hidden !important;
 
-  @media (max-width: 1023px) {
+  @media (max-width: 1280px) {
     width: min(22rem, calc(100vw - 4rem)) !important;
     padding-left: 0.7rem !important;
+    margin-left: 0 !important;
   }
 }
 
@@ -29,7 +31,7 @@
 .dark .Toastify__toast {
   background-color: var(--color-black) !important;
   box-shadow: var(--shadow-s6) !important;
-  border-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
 }
 
 .Toastify__toast-icon svg {
@@ -37,7 +39,7 @@
   width: 1.5rem !important;
   height: 1.5rem !important;
 
-  @media (max-width: 1023px) {
+  @media (max-width: 1280px) {
     width: 1.2rem !important;
     height: 1.2rem !important;
   }

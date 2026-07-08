@@ -5,6 +5,8 @@
       "services": "Servicios",
       "work": "Trabajos",
       "projects": "Proyectos",
+      "featuredProjects": "Proyectos destacados",
+      "allProjects": "Todos los proyectos",
       "contact": "Contacto"
     }
   },
@@ -188,13 +190,6 @@
   },
   "contactSection": {
     "title": "Contacto",
-    "routes": {
-      "home": "Inicio",
-      "aboutMe": "Sobre mí",
-      "services": "Servicios",
-      "work": "Trabajos",
-      "projects": "Proyectos"
-    },
     "buttons": {
       "downloadCV": "Descargar CV",
       "sendMessage": "Enviar mensaje"
@@ -239,6 +234,17 @@
         "contactFormSuccess": "Mensaje enviado con éxito!",
         "contactFormError": "Ha ocurrido un error, intente nuevamente"
       }
+    }
+  },
+  "footerSection": {
+    "routes": {
+      "home": "Inicio",
+      "aboutme": "Sobre mí",
+      "services": "Servicios",
+      "work": "Trabajos",
+      "featuredProjects": "Proyectos destacados",
+      "allProjects": "Todos los proyectos",
+      "contact": "Contacto"
     }
   },
   "allProjectsPage": {

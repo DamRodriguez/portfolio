@@ -1,6 +1,6 @@
 import { routes } from "@/constants/routes";
 
-export const routeItems = [
+export const deskRoutes = [
   { href: routes.aboutMe, label: "aboutme" },
   { href: routes.services, label: "services" },
   { href: routes.work, label: "work" },
@@ -8,4 +8,4 @@ export const routeItems = [
   { href: routes.contact, label: "contact" },
 ] as const;
 
-export type RouteLabel = (typeof routeItems)[number]["label"];
+export type RouteLabel = (typeof deskRoutes)[number]["label"];

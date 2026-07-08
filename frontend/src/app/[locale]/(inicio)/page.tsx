@@ -2,6 +2,7 @@ import Main from "@/components/layout/Main";
 import ViewportActiveSection from "@/components/other/ViewportActiveSection";
 import AboutMeSection from "@/components/sections/about-me-section/AboutMeSection";
 import ContactSection from "@/components/sections/contact/ContactSection";
+import FooterSection from "@/components/sections/footer/FooterSection";
 import HeadSection from "@/components/sections/head-section/HeadSection";
 import ProjectsSection from "@/components/sections/projects-section/ProjectsSection";
 import ServicesSection from "@/components/sections/services/ServicesSection";
@@ -33,6 +34,8 @@ export default function HomePage() {
       <ViewportActiveSection section="contact">
         <ContactSection />
       </ViewportActiveSection>
+
+      <FooterSection />
     </Main>
   );
 }

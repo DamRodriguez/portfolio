@@ -33,7 +33,7 @@ const ProjectsSection = () => {
 
       <div className="flex flex-col gap-[2.5rem] xl:gap-[6rem]">
         <div ref={containerRef} className="projects-stack">
-          {projectsData.map((project, index) => {
+          {projectsData.slice(0, 5).map((project, index) => {
             const isLastProject = index === projectsData.length - 1;
             const isFirstProject = index === 0;
 

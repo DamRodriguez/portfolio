@@ -59,7 +59,7 @@ const Toast = ({ type, text, closeToast, manualClose }: ToastProps) => {
             {toastItem.title}
           </p>
         )}
-        <p className="text-sm lg:text-lg text-black dark:text-soft-white font-fira-code">
+        <p className="text-sm xl:text-lg text-black dark:text-soft-white font-fira-code">
           {text}
         </p>
       </div>

@@ -37,7 +37,7 @@ const FilterButtons = ({
 
   return (
     <MotionStagger
-      direction="up"
+      direction="down"
       order={1}
       className="flex flex-wrap justify-center gap-[1rem]"
     >

@@ -21,7 +21,7 @@ const SocialButtons = () => {
           key={index}
           href={item.href}
           target="_blank"
-          className="w-[4rem] h-[3rem] rounded-full flex items-center justify-center shadow-s2 dark:shadow-s6 bg-soft-white/50 dark:bg-soft-gray/30"
+          className="w-[4rem] h-[3rem] rounded-full flex items-center justify-center border border-dark-gray/15 shadow-s2 dark:shadow-s6 bg-soft-white/50 dark:bg-soft-gray/30"
         >
           {item.icon}
         </Link>

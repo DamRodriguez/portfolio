@@ -7,12 +7,21 @@ type InfiniteCarouselProps = {
 };
 
 export default function InfiniteCarousel({ items }: InfiniteCarouselProps) {
-  // carousel-track en el div sobre el map
+  const repeated = [...items, ...items, ...items];
+  const duration = Math.max(items.length * 2.5, 10);
+
   return (
-    <div className="w-full py-2 overflow-x-auto scrollbar-none">
-      <div className="flex w-max gap-3 pr-4">
-        {items.map((item) => (
-          <div key={item} className="shrink-0">
+    <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+      <div
+        className="carousel-track flex w-max gap-3 h-[2rem] "
+        style={
+          {
+            "--duration": `${duration}s`,
+          } as React.CSSProperties
+        }
+      >
+        {repeated.map((item, index) => (
+          <div key={`${item}-${index}`} className="shrink-0">
             <ItemHover
               small
               cursorNormal

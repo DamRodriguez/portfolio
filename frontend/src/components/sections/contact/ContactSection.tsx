@@ -5,7 +5,6 @@ import { routes } from "@/constants/routes";
 import ContactForm from "@/features/contact/components/ContactForm";
 import { removeHash } from "@/utils/removeHash";
 import { useTranslations } from "next-intl";
-import FooterSection from "./FooterSection";
 import NameSection from "./NameSection";
 
 const ContactSection = () => {
@@ -27,7 +26,7 @@ const ContactSection = () => {
           <ContactForm />
         </div>
       </div>
-      <FooterSection />
+      {/* <FooterSection /> */}
     </SpaceX>
   );
 };

@@ -1,10 +1,9 @@
 "use client";
-import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
 import SocialButtons from "@/components/other/SocialButtons";
-import { routeItems } from "@/constants/routeItems";
+import { navRoutes } from "@/constants/navRoutes";
+import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 
 type NavMobileProps = {
   onClose: () => void;
@@ -14,29 +13,43 @@ const NavMobile = ({ onClose }: NavMobileProps) => {
   const t = useTranslations("header.navItems");
 
   return (
-    <MotionFade className="h-full">
-      <div className="pt-[1.5rem] px-[5rem] lg:px-[15rem] pb-[8rem] justify-between flex flex-col h-full">
-        <nav>
-          <ul className="flex flex-col items-center text-center text-base gap-[1rem] font-semibold">
-            {routeItems.map(({ href, label }) => (
-              <li key={href} className="w-full max-w-[12rem]">
-                <Link
-                  href={href}
-                  onClick={onClose}
-                  className="cursor-pointer text-black dark:text-soft-white"
-                >
-                  {t(label)}
-                </Link>
-                <div className="h-[0.05rem] bg-soft-gray dark:bg-soft-gray/30 my-[0.5rem] mx-auto w-full" />
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <MotionSlide direction="down">
-          <SocialButtons />
-        </MotionSlide>
-      </div>
-    </MotionFade>
+    <div className="pt-[1.5rem] px-[4rem] justify-between pb-[calc(env(safe-area-inset-bottom)+2rem)] gap-[2.5rem] flex flex-col h-full">
+      <nav>
+        <ul className="flex flex-col gap-[2rem] max-w-[18rem] items-stretch mx-auto">
+          {navRoutes.map((item, index) => {
+            const { href, label, icon } = item;
+            const Icon = icon;
+
+            return (
+              <MotionSlide order={index * 0.4}>
+                <li key={href} className="flex flex-col w-full">
+                  <Link
+                    href={href}
+                    onClick={onClose}
+                    className="cursor-pointer w-full pb-2"
+                  >
+                    <div className="flex gap-3 items-center w-full">
+                      <div className="bg-white-bone/70 dark:bg-soft-gray/5 border border-dark-gray/10 dark:border-soft-gray/10 p-2 rounded-full">
+                        <Icon className="w-5 h-5 stroke-dark-gray/90 dark:stroke-soft-gray" />
+                      </div>
+
+                      <span className="text-black/90 dark:text-soft-white/90 font-medium text-base">
+                        {t(label)}
+                      </span>
+                    </div>
+                  </Link>
+
+                  <div className="h-px rounded-full bg-gradient-to-r from-dark-gray/50 to-transparent dark:from-soft-gray/50" />
+                </li>
+              </MotionSlide>
+            );
+          })}
+        </ul>
+      </nav>
+      <MotionSlide direction="down" order={2.5}>
+        <SocialButtons />
+      </MotionSlide>
+    </div>
   );
 };
 

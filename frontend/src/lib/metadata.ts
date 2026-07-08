@@ -1,4 +1,5 @@
-import { siteConfig } from "@/config/site";
+import { getSiteConfig, siteConfig } from "@/config/site";
+import { ogLocales } from "@/utils/ogLocales";
 import type { Metadata } from "next";
 
 type CreateMetadataProps = {
@@ -7,25 +8,32 @@ type CreateMetadataProps = {
   path?: string;
   image?: string;
   noIndex?: boolean;
+  locale?: string;
 };
 
 export function createMetadata({
   title,
-  description = siteConfig.description,
+  description = undefined,
   path = "/",
   image = siteConfig.ogImage,
   noIndex = false,
+  locale,
 }: CreateMetadataProps = {}): Metadata {
+  const localeToUse = locale ?? siteConfig.defaultLocale;
+  const config = getSiteConfig(localeToUse);
+
   const url = new URL(path, siteConfig.url).toString();
-  const fullTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.title;
+  const fullTitle = title ? `${title} | ${config.name}` : config.title;
 
   return {
     title: title ?? {
-      default: siteConfig.title,
-      template: `%s | ${siteConfig.name}`,
+      default: config.title,
+      template: `%s | ${config.name}`,
     },
 
-    description,
+    applicationName: config.name,
+    category: siteConfig.category,
+    description: description ?? config.description,
     keywords: siteConfig.keywords,
 
     authors: [
@@ -36,14 +44,18 @@ export function createMetadata({
     ],
 
     creator: siteConfig.creator.name,
-    publisher: siteConfig.name,
+    publisher: config.name,
 
     metadataBase: new URL(siteConfig.url),
 
     alternates: {
       canonical: url,
+      languages: {
+        es: `${siteConfig.url}/es`,
+        en: `${siteConfig.url}/en`,
+        "x-default": `${siteConfig.url}/${siteConfig.defaultLocale}`,
+      },
     },
-
     formatDetection: {
       email: false,
       address: false,
@@ -58,17 +70,17 @@ export function createMetadata({
 
     openGraph: {
       title: fullTitle,
-      description,
+      description: description ?? config.description,
       url,
-      siteName: siteConfig.name,
-      locale: siteConfig.locale,
+      siteName: config.name,
+      locale: ogLocales[localeToUse as keyof typeof ogLocales] ?? ogLocales.es,
       type: "website",
       images: [
         {
           url: image,
           width: 1200,
           height: 630,
-          alt: title ?? siteConfig.name,
+          alt: title ?? config.name,
         },
       ],
     },
@@ -76,7 +88,7 @@ export function createMetadata({
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
-      description,
+      description: description ?? config.description,
       images: [image],
     },
 

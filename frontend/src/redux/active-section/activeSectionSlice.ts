@@ -1,4 +1,4 @@
-import { RouteLabel } from "@/constants/routeItems";
+import { RouteLabel } from "@/constants/deskRoutes";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type ActiveSection = RouteLabel | undefined;

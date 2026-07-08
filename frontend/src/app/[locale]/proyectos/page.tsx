@@ -10,7 +10,7 @@ export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState<AllProjectFilters>("all");
 
   return (
-    <Main className="pb-[3rem] xl:pb-[5rem]">
+    <Main className="pb-[5rem] xl:pb-[8rem]">
       <SpaceX className="space-y-[2.5rem] xl:space-y-[4rem]">
         <FilterButtons
           activeFilter={activeFilter}

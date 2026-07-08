@@ -6,9 +6,9 @@ import {
   ProjectItemData,
 } from "@/components/sections/projects-section/ProjectItem";
 import {
-  Expand,
   LucideIcon,
   MonitorSmartphone,
+  ScanEye,
   ShoppingBag,
   TabletSmartphone,
 } from "lucide-react";
@@ -54,12 +54,12 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
             priority
           />
 
-          <span className="absolute left-0 bottom-0 bg-gradient-to-t from-soft-white via-soft-white/30 dark:from-strong-black dark:via-strong-black/30 to-transparent h-full w-full" />
+          <span className="absolute left-0 -bottom-[2px] bg-gradient-to-t from-soft-white via-soft-white/30 dark:from-strong-black dark:via-strong-black/30 to-transparent h-full w-full" />
 
           <div className="opacity-0 xl:group-hover:opacity-100 bg-soft-white/70 dark:bg-strong-black/70 w-full h-full absolute bottom-0 flex justify-center items-center theme-transition-all backdrop-blur-[0.2rem]">
             <div className="flex items-center gap-2">
-              <Expand className="stroke-black dark:stroke-soft-white" />
-              <p className="text-lg text-black dark:text-soft-white font-medium">
+              <ScanEye className="stroke-black dark:stroke-soft-white w-8 h-8" />
+              <p className="text-xl text-black dark:text-soft-white font-medium">
                 {allProjectsT("projectCard.seeMore")}
               </p>
             </div>

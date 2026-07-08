@@ -4,7 +4,7 @@ import ThemeTransitionBlocker from "@/components/other/ThemeTransitionBlocker";
 import VoiceflowChat from "@/components/other/VoiceflowChat";
 import Providers from "@/components/provider/Providers";
 import PersonSchema from "@/components/seo/PersonSchema";
-import { routing } from "@/i18n/routing";
+import { Locale, routing } from "@/i18n/routing";
 import { createMetadata } from "@/lib/metadata";
 import "@/styles/globals.css";
 import { getValidatedLocale } from "@/utils/getValidatedLocale";
@@ -30,7 +30,7 @@ const firaCode = Fira_Code({
 
 type RootLocaleLayoutProps = {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 };
 
 export function generateStaticParams() {
@@ -40,12 +40,13 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
   const { locale } = await params;
 
   return createMetadata({
     path: `/${locale}`,
+    locale: locale,
   });
 }
 

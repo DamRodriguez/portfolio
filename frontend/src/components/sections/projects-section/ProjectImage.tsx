@@ -18,9 +18,13 @@ const ProjectImage = (props: ProjectImageProps) => {
     <>
       <TiltCard
         onClick={props.onClick}
-        className={clsx("overflow-hidden group", props.className, {
-          "cursor-pointer": !props.disablePopUp,
-        })}
+        className={clsx(
+          "overflow-hidden group rounded-[0.5rem] xl:rounded-2xl",
+          props.className,
+          {
+            "cursor-pointer": !props.disablePopUp,
+          },
+        )}
       >
         <div className="h-full w-full shadow-s1 border border-black/15 dark:border-soft-gray/15 hover:border-black dark:hover:border-soft-gray theme-transition-all rounded-[0.5rem] xl:rounded-2xl overflow-hidden relative">
           <Image

@@ -1,19 +1,43 @@
 import ProjectsHeader from "@/components/layout/header/projects/ProjectsHeader";
 import { routes } from "@/constants/routes";
-import { Locale } from "@/i18n/routing";
 import { createMetadata } from "@/lib/metadata";
 import { getValidatedLocale } from "@/utils/getValidatedLocale";
 import { Metadata } from "next";
 
-export const metadata: Metadata = createMetadata({
-  title: "Proyectos",
-  description: "Todos los proyectos de Damián Rodriguez",
-  path: routes.allProjects,
-});
+const projectTitles = {
+  es: "Proyectos",
+  en: "Projects",
+};
+
+const projectDescriptions = {
+  es: "Todos los proyectos de Damián Rodriguez",
+  en: "All projects by Damian Rodriguez",
+};
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const description =
+    projectDescriptions[locale as keyof typeof projectDescriptions] ??
+    projectDescriptions.es;
+
+  const title =
+    projectTitles[locale as keyof typeof projectTitles] ?? projectTitles.es;
+
+  return createMetadata({
+    title,
+    description,
+    path: routes.allProjects,
+    locale,
+  });
+}
 
 type ProjectsLayoutProps = {
   children: React.ReactNode;
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 };
 
 export default async function ProjectsLayout({

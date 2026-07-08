@@ -84,7 +84,7 @@ const ProjectItem = (props: ProjectItemProps) => {
     <div
       id={removeHash(projectsRoutes[data.translationKey])}
       className={clsx(
-        "w-full h-svh xl:h-[calc(100svh-var(--height-header-desktop))] flex justify-end flex-col-reverse items-start xl:items-center xl:flex-row gap-[1.5rem] xl:gap-[5rem] scroll-mt-[5rem] xl:scroll-mt-[3rem]",
+        "w-full h-svh xl:h-[calc(100svh-var(--height-header-desktop))] flex justify-end flex-col-reverse items-start xl:items-center xl:flex-row gap-[1.5rem] xl:gap-[5rem] scroll-mt-[5rem]",
         {
           "xl:flex-row-reverse": props.odd,
         },

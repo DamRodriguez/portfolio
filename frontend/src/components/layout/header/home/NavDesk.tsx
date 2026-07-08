@@ -1,4 +1,4 @@
-import { routeItems } from "@/constants/routeItems";
+import { deskRoutes } from "@/constants/deskRoutes";
 import { Link } from "@/i18n/navigation";
 import useActiveSection from "@/redux/active-section/useActiveSection";
 import clsx from "clsx";
@@ -12,7 +12,7 @@ const NavDesk = () => {
     <nav className="hidden 2xl:flex">
       <ul className="text-lg leading-[1.5rem]">
         <li className="flex gap-[3rem]">
-          {routeItems.map((item, index) => {
+          {deskRoutes.map((item, index) => {
             const isActive = activeSection === item.label;
             const isOdd = index % 2 !== 0;
 

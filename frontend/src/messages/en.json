@@ -5,6 +5,8 @@
       "services": "Services",
       "work": "Work",
       "projects": "Projects",
+      "featuredProjects": "Featured projects",
+      "allProjects": "All projects",
       "contact": "Contact"
     }
   },
@@ -188,13 +190,6 @@
   },
   "contactSection": {
     "title": "Contact",
-    "routes": {
-      "home": "Home",
-      "aboutMe": "About me",
-      "services": "Services",
-      "work": "Work",
-      "projects": "Projects"
-    },
     "buttons": {
       "downloadCV": "Download CV",
       "sendMessage": "Send message"
@@ -239,6 +234,17 @@
         "contactFormSuccess": "Message sent successfully!",
         "contactFormError": "An error has occurred, please try again"
       }
+    }
+  },
+  "footerSection": {
+    "routes": {
+      "home": "Home",
+      "aboutme": "About me",
+      "services": "Services",
+      "work": "Work",
+      "featuredProjects": "Featured projects",
+      "allProjects": "All projects",
+      "contact": "Contact"
     }
   },
   "allProjectsPage": {
