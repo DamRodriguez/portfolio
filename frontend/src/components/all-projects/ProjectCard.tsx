@@ -2,6 +2,7 @@
 import TiltCard from "@/components/motion/TiltCard";
 import { RichText } from "@/components/other/RichText";
 import {
+  CategoryTranslationKey,
   ProjectCategory,
   ProjectItemData,
 } from "@/components/sections/projects-section/ProjectItem";
@@ -101,7 +102,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
                   className="px-3 py-1 border border-black/10 dark:border-soft-gray/15 italic rounded-full text-sm flex items-center gap-2 group-hover:dark:border-soft-gray/50 group-hover:border-black/50 theme-transition-all"
                 >
                   <Icon className="stroke-black dark:stroke-soft-white w-4 h-4 " />
-                  {t(`categories.${key}` as any)}
+                  {t(`categories.${key}` as CategoryTranslationKey)}
                 </span>
               );
             })}
