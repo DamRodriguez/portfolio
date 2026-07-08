@@ -15,31 +15,30 @@ const NavMobile = ({ onClose }: NavMobileProps) => {
   return (
     <div className="pt-[1.5rem] px-[4rem] justify-between pb-[calc(env(safe-area-inset-bottom)+2rem)] gap-[2.5rem] flex flex-col h-full">
       <nav>
-        <ul className="flex flex-col gap-[1.5rem] max-w-[18rem] items-stretch mx-auto">
+        <ul className="flex flex-col gap-[1.7rem] max-w-[15rem] items-stretch mx-auto">
           {navRoutes.map((item, index) => {
             const { href, label, icon } = item;
             const Icon = icon;
 
             return (
-              <MotionSlide key={index} order={index * 0.4}>
+              <MotionSlide direction="down" key={index} order={index * 0.3}>
                 <li className="flex flex-col w-full">
                   <Link
                     href={href}
                     onClick={onClose}
                     className="cursor-pointer w-full pb-2"
                   >
-                    <div className="flex gap-2.5 items-center w-full">
-                      <div className="bg-white-bone/70 dark:bg-soft-gray/5 border border-dark-gray/10 dark:border-soft-gray/10 p-[0.5rem] rounded-full">
+                    <div className="flex gap-2.5 items-center justify-center w-full">
+                      {/* <div className="bg-white-bone/70 dark:bg-soft-gray/5 border border-dark-gray/10 dark:border-soft-gray/10 p-[0.5rem] rounded-full">
                         <Icon className="w-4 h-4 stroke-dark-gray/90 dark:stroke-soft-gray" />
-                      </div>
+                      </div> */}
 
-                      <span className="text-black/90 dark:text-soft-white/90 font-medium text-sm">
+                      <span className="text-black/90 dark:text-soft-white/90 font-medium text-base">
                         {t(label)}
                       </span>
                     </div>
                   </Link>
-
-                  <div className="h-px rounded-full bg-gradient-to-r from-dark-gray/50 to-transparent dark:from-soft-gray/50" />
+                  <div className="h-px rounded-full bg-gradient-to-r from-transparent via-dark-gray/50 to-transparent dark:via-soft-gray/50" />
                 </li>
               </MotionSlide>
             );
