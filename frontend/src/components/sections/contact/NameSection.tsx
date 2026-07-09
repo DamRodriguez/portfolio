@@ -6,12 +6,12 @@ import { useTranslations } from "next-intl";
 
 const NameSection = () => {
   const t = useTranslations("contactSection");
-  const CV = "/pdf/CV_Damian-Rodriguez.pdf";
+  const CV = "/pdf/Damian-Rodriguez-CV.pdf";
 
   const handleDownloadCV = () => {
     const link = document.createElement("a");
     link.href = CV;
-    link.download = "CV-Damian-Rodriguez.pdf";
+    link.download = "Damian-Rodriguez-CV.pdf";
     link.click();
   };
 
