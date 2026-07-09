@@ -114,7 +114,6 @@ const ProjectItem = (props: ProjectItemProps) => {
 
             <div className="flex xl:hidden">
               <InfiniteCarousel items={technologies} />
-              {/* <div className="absolute z-2 top-0 -right-1 bg-gradient-to-r from-transparent to-white-bone dark:to-black w-6 h-full" /> */}
             </div>
           </div>
         </div>
