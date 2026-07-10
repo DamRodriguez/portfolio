@@ -29,7 +29,7 @@ const CarouselImage = ({ src, index }: CarouselImageProps) => {
       <MotionScale
         key={index}
         duration={0.3}
-        className="absolute inset-0 z-10 flex items-center justify-center pb-[2rem] "
+        className="absolute inset-0 z-10 flex items-center justify-center pb-[2rem]"
       >
         <div
           className={clsx(
@@ -44,7 +44,7 @@ const CarouselImage = ({ src, index }: CarouselImageProps) => {
             height={1080}
             quality={80}
             onLoad={() => setLoaded(true)}
-            className="object-contain max-h-[65vh]"
+            className="object-contain max-h-[65vh] xl:max-h-[75vh]"
             style={{
               // maxHeight: "calc(100vh - 16rem)",
               width: "auto",

@@ -34,7 +34,7 @@
   }
 
   .anchor-offset {
-    @apply scroll-mt-[8.5rem] xl:scroll-mt-[12rem];
+    @apply scroll-mt-[8.5rem] xl:scroll-mt-[10rem];
   }
 
   .popup-glass {
