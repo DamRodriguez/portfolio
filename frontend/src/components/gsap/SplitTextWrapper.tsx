@@ -55,6 +55,7 @@ export default function SplitTextWrapper({
         stagger: 0.07,
         delay: order * 0.25,
         force3D: true,
+        filter: "blur(2px)",
         scrollTrigger: {
           trigger: el,
           start: "top 85%",
