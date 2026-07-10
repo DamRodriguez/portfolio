@@ -4,8 +4,10 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import { memo, useMemo } from "react";
 
+export type MotionSlideDirection = "left" | "right" | "up" | "down";
+
 type MotionSlideProps = MotionDefaults & {
-  direction?: "left" | "right" | "up" | "down";
+  direction?: MotionSlideDirection;
   id?: string;
 };
 

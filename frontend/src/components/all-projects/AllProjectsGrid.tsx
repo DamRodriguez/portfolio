@@ -1,6 +1,6 @@
 "use client";
 import ProjectCard from "@/components/all-projects/ProjectCard";
-import MotionSlide from "@/components/motion/MotionSlide";
+import ResponsiveMotionGrid from "@/components/motion/ResponsiveMotionGrid";
 import { PopUp } from "@/components/pop-up/PopUp";
 import ProjectItem, {
   ProjectItemData,
@@ -24,16 +24,18 @@ export default function AllProjectsGrid({
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-[1.5rem] xl:gap-[2rem]">
-        {projects.map((project) => (
-          <MotionSlide direction="down" key={project.translationKey}>
-            <ProjectCard
-              project={project}
-              onClick={() => setSelectedProject(project)}
-            />
-          </MotionSlide>
-        ))}
-      </div>
+      <ResponsiveMotionGrid
+        items={projects}
+        containerKey={activeFilter}
+        getItemKey={(project) => `${project.translationKey}-${activeFilter}`}
+        renderItem={(project) => (
+          <ProjectCard
+            project={project}
+            onClick={() => setSelectedProject(project)}
+          />
+        )}
+      />
+
       <PopUp
         isOpen={!!selectedProject}
         onClose={() => setSelectedProject(null)}

@@ -75,9 +75,9 @@ const HeadSection = () => {
               </p>
             </MotionEntryFade>
             <SplitTextWrapper order={1}>
-              <h1 className="second-title-gsap text-6xl lg:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white font-bold font-fira-code">
+              <h2 className="second-title-gsap text-6xl lg:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white font-bold font-fira-code">
                 {t("title.second")}
-              </h1>
+              </h2>
             </SplitTextWrapper>
           </div>
         </div>
