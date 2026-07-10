@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import Image, { type StaticImageData } from "next/image";
 import React from "react";
 
-export type HorizontalCarouselVariantData = {
+export type HorizontalCarouselItemData = {
   image: string | StaticImageData;
   title: string;
   description: string;
@@ -11,13 +11,11 @@ export type HorizontalCarouselVariantData = {
   isNew?: boolean;
 };
 
-type HorizontalCarouselVariantItemProps = {
-  data: HorizontalCarouselVariantData;
+type HorizontalCarouselItemProps = {
+  data: HorizontalCarouselItemData;
 };
 
-const HorizontalCarouselVariantItem = ({
-  data,
-}: HorizontalCarouselVariantItemProps) => {
+const HorizontalCarouselItem = ({ data }: HorizontalCarouselItemProps) => {
   const t = useTranslations("headSection.horizontalCarousel");
 
   return (
@@ -58,4 +56,4 @@ const HorizontalCarouselVariantItem = ({
   );
 };
 
-export default React.memo(HorizontalCarouselVariantItem);
+export default React.memo(HorizontalCarouselItem);

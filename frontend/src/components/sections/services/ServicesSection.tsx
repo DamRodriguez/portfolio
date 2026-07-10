@@ -3,7 +3,7 @@ import SpaceX from "@/components/layout/SpaceX";
 import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
 import MotionStagger from "@/components/motion/MotionStagger";
-import { RichText } from "@/components/other/RichText";
+import { RichText } from "@/components/next-intl/RichText";
 import ServiceCard, {
   ServiceCardData,
 } from "@/components/sections/services/service-card/ServiceCard";

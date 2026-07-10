@@ -1,7 +1,7 @@
 "use client";
-import HorizontalCarouselVariantItem, {
-  type HorizontalCarouselVariantData,
-} from "@/components/carousel/horizontal-carousel-variant/HorizontalCarouselVariantItem";
+import HorizontalCarouselItem, {
+  HorizontalCarouselItemData,
+} from "@/components/carousel/horizontal-carousel/HorizontalCarouselItem";
 import { useHorizontalCarousel } from "@/hooks/useHorizontalCarousel";
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import "@/styles/scrollbarVertical.css";
@@ -11,15 +11,12 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { DotButton } from "./HorizontalCarouselDotButtons";
 
-type HorizontalCarouselVariantProps = {
+type HorizontalCarouselProps = {
   options?: EmblaOptionsType;
-  items: HorizontalCarouselVariantData[];
+  items: HorizontalCarouselItemData[];
 };
 
-const HorizontalCarouselVariant = ({
-  options,
-  items,
-}: HorizontalCarouselVariantProps) => {
+const HorizontalCarousel = ({ options, items }: HorizontalCarouselProps) => {
   const {
     emblaRef,
     emblaApi,
@@ -82,7 +79,7 @@ const HorizontalCarouselVariant = ({
                 },
               )}
             >
-              <HorizontalCarouselVariantItem data={{ ...item }} />
+              <HorizontalCarouselItem data={{ ...item }} />
             </div>
           ))}
         </div>
@@ -155,4 +152,4 @@ const HorizontalCarouselVariant = ({
   );
 };
 
-export default HorizontalCarouselVariant;
+export default HorizontalCarousel;

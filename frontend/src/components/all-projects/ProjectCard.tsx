@@ -1,6 +1,6 @@
 "use client";
 import TiltCard from "@/components/motion/TiltCard";
-import { RichText } from "@/components/other/RichText";
+import { RichText } from "@/components/next-intl/RichText";
 import {
   CategoryTranslationKey,
   ProjectCategory,

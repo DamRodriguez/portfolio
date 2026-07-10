@@ -1,5 +1,5 @@
 "use client";
-import { RichText } from "@/components/other/RichText";
+import { RichText } from "@/components/next-intl/RichText";
 import CardIcon from "@/components/sections/services/service-card/CardIcon";
 import clsx from "clsx";
 import { CircleCheckBig } from "lucide-react";

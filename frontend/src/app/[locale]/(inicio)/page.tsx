@@ -1,5 +1,5 @@
+import ViewportActiveSection from "@/components/gsap/in-view/ViewportActiveSection";
 import Main from "@/components/layout/Main";
-import ViewportActiveSection from "@/components/other/ViewportActiveSection";
 import AboutMeSection from "@/components/sections/about-me-section/AboutMeSection";
 import ContactSection from "@/components/sections/contact/ContactSection";
 import FooterSection from "@/components/sections/footer/FooterSection";

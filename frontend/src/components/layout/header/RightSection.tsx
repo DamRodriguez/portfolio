@@ -1,4 +1,4 @@
-import LanguageDropdown from "@/components/other/LanguageDropdown";
+import LanguageDropdown from "@/components/next-intl/LanguageDropdown";
 import { ThemeToggle } from "@/components/ui/buttons/ThemeToggle";
 import { Locale } from "@/i18n/routing";
 

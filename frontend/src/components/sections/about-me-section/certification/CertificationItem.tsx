@@ -1,5 +1,5 @@
 "use client";
-import { ImagePopUp } from "@/components/other/ImagePopUp";
+import { ImagePopUp } from "@/components/pop-up/ImagePopUp";
 import Button from "@/components/ui/buttons/Button";
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import clsx from "clsx";

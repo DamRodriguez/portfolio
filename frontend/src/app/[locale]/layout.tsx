@@ -1,7 +1,7 @@
-import GoogleAnalytics from "@/components/other/GoogleAnalytics";
-import ThemeScript from "@/components/other/ThemeScript";
-import ThemeTransitionBlocker from "@/components/other/ThemeTransitionBlocker";
-import VoiceflowChat from "@/components/other/VoiceflowChat";
+import GoogleAnalytics from "@/components/seo/GoogleAnalytics";
+import ThemeScript from "@/components/theme/ThemeScript";
+import ThemeTransitionBlocker from "@/components/theme/ThemeTransitionBlocker";
+import VoiceflowChat from "@/components/automation/VoiceflowChat";
 import Providers from "@/components/provider/Providers";
 import PersonSchema from "@/components/seo/PersonSchema";
 import { Locale, routing } from "@/i18n/routing";

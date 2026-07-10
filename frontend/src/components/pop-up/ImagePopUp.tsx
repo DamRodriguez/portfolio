@@ -1,5 +1,5 @@
 "use client";
-import { PopUp } from "@/components/other/PopUp";
+import { PopUp } from "@/components/pop-up/PopUp";
 import Image from "next/image";
 
 type ImagePopUpProps = {

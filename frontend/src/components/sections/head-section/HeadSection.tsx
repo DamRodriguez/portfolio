@@ -3,7 +3,7 @@ import SplitTextWrapper from "@/components/gsap/SplitTextWrapper";
 import SpaceX from "@/components/layout/SpaceX";
 import MotionEntryFade from "@/components/motion/MotionEntryFade";
 import MotionEntrySlide from "@/components/motion/MotionEntrySlide";
-import { RichText } from "@/components/other/RichText";
+import { RichText } from "@/components/next-intl/RichText";
 import SocialButtonsSection from "@/components/sections/head-section/SocialButtonsSection";
 import ButtonWithArrow from "@/components/ui/buttons/ButtonWithArrow";
 import { routes } from "@/constants/routes";

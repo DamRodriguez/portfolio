@@ -1,4 +1,4 @@
-import ProgressBarProvider from "@/components/other/ProgressBarProvider";
+import ProgressBarProvider from "@/components/layout/ProgressBarProvider";
 import ReduxStoreProvider from "@/components/provider/ReduxStoreProvider";
 import { SmoothScrollProvider } from "@/components/provider/SmoothScrollProvider";
 import ThemeProvider from "@/components/provider/ThemeProvider";

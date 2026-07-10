@@ -1,7 +1,7 @@
 "use client";
 import ProjectCard from "@/components/all-projects/ProjectCard";
 import MotionSlide from "@/components/motion/MotionSlide";
-import { PopUp } from "@/components/other/PopUp";
+import { PopUp } from "@/components/pop-up/PopUp";
 import ProjectItem, {
   ProjectItemData,
 } from "@/components/sections/projects-section/ProjectItem";

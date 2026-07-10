@@ -1,12 +1,12 @@
-import HorizontalCarouselVariant from "@/components/carousel/horizontal-carousel-variant/HorizontalCarouselVariant";
-import { HorizontalCarouselVariantData } from "@/components/carousel/horizontal-carousel-variant/HorizontalCarouselVariantItem";
+import HorizontalCarousel from "@/components/carousel/horizontal-carousel/HorizontalCarousel";
+import { HorizontalCarouselItemData } from "@/components/carousel/horizontal-carousel/HorizontalCarouselItem";
 import { projectsRoutes } from "@/constants/projectsRoutes";
 import { useTranslations } from "next-intl";
 
 const HorizontalCarouselSection = () => {
   const t = useTranslations("headSection.horizontalCarousel.carouselData");
 
-  const horizontalCarouselItems: HorizontalCarouselVariantData[] = [
+  const horizontalCarouselItems: HorizontalCarouselItemData[] = [
     {
       image: "/images/projects/spotify-mobile/logo.webp",
       title: t("spotifyMobile.title"),
@@ -39,7 +39,7 @@ const HorizontalCarouselSection = () => {
     },
   ];
 
-  return <HorizontalCarouselVariant items={horizontalCarouselItems} />;
+  return <HorizontalCarousel items={horizontalCarouselItems} />;
 };
 
 export default HorizontalCarouselSection;

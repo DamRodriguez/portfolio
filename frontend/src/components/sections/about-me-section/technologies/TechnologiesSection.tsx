@@ -1,7 +1,7 @@
 "use client";
 import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
-import { RichText } from "@/components/other/RichText";
+import { RichText } from "@/components/next-intl/RichText";
 import TechnologyItem, {
   TechnologyItemData,
 } from "@/components/sections/about-me-section/technologies/TechnologyItem";

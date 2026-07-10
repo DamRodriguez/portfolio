@@ -1,7 +1,7 @@
 "use client";
 import InfiniteCarousel from "@/components/carousel/InfiniteCarousel";
+import { RichText } from "@/components/next-intl/RichText";
 import ItemHover from "@/components/other/ItemHover";
-import { RichText } from "@/components/other/RichText";
 import ImageCarouselModal from "@/components/sections/projects-section/carousel-modal/ImageCarouselModal";
 import { projectsRoutes } from "@/constants/projectsRoutes";
 import { useScrollLock } from "@/hooks/useScrollLock";
