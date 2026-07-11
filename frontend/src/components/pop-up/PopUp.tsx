@@ -49,7 +49,7 @@ export const PopUp = ({
           className="fixed inset-0 z-99999999 popup-glass flex items-center justify-center"
           onClick={onClose}
         >
-          <SpaceX className="w-full xl:w-fit">
+          <SpaceX className="w-full xl:w-fit site-size">
             <div
               className={clsx("relative max-h-[90vh]", containerClassName)}
               onClick={(e) => e.stopPropagation()}

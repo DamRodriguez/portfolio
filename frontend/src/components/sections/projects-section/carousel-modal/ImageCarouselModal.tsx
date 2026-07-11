@@ -55,7 +55,7 @@ const ImageCarouselModal = ({
           total={images.length}
           onClose={onClose}
         />
-        <SpaceX className="min-w-[20rem] max-w-[120rem] relative w-full h-[90vh] flex items-center justify-center">
+        <SpaceX className="site-size relative w-full h-[90vh] flex items-center justify-center mx-auto">
           <div
             className="relative w-full xl:mt-[5rem] pb-[calc(env(safe-area-inset-bottom)+0rem)] h-full xl:pb-[4rem]"
             onClick={(e) => e.stopPropagation()}

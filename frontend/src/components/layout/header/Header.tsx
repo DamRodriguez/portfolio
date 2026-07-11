@@ -26,7 +26,7 @@ const Header = ({
     <header>
       <MotionEntrySlide
         direction="up"
-        className="z-9999 fixed top-0 w-full min-w-[20rem] max-w-[120rem]"
+        className="z-9999 fixed top-0 w-full site-size"
       >
         <div
           className={clsx(

@@ -42,14 +42,14 @@ const WorkSection = () => {
       className="relative w-full flex flex-col gap-[1.5rem] xl:gap-[2rem] anchor-offset"
     >
       <div className="absolute w-full h-full bg-white-bone dark:bg-black z-20" />
-      <MotionSlide direction="right" className="z-20">
+      <MotionSlide direction="right" className="z-22">
         <SpaceX>
           <h2 className="title-gsap text-black dark:text-soft-white text-end font-fira-code font-semibold text-5md xl:text-8xl">
             {t("title")}
           </h2>
         </SpaceX>
       </MotionSlide>
-      <MotionStagger direction="left" className="z-20">
+      <MotionStagger direction="left" className="z-22">
         {workItems.map((item, index) => {
           const isLast = index === workItems.length - 1;
           const isPair = index % 2 === 0;

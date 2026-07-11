@@ -70,7 +70,7 @@ export default async function RootLocaleLayout({
         )}
       >
         <Providers>
-          <div className="min-w-[20rem] max-w-[120rem] mx-auto w-full font-open-sans overflow-clip">
+          <div className="site-size mx-auto w-full font-open-sans overflow-clip">
             <ToastContainer />
             {children}
           </div>

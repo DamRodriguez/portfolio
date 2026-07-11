@@ -12,7 +12,7 @@ type CarouselHeaderProps = {
 
 const CarouselHeader = ({ current, total, onClose }: CarouselHeaderProps) => {
   return (
-    <SpaceX className="min-w-[20rem] max-w-[120rem] mx-auto absolute left-0 right-0 flex justify-between items-center z-50">
+    <SpaceX className="site-size mx-auto absolute left-0 right-0 flex justify-between items-center z-50">
       <span className="text-base xl:text-xl font-medium text-black dark:text-soft-white font-fira-code flex gap-2">
         <AnimatedNumber value={current} />
         <span>/</span>

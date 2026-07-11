@@ -33,6 +33,10 @@
     animation: flow 1.5s linear infinite;
   }
 
+  .site-size {
+    @apply min-w-[20rem] max-w-[120rem];
+  }
+
   .anchor-offset {
     @apply scroll-mt-[8.5rem] xl:scroll-mt-[10rem];
   }

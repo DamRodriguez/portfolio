@@ -31,7 +31,7 @@ export default function BackgroundText() {
   const isCenter = activeSection === "work";
 
   return (
-    <div className="hidden xl:flex pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+    <div className="hidden xl:flex pointer-events-none fixed inset-0 z-21 overflow-hidden">
       <div className="absolute top-[calc(var(--height-header-desktop)+1rem)] w-full h-[calc(100vh-var(--height-header-desktop))]">
         <AnimatePresence mode="popLayout">
           {activeSection && (
@@ -58,7 +58,10 @@ export default function BackgroundText() {
                   style={
                     isCenter
                       ? {}
-                      : { writingMode: "vertical-rl", textOrientation: "mixed" }
+                      : {
+                          writingMode: "vertical-rl",
+                          textOrientation: "mixed",
+                        }
                   }
                 >
                   {getActiveSection()}
