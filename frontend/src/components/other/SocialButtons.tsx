@@ -15,7 +15,7 @@ const SocialButtons = () => {
     { href: config.urls.telegram, icon: <TelegramIcon /> },
   ];
   return (
-    <div className="flex flex-wrap justify-center gap-[1.5rem] [&_svg]:fill-dark-gray dark:[&_svg]:fill-soft-white">
+    <div className="flex flex-wrap justify-center gap-[1.5rem] [&_svg]:fill-dark-gray dark:[&_svg]:fill-soft-white max-w-[12rem] sm:max-w-full mx-auto">
       {socialItems.map((item, index) => (
         <Link
           key={index}

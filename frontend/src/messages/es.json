@@ -70,7 +70,7 @@
       },
       "tools": {
         "title": "Herramientas",
-        "items": "Framer Motion, GSAP, Reanimated, Zod, React Hook Form, TanStack Query, Git, GitHub, Figma, i18next, next-intl, React Toastify, Embla Carousel, Recharts"
+        "items": "Framer Motion, GSAP, Reanimated, Zod, React Hook Form, TanStack Query, Git, GitHub, Figma, i18next, next-intl, React Toastify, Recharts"
       }
     },
     "certificationSection": {

@@ -3,7 +3,7 @@ import InfiniteCarousel from "@/components/carousel/InfiniteCarousel";
 import { RichText } from "@/components/next-intl/RichText";
 import ItemHover from "@/components/other/ItemHover";
 import ImageCarouselModal from "@/components/sections/projects-section/carousel-modal/ImageCarouselModal";
-import { projectsRoutes } from "@/constants/projectsRoutes";
+import { projectIds } from "@/constants/projectIds";
 import { useScrollLock } from "@/hooks/useScrollLock";
 import { removeHash } from "@/utils/removeHash";
 import clsx from "clsx";
@@ -83,7 +83,7 @@ const ProjectItem = (props: ProjectItemProps) => {
 
   return (
     <div
-      id={removeHash(projectsRoutes[data.translationKey])}
+      id={removeHash(projectIds[data.translationKey])}
       className={clsx(
         "w-full h-svh xl:h-[calc(100svh-var(--height-header-desktop))] flex justify-end flex-col-reverse items-start xl:items-center xl:flex-row gap-[1.5rem] xl:gap-[5rem] scroll-mt-[5rem]",
         {

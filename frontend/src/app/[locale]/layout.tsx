@@ -1,9 +1,9 @@
-import GoogleAnalytics from "@/components/seo/GoogleAnalytics";
-import ThemeScript from "@/components/theme/ThemeScript";
-import ThemeTransitionBlocker from "@/components/theme/ThemeTransitionBlocker";
 import VoiceflowChat from "@/components/automation/VoiceflowChat";
 import Providers from "@/components/provider/Providers";
+import GoogleAnalytics from "@/components/seo/GoogleAnalytics";
 import PersonSchema from "@/components/seo/PersonSchema";
+import ThemeScript from "@/components/theme/ThemeScript";
+import ThemeTransitionBlocker from "@/components/theme/ThemeTransitionBlocker";
 import { Locale, routing } from "@/i18n/routing";
 import { createMetadata } from "@/lib/metadata";
 import "@/styles/globals.css";
@@ -60,6 +60,7 @@ export default async function RootLocaleLayout({
     <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
       <head>
         <ThemeScript />
+        <PersonSchema />
       </head>
       <body
         className={clsx(
@@ -74,7 +75,6 @@ export default async function RootLocaleLayout({
             {children}
           </div>
           <ThemeTransitionBlocker />
-          <PersonSchema />
           <GoogleAnalytics />
           <VercelAnalytics />
           <VoiceflowChat locale={locale} />

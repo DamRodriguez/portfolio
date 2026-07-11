@@ -30,6 +30,9 @@ export default function ViewportTrigger({
   const ref = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setIsInView] = useState(false);
+  // const isMobile = useBreakpoint();
+  // const startPosition = start ?? (isMobile ? "top 40%" : "top 50%");
+  // const endPosition = end ?? (isMobile ? "bottom 90%" : "bottom 50%");
 
   useGSAP(
     () => {
@@ -38,8 +41,8 @@ export default function ViewportTrigger({
 
       const trigger = ScrollTrigger.create({
         trigger: el,
-        start,
-        end,
+        start: start,
+        end: end,
         onEnter: () => {
           setIsInView(true);
           onEnter?.();

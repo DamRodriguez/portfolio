@@ -55,10 +55,6 @@ export default function ServicesSection() {
         x: 50,
         rotate: 5,
       },
-      ".services-contact-gsap": {
-        opacity: 0,
-        scale: 0.9,
-      },
     },
   });
 
@@ -98,9 +94,7 @@ export default function ServicesSection() {
           })}
         </MotionStagger>
 
-        <div className="services-contact-gsap">
-          <ServicesContactSection />
-        </div>
+        <ServicesContactSection />
       </div>
     </SpaceX>
   );

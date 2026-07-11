@@ -14,12 +14,11 @@ const NavMobile = ({ onClose }: NavMobileProps) => {
   const t = useTranslations("header.navItems");
 
   return (
-    <div className="pt-[2rem] px-[4rem] justify-between pb-[calc(env(safe-area-inset-bottom)+1.5rem)] gap-[2.5rem] flex flex-col h-full">
+    <div className="pt-[2rem] px-[4rem] justify-between pb-[calc(env(safe-area-inset-bottom)+2rem)] gap-[2.5rem] flex flex-col h-full">
       <nav>
-        <ul className="flex flex-col gap-[2rem] max-w-[14rem] items-stretch mx-auto">
+        <ul className="flex flex-col gap-[2rem] max-w-[12rem] items-stretch mx-auto">
           {navRoutes.map((item, index) => {
-            const { href, label, icon } = item;
-            const Icon = icon;
+            const { href, label } = item;
 
             return (
               <MotionSlide direction="down" key={index} order={index * 0.3}>
@@ -29,15 +28,9 @@ const NavMobile = ({ onClose }: NavMobileProps) => {
                     onClick={onClose}
                     className="cursor-pointer w-full pb-2"
                   >
-                    <div className="flex gap-2.5 items-center justify-center w-full">
-                      {/* <div className="bg-white-bone/70 dark:bg-soft-gray/5 border border-dark-gray/10 dark:border-soft-gray/10 p-[0.5rem] rounded-full">
-                        <Icon className="w-4 h-4 stroke-dark-gray/90 dark:stroke-soft-gray" />
-                      </div> */}
-
-                      <span className="text-black/90 dark:text-soft-white/90 font-medium text-base">
-                        {t(label)}
-                      </span>
-                    </div>
+                    <p className="text-black/90 dark:text-soft-white/90 font-medium text-base text-center">
+                      {t(label)}
+                    </p>
                   </Link>
                   <div className="h-px rounded-full bg-gradient-to-r from-transparent via-dark-gray/50 to-transparent dark:via-soft-gray/50" />
                 </li>
