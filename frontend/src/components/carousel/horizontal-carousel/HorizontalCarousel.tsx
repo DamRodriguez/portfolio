@@ -69,19 +69,22 @@ const HorizontalCarousel = ({ options, items }: HorizontalCarouselProps) => {
         <div
           className={`flex items-center ${items.length <= 3 ? "2xl:justify-center" : ""}`}
         >
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className={clsx(
-                "flex-[0_0_calc(100%)] 2xl:flex-[0_0_calc(105%/3)] px-[0.5rem] w-[1rem]",
-                {
-                  "xl:mt-[1rem]": index !== selectedIndex,
-                },
-              )}
-            >
-              <HorizontalCarouselItem data={{ ...item }} />
-            </div>
-          ))}
+          {items.map((item, index) => {
+            const isCenterVisible = index !== selectedIndex;
+            return (
+              <div
+                key={index}
+                className={clsx(
+                  "flex-[0_0_calc(100%)] 2xl:flex-[0_0_calc(105%/3)] px-[0.5rem] w-[1rem]",
+                  {
+                    "xl:mt-[1rem] !opacity-65": isCenterVisible,
+                  },
+                )}
+              >
+                <HorizontalCarouselItem data={{ ...item }} />
+              </div>
+            );
+          })}
         </div>
       </div>
 
