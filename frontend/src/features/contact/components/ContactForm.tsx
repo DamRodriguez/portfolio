@@ -124,11 +124,14 @@ const ContactForm = () => {
             isLastErrorMessageField
             className="min-h-[11rem]"
           />
-          <div style={{ position: "absolute", left: "-9999px" }}>
-            <label htmlFor="company">Company</label>
+          <div
+            aria-hidden="true"
+            style={{ position: "absolute", left: "-9999px", opacity: 0 }}
+          >
+            <label htmlFor="website">Sitio web personal</label>
             <input
               type="text"
-              id="company"
+              id="website"
               {...methods.register("honeypot")}
               tabIndex={-1}
               autoComplete="off"

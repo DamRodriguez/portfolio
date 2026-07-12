@@ -17,7 +17,15 @@ export async function POST(request: Request) {
       );
     }
 
-    const { name, email, option, message } = validatedData.data;
+    const { name, email, option, message, honeypot } = validatedData.data;
+
+    if (honeypot && honeypot.trim() !== "") {
+      return NextResponse.json({
+        success: true,
+        data: { id: "fake_id_for_bot" },
+      });
+    }
+
     const optionText = option.text;
 
     const data = await resend.emails.send({
