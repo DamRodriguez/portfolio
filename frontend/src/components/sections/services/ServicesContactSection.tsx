@@ -18,9 +18,9 @@ export default function ServicesContactSection() {
       {isSectionActive && (
         <MotionSlide
           direction="down"
-          className="fixed bottom-[1rem] xl:bottom-[1.5rem] left-0 z-10 w-full sm:w-fit"
+          className="fixed bottom-[1rem] xl:bottom-[1.5rem] left-0 z-10 w-full flex flex-col justify-center items-center"
         >
-          <SpaceX>
+          <SpaceX className="w-full lg:w-fit">
             <div
               className={clsx(
                 "relative overflow-hidden group group/second theme-transition-all flex flex-col lg:flex-row gap-[1rem] lg:gap-[4rem] rounded-[1.5rem] lg:rounded-[3rem] lg:rounded-r-[10rem] w-auto items-center justify-between max-w-[65rem] p-[0.8rem] sm:p-[1rem] text-center lg:text-start border-2",
