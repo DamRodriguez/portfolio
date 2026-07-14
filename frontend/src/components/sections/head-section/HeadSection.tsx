@@ -1,10 +1,10 @@
 "use client";
-import SplitTextWrapper from "@/components/gsap/SplitTextWrapper";
 import SpaceX from "@/components/layout/SpaceX";
 import MotionEntryFade from "@/components/motion/MotionEntryFade";
 import MotionEntrySlide from "@/components/motion/MotionEntrySlide";
 import { RichText } from "@/components/next-intl/RichText";
 import SocialButtonsSection from "@/components/sections/head-section/SocialButtonsSection";
+import ResponsiveTitleWrapper from "@/components/text/ResponsiveTitleWrapper";
 import ButtonWithArrow from "@/components/ui/buttons/ButtonWithArrow";
 import { routes } from "@/constants/routes";
 import useBreakpoint from "@/hooks/useBreakpoint";
@@ -54,11 +54,11 @@ const HeadSection = () => {
       <div className="flex flex-col gap-[2rem]">
         <div className="w-full flex flex-col -space-y-[2rem] lg:-space-y-[3rem]">
           <div className="flex justify-center xl:justify-between items-center">
-            <SplitTextWrapper order={0}>
+            <ResponsiveTitleWrapper direction="left" order={0}>
               <h1 className="first-title-gsap text-6xl lg:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white font-bold font-fira-code">
                 {t("title.first")}
               </h1>
-            </SplitTextWrapper>
+            </ResponsiveTitleWrapper>
             <div className="project-button-gsap">
               <MotionEntryFade order={1.5} className="hidden 2xl:flex">
                 <ButtonWithArrow
@@ -74,11 +74,11 @@ const HeadSection = () => {
                 <RichText t={t} translationKey={"personalDescription"} />
               </p>
             </MotionEntryFade>
-            <SplitTextWrapper order={1}>
+            <ResponsiveTitleWrapper direction="right" order={0.5}>
               <h2 className="second-title-gsap text-6xl lg:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white font-bold font-fira-code">
                 {t("title.second")}
               </h2>
-            </SplitTextWrapper>
+            </ResponsiveTitleWrapper>
           </div>
         </div>
         <div className="project-button-gsap">
