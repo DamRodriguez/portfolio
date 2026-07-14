@@ -1,39 +1,37 @@
 "use client";
 import { useDotButton } from "@/components/carousel/horizontal-carousel/HorizontalCarouselDotButtons";
 import { usePrevNextButtons } from "@/hooks/usePrevNextButtons";
-import type {
-  EmblaCarouselType,
-  EmblaEventType,
-  EmblaOptionsType,
-} from "embla-carousel";
+import type { EmblaCarouselType, EmblaOptionsType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-const numberWithinRange = (number: number, min: number, max: number): number =>
-  Math.min(Math.max(number, min), max);
-
-type useHorizontalCarouselProps = {
+type UseHorizontalCarouselProps<T> = {
   options?: EmblaOptionsType;
-  tweenFactorBase?: number;
+  items: T[];
 };
 
-export const useHorizontalCarousel = ({
+export const useHorizontalCarousel = <T>({
   options,
-  tweenFactorBase = 0,
-}: useHorizontalCarouselProps) => {
+  items,
+}: UseHorizontalCarouselProps<T>) => {
+  // 1. Memorización de items seguros para el loop continuo
+  const safeItems = useMemo(() => {
+    return items.length <= 5 ? [...items, ...items] : items;
+  }, [items]);
+
+  // 2. Inicialización de Embla Carousel
   const [emblaRef, emblaApi] = useEmblaCarousel({
     ...options,
     loop: true,
-    slidesToScroll: 1,
-    containScroll: "trimSnaps",
-    watchDrag: true,
-    skipSnaps: true,
   });
 
+  // 3. Estados y Referencias
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const outerSlidesRef = useRef<(HTMLDivElement | null)[]>([]);
+  const innerSlidesRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  // 4. Integración con otros hooks
   const { onDotButtonClick } = useDotButton(emblaApi);
-
-  const tweenFactor = useRef(0);
-
   const {
     prevBtnDisabled,
     nextBtnDisabled,
@@ -41,71 +39,91 @@ export const useHorizontalCarousel = ({
     onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
 
-  const setTweenFactor = useCallback((emblaApi: EmblaCarouselType) => {
-    tweenFactor.current = tweenFactorBase * emblaApi.scrollSnapList().length;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const tweenOpacity = useCallback(
-    (emblaApi: EmblaCarouselType, eventName?: EmblaEventType) => {
+  // 5. Lógica de transformaciones 3D (Tweening)
+  const tweenStyles = useCallback(
+    (emblaApi: EmblaCarouselType) => {
       const engine = emblaApi.internalEngine();
       const scrollProgress = emblaApi.scrollProgress();
-      const slidesInView = emblaApi.slidesInView();
-      const isScrollEvent = eventName === "scroll";
+      const snapList = emblaApi.scrollSnapList();
+      const tweenFactor = safeItems.length;
 
-      emblaApi.scrollSnapList().forEach((scrollSnap, snapIndex) => {
+      snapList.forEach((scrollSnap, index) => {
         let diffToTarget = scrollSnap - scrollProgress;
-        const slidesInSnap = engine.slideRegistry[snapIndex];
 
-        slidesInSnap.forEach((slideIndex) => {
-          if (isScrollEvent && !slidesInView.includes(slideIndex)) return;
+        if (engine.options.loop && engine.slideLooper) {
+          engine.slideLooper.loopPoints.forEach((loopItem) => {
+            const target = loopItem.target();
+            if (index === loopItem.index && target !== 0) {
+              const sign = Math.sign(target);
+              if (sign === -1) diffToTarget = scrollSnap - (1 + scrollProgress);
+              if (sign === 1) diffToTarget = scrollSnap + (1 - scrollProgress);
+            }
+          });
+        }
 
-          if (engine.options.loop) {
-            engine.slideLooper.loopPoints.forEach((loopItem) => {
-              const target = loopItem.target();
-              if (slideIndex === loopItem.index && target !== 0) {
-                const sign = Math.sign(target);
-                if (sign === -1)
-                  diffToTarget = scrollSnap - (1 + scrollProgress);
-                if (sign === 1)
-                  diffToTarget = scrollSnap + (1 - scrollProgress);
-              }
-            });
-          }
+        const offset = diffToTarget * tweenFactor;
+        const absOffset = Math.abs(offset);
 
-          const tweenValue = 1 - Math.abs(diffToTarget * tweenFactor.current);
-          const opacity = numberWithinRange(tweenValue, 0, 1).toString();
-          emblaApi.slideNodes()[slideIndex].style.opacity = opacity;
-        });
+        const outerNode = outerSlidesRef.current[index];
+        const innerNode = innerSlidesRef.current[index];
+
+        if (innerNode) {
+          innerNode.style.transform = `
+            rotateY(${offset * -15}deg) 
+            translateZ(${absOffset * 50}px) 
+            scale(${Math.max(0.8, 1 - absOffset * 0.1)})
+          `;
+          innerNode.style.filter = `blur(${absOffset * 1.5}px)`;
+          innerNode.style.pointerEvents = absOffset < 0.5 ? "auto" : "none";
+        }
+
+        if (outerNode) {
+          outerNode.style.zIndex = Math.round(
+            safeItems.length - absOffset,
+          ).toString();
+        }
       });
     },
-    [],
+    [safeItems.length],
   );
 
+  // 6. Efectos de eventos y Autoplay
   useEffect(() => {
     if (!emblaApi) return;
+
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    };
+
+    // Vincular eventos
+    emblaApi.on("scroll", tweenStyles);
+    emblaApi.on("reInit", tweenStyles);
+    emblaApi.on("select", onSelect);
+
+    // Inicializar valores
+    tweenStyles(emblaApi);
+    onSelect();
+
+    // Autoplay
     const interval = setInterval(() => {
       emblaApi.scrollNext();
     }, 8000);
+
+    // Limpieza de eventos
     return () => {
       clearInterval(interval);
+      emblaApi.off("scroll", tweenStyles);
+      emblaApi.off("reInit", tweenStyles);
+      emblaApi.off("select", onSelect);
     };
-  }, [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    setTweenFactor(emblaApi);
-    tweenOpacity(emblaApi);
-    emblaApi
-      .on("reInit", setTweenFactor)
-      .on("reInit", tweenOpacity)
-      .on("scroll", tweenOpacity)
-      .on("slideFocus", tweenOpacity);
-  }, [emblaApi, tweenOpacity, setTweenFactor]);
+  }, [emblaApi, tweenStyles]);
 
   return {
-    emblaApi,
     emblaRef,
+    safeItems,
+    selectedIndex,
+    outerSlidesRef,
+    innerSlidesRef,
     prevBtnDisabled,
     nextBtnDisabled,
     onPrevButtonClick,
