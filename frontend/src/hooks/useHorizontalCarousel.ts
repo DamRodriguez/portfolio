@@ -29,6 +29,7 @@ export const useHorizontalCarousel = <T>({
   const [selectedIndex, setSelectedIndex] = useState(0);
   const outerSlidesRef = useRef<(HTMLDivElement | null)[]>([]);
   const innerSlidesRef = useRef<(HTMLDivElement | null)[]>([]);
+  const autoplayTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   // 4. Integración con otros hooks
   const { onDotButtonClick } = useDotButton(emblaApi);
@@ -39,7 +40,24 @@ export const useHorizontalCarousel = <T>({
     onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
 
-  // 5. Lógica de transformaciones 3D (Tweening)
+  // 5. Lógica de Autoplay controlada
+  const stopAutoplay = useCallback(() => {
+    if (autoplayTimerRef.current) {
+      clearInterval(autoplayTimerRef.current);
+      autoplayTimerRef.current = null;
+    }
+  }, []);
+
+  const startAutoplay = useCallback(() => {
+    stopAutoplay(); // Aseguramos que no haya temporizadores duplicados
+    if (!emblaApi) return;
+
+    autoplayTimerRef.current = setInterval(() => {
+      emblaApi.scrollNext();
+    }, 5000);
+  }, [emblaApi, stopAutoplay]);
+
+  // 6. Lógica de transformaciones 3D (Tweening)
   const tweenStyles = useCallback(
     (emblaApi: EmblaCarouselType) => {
       const engine = emblaApi.internalEngine();
@@ -87,36 +105,40 @@ export const useHorizontalCarousel = <T>({
     [safeItems.length],
   );
 
-  // 6. Efectos de eventos y Autoplay
+  // 7. Efectos de eventos
   useEffect(() => {
     if (!emblaApi) return;
 
     const onSelect = () => {
       setSelectedIndex(emblaApi.selectedScrollSnap());
+      // Reinicia el timer cada vez que cambia el slide
+      // (ya sea por botones, arrastre o el propio autoplay)
+      startAutoplay();
     };
 
-    // Vincular eventos
+    // Vincular eventos visuales
     emblaApi.on("scroll", tweenStyles);
     emblaApi.on("reInit", tweenStyles);
     emblaApi.on("select", onSelect);
 
-    // Inicializar valores
+    // Eventos para pausar el autoplay mientras el usuario interactúa (arrastrando)
+    emblaApi.on("pointerDown", stopAutoplay);
+    emblaApi.on("pointerUp", startAutoplay);
+
+    // Inicializar valores (onSelect dispara startAutoplay por primera vez)
     tweenStyles(emblaApi);
     onSelect();
 
-    // Autoplay
-    const interval = setInterval(() => {
-      emblaApi.scrollNext();
-    }, 8000);
-
     // Limpieza de eventos
     return () => {
-      clearInterval(interval);
+      stopAutoplay(); // Limpiar el timer al desmontar
       emblaApi.off("scroll", tweenStyles);
       emblaApi.off("reInit", tweenStyles);
       emblaApi.off("select", onSelect);
+      emblaApi.off("pointerDown", stopAutoplay);
+      emblaApi.off("pointerUp", startAutoplay);
     };
-  }, [emblaApi, tweenStyles]);
+  }, [emblaApi, tweenStyles, startAutoplay, stopAutoplay]);
 
   return {
     emblaRef,
