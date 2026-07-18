@@ -3,6 +3,10 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/*
+ordenar mejor este css
+*/
+
 @custom-variant dark (&:is(.dark *));
 
 :root {

@@ -18,15 +18,26 @@ export function ThemeToggle(props: ThemeToggleProps) {
 
   useEffect(() => setMounted(true), []);
 
-  const handleThemeChange = () => {
+  const handleThemeChange = (e: React.MouseEvent<HTMLLabelElement> | React.ChangeEvent<HTMLInputElement>) => {
+    // Si viene del label (onClick), prevenir el cambio automático del checkbox
+    // para que nosotros controlemos el tema programáticamente
+    if (e.currentTarget.tagName === "LABEL") {
+      e.preventDefault();
+    }
     const currentTheme = (resolvedTheme ?? theme ?? "dark") as "light" | "dark";
     const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+    // Usar el ref directamente al botón (label), igual que antes del refactor
+    const triggerElement = buttonRef.current;
 
     applyThemeTransition({
       targetTheme: newTheme,
       setTheme,
-      triggerElement: buttonRef.current,
+      triggerElement,
     });
+
+    // Actualizar el checkbox manualmente después de la transición
+    // El tema cambia via next-themes, el checkbox reacciona via checked={isDark}
   };
 
   if (!mounted) {
@@ -53,6 +64,7 @@ export function ThemeToggle(props: ThemeToggleProps) {
         ref={buttonRef}
         htmlFor="switch"
         data-theme-toggle
+        onClick={handleThemeChange}
         className={clsx(
           "relative grid w-[2.17375rem] xl:w-[2.67375rem] dark:bg-soft-gray/20 aspect-square cursor-pointer place-items-center rounded-full border shadow-s2 theme-transition-all hover:bg-black dark:border-soft-gray/5 dark:shadow-s1 dark:hover:bg-soft-white group",
           {
@@ -66,7 +78,7 @@ export function ThemeToggle(props: ThemeToggleProps) {
           id="switch"
           className="peer hidden"
           checked={isDark}
-          onChange={handleThemeChange}
+          readOnly
         />
 
         <div className="col-start-1 row-start-1 transition-all delay-150 line-height-[0.1] peer-checked:rotate-[360deg] peer-checked:scale-0">
