@@ -56,3 +56,4 @@ src/data/representative-profile.txt
 src/data/*.txt
 src/data/*.json
 !src/data/projectsData.ts
+!src/data/representative-profile.txt
