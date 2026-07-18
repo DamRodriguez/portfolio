@@ -18,26 +18,33 @@ export function ThemeToggle(props: ThemeToggleProps) {
 
   useEffect(() => setMounted(true), []);
 
-  const handleThemeChange = (e: React.MouseEvent<HTMLLabelElement> | React.ChangeEvent<HTMLInputElement>) => {
-    // Si viene del label (onClick), prevenir el cambio automático del checkbox
-    // para que nosotros controlemos el tema programáticamente
-    if (e.currentTarget.tagName === "LABEL") {
-      e.preventDefault();
-    }
-    const currentTheme = (resolvedTheme ?? theme ?? "dark") as "light" | "dark";
+  const handleThemeChange = () => {
+    const currentTheme = resolvedTheme ?? theme;
     const newTheme = currentTheme === "dark" ? "light" : "dark";
 
-    // Usar el ref directamente al botón (label), igual que antes del refactor
+    // Calcular rect inline AQUÍ (igual que en d00be49 que funcionaba en mobile)
     const triggerElement = buttonRef.current;
+    let originX: number | undefined;
+    let originY: number | undefined;
+
+    if (triggerElement) {
+      const rect = triggerElement.getBoundingClientRect();
+      // Solo usar si el rect tiene tamaño real (evita bug mobile Safari que da 0,0)
+      if (rect.width > 0 && rect.height > 0) {
+        originX = rect.left + rect.width / 2;
+        originY = rect.top + rect.height / 2;
+      }
+    }
 
     applyThemeTransition({
       targetTheme: newTheme,
       setTheme,
       triggerElement,
+      originX,
+      originY,
     });
 
-    // Actualizar el checkbox manualmente después de la transición
-    // El tema cambia via next-themes, el checkbox reacciona via checked={isDark}
+    // next-themes actualiza el tema, el checkbox reacciona via checked={isDark}
   };
 
   if (!mounted) {
@@ -64,7 +71,6 @@ export function ThemeToggle(props: ThemeToggleProps) {
         ref={buttonRef}
         htmlFor="switch"
         data-theme-toggle
-        onClick={handleThemeChange}
         className={clsx(
           "relative grid w-[2.17375rem] xl:w-[2.67375rem] dark:bg-soft-gray/20 aspect-square cursor-pointer place-items-center rounded-full border shadow-s2 theme-transition-all hover:bg-black dark:border-soft-gray/5 dark:shadow-s1 dark:hover:bg-soft-white group",
           {
@@ -78,7 +84,7 @@ export function ThemeToggle(props: ThemeToggleProps) {
           id="switch"
           className="peer hidden"
           checked={isDark}
-          readOnly
+          onChange={handleThemeChange}
         />
 
         <div className="col-start-1 row-start-1 transition-all delay-150 line-height-[0.1] peer-checked:rotate-[360deg] peer-checked:scale-0">
