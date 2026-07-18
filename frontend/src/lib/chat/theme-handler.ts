@@ -146,20 +146,17 @@ export function useThemeHandler({ text, setTheme, isLatestAssistantMessage = fal
 function findThemeToggleElement(): HTMLElement | null {
   if (typeof window === "undefined") return null;
 
-  // Primero buscar el contenedor del chat widget (prioridad en móvil/pantalla completa)
+  // En móvil con widget abierto, no necesitamos elemento real
+  // getTransitionOrigin en themeActions.ts usará viewport center
+  const isMobile = window.innerWidth < 1280;
   const chatWidgetContainer = document.querySelector(
     "[data-chat-widget-container]",
   ) as HTMLElement | null;
-  if (chatWidgetContainer) {
-    // Verificar si el widget está "abierto" (no colapsado)
-    const isOpen = chatWidgetContainer.classList.contains("translate-x-0") &&
-      chatWidgetContainer.classList.contains("translate-y-0");
-    // En móvil (pantalla completa) también tiene las clases de posición fija completa
-    const isMobileFullscreen = window.innerWidth < 1280 && isOpen;
+  const isWidgetOpen = chatWidgetContainer?.classList.contains("translate-x-0") &&
+    chatWidgetContainer?.classList.contains("translate-y-0");
 
-    if (isOpen && (isMobileFullscreen || window.innerWidth < 1280)) {
-      return chatWidgetContainer;
-    }
+  if (isMobile && isWidgetOpen) {
+    return null; // Señal para que getTransitionOrigin use viewport center
   }
 
   const dataElement = document.querySelector(
