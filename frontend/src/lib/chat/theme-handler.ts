@@ -171,10 +171,5 @@ function findThemeToggleElement(): HTMLElement | null {
     return switchInput.parentElement as HTMLElement;
   }
 
-  const classElement = document.querySelector(
-    ".theme-transition-all",
-  ) as HTMLElement | null;
-  if (classElement) return classElement;
-
   return null;
 }
