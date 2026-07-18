@@ -19,7 +19,7 @@ export default function ChatWidgetFooter({
   sendMessage,
 }: ChatWidgetFooterProps) {
   const t = useTranslations("virtualAssistant");
-  const { resolvedTheme, theme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const hasText = inputValue.trim().length > 0;
 

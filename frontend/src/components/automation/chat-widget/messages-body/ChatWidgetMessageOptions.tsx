@@ -13,7 +13,7 @@ export default function ChatWidgetMessageOptions({
   sendMessage,
 }: ChatWidgetMessageOptionsProps) {
   const t = useTranslations("virtualAssistant.messageOptions");
-  const { resolvedTheme, theme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
