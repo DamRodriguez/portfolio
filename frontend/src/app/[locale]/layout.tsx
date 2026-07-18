@@ -1,4 +1,4 @@
-import VoiceflowChat from "@/components/automation/VoiceflowChat";
+import ChatWidget from "@/components/automation/chat-widget/ChatWidget";
 import Providers from "@/components/provider/Providers";
 import GoogleAnalytics from "@/components/seo/GoogleAnalytics";
 import PersonSchema from "@/components/seo/PersonSchema";
@@ -77,7 +77,7 @@ export default async function RootLocaleLayout({
           <ThemeTransitionBlocker />
           <GoogleAnalytics />
           <VercelAnalytics />
-          <VoiceflowChat locale={locale} />
+          <ChatWidget />
         </Providers>
       </body>
     </html>

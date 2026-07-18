@@ -6,6 +6,7 @@ import {
   ProjectCategory,
   ProjectItemData,
 } from "@/components/sections/projects-section/ProjectItem";
+import clsx from "clsx";
 import {
   LucideIcon,
   MonitorSmartphone,
@@ -19,9 +20,14 @@ import Image from "next/image";
 type ProjectCardProps = {
   project: ProjectItemData;
   onClick: () => void;
+  small?: boolean;
 };
 
-export default function ProjectCard({ project, onClick }: ProjectCardProps) {
+export default function ProjectCard({
+  project,
+  onClick,
+  small,
+}: ProjectCardProps) {
   const allProjectsT = useTranslations("allProjectsPage");
   const t = useTranslations("projectsSection");
   const title = t(`data.${project.translationKey}.title`);
@@ -45,7 +51,12 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
         onClick={onClick}
         className="rounded-[2rem] overflow-hidden border border-black/30 dark:border-soft-gray/30 h-full flex flex-col bg-soft-white dark:bg-strong-black theme-transition-all group hover:border-black dark:hover:border-soft-gray cursor-pointer text-left"
       >
-        <div className="h-[12rem] xl:h-[16rem] overflow-hidden relative">
+        <div
+          className={clsx("overflow-hidden relative", {
+            "h-[10rem]": small,
+            "h-[12rem] xl:h-[16rem]": !small,
+          })}
+        >
           <Image
             src={project.imageLogo}
             width={300}
@@ -59,21 +70,57 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
 
           <div className="opacity-0 xl:group-hover:opacity-100 bg-soft-white/70 dark:bg-strong-black/70 w-full h-full absolute bottom-0 flex justify-center items-center theme-transition-all backdrop-blur-[0.2rem]">
             <div className="flex items-center gap-2">
-              <ScanEye className="stroke-black dark:stroke-soft-white w-8 h-8" />
-              <p className="text-xl text-black dark:text-soft-white font-medium">
+              <ScanEye
+                className={clsx("stroke-black dark:stroke-soft-white", {
+                  "w-6 h-6": small,
+                  "w-8 h-8": !small,
+                })}
+              />
+              <p
+                className={clsx("text-black dark:text-soft-white font-medium", {
+                  "text-lg": small,
+                  "text-xl": !small,
+                })}
+              >
                 {allProjectsT("projectCard.seeMore")}
               </p>
             </div>
           </div>
         </div>
 
-        <div className="p-6 flex flex-col flex-1 gap-[2rem]">
-          <div className="flex flex-col gap-[1rem]">
-            <h3 className="text-xl xl:text-2xl font-semibold text-black dark:text-soft-white font-fira-code group-hover:tracking-wider theme-transition-all">
+        <div
+          className={clsx("p-6 flex flex-col flex-1", {
+            "gap-[1.5rem]": small,
+            "gap-[2rem]": !small,
+          })}
+        >
+          <div
+            className={clsx("flex flex-col", {
+              "gap-[0.5rem]": small,
+              "gap-[1rem]": !small,
+            })}
+          >
+            <h3
+              className={clsx(
+                "font-semibold text-black dark:text-soft-white font-fira-code group-hover:tracking-wider theme-transition-all",
+                {
+                  "text-lg": small,
+                  "text-xl xl:text-2xl": !small,
+                },
+              )}
+            >
               {title}
             </h3>
 
-            <p className="text-dark-gray dark:text-soft-gray text-sm xl:text-base line-clamp-2">
+            <p
+              className={clsx(
+                "text-dark-gray dark:text-soft-gray line-clamp-2",
+                {
+                  "text-sm": small,
+                  "text-sm xl:text-base": !small,
+                },
+              )}
+            >
               <RichText
                 t={t}
                 translationKey={`data.${project.translationKey}.description`}
@@ -84,7 +131,13 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
               {technologies.slice(0, 5).map((tech, index) => (
                 <span
                   key={index}
-                  className="px-3 h-[1.5rem] xl:h-[2rem] border border-black/10 dark:border-soft-gray/15 bg-white-bone/50 dark:bg-soft-gray/5 font-medium rounded-full text-xs xl:text-sm flex items-center justify-center"
+                  className={clsx(
+                    "px-3 h-[1.5rem] xl:h-[2rem] border border-black/10 dark:border-soft-gray/15 bg-white-bone/50 dark:bg-soft-gray/5 font-medium rounded-full flex items-center justify-center",
+                    {
+                      "text-xs": small,
+                      "text-xs xl:text-sm": !small,
+                    },
+                  )}
                 >
                   {tech}
                 </span>
@@ -99,7 +152,13 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
               return (
                 <span
                   key={key}
-                  className="px-3 py-1 border border-black/10 dark:border-soft-gray/15 italic rounded-full text-sm flex items-center gap-2 group-hover:dark:border-soft-gray/50 group-hover:border-black/50 theme-transition-all"
+                  className={clsx(
+                    "px-3 py-1 border border-black/10 dark:border-soft-gray/15 italic rounded-full flex items-center gap-2 group-hover:dark:border-soft-gray/50 group-hover:border-black/50 theme-transition-all",
+                    {
+                      "text-xs": small,
+                      "text-sm": !small,
+                    },
+                  )}
                 >
                   <Icon className="stroke-black dark:stroke-soft-white w-4 h-4 " />
                   {t(`categories.${key}` as CategoryTranslationKey)}

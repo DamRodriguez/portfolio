@@ -25,9 +25,12 @@ export default function BackgroundText() {
     }
   }
 
-  const isLeftSide = activeSection === "aboutme" || activeSection === "contact";
-  const isRightSide =
-    activeSection === "services" || activeSection === "projects";
+  const isLeftSide =
+    activeSection === "aboutme" ||
+    activeSection === "contact" ||
+    activeSection === "services" ||
+    activeSection === "projects";
+  const isRightSide = "";
   const isCenter = activeSection === "work";
 
   return (

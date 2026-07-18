@@ -7,4 +7,8 @@ export const routes = {
   featuredProjects: "#projects",
   allProjects: "/proyectos",
   contact: "#contact",
+  api: {
+    contact: "/api/contact",
+    chat: "/api/chat",
+  },
 };

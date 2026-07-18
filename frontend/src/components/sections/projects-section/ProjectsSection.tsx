@@ -55,7 +55,6 @@ const ProjectsSection = () => {
                     },
                   )}
                 />
-                {/*si falla algo cambiar overflow-y-clip por overflow-clip */}
                 <ProjectItem
                   data={project}
                   odd={index % 2 !== 0}

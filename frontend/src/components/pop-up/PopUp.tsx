@@ -59,7 +59,7 @@ export const PopUp = ({
               <div
                 className={clsx("absolute top-0 right-0", closeButtonClassName)}
               >
-                <CloseButton onClose={onClose} />
+                <CloseButton onClick={onClose} />
               </div>
             </div>
           </SpaceX>

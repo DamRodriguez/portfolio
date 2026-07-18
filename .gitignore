@@ -1,8 +1,6 @@
 # Claude Code local configuration
 .claude/
+CLAUDE.md
 
 # Graphify generated knowledge graph
 graphify-out/
-
-# Generated schema files (auto-generated, not to be committed)
-frontend/src/components/schemas/

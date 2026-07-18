@@ -7,6 +7,41 @@
 
 :root {
   --progress-color: var(--color-black);
+  --scrollbar-width: 8px;
+
+  --bg-ribbon-1: #fff;
+  --bg-ribbon-2: #fff;
+  --bg-ribbon-3: #fff;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --scrollbar-width: 6px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+.color-ribbon-sides {
+  color: #f5f5f5;
+}
+.color-ribbon-center-active {
+  color: #000;
+}
+.color-ribbon-center-default {
+  color: #717783;
+}
+
+.dark .color-ribbon-sides {
+  color: #0f0f0f;
+}
+.dark .color-ribbon-center-active {
+  color: #f5f5f5;
+}
+.dark .color-ribbon-center-default {
+  color: #6b7280;
 }
 
 .dark {
@@ -94,10 +129,6 @@ body {
     pointer;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-}
-
 ::-webkit-scrollbar-track {
   background: var(--color-medium-gray);
 }
@@ -114,12 +145,6 @@ body {
 .dark ::-webkit-scrollbar-thumb {
   background: var(--color-soft-gray);
   border-radius: 3px;
-}
-
-@media (max-width: 900px) {
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
 }
 
 @keyframes marquee {

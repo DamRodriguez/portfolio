@@ -14,4 +14,6 @@
   --spacing-header-desktop: var(--height-header-desktop);
   --spacing-vertical-mobile: 5rem;
   --spacing-vertical-desktop: 10rem;
+  --spacing-width-widget-header: var(--width-widget-header);
+  --spacing-height-widget-header: var(--height-widget-header);
 }

@@ -2,7 +2,7 @@ import { ArgFlagIcon, EngFlagIcon } from "@/components/icons/languageDropdown";
 import MotionHeight from "@/components/motion/MotionHeight";
 import { AnimatedChevron } from "@/components/other/AnimatedChevron";
 import useBreakpoint from "@/hooks/useBreakpoint";
-import { useClickOutside } from "@/utils/useClickOutside";
+import { useClickOutside } from "@/hooks/useClickOutside";
 import clsx from "clsx";
 import { AnimatePresence } from "framer-motion";
 import type { Locale } from "next-intl";
@@ -57,7 +57,7 @@ const LanguageDropdown = ({ locale, hasScrolled }: LanguageDropdownProps) => {
     >
       <div
         className={clsx(
-          "py-[0.4rem] px-[0.3rem] xl:px-[0.5rem] rounded-[0.5rem] overflow-hidden backdrop-blur-xs border dark:border-soft-gray/5 shadow-s2 dark:bg-soft-gray/20",
+          "py-[0.4rem] px-[0.3rem] xl:px-[0.5rem] rounded-[0.5rem] overflow-hidden backdrop-blur-xs border dark:border-soft-gray/5 shadow-s2 dark:shadow-s1 dark:bg-soft-gray/20",
           {
             "bg-white-bone": hasScrolled,
             "bg-soft-white": !hasScrolled,

@@ -255,5 +255,16 @@
     "projectCard": {
       "seeMore": "Ver más"
     }
+  },
+  "virtualAssistant": {
+    "headerTitle": "Asistente Virtual",
+    "footerInputPlaceholder": "Contame...",
+    "welcomeMessage": "¡Hola!\n¿En qué puedo ayudarte hoy?",
+    "messageOptions": {
+      "projects": "Contame sobre sus proyectos",
+      "oneProject": "Mostrame un proyecto",
+      "experience": "¿Cuál es su experiencia laboral?",
+      "toggleTheme": "Cambiar al tema {theme, select, dark {claro} light {oscuro} other {opuesto}}"
+    }
   }
 }

@@ -26,7 +26,6 @@ const ContactSection = () => {
           <ContactForm />
         </div>
       </div>
-      {/* <FooterSection /> */}
     </SpaceX>
   );
 };

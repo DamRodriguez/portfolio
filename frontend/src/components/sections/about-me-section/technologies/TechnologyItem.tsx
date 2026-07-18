@@ -20,7 +20,7 @@ const TechnologyItem = (props: TechnologyItemProps) => {
   return (
     <div
       className={clsx(
-        "group gap-[1rem] xl:gap-[1.5rem] flex flex-col border border-black/10 dark:border-soft-gray/60 rounded-[2.5rem] xl:rounded-[3rem] p-[1.5rem] xl:p-[2rem] overflow-hidden relative bg-soft-white/40 dark:bg-strong-black/40 shadow-s2 z-1 text-dark-gray dark:text-soft-gray hover:text-soft-white dark:hover:text-black theme-transition-all",
+        "group gap-[1rem] xl:gap-[1.5rem] flex flex-col border border-black/10 dark:border-soft-gray/60 rounded-[2.5rem] xl:rounded-[3rem] p-[1.5rem] xl:p-[2rem] overflow-hidden relative bg-soft-white/40 dark:bg-strong-black/40 shadow-s2 dark:shadow-s1 z-1 text-dark-gray dark:text-soft-gray hover:text-soft-white dark:hover:text-black theme-transition-all",
         props.className,
         {
           "scale-105 !duration-150 border-2 dark:border dark:!border-soft-white !border-black/20 !bg-soft-white dark:!bg-strong-black":
@@ -41,7 +41,6 @@ const TechnologyItem = (props: TechnologyItemProps) => {
           {
             "origin-left": props.animation === "left",
             "origin-right": props.animation === "right",
-            // "scale-x-100": props.isActive,
           },
         )}
       />

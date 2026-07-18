@@ -19,7 +19,7 @@ const CarouselHeader = ({ current, total, onClose }: CarouselHeaderProps) => {
         <span>{formatTwoDigits(total)}</span>
       </span>
 
-      <CloseButton onClose={onClose} />
+      <CloseButton onClick={onClose} />
     </SpaceX>
   );
 };

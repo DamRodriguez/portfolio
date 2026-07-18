@@ -40,3 +40,19 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# automation
+src/data/representative-profile.txt
+
+# turbopack / next.js cache
+.turbo/
+.next/
+.swc/
+
+# logs genéricos
+*.log
+
+# datos sensibles en data/
+src/data/*.txt
+src/data/*.json
+!src/data/projectsData.ts

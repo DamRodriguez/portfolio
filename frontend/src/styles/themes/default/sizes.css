@@ -1,4 +1,6 @@
 @theme {
   --height-header-mobile: 4.5rem;
   --height-header-desktop: 5.5rem;
+  --width-widget-header: 2.5rem;
+  --height-widget-header: 2rem;
 }

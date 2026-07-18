@@ -30,7 +30,7 @@ export const VideoPopUp = ({ video, onClose, lockScroll }: VideoPopUpProps) => {
       isOpen={!!video}
       onClose={onClose}
       lockScroll={lockScroll}
-      containerClassName="border-soft-white/10 border shadow-s1 rounded-[0.5rem] xl:rounded-2xl overflow-hidden rounded-tr-[1.3rem] xl:rounded-tr-[2rem] w-fit mx-auto"
+      containerClassName="border-soft-white/10 border shadow-s1 rounded-[0.5rem] xl:rounded-2xl overflow-hidden rounded-tr-[1.8rem] xl:rounded-tr-[2rem] w-fit mx-auto"
       closeButtonClassName="m-2"
     >
       <video ref={videoRef} src={video} controls playsInline />

@@ -6,6 +6,7 @@ import showToast from "@/components/toast/Toast";
 import Button from "@/components/ui/buttons/Button";
 import Form from "@/components/ui/form/Form";
 import { BaseOption } from "@/components/ui/inputs/InputCombobox";
+import { routes } from "@/constants/routes";
 import {
   ContactSchema,
   ContactSchemaFieldNames,
@@ -66,7 +67,7 @@ const ContactForm = () => {
 
   const onSubmit = async (data: ContactSchemaType) => {
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(routes.api.contact, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

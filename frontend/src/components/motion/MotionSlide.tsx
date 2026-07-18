@@ -9,6 +9,7 @@ export type MotionSlideDirection = "left" | "right" | "up" | "down";
 type MotionSlideProps = MotionDefaults & {
   direction?: MotionSlideDirection;
   id?: string;
+  layoutId?: string;
 };
 
 const getInitialPosition = (direction: MotionSlideProps["direction"]) => {
@@ -34,6 +35,7 @@ const visibleState = {
 
 const MotionSlide = ({
   id,
+  layoutId,
   direction = "left",
   ...props
 }: MotionSlideProps) => {
@@ -70,6 +72,7 @@ const MotionSlide = ({
   return (
     <motion.div
       id={id}
+      layoutId={layoutId}
       initial={initial}
       whileInView={visibleState}
       viewport={viewport}

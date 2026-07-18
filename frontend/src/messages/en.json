@@ -255,5 +255,16 @@
     "projectCard": {
       "seeMore": "See more"
     }
+  },
+  "virtualAssistant": {
+    "headerTitle": "Virtual Assistant",
+    "footerInputPlaceholder": "Tell me...",
+    "welcomeMessage": "Hello!\nHow can I help you today?",
+    "messageOptions": {
+      "projects": "Tell me about his projects",
+      "oneProject": "Show me a project",
+      "experience": "What is his work experience?",
+      "toggleTheme": "Switch to {theme, select, dark {light} light {dark} other {opposite}} theme"
+    }
   }
 }
