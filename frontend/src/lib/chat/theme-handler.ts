@@ -3,6 +3,7 @@ import {
   type ChatThemeMode,
 } from "@/lib/chatTheme";
 import { extractThemeAction } from "@/lib/chatUtils";
+import { applyThemeTransition } from "@/lib/themeActions";
 import { useTheme } from "next-themes";
 import { useEffect, useRef } from "react";
 
@@ -109,15 +110,11 @@ export function useThemeHandler({
         return;
       }
 
-      {
-        /*
-       applyThemeTransition({
+      applyThemeTransition({
         targetTheme: resolvedAction,
         setTheme,
         triggerElement: triggerElement || null,
       });
-    */
-      }
 
       if (messageId) markThemeActionApplied(messageId);
       pendingAction.current = null;
