@@ -1,10 +1,8 @@
-// lib/chat/theme-handler.ts
 import {
   buildThemeActionConfirmation,
   type ChatThemeMode,
 } from "@/lib/chatTheme";
 import { extractThemeAction } from "@/lib/chatUtils";
-import { applyThemeTransition } from "@/lib/themeActions";
 import { useTheme } from "next-themes";
 import { useEffect, useRef } from "react";
 
@@ -42,7 +40,12 @@ type ThemeHandlerConfig = {
   messageId?: string;
 };
 
-export function useThemeHandler({ text, setTheme, isLatestAssistantMessage = false, messageId }: ThemeHandlerConfig) {
+export function useThemeHandler({
+  text,
+  setTheme,
+  isLatestAssistantMessage = false,
+  messageId,
+}: ThemeHandlerConfig) {
   const { theme, resolvedTheme, systemTheme } = useTheme();
   const lastAppliedAction = useRef<ChatThemeMode | null>(null);
   const timeoutRef = useRef<number | null>(null);
@@ -106,11 +109,15 @@ export function useThemeHandler({ text, setTheme, isLatestAssistantMessage = fal
         return;
       }
 
-      applyThemeTransition({
+      {
+        /*
+       applyThemeTransition({
         targetTheme: resolvedAction,
         setTheme,
         triggerElement: triggerElement || null,
       });
+    */
+      }
 
       if (messageId) markThemeActionApplied(messageId);
       pendingAction.current = null;
@@ -132,7 +139,15 @@ export function useThemeHandler({ text, setTheme, isLatestAssistantMessage = fal
         window.clearTimeout(timeoutRef.current);
       }
     };
-  }, [text, setTheme, theme, resolvedTheme, systemTheme, isLatestAssistantMessage, messageId]);
+  }, [
+    text,
+    setTheme,
+    theme,
+    resolvedTheme,
+    systemTheme,
+    isLatestAssistantMessage,
+    messageId,
+  ]);
 
   useEffect(() => {
     return () => {
