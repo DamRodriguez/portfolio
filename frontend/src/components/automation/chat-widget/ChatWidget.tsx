@@ -8,6 +8,7 @@ import config from "@/config/config";
 import { routes } from "@/constants/routes";
 import useBreakpoint from "@/hooks/useBreakpoint";
 import { useScrollLock } from "@/hooks/useScrollLock";
+import { useVisualViewportHeight } from "@/hooks/useVisualViewportHeight";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import clsx from "clsx";
@@ -34,6 +35,11 @@ export default function ChatWidget() {
 
   const handleToggleWidget = () => setIsWidgetOpen((prev) => !prev);
 
+  useVisualViewportHeight({
+    variableName: "--widget-vh",
+    fallbackValue: "100dvh",
+  });
+
   return (
     <>
       <AnimatePresence>
@@ -57,7 +63,7 @@ export default function ChatWidget() {
           },
         )}
       >
-        <div className="h-[calc(100dvh-2rem)] sm:h-[calc(100dvh-var(--height-header-mobile)-5rem)] xl:h-[calc(100dvh-var(--height-header-mobile)-7rem)] flex flex-col 2xl:flex-row w-[calc(100vw-2rem)] sm:w-[32rem]">
+        <div className="h-[calc(var(--widget-vh,100dvh)-2rem)] sm:h-[calc(100dvh-var(--height-header-mobile)-5rem)] xl:h-[calc(100dvh-var(--height-header-mobile)-7rem)] flex flex-col 2xl:flex-row w-[calc(100vw-2rem)] sm:w-[32rem]">
           <MotionEntrySlide
             order={2}
             direction={isTablet ? "down" : "right"}
