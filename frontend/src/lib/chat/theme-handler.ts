@@ -146,19 +146,7 @@ export function useThemeHandler({ text, setTheme, isLatestAssistantMessage = fal
 function findThemeToggleElement(): HTMLElement | null {
   if (typeof window === "undefined") return null;
 
-  // En móvil con widget abierto, no necesitamos elemento real
-  // getTransitionOrigin en themeActions.ts usará viewport center
-  const isMobile = window.innerWidth < 1280;
-  const chatWidgetContainer = document.querySelector(
-    "[data-chat-widget-container]",
-  ) as HTMLElement | null;
-  const isWidgetOpen = chatWidgetContainer?.classList.contains("translate-x-0") &&
-    chatWidgetContainer?.classList.contains("translate-y-0");
-
-  if (isMobile && isWidgetOpen) {
-    return null; // Señal para que getTransitionOrigin use viewport center
-  }
-
+  // Siempre buscar el botón real del theme toggle (header), igual que hacía buttonRef antes
   const dataElement = document.querySelector(
     "[data-theme-toggle]",
   ) as HTMLElement | null;

@@ -15,17 +15,6 @@ declare global {
 }
 
 function getTransitionOrigin(triggerElement?: HTMLElement | null) {
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 1280;
-
-  // Si no hay triggerElement y estamos en móvil, usar centro del viewport
-  // Esto evita problemas con contenedores transformados/animados
-  if (!triggerElement && isMobile) {
-    const x = window.innerWidth / 2;
-    const y = window.innerHeight / 2;
-    const endRadius = Math.hypot(x, y);
-    return { x, y, endRadius };
-  }
-
   const rect = triggerElement?.getBoundingClientRect();
   const x = rect ? rect.left + rect.width / 2 : window.innerWidth / 2;
   const y = rect ? rect.top + rect.height / 2 : window.innerHeight / 2;
