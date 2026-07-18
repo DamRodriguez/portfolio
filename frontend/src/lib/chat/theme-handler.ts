@@ -8,7 +8,7 @@ import { applyThemeTransition } from "@/lib/themeActions";
 import { useTheme } from "next-themes";
 import { useEffect, useRef } from "react";
 
-const STORAGE_KEY = "chat-theme-actions-applied";
+const STORAGE_KEY = "chat-theme-actions-applied-v2";
 
 function getAppliedThemeActions(): Set<string> {
   if (typeof window === "undefined") return new Set();

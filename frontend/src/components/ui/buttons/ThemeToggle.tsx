@@ -1,5 +1,6 @@
 "use client";
 import { MoonIcon, SunIcon } from "@/components/icons/theme";
+import { applyThemeTransition } from "@/lib/themeActions";
 import clsx from "clsx";
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
@@ -20,51 +21,16 @@ export function ThemeToggle(props: ThemeToggleProps) {
   const handleThemeChange = () => {
     const currentTheme = resolvedTheme ?? theme;
     const newTheme = currentTheme === "dark" ? "light" : "dark";
-    const root = document.documentElement;
 
-    const rect = buttonRef.current?.getBoundingClientRect();
+    const triggerElement = buttonRef.current;
 
-    const x = rect ? rect.left + rect.width / 2 : window.innerWidth / 2;
-    const y = rect ? rect.top + rect.height / 2 : window.innerHeight / 2;
-
-    const endRadius = Math.hypot(
-      Math.max(x, window.innerWidth - x),
-      Math.max(y, window.innerHeight - y),
-    );
-
-    root.classList.add("theme-switching");
-
-    const cleanUp = () => {
-      root.classList.remove("theme-switching");
-    };
-
-    if (!document.startViewTransition) {
-      setTheme(newTheme);
-      window.setTimeout(cleanUp, 600);
-      return;
-    }
-
-    const transition = document.startViewTransition(() => {
-      setTheme(newTheme);
+    applyThemeTransition({
+      targetTheme: newTheme,
+      setTheme,
+      triggerElement,
     });
 
-    transition.ready.then(() => {
-      document.documentElement.animate(
-        {
-          clipPath: [
-            `circle(0px at ${x}px ${y}px)`,
-            `circle(${endRadius}px at ${x}px ${y}px)`,
-          ],
-        },
-        {
-          duration: 700,
-          easing: "ease-in-out",
-          pseudoElement: "::view-transition-new(root)",
-        },
-      );
-    });
-
-    transition.finished.finally(cleanUp);
+    // next-themes actualiza el tema, el checkbox reacciona via checked={isDark}
   };
 
   if (!mounted) {
@@ -90,6 +56,7 @@ export function ThemeToggle(props: ThemeToggleProps) {
       <label
         ref={buttonRef}
         htmlFor="switch"
+        data-theme-toggle
         className={clsx(
           "relative grid w-[2.17375rem] xl:w-[2.67375rem] dark:bg-soft-gray/20 aspect-square cursor-pointer place-items-center rounded-full border shadow-s2 theme-transition-all hover:bg-black dark:border-soft-gray/5 dark:shadow-s1 dark:hover:bg-soft-white group",
           {
