@@ -103,17 +103,23 @@ export function useThemeHandler({
     }
 
     timeoutRef.current = window.setTimeout(() => {
-      const triggerElement = findThemeToggleElement();
       const resolvedAction = pendingAction.current;
 
       if (!resolvedAction) {
         return;
       }
 
+      // Medir posición del botón ThemeToggle EN EL MOMENTO DEL TRIGGER
+      // para que coincida exactamente con el click manual
+      const center = getThemeToggleCenter();
+      const originX = center?.x ?? window.innerWidth / 2;
+      const originY = center?.y ?? window.innerHeight / 2;
+
       applyThemeTransition({
         targetTheme: resolvedAction,
         setTheme,
-        triggerElement: triggerElement || null,
+        originX,
+        originY,
       });
 
       if (messageId) markThemeActionApplied(messageId);
@@ -158,7 +164,7 @@ export function useThemeHandler({
 function findThemeToggleElement(): HTMLElement | null {
   if (typeof window === "undefined") return null;
 
-  // Siempre buscar el botón real del theme toggle (header), igual que hacía buttonRef antes
+  // Buscar el botón real del ThemeToggle (header) para medir su posición
   const dataElement = document.querySelector(
     "[data-theme-toggle]",
   ) as HTMLElement | null;
@@ -172,4 +178,17 @@ function findThemeToggleElement(): HTMLElement | null {
   }
 
   return null;
+}
+
+function getThemeToggleCenter(): { x: number; y: number } | null {
+  if (typeof window === "undefined") return null;
+
+  const el = findThemeToggleElement();
+  if (!el) return null;
+
+  const rect = el.getBoundingClientRect();
+  return {
+    x: rect.left + rect.width / 2,
+    y: rect.top + rect.height / 2,
+  };
 }
