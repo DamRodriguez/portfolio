@@ -146,6 +146,22 @@ export function useThemeHandler({ text, setTheme, isLatestAssistantMessage = fal
 function findThemeToggleElement(): HTMLElement | null {
   if (typeof window === "undefined") return null;
 
+  // Primero buscar el contenedor del chat widget (prioridad en móvil/pantalla completa)
+  const chatWidgetContainer = document.querySelector(
+    "[data-chat-widget-container]",
+  ) as HTMLElement | null;
+  if (chatWidgetContainer) {
+    // Verificar si el widget está "abierto" (no colapsado)
+    const isOpen = chatWidgetContainer.classList.contains("translate-x-0") &&
+      chatWidgetContainer.classList.contains("translate-y-0");
+    // En móvil (pantalla completa) también tiene las clases de posición fija completa
+    const isMobileFullscreen = window.innerWidth < 1280 && isOpen;
+
+    if (isOpen && (isMobileFullscreen || window.innerWidth < 1280)) {
+      return chatWidgetContainer;
+    }
+  }
+
   const dataElement = document.querySelector(
     "[data-theme-toggle]",
   ) as HTMLElement | null;

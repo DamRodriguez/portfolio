@@ -62,6 +62,7 @@ export default function ChatWidget() {
               !isWidgetOpen,
           },
         )}
+        data-chat-widget-container
       >
         <div className="h-[calc(var(--widget-vh,100dvh)-2rem)] sm:h-[calc(100dvh-var(--height-header-mobile)-5rem)] xl:h-[calc(100dvh-var(--height-header-mobile)-7rem)] flex flex-col 2xl:flex-row w-[calc(100vw-2rem)] sm:w-[32rem]">
           <MotionEntrySlide
