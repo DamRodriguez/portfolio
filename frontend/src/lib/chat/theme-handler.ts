@@ -8,13 +8,41 @@ import { applyThemeTransition } from "@/lib/themeActions";
 import { useTheme } from "next-themes";
 import { useEffect, useRef } from "react";
 
+const STORAGE_KEY = "chat-theme-actions-applied";
+
+function getAppliedThemeActions(): Set<string> {
+  if (typeof window === "undefined") return new Set();
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored ? new Set(JSON.parse(stored)) : new Set();
+  } catch {
+    return new Set();
+  }
+}
+
+function markThemeActionApplied(messageId: string) {
+  if (typeof window === "undefined") return;
+  try {
+    const applied = getAppliedThemeActions();
+    applied.add(messageId);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify([...applied]));
+  } catch {
+    // ignore storage errors
+  }
+}
+
+function wasThemeActionApplied(messageId: string): boolean {
+  return getAppliedThemeActions().has(messageId);
+}
+
 type ThemeHandlerConfig = {
   text: string;
   setTheme: (theme: string) => void;
   isLatestAssistantMessage?: boolean;
+  messageId?: string;
 };
 
-export function useThemeHandler({ text, setTheme, isLatestAssistantMessage = false }: ThemeHandlerConfig) {
+export function useThemeHandler({ text, setTheme, isLatestAssistantMessage = false, messageId }: ThemeHandlerConfig) {
   const { theme, resolvedTheme, systemTheme } = useTheme();
   const lastAppliedAction = useRef<ChatThemeMode | null>(null);
   const timeoutRef = useRef<number | null>(null);
@@ -32,6 +60,11 @@ export function useThemeHandler({ text, setTheme, isLatestAssistantMessage = fal
       return;
     }
 
+    // Si ya procesamos este messageId, saltar
+    if (messageId && wasThemeActionApplied(messageId)) {
+      return;
+    }
+
     const currentTheme = (resolvedTheme ??
       theme ??
       systemTheme ??
@@ -40,6 +73,7 @@ export function useThemeHandler({ text, setTheme, isLatestAssistantMessage = fal
     if (action === currentTheme || lastAppliedAction.current === action) {
       lastAppliedAction.current = action;
       pendingAction.current = null;
+      if (messageId) markThemeActionApplied(messageId);
       if (typeof window !== "undefined") {
         window.dispatchEvent(
           new CustomEvent("chat-theme-change", {
@@ -78,6 +112,7 @@ export function useThemeHandler({ text, setTheme, isLatestAssistantMessage = fal
         triggerElement: triggerElement || null,
       });
 
+      if (messageId) markThemeActionApplied(messageId);
       pendingAction.current = null;
 
       if (typeof window !== "undefined") {
@@ -97,7 +132,7 @@ export function useThemeHandler({ text, setTheme, isLatestAssistantMessage = fal
         window.clearTimeout(timeoutRef.current);
       }
     };
-  }, [text, setTheme, theme, resolvedTheme, systemTheme, isLatestAssistantMessage]);
+  }, [text, setTheme, theme, resolvedTheme, systemTheme, isLatestAssistantMessage, messageId]);
 
   useEffect(() => {
     return () => {

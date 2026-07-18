@@ -13,13 +13,14 @@ import { useTheme } from "next-themes";
 type MarkdownMessageProps = {
   text: string;
   isLatestAssistantMessage?: boolean;
+  messageId?: string;
 };
 
-export default function MarkdownMessage({ text, isLatestAssistantMessage = false }: MarkdownMessageProps) {
+export default function MarkdownMessage({ text, isLatestAssistantMessage = false, messageId }: MarkdownMessageProps) {
   const { setTheme } = useTheme();
 
-  // Manejar cambios de tema - solo aplica si es el último mensaje del asistente
-  useThemeHandler({ text, setTheme, isLatestAssistantMessage });
+  // Manejar cambios de tema solo si es el último mensaje del asistente
+  useThemeHandler({ text, setTheme, isLatestAssistantMessage, messageId });
 
   // Limpiar y procesar el texto
   const displayText = cleanThemeActionText(text);
