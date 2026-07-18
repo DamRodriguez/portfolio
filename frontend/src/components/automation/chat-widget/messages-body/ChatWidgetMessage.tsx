@@ -6,11 +6,13 @@ import { memo } from "react";
 type ChatWidgetMessageProps = {
   message: UIMessage;
   isUser: boolean;
+  isLatestAssistantMessage?: boolean;
 };
 
 const ChatWidgetMessage = memo(function ChatWidgetMessage({
   message,
   isUser,
+  isLatestAssistantMessage = false,
 }: ChatWidgetMessageProps) {
   const hasTextContent = message.parts?.some((part) => part.type === "text");
 
@@ -34,7 +36,7 @@ const ChatWidgetMessage = memo(function ChatWidgetMessage({
         {message.parts?.map((part, index) =>
           part.type === "text" ? (
             <div key={index} className="space-y-1">
-              <MarkdownMessage text={part.text} />
+              <MarkdownMessage text={part.text} isLatestAssistantMessage={isLatestAssistantMessage} />
             </div>
           ) : null,
         )}

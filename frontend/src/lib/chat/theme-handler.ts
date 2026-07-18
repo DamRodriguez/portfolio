@@ -11,15 +11,21 @@ import { useEffect, useRef } from "react";
 type ThemeHandlerConfig = {
   text: string;
   setTheme: (theme: string) => void;
+  isLatestAssistantMessage?: boolean;
 };
 
-export function useThemeHandler({ text, setTheme }: ThemeHandlerConfig) {
+export function useThemeHandler({ text, setTheme, isLatestAssistantMessage = false }: ThemeHandlerConfig) {
   const { theme, resolvedTheme, systemTheme } = useTheme();
   const lastAppliedAction = useRef<ChatThemeMode | null>(null);
   const timeoutRef = useRef<number | null>(null);
   const pendingAction = useRef<ChatThemeMode | null>(null);
 
   useEffect(() => {
+    // Solo procesar cambios de tema si es el último mensaje del asistente
+    if (!isLatestAssistantMessage) {
+      return;
+    }
+
     const action = extractThemeAction(text);
 
     if (!action) {
@@ -91,7 +97,7 @@ export function useThemeHandler({ text, setTheme }: ThemeHandlerConfig) {
         window.clearTimeout(timeoutRef.current);
       }
     };
-  }, [text, setTheme, theme, resolvedTheme, systemTheme]);
+  }, [text, setTheme, theme, resolvedTheme, systemTheme, isLatestAssistantMessage]);
 
   useEffect(() => {
     return () => {

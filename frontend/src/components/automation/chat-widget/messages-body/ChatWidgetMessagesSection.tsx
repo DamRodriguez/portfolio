@@ -48,6 +48,17 @@ export default function ChatWidgetMessagesSection({
     });
   }, [messages]);
 
+  // Find the ID of the last assistant message that has text content
+  const lastAssistantMessageId = useMemo(() => {
+    for (let i = messages.length - 1; i >= 0; i--) {
+      const m = messages[i];
+      if (m.role !== "user" && m.parts?.some((p) => p.type === "text" && p.text?.trim())) {
+        return m.id;
+      }
+    }
+    return null;
+  }, [messages]);
+
   const messagesContent = useMemo(() => {
     return messages
       .map((m) => {
@@ -105,7 +116,8 @@ export default function ChatWidgetMessagesSection({
 
       {validMessages.map((m) => {
         const isUser = m.role === "user";
-        return <ChatWidgetMessage key={m.id} message={m} isUser={isUser} />;
+        const isLatestAssistantMessage = !isUser && m.id === lastAssistantMessageId;
+        return <ChatWidgetMessage key={m.id} message={m} isUser={isUser} isLatestAssistantMessage={isLatestAssistantMessage} />;
       })}
 
       {isWaitingForResponse && (
