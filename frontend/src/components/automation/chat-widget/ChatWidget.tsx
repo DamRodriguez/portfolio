@@ -57,7 +57,7 @@ export default function ChatWidget() {
           },
         )}
       >
-        <div className="h-[calc(100vh-2rem)] sm:h-[calc(100vh-var(--height-header-mobile)-5rem)] xl:h-[calc(100vh-var(--height-header-mobile)-7rem)] flex flex-col 2xl:flex-row w-[calc(100vw-2rem)] sm:w-[32rem]">
+        <div className="h-[calc(100svh-2rem)] sm:h-[calc(100svh-var(--height-header-mobile)-5rem)] xl:h-[calc(100svh-var(--height-header-mobile)-7rem)] flex flex-col 2xl:flex-row w-[calc(100vw-2rem)] sm:w-[32rem]">
           <MotionEntrySlide
             order={2}
             direction={isTablet ? "down" : "right"}

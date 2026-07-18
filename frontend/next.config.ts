@@ -37,6 +37,7 @@ const nextConfig: NextConfig = {
           { key: "Content-Security-Policy", value: csp },
         ],
       },
+
       {
         source: "/api/chat",
         headers: [
