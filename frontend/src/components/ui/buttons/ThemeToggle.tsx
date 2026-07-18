@@ -22,26 +22,12 @@ export function ThemeToggle(props: ThemeToggleProps) {
     const currentTheme = resolvedTheme ?? theme;
     const newTheme = currentTheme === "dark" ? "light" : "dark";
 
-    // Calcular rect inline AQUÍ (igual que en d00be49 que funcionaba en mobile)
     const triggerElement = buttonRef.current;
-    let originX: number | undefined;
-    let originY: number | undefined;
-
-    if (triggerElement) {
-      const rect = triggerElement.getBoundingClientRect();
-      // Solo usar si el rect tiene tamaño real (evita bug mobile Safari que da 0,0)
-      if (rect.width > 0 && rect.height > 0) {
-        originX = rect.left + rect.width / 2;
-        originY = rect.top + rect.height / 2;
-      }
-    }
 
     applyThemeTransition({
       targetTheme: newTheme,
       setTheme,
       triggerElement,
-      originX,
-      originY,
     });
 
     // next-themes actualiza el tema, el checkbox reacciona via checked={isDark}
