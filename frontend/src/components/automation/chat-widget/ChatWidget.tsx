@@ -53,12 +53,12 @@ export default function ChatWidget() {
         className={clsx(
           "fixed right-0 bottom-0 z-9999 pb-[env(safe-area-inset-bottom)] 2xl:pb-0 m-[1rem] xl:m-[1.5rem] flex flex-col items-end 2xl:rounded-[2rem] rounded-[1.5rem] overflow-hidden theme-transition-all will-change-transform transform-gpu",
           {
-            "translate-x-0 translate-y-0 shadow-s1": isWidgetOpen,
+            "transform translate-x-0 translate-y-0 shadow-s1": isWidgetOpen,
 
-            "translate-y-[calc(100%-var(--height-widget-header)+1rem)] xl:translate-y-[calc(100%-var(--height-widget-header)+1.5rem)] translate-x-0":
+            "transform translate-x-0 translate-y-[calc(100%-var(--height-widget-header)+1rem)] xl:translate-y-[calc(100%-var(--height-widget-header)+1.5rem)]":
               !isWidgetOpen,
 
-            "2xl:translate-x-[calc(100%-var(--width-widget-header)+1.5rem)] 2xl:translate-y-0":
+            "2xl:transform 2xl:translate-x-[calc(100%-var(--width-widget-header)+1.5rem)] 2xl:translate-y-0":
               !isWidgetOpen,
           },
         )}

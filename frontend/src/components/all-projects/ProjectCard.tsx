@@ -53,7 +53,7 @@ export default function ProjectCard({
       >
         <div
           className={clsx("overflow-hidden relative", {
-            "h-[10rem]": small,
+            "h-[8rem]": small,
             "h-[12rem] xl:h-[16rem]": !small,
           })}
         >
@@ -89,9 +89,9 @@ export default function ProjectCard({
         </div>
 
         <div
-          className={clsx("p-6 flex flex-col flex-1", {
-            "gap-[1.5rem]": small,
-            "gap-[2rem]": !small,
+          className={clsx("flex flex-col flex-1", {
+            "gap-[1.5rem] p-5": small,
+            "gap-[2rem] p-6": !small,
           })}
         >
           <div
