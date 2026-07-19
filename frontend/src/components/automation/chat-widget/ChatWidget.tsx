@@ -51,7 +51,7 @@ export default function ChatWidget() {
       </AnimatePresence>
       <div
         className={clsx(
-          "fixed right-0 bottom-0 z-9999 pb-[env(safe-area-inset-bottom)] 2xl:pb-0 m-[1rem] xl:m-[1.5rem] flex flex-col items-end theme-transition-all 2xl:rounded-[2rem] rounded-[1.5rem] overflow-hidden",
+          "chat-widget-container fixed right-0 bottom-0 z-9999 pb-[env(safe-area-inset-bottom)] 2xl:pb-0 m-[1rem] xl:m-[1.5rem] flex flex-col items-end theme-transition-all 2xl:rounded-[2rem] rounded-[1.5rem] overflow-hidden",
           {
             "translate-x-0 translate-y-0 shadow-s1": isWidgetOpen,
 
@@ -62,7 +62,6 @@ export default function ChatWidget() {
               !isWidgetOpen,
           },
         )}
-        data-chat-widget-container
       >
         <div className="h-[calc(var(--widget-vh,100dvh)-2rem)] sm:h-[calc(100dvh-var(--height-header-mobile)-5rem)] xl:h-[calc(100dvh-var(--height-header-mobile)-7rem)] flex flex-col 2xl:flex-row w-[calc(100vw-2rem)] sm:w-[32rem]">
           <MotionEntrySlide
