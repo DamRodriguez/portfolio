@@ -34,6 +34,24 @@ function wasThemeActionApplied(messageId: string): boolean {
   return getAppliedThemeActions().has(messageId);
 }
 
+function findThemeToggleElement(): HTMLElement | null {
+  if (typeof window === "undefined") return null;
+
+  const dataElement = document.querySelector(
+    "[data-theme-toggle]",
+  ) as HTMLElement | null;
+  if (dataElement) return dataElement;
+
+  const switchInput = document.getElementById(
+    "switch",
+  ) as HTMLInputElement | null;
+  if (switchInput?.parentElement) {
+    return switchInput.parentElement as HTMLElement;
+  }
+
+  return null;
+}
+
 type ThemeHandlerConfig = {
   text: string;
   setTheme: (theme: string) => void;
@@ -53,7 +71,6 @@ export function useThemeHandler({
   const pendingAction = useRef<ChatThemeMode | null>(null);
 
   useEffect(() => {
-    // Solo procesar cambios de tema si es el último mensaje del asistente
     if (!isLatestAssistantMessage) {
       return;
     }
@@ -64,7 +81,6 @@ export function useThemeHandler({
       return;
     }
 
-    // Si ya procesamos este messageId, saltar
     if (messageId && wasThemeActionApplied(messageId)) {
       return;
     }
@@ -109,17 +125,12 @@ export function useThemeHandler({
         return;
       }
 
-      // Medir posición del botón ThemeToggle EN EL MOMENTO DEL TRIGGER
-      // para que coincida exactamente con el click manual
-      const center = getThemeToggleCenter();
-      const originX = center?.x ?? window.innerWidth / 2;
-      const originY = center?.y ?? window.innerHeight / 2;
+      const triggerElement = findThemeToggleElement();
 
       applyThemeTransition({
         targetTheme: resolvedAction,
         setTheme,
-        originX,
-        originY,
+        triggerElement: triggerElement || null,
       });
 
       if (messageId) markThemeActionApplied(messageId);
@@ -159,36 +170,4 @@ export function useThemeHandler({
       }
     };
   }, []);
-}
-
-function findThemeToggleElement(): HTMLElement | null {
-  if (typeof window === "undefined") return null;
-
-  // Buscar el botón real del ThemeToggle (header) para medir su posición
-  const dataElement = document.querySelector(
-    "[data-theme-toggle]",
-  ) as HTMLElement | null;
-  if (dataElement) return dataElement;
-
-  const switchInput = document.getElementById(
-    "switch",
-  ) as HTMLInputElement | null;
-  if (switchInput?.parentElement) {
-    return switchInput.parentElement as HTMLElement;
-  }
-
-  return null;
-}
-
-function getThemeToggleCenter(): { x: number; y: number } | null {
-  if (typeof window === "undefined") return null;
-
-  const el = findThemeToggleElement();
-  if (!el) return null;
-
-  const rect = el.getBoundingClientRect();
-  return {
-    x: rect.left + rect.width / 2,
-    y: rect.top + rect.height / 2,
-  };
 }

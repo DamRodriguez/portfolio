@@ -6,6 +6,11 @@ type ThemeSwitchOptions = {
   targetTheme: PortfolioThemeMode;
   setTheme: (theme: string) => void;
   triggerElement?: HTMLElement | null;
+  /**
+   * Coordenadas explícitas del origen de la animación (centro del botón).
+   * Si se proporcionan, se usan directamente sin medir triggerElement.
+   * Útil para click handlers que miden en el momento exacto.
+   */
   originX?: number;
   originY?: number;
 };
@@ -16,82 +21,51 @@ declare global {
   }
 }
 
-function getTransitionOrigin(triggerElement?: HTMLElement | null) {
-  // 1. Elemento fixed dedicado (portal del ThemeToggle) → coordenadas viewport REALES
-  const originElement = document.querySelector("[data-theme-origin]") as HTMLElement | null;
-  if (originElement) {
-    const rect = originElement.getBoundingClientRect();
-    const x = rect.left + rect.width / 2;
-    const y = rect.top + rect.height / 2;
-    const endRadius = Math.hypot(
-      Math.max(x, window.innerWidth - x),
-      Math.max(y, window.innerHeight - y),
-    );
-    return { x, y, endRadius };
-  }
-
-  // 2. Fallback: triggerElement pasado (botón real del header)
-  const rect = triggerElement?.getBoundingClientRect();
-  const x = rect ? rect.left + rect.width / 2 : window.innerWidth / 2;
-  const y = rect ? rect.top + rect.height / 2 : window.innerHeight / 2;
-  const endRadius = Math.hypot(
-    Math.max(x, window.innerWidth - x),
-    Math.max(y, window.innerHeight - y),
-  );
-
-  return { x, y, endRadius };
-}
-
-// Detectar iOS Safari (donde View Transitions pseudo-elements fallan)
-function isIOSSafari(): boolean {
-  if (typeof window === "undefined") return false;
-  const ua = navigator.userAgent;
-  const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-  const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
-  return isIOS && isSafari;
-}
-
-// Crear overlay DOM real para la animación circular (fallback universal)
-function createCircleOverlay(x: number, y: number, endRadius: number, targetTheme: PortfolioThemeMode): HTMLElement {
+function createCircleOverlay(x: number, y: number, endRadius: number): HTMLElement {
   const overlay = document.createElement("div");
-  overlay.dataset.themeTransitionOverlay = "true";
   overlay.style.cssText = `
     position: fixed;
     left: ${x}px;
     top: ${y}px;
-    width: ${endRadius * 2}px;
-    height: ${endRadius * 2}px;
-    margin-left: -${endRadius}px;
-    margin-top: -${endRadius}px;
+    width: 0;
+    height: 0;
     border-radius: 50%;
-    background: ${targetTheme === "dark" ? "#000" : "#fff"};
+    transform: translate(-50%, -50%) scale(0);
+    background: inherit;
     pointer-events: none;
     z-index: 2147483647;
-    transform: scale(0);
-    transform-origin: center;
     will-change: transform;
   `;
   document.body.appendChild(overlay);
   return overlay;
 }
 
-function animateCircleOverlay(overlay: HTMLElement, duration: number): Promise<void> {
+function animateCircleOverlay(overlay: HTMLElement, endRadius: number): Promise<void> {
   return new Promise((resolve) => {
-    // Forzar reflow
-    overlay.getBoundingClientRect();
-    // Animar con Web Animations API (nativo, performante)
-    const animation = overlay.animate(
-      { transform: ["scale(0)", "scale(1)"] },
-      { duration, easing: "ease-in-out", fill: "forwards" }
-    );
-    animation.onfinish = () => resolve();
-    animation.oncancel = () => resolve();
-    // Fallback timeout
-    setTimeout(resolve, duration + 100);
+    // Force reflow
+    overlay.offsetHeight;
+    overlay.animate(
+      {
+        transform: [
+          "translate(-50%, -50%) scale(0)",
+          `translate(-50%, -50%) scale(${endRadius * 2 / Math.min(overlay.clientWidth || 1, 1)})`,
+        ],
+        width: ["0px", `${endRadius * 2}px`],
+        height: ["0px", `${endRadius * 2}px`],
+      },
+      {
+        duration: 700,
+        easing: "ease-in-out",
+        fill: "forwards",
+      },
+    ).onfinish = () => {
+      overlay.remove();
+      resolve();
+    };
   });
 }
 
-export function applyThemeTransition({
+export async function applyThemeTransition({
   targetTheme,
   setTheme,
   triggerElement,
@@ -106,78 +80,79 @@ export function applyThemeTransition({
     return;
   }
 
-  // Calcular origen
-  let { x, y, endRadius } = { x: 0, y: 0, endRadius: 0 };
+  // Calcular origen: prioridad 1 = coords explícitas, prioridad 2 = triggerElement, prioridad 3 = centro viewport
+  let x: number, y: number;
   if (typeof originX === "number" && typeof originY === "number") {
     x = originX;
     y = originY;
-    endRadius = Math.hypot(
-      Math.max(x, window.innerWidth - x),
-      Math.max(y, window.innerHeight - y),
-    );
+  } else if (triggerElement) {
+    const rect = triggerElement.getBoundingClientRect();
+    x = rect.left + rect.width / 2;
+    y = rect.top + rect.height / 2;
   } else {
-    const origin = getTransitionOrigin(triggerElement);
-    x = origin.x;
-    y = origin.y;
-    endRadius = origin.endRadius;
+    x = window.innerWidth / 2;
+    y = window.innerHeight / 2;
   }
 
-  // Debug: log para diagnosticar en producción móvil
-  if (process.env.NODE_ENV !== "production") {
-    console.log("[ThemeTransition]", { x, y, endRadius, targetTheme, viewport: { w: window.innerWidth, h: window.innerHeight } });
-  }
+  const endRadius = Math.hypot(
+    Math.max(x, window.innerWidth - x),
+    Math.max(y, window.innerHeight - y),
+  );
 
   root.classList.add("theme-switching");
 
   const cleanUp = () => {
     root.classList.remove("theme-switching");
-    // Limpiar overlays huérfanos
-    document.querySelectorAll("[data-theme-transition-overlay]").forEach(el => el.remove());
   };
 
-  // Sin View Transitions API -> fallback simple
-  if (!document.startViewTransition) {
+  // iOS Safari: View Transitions + clipPath en pseudo-elemento está roto
+  // Usar overlay DOM real con Web Animations API (funciona en todos los motores)
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as Window & { MSStream?: unknown }).MSStream;
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!document.startViewTransition || prefersReducedMotion) {
     setTheme(targetTheme);
     window.setTimeout(cleanUp, 600);
     return;
   }
 
-  // En iOS Safari, View Transitions pseudo-elements están rotos -> usar overlay DOM real
-  const useDOMOverlay = isIOSSafari();
+  // En iOS usar overlay DOM real; en resto View Transitions nativo
+  if (isIOS) {
+    // Cambio de tema inmediato
+    setTheme(targetTheme);
 
-  let overlay: HTMLElement | null = null;
-  if (useDOMOverlay) {
-    overlay = createCircleOverlay(x, y, endRadius, targetTheme);
+    // Crear y animar overlay circular
+    const overlay = createCircleOverlay(x, y, endRadius);
+    try {
+      await animateCircleOverlay(overlay, endRadius);
+    } finally {
+      cleanUp();
+    }
+    return;
   }
 
+  // Desktop / Android: View Transitions API nativo
   const transition = document.startViewTransition(() => {
     setTheme(targetTheme);
   });
 
-  const duration = 700;
+  transition.ready.then(() => {
+    document.documentElement.animate(
+      {
+        clipPath: [
+          `circle(0px at ${x}px ${y}px)`,
+          `circle(${endRadius}px at ${x}px ${y}px)`,
+        ],
+      },
+      {
+        duration: 700,
+        easing: "ease-in-out",
+        pseudoElement: "::view-transition-new(root)",
+      },
+    );
+  });
 
-  if (useDOMOverlay && overlay) {
-    // Animar overlay DOM real (funciona en iOS Safari)
-    transition.ready.then(() => animateCircleOverlay(overlay!, duration)).finally(cleanUp);
-  } else {
-    // Navegadores desktop/Android Chrome: View Transitions API nativo
-    transition.ready.then(() => {
-      document.documentElement.animate(
-        {
-          clipPath: [
-            `circle(0px at ${x}px ${y}px)`,
-            `circle(${endRadius}px at ${x}px ${y}px)`,
-          ],
-        },
-        {
-          duration,
-          easing: "ease-in-out",
-          pseudoElement: "::view-transition-new(root)",
-        },
-      );
-    });
-    transition.finished.finally(cleanUp);
-  }
+  transition.finished.finally(cleanUp);
 }
 
 export function registerPortfolioThemeHandler(
