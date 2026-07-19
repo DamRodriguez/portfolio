@@ -31,6 +31,7 @@ export default function ChatWidgetHeader({
     >
       <button
         onClick={onClose}
+        aria-label="Close button"
         className={clsx(
           "absolute right-0 theme-transition-all 2xl:w-full aspect-square flex items-center justify-center cursor-pointer px-[1.5rem] 2xl:h-[4rem] h-full 2xl:px-0",
           "hover:bg-soft-white hover:[&_svg]:stroke-black z-10",
@@ -45,6 +46,7 @@ export default function ChatWidgetHeader({
 
       <button
         onClick={onToggle}
+        aria-label="Toggle Open-Close Assistant Widget"
         className={clsx(
           "cursor-pointer h-full flex items-center justify-center theme-transition-all",
           "hover:bg-soft-white hover:text-black",
