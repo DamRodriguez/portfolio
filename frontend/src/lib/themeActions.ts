@@ -17,7 +17,7 @@ declare global {
 }
 
 function getTransitionOrigin(triggerElement?: HTMLElement | null) {
-  // 1. Elemento fixed dedicado (portal del ThemeToggle) → coordenadas viewport REALES, sin transforms heredados
+  // 1. Elemento fixed dedicado (portal del ThemeToggle) → coordenadas viewport REALES
   const originElement = document.querySelector("[data-theme-origin]") as HTMLElement | null;
   if (originElement) {
     const rect = originElement.getBoundingClientRect();
@@ -42,6 +42,55 @@ function getTransitionOrigin(triggerElement?: HTMLElement | null) {
   return { x, y, endRadius };
 }
 
+// Detectar iOS Safari (donde View Transitions pseudo-elements fallan)
+function isIOSSafari(): boolean {
+  if (typeof window === "undefined") return false;
+  const ua = navigator.userAgent;
+  const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
+  return isIOS && isSafari;
+}
+
+// Crear overlay DOM real para la animación circular (fallback universal)
+function createCircleOverlay(x: number, y: number, endRadius: number, targetTheme: PortfolioThemeMode): HTMLElement {
+  const overlay = document.createElement("div");
+  overlay.dataset.themeTransitionOverlay = "true";
+  overlay.style.cssText = `
+    position: fixed;
+    left: ${x}px;
+    top: ${y}px;
+    width: ${endRadius * 2}px;
+    height: ${endRadius * 2}px;
+    margin-left: -${endRadius}px;
+    margin-top: -${endRadius}px;
+    border-radius: 50%;
+    background: ${targetTheme === "dark" ? "#000" : "#fff"};
+    pointer-events: none;
+    z-index: 2147483647;
+    transform: scale(0);
+    transform-origin: center;
+    will-change: transform;
+  `;
+  document.body.appendChild(overlay);
+  return overlay;
+}
+
+function animateCircleOverlay(overlay: HTMLElement, duration: number): Promise<void> {
+  return new Promise((resolve) => {
+    // Forzar reflow
+    overlay.getBoundingClientRect();
+    // Animar con Web Animations API (nativo, performante)
+    const animation = overlay.animate(
+      { transform: ["scale(0)", "scale(1)"] },
+      { duration, easing: "ease-in-out", fill: "forwards" }
+    );
+    animation.onfinish = () => resolve();
+    animation.oncancel = () => resolve();
+    // Fallback timeout
+    setTimeout(resolve, duration + 100);
+  });
+}
+
 export function applyThemeTransition({
   targetTheme,
   setTheme,
@@ -57,8 +106,7 @@ export function applyThemeTransition({
     return;
   }
 
-  // Si se pasan coordenadas explícitas, úsalas directamente (click handler mide en el momento exacto)
-  // Si no, calcula desde triggerElement (para chat widget u otros orígenes)
+  // Calcular origen
   let { x, y, endRadius } = { x: 0, y: 0, endRadius: 0 };
   if (typeof originX === "number" && typeof originY === "number") {
     x = originX;
@@ -74,39 +122,62 @@ export function applyThemeTransition({
     endRadius = origin.endRadius;
   }
 
+  // Debug: log para diagnosticar en producción móvil
+  if (process.env.NODE_ENV !== "production") {
+    console.log("[ThemeTransition]", { x, y, endRadius, targetTheme, viewport: { w: window.innerWidth, h: window.innerHeight } });
+  }
+
   root.classList.add("theme-switching");
 
   const cleanUp = () => {
     root.classList.remove("theme-switching");
+    // Limpiar overlays huérfanos
+    document.querySelectorAll("[data-theme-transition-overlay]").forEach(el => el.remove());
   };
 
+  // Sin View Transitions API -> fallback simple
   if (!document.startViewTransition) {
     setTheme(targetTheme);
     window.setTimeout(cleanUp, 600);
     return;
   }
 
+  // En iOS Safari, View Transitions pseudo-elements están rotos -> usar overlay DOM real
+  const useDOMOverlay = isIOSSafari();
+
+  let overlay: HTMLElement | null = null;
+  if (useDOMOverlay) {
+    overlay = createCircleOverlay(x, y, endRadius, targetTheme);
+  }
+
   const transition = document.startViewTransition(() => {
     setTheme(targetTheme);
   });
 
-  transition.ready.then(() => {
-    document.documentElement.animate(
-      {
-        clipPath: [
-          `circle(0px at ${x}px ${y}px)`,
-          `circle(${endRadius}px at ${x}px ${y}px)`,
-        ],
-      },
-      {
-        duration: 700,
-        easing: "ease-in-out",
-        pseudoElement: "::view-transition-new(root)",
-      },
-    );
-  });
+  const duration = 700;
 
-  transition.finished.finally(cleanUp);
+  if (useDOMOverlay && overlay) {
+    // Animar overlay DOM real (funciona en iOS Safari)
+    transition.ready.then(() => animateCircleOverlay(overlay!, duration)).finally(cleanUp);
+  } else {
+    // Navegadores desktop/Android Chrome: View Transitions API nativo
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration,
+          easing: "ease-in-out",
+          pseudoElement: "::view-transition-new(root)",
+        },
+      );
+    });
+    transition.finished.finally(cleanUp);
+  }
 }
 
 export function registerPortfolioThemeHandler(
