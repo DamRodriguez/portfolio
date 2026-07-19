@@ -53,7 +53,7 @@ export default function ProjectCard({
       >
         <div
           className={clsx("overflow-hidden relative", {
-            "h-[8rem]": small,
+            "h-[8rem] 2xl:h-[10rem]": small,
             "h-[12rem] xl:h-[16rem]": !small,
           })}
         >
