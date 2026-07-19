@@ -3,225 +3,11 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-/*
-ordenar mejor este css
-*/
-
 @custom-variant dark (&:is(.dark *));
 
-:root {
-  --progress-color: var(--color-black);
-  --scrollbar-width: 8px;
-
-  --bg-ribbon-1: #fff;
-  --bg-ribbon-2: #fff;
-  --bg-ribbon-3: #fff;
-}
-
-@media (max-width: 900px) {
-  :root {
-    --scrollbar-width: 6px;
-  }
-}
-
-::-webkit-scrollbar {
-  width: var(--scrollbar-width);
-}
-
-.color-ribbon-sides {
-  color: #f5f5f5;
-}
-.color-ribbon-center-active {
-  color: #000;
-}
-.color-ribbon-center-default {
-  color: #717783;
-}
-
-.dark .color-ribbon-sides {
-  color: #0f0f0f;
-}
-.dark .color-ribbon-center-active {
-  color: #f5f5f5;
-}
-.dark .color-ribbon-center-default {
-  color: #6b7280;
-}
-
-.dark {
-  --progress-color: var(--color-soft-white);
-}
-
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-
-::view-transition-old(root) {
-  z-index: 1;
-}
-
-::view-transition-new(root) {
-  z-index: 2;
-}
-
-@layer utilities {
-  .animate-flow {
-    stroke-dasharray: 12 12;
-    animation: flow 1.5s linear infinite;
-  }
-
-  .site-size {
-    @apply min-w-[20rem] max-w-[120rem];
-  }
-
-  .anchor-offset {
-    @apply scroll-mt-[8.5rem] xl:scroll-mt-[10rem];
-  }
-
-  .popup-glass {
-    @apply bg-white-bone/60 dark:bg-black/60 backdrop-blur-[0.5rem];
-  }
-
-  @keyframes flow {
-    from {
-      stroke-dashoffset: 24;
-    }
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
-}
-
-@layer components {
-  html.theme-switching .theme-transition,
-  html.theme-switching .theme-transition-all {
-    transition: none !important;
-  }
-
-  html.theme-ready .theme-transition {
-    transition-property:
-      color, background-color, border-color, text-decoration-color, fill, stroke;
-    transition-duration: 400ms;
-    transition-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
-  }
-
-  html.theme-ready .theme-transition-all {
-    transition-property: all;
-    transition-duration: 400ms;
-    transition-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
-  }
-}
-
-body {
-  font-family: var(--font-work-sans);
-  cursor:
-    url("../assets/images/cursor.png") 4 4,
-    auto;
-}
-
-.cursor-default {
-  cursor:
-    url("../assets/images/cursor.png") 4 4,
-    auto;
-}
-
-.cursor-pointer {
-  cursor:
-    url("../assets/images/cursor-pointer.png") 4 4,
-    pointer;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-medium-gray);
-}
-
-.dark ::-webkit-scrollbar-track {
-  background: #000;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-black);
-  border-radius: 3px;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: var(--color-soft-gray);
-  border-radius: 3px;
-}
-
-@keyframes marquee {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-
-  to {
-    transform: translate3d(calc(-100% / 3), 0, 0);
-  }
-}
-
-.carousel-track {
-  animation: marquee 10s linear infinite;
-  will-change: transform;
-}
-
-@theme inline {
-  --animate-shine: shine var(--duration) infinite linear;
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --color-foreground: var(--foreground);
-  --color-background: var(--background);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
-
-  @keyframes shine {
-    0% {
-      background-position: 0% 0%;
-    }
-
-    50% {
-      background-position: 100% 100%;
-    }
-
-    to {
-      background-position: 0% 0%;
-    }
-  }
-}
-
+/* ==========================================================================
+   CSS VARIABLES — Theme tokens (OKLCH)
+   ========================================================================== */
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -291,6 +77,294 @@ body {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* ==========================================================================
+   CSS VARIABLES — UI tokens (scrollbar, progress, ribbons)
+   ========================================================================== */
+:root {
+  --progress-color: var(--color-black);
+  --scrollbar-width: 8px;
+  --bg-ribbon-1: #fff;
+  --bg-ribbon-2: #fff;
+  --bg-ribbon-3: #fff;
+}
+
+.dark {
+  --progress-color: var(--color-soft-white);
+}
+
+@media (max-width: 900px) {
+  :root {
+    --scrollbar-width: 6px;
+  }
+}
+
+/* ==========================================================================
+   BASE — Scrollbar, body, cursors
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-medium-gray);
+}
+.dark ::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-black);
+  border-radius: 3px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-soft-gray);
+  border-radius: 3px;
+}
+
+.color-ribbon-sides {
+  color: #f5f5f5;
+}
+.color-ribbon-center-active {
+  color: #000;
+}
+.color-ribbon-center-default {
+  color: #717783;
+}
+.dark .color-ribbon-sides {
+  color: #0f0f0f;
+}
+.dark .color-ribbon-center-active {
+  color: #f5f5f5;
+}
+.dark .color-ribbon-center-default {
+  color: #6b7280;
+}
+
+body {
+  font-family: var(--font-work-sans);
+  cursor:
+    url("../assets/images/cursor.png") 4 4,
+    auto;
+}
+
+.cursor-default {
+  cursor:
+    url("../assets/images/cursor.png") 4 4,
+    auto;
+}
+
+.cursor-pointer {
+  cursor:
+    url("../assets/images/cursor-pointer.png") 4 4,
+    pointer;
+}
+
+/* ==========================================================================
+   VIEW TRANSITIONS — Circular theme transition (animbits pattern)
+   ========================================================================== */
+/* CSS variables for transition origin (set via JS in themeActions.ts) */
+:root {
+  --theme-transition-x: 50%;
+  --theme-transition-y: 50%;
+  --theme-transition-speed: 0.5s;
+}
+
+/* View Transition base config */
+::view-transition-group(root) {
+  animation: none;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+::view-transition-image-pair(root) {
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* Both directions: NEW theme expands from click on top, OLD stays static */
+[data-theme-transition="to-dark"]::view-transition-old(root),
+[data-theme-transition="to-light"]::view-transition-old(root) {
+  animation: none;
+  z-index: 1;
+  mix-blend-mode: normal;
+}
+
+[data-theme-transition="to-dark"]::view-transition-new(root),
+[data-theme-transition="to-light"]::view-transition-new(root) {
+  animation: circle-expand var(--theme-transition-speed) ease-in-out;
+  will-change: clip-path;
+  mix-blend-mode: normal;
+  z-index: 2;
+  transform: translateZ(0);
+  background: var(--background);
+}
+
+/* Keep final frame until cleanup */
+[data-theme-transition]::view-transition-old(root),
+[data-theme-transition]::view-transition-new(root) {
+  animation-fill-mode: forwards;
+}
+
+/* Keyframes: expand from click to cover viewport (150% radius from any origin) */
+@keyframes circle-expand {
+  from {
+    clip-path: circle(0% at var(--theme-transition-x) var(--theme-transition-y));
+  }
+  to {
+    clip-path: circle(150% at var(--theme-transition-x) var(--theme-transition-y));
+  }
+}
+
+/* Kept for potential future use (not active in current expand-only approach) */
+@keyframes circle-shrink {
+  from {
+    clip-path: circle(150% at var(--theme-transition-x) var(--theme-transition-y));
+  }
+  to {
+    clip-path: circle(0% at var(--theme-transition-x) var(--theme-transition-y));
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   KEYFRAMES — Animations
+   ========================================================================== */
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(calc(-100% / 3), 0, 0);
+  }
+}
+
+@keyframes flow {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  to {
+    background-position: 0% 0%;
+  }
+}
+
+/* ==========================================================================
+   UTILITIES — @layer utilities
+   ========================================================================== */
+@layer utilities {
+  .animate-flow {
+    stroke-dasharray: 12 12;
+    animation: flow 1.5s linear infinite;
+  }
+
+  .site-size {
+    @apply min-w-[20rem] max-w-[120rem];
+  }
+
+  .anchor-offset {
+    @apply scroll-mt-[8.5rem] xl:scroll-mt-[10rem];
+  }
+
+  .popup-glass {
+    @apply bg-white-bone/60 dark:bg-black/60 backdrop-blur-[0.5rem];
+  }
+
+  .carousel-track {
+    animation: marquee 10s linear infinite;
+    will-change: transform;
+  }
+}
+
+/* ==========================================================================
+   COMPONENTS — @layer components (theme transition helpers)
+   ========================================================================== */
+@layer components {
+  html.theme-switching .theme-transition,
+  html.theme-switching .theme-transition-all {
+    transition: none !important;
+  }
+
+  html.theme-ready .theme-transition {
+    transition-property:
+      color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-duration: 400ms;
+    transition-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  }
+
+  html.theme-ready .theme-transition-all {
+    transition-property: all;
+    transition-duration: 400ms;
+    transition-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  }
+}
+
+/* ==========================================================================
+   THEME INLINE — Tailwind v4 @theme mappings
+   ========================================================================== */
+@theme inline {
+  --animate-shine: shine var(--duration) infinite linear;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+}
+
+/* ==========================================================================
+   BASE — Tailwind base layer
+   ========================================================================== */
 @layer base {
   * {
     @apply border-border outline-ring/50;

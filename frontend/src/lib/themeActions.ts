@@ -6,8 +6,8 @@ type ThemeSwitchOptions = {
   targetTheme: PortfolioThemeMode;
   setTheme: (theme: string) => void;
   triggerElement?: HTMLElement | null;
-  originX?: number;
-  originY?: number;
+  clickX?: number;
+  clickY?: number;
 };
 
 declare global {
@@ -16,12 +16,26 @@ declare global {
   }
 }
 
-export function applyThemeTransition({
+function getTransitionOrigin(triggerElement?: HTMLElement | null) {
+  if (triggerElement) {
+    const rect = triggerElement.getBoundingClientRect();
+    return {
+      x: rect.left + rect.width / 2,
+      y: rect.top + rect.height / 2,
+    };
+  }
+  return {
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 2,
+  };
+}
+
+export async function applyThemeTransition({
   targetTheme,
   setTheme,
   triggerElement,
-  originX,
-  originY,
+  clickX,
+  clickY,
 }: ThemeSwitchOptions) {
   if (typeof window === "undefined") return;
 
@@ -32,27 +46,31 @@ export function applyThemeTransition({
   }
 
   let x: number, y: number;
-  if (typeof originX === "number" && typeof originY === "number") {
-    x = originX;
-    y = originY;
-  } else if (triggerElement) {
-    const rect = triggerElement.getBoundingClientRect();
-    x = rect.left + rect.width / 2;
-    y = rect.top + rect.height / 2;
+  if (typeof clickX === "number" && typeof clickY === "number") {
+    x = clickX;
+    y = clickY;
   } else {
-    x = window.innerWidth / 2;
-    y = window.innerHeight / 2;
+    const origin = getTransitionOrigin(triggerElement);
+    x = origin.x;
+    y = origin.y;
   }
 
-  const endRadius = Math.hypot(
-    Math.max(x, window.innerWidth - x),
-    Math.max(y, window.innerHeight - y),
-  );
+  const direction = targetTheme === "dark" ? "to-dark" : "to-light";
 
+  const xPercent = (x / window.innerWidth) * 100;
+  const yPercent = (y / window.innerHeight) * 100;
+  root.style.setProperty("--theme-transition-x", `${xPercent}%`);
+  root.style.setProperty("--theme-transition-y", `${yPercent}%`);
+  root.style.setProperty("--theme-transition-speed", "1s");
+  root.setAttribute("data-theme-transition", direction);
   root.classList.add("theme-switching");
 
   const cleanUp = () => {
     root.classList.remove("theme-switching");
+    root.removeAttribute("data-theme-transition");
+    root.style.removeProperty("--theme-transition-x");
+    root.style.removeProperty("--theme-transition-y");
+    root.style.removeProperty("--theme-transition-speed");
   };
 
   if (!document.startViewTransition) {
@@ -65,23 +83,13 @@ export function applyThemeTransition({
     setTheme(targetTheme);
   });
 
-  transition.ready.then(() => {
-    document.documentElement.animate(
-      {
-        clipPath: [
-          `circle(0px at ${x}px ${y}px)`,
-          `circle(${endRadius}px at ${x}px ${y}px)`,
-        ],
-      },
-      {
-        duration: 700,
-        easing: "ease-in-out",
-        pseudoElement: "::view-transition-new(root)",
-      },
-    );
-  });
-
-  transition.finished.finally(cleanUp);
+  try {
+    await transition.finished;
+  } catch (error) {
+    console.error("Theme transition error:", error);
+  } finally {
+    cleanUp();
+  }
 }
 
 export function registerPortfolioThemeHandler(
