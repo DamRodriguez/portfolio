@@ -208,20 +208,28 @@ body {
 /* Keyframes: expand from click to cover viewport (150% radius from any origin) */
 @keyframes circle-expand {
   from {
-    clip-path: circle(0% at var(--theme-transition-x) var(--theme-transition-y));
+    clip-path: circle(
+      0% at var(--theme-transition-x) var(--theme-transition-y)
+    );
   }
   to {
-    clip-path: circle(150% at var(--theme-transition-x) var(--theme-transition-y));
+    clip-path: circle(
+      150% at var(--theme-transition-x) var(--theme-transition-y)
+    );
   }
 }
 
 /* Kept for potential future use (not active in current expand-only approach) */
 @keyframes circle-shrink {
   from {
-    clip-path: circle(150% at var(--theme-transition-x) var(--theme-transition-y));
+    clip-path: circle(
+      150% at var(--theme-transition-x) var(--theme-transition-y)
+    );
   }
   to {
-    clip-path: circle(0% at var(--theme-transition-x) var(--theme-transition-y));
+    clip-path: circle(
+      0% at var(--theme-transition-x) var(--theme-transition-y)
+    );
   }
 }
 
@@ -291,14 +299,6 @@ body {
   .carousel-track {
     animation: marquee 10s linear infinite;
     will-change: transform;
-  }
-
-  /* Chat widget container: óptimo para animar open/close sin layout thrashing */
-  .chat-widget-container {
-    will-change: transform, opacity;
-    contain: layout style;
-    transition: transform 300ms cubic-bezier(0.45, 0.05, 0.55, 0.95),
-      opacity 200ms ease-out;
   }
 }
 
