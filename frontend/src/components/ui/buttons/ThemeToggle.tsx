@@ -22,17 +22,10 @@ export function ThemeToggle(props: ThemeToggleProps) {
     const currentTheme = resolvedTheme ?? theme;
     const newTheme = currentTheme === "dark" ? "light" : "dark";
 
-    // Medir posición exacta en el momento del click
-    const rect = buttonRef.current?.getBoundingClientRect();
-    const originX = rect ? rect.left + rect.width / 2 : window.innerWidth / 2;
-    const originY = rect ? rect.top + rect.height / 2 : window.innerHeight / 2;
-
-    // Delegar toda la animación a la función centralizada
     applyThemeTransition({
       targetTheme: newTheme,
       setTheme,
-      originX,
-      originY,
+      triggerElement: buttonRef.current,
     });
   };
 
