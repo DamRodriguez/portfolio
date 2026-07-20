@@ -64,9 +64,9 @@ export function createMetadata({
     },
 
     icons: {
-      icon: "/icons/favicon.ico",
-      shortcut: "/icons/favicon.ico",
-      apple: "/icons/favicon.ico",
+      icon: "/images/code.png",
+      shortcut: "/images/code.png",
+      apple: "/images/code.png",
     },
 
     openGraph: {
