@@ -8,7 +8,7 @@ type RichTextProps = {
 export const RichText = ({ t, translationKey }: RichTextProps) => {
   return t.rich(translationKey, {
     strong: (chunks: React.ReactNode) => (
-      <span className="text-black dark:text-soft-white">{chunks}</span>
+      <span className="text-strong-black dark:text-soft-white">{chunks}</span>
     ),
   });
 };
