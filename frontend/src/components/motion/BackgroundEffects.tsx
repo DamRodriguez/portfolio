@@ -41,6 +41,8 @@ export default function ChatBackgroundEffects({
     }
   };
 
+  const tailwindColorsKey = tailwindColors.join(",");
+
   useEffect(() => {
     updateTargets();
 
@@ -50,7 +52,7 @@ export default function ChatBackgroundEffects({
       attributeFilter: ["class"],
     });
     return () => observer.disconnect();
-  }, [tailwindColors.join(",")]);
+  }, [tailwindColorsKey]);
 
   useEffect(() => {
     const canvas = canvasRef.current;

@@ -1,6 +1,7 @@
+import CustomImage from "@/components/image/CustomImage";
 import ButtonWithArrow from "@/components/ui/buttons/ButtonWithArrow";
 import { useTranslations } from "next-intl";
-import Image, { type StaticImageData } from "next/image";
+import { type StaticImageData } from "next/image";
 import React from "react";
 
 export type HorizontalCarouselItemData = {
@@ -28,7 +29,7 @@ const HorizontalCarouselItem = ({ data }: HorizontalCarouselItemProps) => {
         </div>
       )} */}
       <div className="group h-[17rem] xl:h-[20rem]">
-        <Image
+        <CustomImage
           src={data.image}
           alt={data.title}
           loading="lazy"

@@ -10,7 +10,7 @@ type CarouselControlsProps = {
 const arrowSvgClassName =
   "w-7 h-7 xl:w-12 xl:h-12 stroke-black dark:stroke-soft-white theme-transition-all";
 const arrowButtonClassName =
-  "bg-soft-white dark:bg-strong-black border border-black/15 dark:border-soft-gray/30 rounded-full shadow-s1 w-[3.5rem] flex items-center xl:h-[20rem] cursor-pointer pointer-events-auto hover:border-black/50 hover:bg-white-bone/50 dark:hover:border-soft-gray/70 theme-transition-all dark:hover:bg-strong-black/50 h-[3.5rem] w-full xl:w-fit justify-center max-w-[15rem] ";
+  "bg-soft-white border border-strong-black/30 dark:bg-strong-black border border-black/15 dark:border-soft-gray/30 rounded-full shadow-s1 w-[3.5rem] flex items-center xl:h-[20rem] cursor-pointer pointer-events-auto hover:border-black/50 hover:bg-white-bone/50 dark:hover:border-soft-gray/70 theme-transition-all dark:hover:bg-strong-black/50 h-[3.5rem] w-full xl:w-fit justify-center max-w-[15rem]";
 
 const CarouselControls = ({ onPrev, onNext }: CarouselControlsProps) => {
   return (

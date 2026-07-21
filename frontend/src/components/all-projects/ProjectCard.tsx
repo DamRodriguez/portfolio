@@ -1,4 +1,5 @@
 "use client";
+import CustomImage from "@/components/image/CustomImage";
 import TiltCard from "@/components/motion/TiltCard";
 import { RichText } from "@/components/next-intl/RichText";
 import {
@@ -15,7 +16,6 @@ import {
   TabletSmartphone,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 
 type ProjectCardProps = {
   project: ProjectItemData;
@@ -57,7 +57,7 @@ export default function ProjectCard({
             "h-[12rem] xl:h-[16rem]": !small,
           })}
         >
-          <Image
+          <CustomImage
             src={project.imageLogo}
             width={300}
             height={300}

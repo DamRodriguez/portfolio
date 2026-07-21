@@ -1,4 +1,3 @@
-"use client";
 import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
 import { RichText } from "@/components/next-intl/RichText";
@@ -6,19 +5,15 @@ import TechnologyItem, {
   TechnologyItemData,
 } from "@/components/sections/about-me-section/technologies/TechnologyItem";
 import GithubButton from "@/components/ui/buttons/GithubButton";
-import { useGSAP } from "@gsap/react";
+import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useTranslations } from "next-intl";
-import { useRef, useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const TechnologiesSection = () => {
   const t = useTranslations("aboutMeSection");
-
-  const technologyRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const frontTechnologyData: TechnologyItemData = {
     title: t("technologies.frontend.title"),
@@ -40,59 +35,55 @@ const TechnologiesSection = () => {
     items: t("technologies.tools.items"),
   };
 
-  useGSAP(() => {
-    technologyRefs.current.forEach((element, index) => {
-      if (!element) return;
-
-      ScrollTrigger.create({
-        trigger: element,
-        start: "center center+=50",
-        end: "center center-=50",
-
-        onToggle: ({ isActive }) => {
-          setActiveIndex((current) => {
-            if (isActive) return index;
-            if (current === index) return null;
-            return current;
-          });
-        },
-      });
-    });
+  useScrollAnimations({
+    animations: {
+      ".front-gsap": {
+        scale: 0.9,
+        rotate: 5,
+        x: 100,
+      },
+      ".styles-gsap": {
+        scale: 0.9,
+        rotate: -5,
+        x: -100,
+      },
+      ".back-gsap": {
+        scale: 0.9,
+        rotate: 5,
+        x: 100,
+      },
+      ".tools-gsap": {
+        scale: 0.9,
+        rotate: -5,
+        x: -100,
+      },
+      ".github-gsap": {
+        rotate: 5,
+        x: 100,
+      },
+      ".tools-text-gsap": {
+        rotate: -5,
+        x: -100,
+      },
+    },
   });
 
   return (
     <div className="gap-[1.5rem] xl:gap-[2rem] flex flex-col xl:w-1/2">
-      <div
-        ref={(el) => {
-          technologyRefs.current[0] = el;
-        }}
-      >
+      <div className="front-gsap">
         <MotionSlide direction="right">
-          <TechnologyItem
-            data={frontTechnologyData}
-            animation="left"
-            isActive={activeIndex === 0}
-          />
+          <TechnologyItem data={frontTechnologyData} animation="left" />
         </MotionSlide>
       </div>
 
       <div className="flex justify-between items-center">
-        <div
-          ref={(el) => {
-            technologyRefs.current[1] = el;
-          }}
-          className="w-1/2"
-        >
+        <div className="styles-gsap w-1/2">
           <MotionSlide>
-            <TechnologyItem
-              data={stylesTechnologyData}
-              animation="right"
-              isActive={activeIndex === 1}
-            />
+            <TechnologyItem data={stylesTechnologyData} animation="right" />
           </MotionSlide>
         </div>
 
-        <div className="w-1/2 flex justify-center">
+        <div className="github-gsap w-1/2 flex justify-center">
           <MotionFade>
             <GithubButton />
           </MotionFade>
@@ -101,38 +92,21 @@ const TechnologiesSection = () => {
 
       <div className="flex items-end justify-between">
         <MotionFade className="w-[40%]">
-          <p className="text-dark-gray dark:text-soft-gray text-sm xl:text-lg">
+          <p className="tools-text-gsap text-dark-gray dark:text-soft-gray text-sm xl:text-lg">
             <RichText t={t} translationKey={"favoritesTools"} />
           </p>
         </MotionFade>
 
-        <div
-          ref={(el) => {
-            technologyRefs.current[2] = el;
-          }}
-          className="w-1/2"
-        >
+        <div className="back-gsap w-1/2">
           <MotionSlide direction="right">
-            <TechnologyItem
-              data={backendTechnologyData}
-              animation="left"
-              isActive={activeIndex === 2}
-            />
+            <TechnologyItem data={backendTechnologyData} animation="left" />
           </MotionSlide>
         </div>
       </div>
 
-      <div
-        ref={(el) => {
-          technologyRefs.current[3] = el;
-        }}
-      >
+      <div className="tools-gsap">
         <MotionSlide>
-          <TechnologyItem
-            data={toolsData}
-            animation="right"
-            isActive={activeIndex === 3}
-          />
+          <TechnologyItem data={toolsData} animation="right" />
         </MotionSlide>
       </div>
     </div>

@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { SendHorizonal } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
-import { useEffect, useState, Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 type ChatWidgetFooterProps = {
   inputValue: string;
@@ -45,7 +45,7 @@ export default function ChatWidgetFooter({
     <form
       onSubmit={handleFormSubmit}
       className={clsx(
-        "flex items-center theme-transition-all border-b border-r border-l 2xl:border-l-0 border-transparent focus-within:border-black dark:focus-within:border-soft-white 2xl:rounded-br-[2rem] rounded-b-[1.5rem] 2xl:rounded-bl-none",
+        "flex items-center theme-transition-all border-b border-r border-l 2xl:border-l-0 border-transparent focus-within:border-black dark:focus-within:border-soft-white 2xl:rounded-br-[2rem] rounded-b-[1.5rem] 2xl:rounded-bl-none backdrop-blur-[0.5rem]",
         {
           "bg-white-bone dark:bg-soft-gray/5": !hasText,
           "bg-soft-gray/40 dark:bg-soft-gray/15": hasText,

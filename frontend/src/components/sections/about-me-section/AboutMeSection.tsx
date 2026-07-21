@@ -1,5 +1,6 @@
 "use client";
 import personalImage from "@/assets/images/damian.jpg";
+import CustomImage from "@/components/image/CustomImage";
 import SpaceX from "@/components/layout/SpaceX";
 import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
@@ -11,7 +12,6 @@ import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import { removeHash } from "@/utils/removeHash";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import CertificationSection from "./certification/CertificationSection";
 import TechnologiesSection from "./technologies/TechnologiesSection";
@@ -74,7 +74,7 @@ const AboutMeSection = () => {
             direction="down"
             className=" relative overflow-hidden shadow-s1 dark:shadow-none rounded-full dark:rounded-none border border-soft-white/50 dark:border-none"
           >
-            <Image
+            <CustomImage
               src={personalImage}
               priority={true}
               alt="Personal image"

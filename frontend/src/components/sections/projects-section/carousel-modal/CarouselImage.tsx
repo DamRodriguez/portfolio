@@ -1,9 +1,8 @@
 "use client";
-
+import CustomImage from "@/components/image/CustomImage";
 import MotionScale from "@/components/motion/MotionScale";
 import Spinner from "@/components/spinner/Spinner";
 import clsx from "clsx";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 type CarouselImageProps = {
@@ -37,12 +36,11 @@ const CarouselImage = ({ src, index }: CarouselImageProps) => {
             loaded ? "opacity-100" : "opacity-0",
           )}
         >
-          <Image
+          <CustomImage
             src={src}
             alt={`Galería ${index}`}
             width={1920}
             height={1080}
-            quality={80}
             onLoad={() => setLoaded(true)}
             className="object-contain max-h-[65vh] xl:max-h-[75vh]"
             style={{

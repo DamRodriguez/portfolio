@@ -49,7 +49,7 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json({ success: true, data });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Ocurrió un error al enviar el correo" },
       { status: 500 },

@@ -10,12 +10,13 @@ export default function CustomImage({
   alt,
   className,
   imageClassName,
-  quality = 85,
+  quality,
   sizes,
   fill,
   priority = false,
   loading,
-  placeholder = "empty",
+  placeholder = "blur",
+  blurDataURL,
   ...props
 }: CustomImageProps) {
   return (
@@ -25,14 +26,11 @@ export default function CustomImage({
       fill={fill}
       quality={quality}
       priority={priority}
-      loading={priority ? undefined : loading}
+      blurDataURL="/images/image-placeholder.webp"
+      loading={priority ? undefined : (loading ?? "lazy")}
       sizes={sizes}
       placeholder={placeholder}
-      className={clsx(
-        fill && "object-cover bg-placeholder",
-        imageClassName,
-        className,
-      )}
+      className={clsx(fill && "object-cover", imageClassName, className)}
     />
   );
 }

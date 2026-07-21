@@ -1,8 +1,8 @@
 "use client";
+import CustomImage from "@/components/image/CustomImage";
 import TiltCard from "@/components/motion/TiltCard";
 import clsx from "clsx";
 import { Expand } from "lucide-react";
-import Image from "next/image";
 
 type ProjectImageProps = {
   image: string;
@@ -27,12 +27,11 @@ const ProjectImage = (props: ProjectImageProps) => {
         )}
       >
         <div className="h-full w-full shadow-s1 border border-black/15 dark:border-soft-gray/15 hover:border-black dark:hover:border-soft-gray theme-transition-all rounded-[0.5rem] xl:rounded-2xl overflow-hidden relative">
-          <Image
+          <CustomImage
             width={1200}
             height={900}
             src={props.image}
             alt={props.alt}
-            quality={80}
             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 35vw"
             className={clsx(
               "object-cover object-top h-full w-full hover:scale-110 theme-transition-all",

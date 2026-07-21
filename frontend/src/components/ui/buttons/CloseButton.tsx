@@ -19,7 +19,7 @@ export default function CloseButton({
         "flex items-center justify-center border rounded-full shadow-s1 cursor-pointer theme-transition-all",
         "pointer-events-auto disabled:pointer-events-none disabled:opacity-50",
 
-        "bg-soft-white border-black/15 hover:border-black/50 hover:bg-white-bone/50",
+        "bg-soft-white border-strong-black/30 hover:border-black/50 hover:bg-white-bone/50",
 
         "dark:bg-strong-black dark:border-soft-gray/30 dark:hover:border-soft-gray/70",
         {

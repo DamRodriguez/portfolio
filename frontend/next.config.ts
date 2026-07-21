@@ -4,11 +4,19 @@ import createNextIntlPlugin from "next-intl/plugin";
 const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
+    remotePatterns: [
+      { protocol: "https", hostname: "damrod.dev" },
+      { protocol: "https", hostname: "*.damrod.dev" },
+    ],
   },
   outputFileTracingIncludes: {
     "/api/chat/*": ["./src/data/representative-profile.txt"],
   },
+  turbopack: {
+    resolveAlias: {},
+  },
   async headers() {
+    const isDev = process.env.NODE_ENV === "development";
     const csp = [
       "default-src 'self'",
       "script-src 'self' 'unsafe-eval' 'unsafe-inline'",
@@ -21,7 +29,7 @@ const nextConfig: NextConfig = {
       "form-action 'self'",
     ].join("; ");
 
-    return [
+    const headers = [
       {
         source: "/:path*",
         headers: [
@@ -52,6 +60,47 @@ const nextConfig: NextConfig = {
         ],
       },
     ];
+
+    if (!isDev) {
+      headers.push(
+        {
+          source: "/images/:path*",
+          headers: [
+            {
+              key: "Cache-Control",
+              value: "public, max-age=31536000, immutable",
+            },
+          ],
+        },
+        {
+          source: "/_next/static/:path*",
+          headers: [
+            {
+              key: "Cache-Control",
+              value: "public, max-age=31536000, immutable",
+            },
+          ],
+        },
+        {
+          source: "/_next/image/:path*",
+          headers: [
+            {
+              key: "Cache-Control",
+              value: "public, max-age=31536000, immutable",
+            },
+          ],
+        },
+      );
+    }
+
+    if (isDev) {
+      headers.push({
+        source: "/:path*",
+        headers: [{ key: "Cache-Control", value: "no-store, must-revalidate" }],
+      });
+    }
+
+    return headers;
   },
 };
 

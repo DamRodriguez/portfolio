@@ -1,4 +1,4 @@
-import ChatWidget from "@/components/automation/chat-widget/ChatWidget";
+import ChatWidget from "@/components/automation/chat-widget/LazyChatWidget";
 import Providers from "@/components/provider/Providers";
 import GoogleAnalytics from "@/components/seo/GoogleAnalytics";
 import PersonSchema from "@/components/seo/PersonSchema";
@@ -8,7 +8,6 @@ import { Locale, routing } from "@/i18n/routing";
 import { createMetadata } from "@/lib/metadata";
 import "@/styles/globals.css";
 import { getValidatedLocale } from "@/utils/getValidatedLocale";
-import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import clsx from "clsx";
 import { Metadata } from "next";
 import { Fira_Code, Open_Sans } from "next/font/google";
@@ -76,7 +75,6 @@ export default async function RootLocaleLayout({
           </div>
           <ThemeTransitionBlocker />
           <GoogleAnalytics />
-          <VercelAnalytics />
           <ChatWidget />
         </Providers>
       </body>
