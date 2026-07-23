@@ -9,6 +9,9 @@ export type CustomComponentMatch =
     }
   | {
       type: "ContactCard";
+    }
+  | {
+      type: "RedirectAllProjectsCard";
     };
 
 export function extractCustomComponents(text: string): CustomComponentMatch[] {
@@ -37,6 +40,10 @@ export function extractCustomComponents(text: string): CustomComponentMatch[] {
     } else if (componentType === "ContactCard") {
       components.push({
         type: "ContactCard",
+      });
+    } else if (componentType === "RedirectAllProjectsCard") {
+      components.push({
+        type: "RedirectAllProjectsCard",
       });
     }
   }

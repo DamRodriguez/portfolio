@@ -261,11 +261,14 @@
     "footerInputPlaceholder": "Tell me...",
     "welcomeMessage": "Hello!\nHow can I help you today?",
     "messageOptions": {
-      "projects": "Tell me about his projects",
+      "projects": "I want to see all of his projects",
       "oneProject": "Show me a project",
       "experience": "What is his work experience?",
       "contact": "How can I contact him?",
       "toggleTheme": "Switch to {theme, select, dark {light} light {dark} other {opposite}} theme"
+    },
+    "redirectAllProjects": {
+      "buttonText": "All Projects"
     }
   }
 }

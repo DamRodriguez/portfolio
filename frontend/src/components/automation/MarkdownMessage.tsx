@@ -1,5 +1,6 @@
 "use client";
 import ContactCard from "@/components/common/ContactCard";
+import RedirectAllProjectsCard from "@/components/common/RedirectAllProjectsCard";
 import { ProjectCardWrapper } from "@/components/common/ProjectCardWrapper";
 import {
   cleanCustomComponentText,
@@ -51,6 +52,9 @@ export default function MarkdownMessage({
               <ProjectCardWrapper project={customComponent.project} />
             )}
           {customComponent.type === "ContactCard" && <ContactCard />}
+          {customComponent.type === "RedirectAllProjectsCard" && (
+            <RedirectAllProjectsCard />
+          )}
         </div>
       </div>
     );
