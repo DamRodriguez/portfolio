@@ -141,7 +141,6 @@
 }
 
 body {
-  font-family: var(--font-work-sans);
   cursor:
     url("../assets/images/cursor.png") 4 4,
     auto;
