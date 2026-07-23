@@ -27,6 +27,7 @@ export default function ChatWidgetMessageOptions({
   const suggestedOptions = [
     t("projects"),
     t("experience"),
+    t("contact"),
     t("toggleTheme", { theme: currentTheme }),
     t("oneProject"),
   ];

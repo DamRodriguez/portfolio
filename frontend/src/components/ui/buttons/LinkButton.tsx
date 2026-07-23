@@ -19,11 +19,13 @@ type LinkButtonProps = {
   cursorNormal?: boolean;
   external?: boolean;
   small?: boolean;
+  iconStroke?: boolean;
 };
 
 const LinkButton = ({
   cursorNormal = false,
   external = false,
+  iconStroke = false,
   ...props
 }: LinkButtonProps) => {
   const cleanQuery = props.query
@@ -49,6 +51,7 @@ const LinkButton = ({
       full: props.full,
       small: props.small,
       cursorNormal: cursorNormal,
+      iconStroke: iconStroke,
     }),
     props.className,
   );

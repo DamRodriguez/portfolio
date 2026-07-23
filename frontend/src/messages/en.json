@@ -264,6 +264,7 @@
       "projects": "Tell me about his projects",
       "oneProject": "Show me a project",
       "experience": "What is his work experience?",
+      "contact": "How can I contact him?",
       "toggleTheme": "Switch to {theme, select, dark {light} light {dark} other {opposite}} theme"
     }
   }

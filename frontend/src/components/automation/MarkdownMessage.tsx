@@ -1,4 +1,5 @@
 "use client";
+import ContactCard from "@/components/common/ContactCard";
 import { ProjectCardWrapper } from "@/components/common/ProjectCardWrapper";
 import {
   cleanCustomComponentText,
@@ -16,7 +17,11 @@ type MarkdownMessageProps = {
   messageId?: string;
 };
 
-export default function MarkdownMessage({ text, isLatestAssistantMessage = false, messageId }: MarkdownMessageProps) {
+export default function MarkdownMessage({
+  text,
+  isLatestAssistantMessage = false,
+  messageId,
+}: MarkdownMessageProps) {
   const { setTheme } = useTheme();
 
   // Manejar cambios de tema solo si es el último mensaje del asistente
@@ -26,14 +31,11 @@ export default function MarkdownMessage({ text, isLatestAssistantMessage = false
   const displayText = cleanThemeActionText(text);
   const blocks = displayText.split(/\n\s*\n/).filter(Boolean);
 
-  // Extraer componente personalizado si existe
+  // Extraer el PRIMER componente personalizado (para evitar conflictos)
   const customComponent = extractCustomComponent(displayText);
 
   // Renderizar componente personalizado con texto introductorio
-  if (
-    displayText.includes("__CUSTOM_COMPONENT__") &&
-    customComponent?.project
-  ) {
+  if (displayText.includes("__CUSTOM_COMPONENT__") && customComponent) {
     const introText = cleanCustomComponentText(displayText);
 
     return (
@@ -44,7 +46,11 @@ export default function MarkdownMessage({ text, isLatestAssistantMessage = false
           </div>
         )}
         <div className="space-y-2">
-          <ProjectCardWrapper project={customComponent.project} />
+          {customComponent.type === "ProjectCard" &&
+            customComponent.project && (
+              <ProjectCardWrapper project={customComponent.project} />
+            )}
+          {customComponent.type === "ContactCard" && <ContactCard />}
         </div>
       </div>
     );

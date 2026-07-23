@@ -13,12 +13,10 @@ const ShineBorderCustom = (props: ShineBorderCustomProps) => {
   return (
     <ShineBorder
       className={clsx("rounded-full theme-transition-all", {
-        "border border-dark-gray/15 dark:border-soft-gray/50": props.isVisible,
+        "border border-black/40 dark:border-soft-gray/50": props.isVisible,
       })}
       shineColor={
-        theme === "dark"
-          ? "rgba(255, 255, 255, 0.5)"
-          : "rgba(170, 170, 170, 0.5)"
+        theme === "dark" ? "rgba(255, 255, 255, 0.5)" : "rgba(18, 18, 18, 0.4)"
       }
     />
   );
