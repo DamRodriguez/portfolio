@@ -1,4 +1,3 @@
-import ProgressBarProvider from "@/components/layout/ProgressBarProvider";
 import ReduxStoreProvider from "@/components/provider/ReduxStoreProvider";
 import { SmoothScrollProvider } from "@/components/provider/SmoothScrollProvider";
 import ThemeProvider from "@/components/provider/ThemeProvider";
@@ -13,9 +12,7 @@ export default function Providers({ children }: ProvidersProps) {
     <SmoothScrollProvider>
       <ReduxStoreProvider>
         <NextIntlClientProvider>
-          <ThemeProvider>
-            <ProgressBarProvider>{children}</ProgressBarProvider>
-          </ThemeProvider>
+          <ThemeProvider>{children}</ThemeProvider>
         </NextIntlClientProvider>
       </ReduxStoreProvider>
     </SmoothScrollProvider>

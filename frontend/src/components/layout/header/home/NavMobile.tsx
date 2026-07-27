@@ -2,8 +2,8 @@
 import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
 import SocialButtons from "@/components/other/SocialButtons";
+import LinkButton from "@/components/ui/buttons/LinkButton";
 import { navRoutes } from "@/constants/navRoutes";
-import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 
 type NavMobileProps = {
@@ -23,15 +23,16 @@ const NavMobile = ({ onClose }: NavMobileProps) => {
             return (
               <MotionSlide direction="down" key={index} order={index * 0.3}>
                 <li className="flex flex-col w-full">
-                  <Link
+                  <LinkButton
                     href={href}
                     onClick={onClose}
+                    variant="empty"
                     className="cursor-pointer w-full pb-2"
                   >
                     <p className="text-black/90 dark:text-soft-white/90 font-medium text-base text-center">
                       {t(label)}
                     </p>
-                  </Link>
+                  </LinkButton>
                   <div className="h-px rounded-full bg-gradient-to-r from-transparent via-dark-gray/50 to-transparent dark:via-soft-gray/50" />
                 </li>
               </MotionSlide>

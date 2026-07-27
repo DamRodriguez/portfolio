@@ -270,5 +270,8 @@
     "redirectAllProjects": {
       "buttonText": "All Projects"
     }
+  },
+  "navigationCurtain": {
+    "loadingText": "loading..."
   }
 }

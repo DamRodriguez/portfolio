@@ -1,6 +1,6 @@
 "use client";
+import LinkButton from "@/components/ui/buttons/LinkButton";
 import { routes } from "@/constants/routes";
-import { Link } from "@/i18n/navigation";
 import clsx from "clsx";
 import { ChevronLeft } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -9,8 +9,10 @@ export default function HomeBackButton() {
   const t = useTranslations("allProjectsPage.header");
 
   return (
-    <Link
+    <LinkButton
       href={routes.home}
+      variant="empty"
+      cursorNormal
       className="flex items-center gap-[1rem] group cursor-pointer"
     >
       <div
@@ -32,6 +34,6 @@ export default function HomeBackButton() {
       >
         {t("homeButton")}
       </p>
-    </Link>
+    </LinkButton>
   );
 }

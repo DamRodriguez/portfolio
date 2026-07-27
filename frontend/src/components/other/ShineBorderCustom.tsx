@@ -16,7 +16,7 @@ const ShineBorderCustom = (props: ShineBorderCustomProps) => {
         "border border-black/40 dark:border-soft-gray/50": props.isVisible,
       })}
       shineColor={
-        theme === "dark" ? "rgba(255, 255, 255, 0.5)" : "rgba(18, 18, 18, 0.4)"
+        theme === "dark" ? "rgba(255, 255, 255, 0.4)" : "rgba(18, 18, 18, 0.2)"
       }
     />
   );
