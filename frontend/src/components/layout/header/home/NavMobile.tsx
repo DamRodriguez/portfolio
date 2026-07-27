@@ -14,9 +14,9 @@ const NavMobile = ({ onClose }: NavMobileProps) => {
   const t = useTranslations("header.navItems");
 
   return (
-    <div className="pt-[2rem] px-[4rem] justify-between pb-[calc(env(safe-area-inset-bottom)+5rem)] gap-[2.5rem] flex flex-col h-full">
+    <div className="pt-[1.5rem] px-[4rem] justify-between pb-[calc(env(safe-area-inset-bottom)+5rem)] gap-[2rem] flex flex-col h-full">
       <nav>
-        <ul className="flex flex-col gap-[2rem] max-w-[12rem] items-stretch mx-auto">
+        <ul className="flex flex-col gap-[1.5rem] max-w-[12rem] items-stretch mx-auto">
           {navRoutes.map((item, index) => {
             const { href, label } = item;
 
