@@ -146,7 +146,7 @@ export default function ChatBackgroundEffects({
         ))}
       </div>
 
-      <MotionFade className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-100">
+      <MotionFade className="absolute inset-0 w-full h-[calc(100%-3.5rem)] xl:h-[calc(100%-4rem)] pointer-events-none z-0 opacity-100">
         <canvas ref={canvasRef} className="w-full h-full" />
       </MotionFade>
     </>
