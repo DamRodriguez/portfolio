@@ -1,5 +1,6 @@
 "use client";
 import { HrefType } from "@/components/ui/buttons/LinkButton";
+import { useScrollLock } from "@/hooks/useScrollLock";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { animate } from "motion";
 import { useTheme } from "next-themes";
@@ -11,6 +12,7 @@ export const useWipeTransition = () => {
   const [isPending, setIsPending] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
+  useScrollLock(isPending);
 
   const currentTheme = resolvedTheme ?? theme;
   const bgColor =
