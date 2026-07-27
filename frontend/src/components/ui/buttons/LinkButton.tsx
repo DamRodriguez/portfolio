@@ -87,7 +87,7 @@ const LinkButton = ({
 
   return (
     <Link
-      href={href as any}
+      href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
       className={className}
