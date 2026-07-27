@@ -42,7 +42,8 @@ const LinkButton = ({
   const cleanQuery = props.query
     ? Object.fromEntries(
         Object.entries(props.query).filter(
-          ([_, value]) => value !== undefined && value !== null && value !== "",
+          (entry: [string, unknown]) =>
+            entry[1] !== undefined && entry[1] !== null && entry[1] !== "",
         ),
       )
     : undefined;
