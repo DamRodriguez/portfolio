@@ -3,7 +3,7 @@ import SpaceX from "@/components/layout/SpaceX";
 import MotionEntryFade from "@/components/motion/MotionEntryFade";
 import MotionEntrySlide from "@/components/motion/MotionEntrySlide";
 import { RichText } from "@/components/next-intl/RichText";
-import SocialButtonsSection from "@/components/sections/head-section/SocialButtonsSection";
+import SocialButtonsSection from "@/components/home/sections/head-section/SocialButtonsSection";
 import ResponsiveTitleWrapper from "@/components/text/ResponsiveTitleWrapper";
 import ButtonWithArrow from "@/components/ui/buttons/ButtonWithArrow";
 import { routes } from "@/constants/routes";
@@ -13,7 +13,8 @@ import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
 
 const HorizontalCarouselSection = dynamic(
-  () => import("@/components/sections/head-section/HorizontalCarouselSection"),
+  () =>
+    import("@/components/home/sections/head-section/HorizontalCarouselSection"),
   {
     ssr: false,
     loading: () => (

@@ -1,9 +1,9 @@
+import TechnologyItem, {
+  TechnologyItemData,
+} from "@/components/home/sections/about-me-section/technologies/TechnologyItem";
 import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
 import { RichText } from "@/components/next-intl/RichText";
-import TechnologyItem, {
-  TechnologyItemData,
-} from "@/components/sections/about-me-section/technologies/TechnologyItem";
 import GithubButton from "@/components/ui/buttons/GithubButton";
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import gsap from "gsap";

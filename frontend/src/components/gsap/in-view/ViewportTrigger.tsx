@@ -1,4 +1,5 @@
 "use client";
+import useBreakpoint from "@/hooks/useBreakpoint";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -27,17 +28,16 @@ export default function ViewportTrigger({
   onEnterBack,
   onLeaveBack,
 }: Props) {
+  const isMobile = useBreakpoint();
   const ref = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setIsInView] = useState(false);
-  // const isMobile = useBreakpoint();
-  // const startPosition = start ?? (isMobile ? "top 40%" : "top 50%");
-  // const endPosition = end ?? (isMobile ? "bottom 90%" : "bottom 50%");
 
   useGSAP(
     () => {
       const el = ref.current;
-      if (!el) return;
+
+      if (!el || isMobile) return;
 
       const trigger = ScrollTrigger.create({
         trigger: el,
@@ -63,7 +63,10 @@ export default function ViewportTrigger({
 
       return () => trigger.kill();
     },
-    { scope: ref },
+    {
+      scope: ref,
+      dependencies: [isMobile, start, end],
+    },
   );
 
   return (

@@ -1,4 +1,4 @@
-import { ProjectCategory } from "@/components/sections/projects-section/ProjectItem";
+import { ProjectCategory } from "@/components/home/sections/projects-section/ProjectItem";
 import { projectsData } from "@/data/projectsData";
 import { useTranslations } from "next-intl";
 

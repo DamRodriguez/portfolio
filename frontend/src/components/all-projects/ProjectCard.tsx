@@ -1,12 +1,12 @@
 "use client";
-import CustomImage from "@/components/image/CustomImage";
-import TiltCard from "@/components/motion/TiltCard";
-import { RichText } from "@/components/next-intl/RichText";
 import {
   CategoryTranslationKey,
   ProjectCategory,
   ProjectItemData,
-} from "@/components/sections/projects-section/ProjectItem";
+} from "@/components/home/sections/projects-section/ProjectItem";
+import CustomImage from "@/components/image/CustomImage";
+import TiltCard from "@/components/motion/TiltCard";
+import { RichText } from "@/components/next-intl/RichText";
 import clsx from "clsx";
 import {
   LucideIcon,

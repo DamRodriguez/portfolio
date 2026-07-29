@@ -1,8 +1,8 @@
 "use client";
-import { PopUp } from "@/components/pop-up/PopUp";
 import ProjectItem, {
   ProjectItemData,
-} from "@/components/sections/projects-section/ProjectItem";
+} from "@/components/home/sections/projects-section/ProjectItem";
+import { PopUp } from "@/components/pop-up/PopUp";
 import { useState } from "react";
 import ProjectCard from "../all-projects/ProjectCard";
 

@@ -1,4 +1,4 @@
-import type { ProjectItemData } from "@/components/sections/projects-section/ProjectItem";
+import type { ProjectItemData } from "@/components/home/sections/projects-section/ProjectItem";
 import { projectsData } from "@/data/projectsData";
 
 export type CustomComponentMatch =
@@ -17,7 +17,8 @@ export type CustomComponentMatch =
 export function extractCustomComponents(text: string): CustomComponentMatch[] {
   if (!text.includes("__CUSTOM_COMPONENT__")) return [];
 
-  const regex = /__CUSTOM_COMPONENT__\s*:\s*([A-Za-z0-9]+)(?::([A-Za-z0-9]+))?/g;
+  const regex =
+    /__CUSTOM_COMPONENT__\s*:\s*([A-Za-z0-9]+)(?::([A-Za-z0-9]+))?/g;
   const components: CustomComponentMatch[] = [];
   let match;
 
@@ -52,19 +53,23 @@ export function extractCustomComponents(text: string): CustomComponentMatch[] {
 }
 
 // Mantener compatibilidad hacia atrás
-export function extractCustomComponent(text: string): CustomComponentMatch | null {
+export function extractCustomComponent(
+  text: string,
+): CustomComponentMatch | null {
   const components = extractCustomComponents(text);
   return components[0] ?? null;
 }
 
 export function cleanCustomComponentText(text: string): string {
-  return text
-    .replace(
-      /\n?__CUSTOM_COMPONENT__\s*:\s*[A-Za-z0-9]+(?::[A-Za-z0-9]+)?\s*/g,
-      "",
-    )
-    // Limpiar reglas horizontales de markdown (---, ***, ****, etc.) que el LLM pueda agregar
-    .replace(/^[\s]*[-*]{3,}[\s]*$/gm, "")
-    .replace(/\n{3,}/g, "\n\n")
-    .trim();
+  return (
+    text
+      .replace(
+        /\n?__CUSTOM_COMPONENT__\s*:\s*[A-Za-z0-9]+(?::[A-Za-z0-9]+)?\s*/g,
+        "",
+      )
+      // Limpiar reglas horizontales de markdown (---, ***, ****, etc.) que el LLM pueda agregar
+      .replace(/^[\s]*[-*]{3,}[\s]*$/gm, "")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim()
+  );
 }

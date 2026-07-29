@@ -1,8 +1,8 @@
 "use client";
 import InfiniteCarousel from "@/components/carousel/InfiniteCarousel";
+import ImageCarouselModal from "@/components/home/sections/projects-section/carousel-modal/ImageCarouselModal";
 import { RichText } from "@/components/next-intl/RichText";
 import ItemHover from "@/components/other/ItemHover";
-import ImageCarouselModal from "@/components/sections/projects-section/carousel-modal/ImageCarouselModal";
 import { projectIds } from "@/constants/projectIds";
 import { useScrollLock } from "@/hooks/useScrollLock";
 import { removeHash } from "@/utils/removeHash";

@@ -1,5 +1,5 @@
 "use client";
-import ProjectImage from "@/components/sections/projects-section/ProjectImage";
+import ProjectImage from "@/components/home/sections/projects-section/ProjectImage";
 import clsx from "clsx";
 
 export type ImageSource =

@@ -1,13 +1,13 @@
 "use client";
+import ServiceCard, {
+  ServiceCardData,
+} from "@/components/home/sections/services/service-card/ServiceCard";
+import ServicesContactSection from "@/components/home/sections/services/ServicesContactSection";
 import SpaceX from "@/components/layout/SpaceX";
 import MotionFade from "@/components/motion/MotionFade";
 import MotionSlide from "@/components/motion/MotionSlide";
 import MotionStagger from "@/components/motion/MotionStagger";
 import { RichText } from "@/components/next-intl/RichText";
-import ServiceCard, {
-  ServiceCardData,
-} from "@/components/sections/services/service-card/ServiceCard";
-import ServicesContactSection from "@/components/sections/services/ServicesContactSection";
 import SecondTitle from "@/components/text/SecondTitle";
 import { routes } from "@/constants/routes";
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";

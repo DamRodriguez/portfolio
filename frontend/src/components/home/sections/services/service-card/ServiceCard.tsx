@@ -1,6 +1,6 @@
 "use client";
+import CardIcon from "@/components/home/sections/services/service-card/CardIcon";
 import { RichText } from "@/components/next-intl/RichText";
-import CardIcon from "@/components/sections/services/service-card/CardIcon";
 import clsx from "clsx";
 import { CircleCheckBig } from "lucide-react";
 import { Messages, useTranslations } from "next-intl";

@@ -1,28 +1,26 @@
 import config from "@/config/config";
-import { useEffect, useState } from "react";
+import { useCallback, useSyncExternalStore } from "react";
 
 const useBreakpoint = (breakpoint = Number(config.breakpoints.md)) => {
-  const getQuery = (breakpoint: number) => `(max-width: ${breakpoint}px)`;
+  const query = `(max-width: ${breakpoint}px)`;
 
-  const [isMobile, setIsMobile] = useState(false);
+  const subscribe = useCallback(
+    (callback: () => void) => {
+      const mediaQuery = window.matchMedia(query);
+      mediaQuery.addEventListener("change", callback);
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia(getQuery(breakpoint));
+      return () => mediaQuery.removeEventListener("change", callback);
+    },
+    [query],
+  );
 
-    setIsMobile(mediaQuery.matches);
+  const getSnapshot = useCallback(() => {
+    return window.matchMedia(query).matches;
+  }, [query]);
 
-    const handleChange = (event: MediaQueryListEvent) => {
-      setIsMobile(event.matches);
-    };
+  const getServerSnapshot = () => false;
 
-    mediaQuery.addEventListener("change", handleChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleChange);
-    };
-  }, [breakpoint]);
-
-  return isMobile;
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 };
 
 export default useBreakpoint;

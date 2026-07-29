@@ -4,7 +4,7 @@ import ResponsiveMotionGrid from "@/components/motion/ResponsiveMotionGrid";
 import { PopUp } from "@/components/pop-up/PopUp";
 import ProjectItem, {
   ProjectItemData,
-} from "@/components/sections/projects-section/ProjectItem";
+} from "@/components/home/sections/projects-section/ProjectItem";
 import {
   AllProjectFilters,
   useFilteredProjects,

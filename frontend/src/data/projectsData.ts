@@ -1,4 +1,4 @@
-import { ProjectItemData } from "@/components/sections/projects-section/ProjectItem";
+import { ProjectItemData } from "@/components/home/sections/projects-section/ProjectItem";
 import config from "@/config/config";
 
 // Primero se cargan los textos del proyecto en messages (es - en) y luego con la clave del nombre se completa el objeto.
