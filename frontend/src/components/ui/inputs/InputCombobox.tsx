@@ -71,8 +71,6 @@ export const InputCombobox = <T extends BaseOption>({
     <div
       ref={wrapperRef}
       className={clsx("relative w-full", containerClassName)}
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
     >
       <button
         type="button"
