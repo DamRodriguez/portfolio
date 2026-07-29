@@ -42,7 +42,7 @@ export const useProjectsScrollAnimation = (
             },
           });
           gsap.to(contents[index - 1], {
-            opacity: 0.3,
+            opacity: 0.1,
             scale: 0.85,
             scrollTrigger: {
               trigger: card,
