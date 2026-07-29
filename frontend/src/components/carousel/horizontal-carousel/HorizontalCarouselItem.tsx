@@ -9,7 +9,6 @@ export type HorizontalCarouselItemData = {
   title: string;
   description: string;
   routerPath: string;
-  isNew?: boolean;
 };
 
 type HorizontalCarouselItemProps = {
@@ -20,15 +19,8 @@ const HorizontalCarouselItem = ({ data }: HorizontalCarouselItemProps) => {
   const t = useTranslations("headSection.horizontalCarousel");
 
   return (
-    <div className="relative overflow-hidden rounded-3xl shadow-s1">
-      {/* {data.isNew && (
-        <div className="absolute top-0 right-0 z-10 overflow-hidden w-24 h-24 pointer-events-none">
-          <div className="absolute top-4 -right-8 w-32 bg-black dark:bg-soft-white text-soft-white dark:text-black font-fira-code text-xs font-semibold py-1 text-center rotate-45 shadow-s2">
-            {t("isNew")}
-          </div>
-        </div>
-      )} */}
-      <div className="group h-[17rem] xl:h-[20rem]">
+    <div className="relative overflow-hidden rounded-3xl shadow-s1 group">
+      <div className="h-[17rem] xl:h-[20rem]">
         <CustomImage
           src={data.image}
           alt={data.title}
