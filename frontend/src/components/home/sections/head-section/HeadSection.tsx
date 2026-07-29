@@ -1,9 +1,9 @@
 "use client";
+import SocialButtonsSection from "@/components/home/sections/head-section/SocialButtonsSection";
 import SpaceX from "@/components/layout/SpaceX";
 import MotionEntryFade from "@/components/motion/MotionEntryFade";
 import MotionEntrySlide from "@/components/motion/MotionEntrySlide";
 import { RichText } from "@/components/next-intl/RichText";
-import SocialButtonsSection from "@/components/home/sections/head-section/SocialButtonsSection";
 import ResponsiveTitleWrapper from "@/components/text/ResponsiveTitleWrapper";
 import ButtonWithArrow from "@/components/ui/buttons/ButtonWithArrow";
 import { routes } from "@/constants/routes";

@@ -3,7 +3,6 @@ import HorizontalCarouselItem, {
   HorizontalCarouselItemData,
 } from "@/components/carousel/horizontal-carousel/HorizontalCarouselItem";
 import { useHorizontalCarousel } from "@/hooks/useHorizontalCarousel";
-import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import "@/styles/scrollbarVertical.css";
 import clsx from "clsx";
 import type { EmblaOptionsType } from "embla-carousel";
@@ -33,17 +32,10 @@ const HorizontalCarousel = ({ options, items }: HorizontalCarouselProps) => {
     "w-7 h-7 xl:w-10 xl:h-10 stroke-soft-white dark:stroke-soft-white theme-transition-all";
 
   const arrowButtonClassName =
-    "pointer-events-auto backdrop-blur-[0.1rem] cursor-pointer hover:scale-105 theme-transition-all border border-soft-gray/30 rounded-full w-15 h-15 xl:w-20 xl:h-20 flex items-center justify-center hover:[&_svg]:stroke-[#000] hover:bg-soft-white shadow-s1 bg-black";
-
-  useScrollAnimations({
-    animations: {
-      ".left-arrow-gsap": { rotate: -50, x: -100, y: -100 },
-      ".right-arrow-gsap": { rotate: 50, x: 100, y: -100 },
-    },
-  });
+    "relative pointer-events-auto backdrop-blur-[0.1rem] cursor-pointer hover:scale-105 theme-transition-all border border-soft-gray/30 rounded-full w-15 h-15 xl:w-20 xl:h-20 flex items-center justify-center hover:[&_svg]:stroke-[#000] hover:bg-soft-white shadow-s1 bg-black xl:opacity-0 xl:group-hover/buttons:opacity-100";
 
   return (
-    <div className="relative w-full mb-7 md:mb-8 xl:mb-0">
+    <div className="relative w-full mb-7 md:mb-8 xl:mb-0 group/buttons">
       <div
         className="overflow-hidden rounded-[0.625rem] h-[18rem] xl:h-[22rem]"
         ref={emblaRef}
@@ -94,26 +86,22 @@ const HorizontalCarousel = ({ options, items }: HorizontalCarouselProps) => {
           safeItems.length === 1 && "hidden",
         )}
       >
-        <div className="left-arrow-gsap">
-          <button
-            onClick={onPrevButtonClick}
-            disabled={prevBtnDisabled}
-            aria-label="Flecha de navegación hacia la izquierda"
-            className={arrowButtonClassName}
-          >
-            <ChevronLeft className={clsx("mr-1", arrowSvgClassName)} />
-          </button>
-        </div>
-        <div className="right-arrow-gsap">
-          <button
-            onClick={onNextButtonClick}
-            disabled={nextBtnDisabled}
-            aria-label="Flecha de navegación hacia la derecha"
-            className={arrowButtonClassName}
-          >
-            <ChevronRight className={clsx("ml-1", arrowSvgClassName)} />
-          </button>
-        </div>
+        <button
+          onClick={onPrevButtonClick}
+          disabled={prevBtnDisabled}
+          aria-label="Flecha de navegación hacia la izquierda"
+          className={clsx("", arrowButtonClassName)}
+        >
+          <ChevronLeft className={clsx("mr-1", arrowSvgClassName)} />
+        </button>
+        <button
+          onClick={onNextButtonClick}
+          disabled={nextBtnDisabled}
+          aria-label="Flecha de navegación hacia la derecha"
+          className={clsx("", arrowButtonClassName)}
+        >
+          <ChevronRight className={clsx("ml-1", arrowSvgClassName)} />
+        </button>
       </div>
 
       <div className="absolute -bottom-7 md:-bottom-8 left-1/2 -translate-x-1/2 flex gap-3 md:gap-4">
