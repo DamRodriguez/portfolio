@@ -59,7 +59,7 @@ const ProjectsSection = () => {
                   data={project}
                   odd={index % 2 !== 0}
                   containerClassName={clsx(
-                    "overflow-y-clip project-card-content will-change-transform",
+                    "overflow-y-clip project-card-content will-change-transform transform-gpu",
                     {
                       "pt-[2rem] pb-[2rem]": !isLastProject,
                       "pt-[2rem] pb-[0rem]": isLastProject,
