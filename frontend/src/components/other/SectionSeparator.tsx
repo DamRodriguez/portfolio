@@ -1,7 +1,7 @@
-import clsx from "clsx";
 import MotionStretch from "@/components/motion/MotionStretch";
+import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
+import clsx from "clsx";
 import { useRef } from "react";
-import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 
 type SectionSeparatorProps = {
   className?: string;
@@ -15,15 +15,19 @@ const SectionSeparator = ({ className }: SectionSeparatorProps) => {
       ".project-item-separator": {
         scale: 0.6,
         opacity: 0,
-      }
+      },
     },
-    scope: itemRef
-  })
+    scope: itemRef,
+  });
 
   return (
     <div ref={itemRef} className={className}>
       <MotionStretch>
-        <div className={clsx("project-item-separator h-[0.03125rem] w-full bg-black/30 dark:bg-soft-gray/30 shadow-s3")} />
+        <div
+          className={clsx(
+            "project-item-separator h-[0.03125rem] w-full bg-black/30 dark:bg-soft-gray/30 shadow-s3",
+          )}
+        />
       </MotionStretch>
     </div>
   );

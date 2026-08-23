@@ -3,7 +3,7 @@ import {
   buttonClass,
   type ButtonVariants,
 } from "@/components/ui/buttons/Button.style";
-import { useWipeTransition } from "@/hooks/useWipeTransition";
+import { useWipeTransition } from "@/hooks/navigation/useWipeTransition";
 import { Link } from "@/i18n/navigation";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";

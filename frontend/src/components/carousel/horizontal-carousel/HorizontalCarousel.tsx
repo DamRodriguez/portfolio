@@ -2,7 +2,7 @@
 import HorizontalCarouselItem, {
   HorizontalCarouselItemData,
 } from "@/components/carousel/horizontal-carousel/HorizontalCarouselItem";
-import { useHorizontalCarousel } from "@/hooks/useHorizontalCarousel";
+import { useHorizontalCarousel } from "@/hooks/carousel/useHorizontalCarousel";
 import "@/styles/scrollbarVertical.css";
 import clsx from "clsx";
 import type { EmblaOptionsType } from "embla-carousel";

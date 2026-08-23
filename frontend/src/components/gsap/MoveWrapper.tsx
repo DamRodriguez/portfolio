@@ -1,9 +1,9 @@
 "use client";
-import { useRef, ReactNode } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import clsx from "clsx";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ReactNode, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,34 +24,32 @@ export default function MoveWrapper({
   distance = 80,
   order = 0,
   duration = 0.8,
-  className
+  className,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    if (!ref.current) return;
+  useGSAP(
+    () => {
+      if (!ref.current) return;
 
-    const from: gsap.TweenVars = { opacity: 0 };
+      const from: gsap.TweenVars = { opacity: 0 };
 
-    switch (direction) {
-      case "up":
-        from.y = distance;
-        break;
-      case "down":
-        from.y = -distance;
-        break;
-      case "left":
-        from.x = distance;
-        break;
-      case "right":
-        from.x = -distance;
-        break;
-    }
+      switch (direction) {
+        case "up":
+          from.y = distance;
+          break;
+        case "down":
+          from.y = -distance;
+          break;
+        case "left":
+          from.x = distance;
+          break;
+        case "right":
+          from.x = -distance;
+          break;
+      }
 
-    const tween = gsap.fromTo(
-      ref.current,
-      from,
-      {
+      const tween = gsap.fromTo(ref.current, from, {
         opacity: 1,
         x: 0,
         y: 0,
@@ -61,15 +59,17 @@ export default function MoveWrapper({
         scrollTrigger: {
           trigger: ref.current,
           start: "top 80%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
+          toggleActions: "play none none reverse",
+          scrub: 2,
+        },
+      });
 
-    return () => {
-      tween.kill();
-    };
-  }, { scope: ref });
+      return () => {
+        tween.kill();
+      };
+    },
+    { scope: ref },
+  );
 
   return (
     <div ref={ref} className={clsx("opacity-0", className)}>

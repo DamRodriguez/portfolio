@@ -2,7 +2,7 @@
 import SpaceX from "@/components/layout/SpaceX";
 import MotionOpacity from "@/components/motion/MotionOpacity";
 import CloseButton from "@/components/ui/buttons/CloseButton";
-import { useScrollLock } from "@/hooks/useScrollLock";
+import { useScrollLock } from "@/hooks/scroll/useScrollLock";
 import clsx from "clsx";
 import { AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";

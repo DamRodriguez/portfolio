@@ -1,8 +1,8 @@
 import { ArgFlagIcon, EngFlagIcon } from "@/components/icons/languageDropdown";
 import MotionHeight from "@/components/motion/MotionHeight";
 import { AnimatedChevron } from "@/components/other/AnimatedChevron";
-import useBreakpoint from "@/hooks/useBreakpoint";
-import { useClickOutside } from "@/hooks/useClickOutside";
+import { useClickOutside } from "@/hooks/other/useClickOutside";
+import useBreakpoint from "@/hooks/viewport/useBreakpoint";
 import clsx from "clsx";
 import { AnimatePresence } from "framer-motion";
 import type { Locale } from "next-intl";

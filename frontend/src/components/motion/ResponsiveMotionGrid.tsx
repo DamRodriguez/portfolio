@@ -3,7 +3,7 @@ import MotionSlide, {
   MotionSlideDirection,
 } from "@/components/motion/MotionSlide";
 import MotionStagger from "@/components/motion/MotionStagger";
-import useBreakpoint from "@/hooks/useBreakpoint";
+import useBreakpoint from "@/hooks/viewport/useBreakpoint";
 import clsx from "clsx";
 import { ReactNode } from "react";
 

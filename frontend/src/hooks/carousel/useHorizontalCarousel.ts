@@ -1,6 +1,6 @@
 "use client";
 import { useDotButton } from "@/components/carousel/horizontal-carousel/HorizontalCarouselDotButtons";
-import { usePrevNextButtons } from "@/hooks/usePrevNextButtons";
+import { usePrevNextButtons } from "@/hooks/carousel/usePrevNextButtons";
 import type { EmblaCarouselType, EmblaOptionsType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";

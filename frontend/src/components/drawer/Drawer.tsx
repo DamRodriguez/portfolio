@@ -1,5 +1,5 @@
 import { CloseIcon } from "@/components/icons/header";
-import { useScrollLock } from "@/hooks/useScrollLock";
+import { useScrollLock } from "@/hooks/scroll/useScrollLock";
 import clsx from "clsx";
 import { AnimatePresence, motion, type Transition } from "framer-motion";
 

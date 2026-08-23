@@ -37,7 +37,7 @@ export default function BackgroundText() {
     <div className="hidden xl:flex pointer-events-none fixed inset-0 z-21 overflow-hidden">
       <div className="absolute top-[calc(var(--height-header-desktop)+1rem)] w-full h-[calc(100vh-var(--height-header-desktop))]">
         <AnimatePresence mode="popLayout">
-          {activeSection && (
+          {activeSection && activeSection !== "services" && (
             <motion.div
               key={activeSection}
               className={clsx("absolute flex h-full justify-center", {

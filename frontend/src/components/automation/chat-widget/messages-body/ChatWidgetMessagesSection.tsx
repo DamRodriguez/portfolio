@@ -5,7 +5,7 @@ import BackgroundEffects from "@/components/motion/BackgroundEffects";
 import MotionFade from "@/components/motion/MotionFade";
 import TextReveal from "@/components/motion/TextReveal";
 import InfiniteSpinner from "@/components/spinner/InfiniteSpinner";
-import { usePreventScrollBehind } from "@/hooks/usePreventScrollBehind";
+import { usePreventScrollBehind } from "@/hooks/scroll/usePreventScrollBehind";
 import { type UIMessage } from "ai";
 import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useRef } from "react";
@@ -52,7 +52,10 @@ export default function ChatWidgetMessagesSection({
   const lastAssistantMessageId = useMemo(() => {
     for (let i = messages.length - 1; i >= 0; i--) {
       const m = messages[i];
-      if (m.role !== "user" && m.parts?.some((p) => p.type === "text" && p.text?.trim())) {
+      if (
+        m.role !== "user" &&
+        m.parts?.some((p) => p.type === "text" && p.text?.trim())
+      ) {
         return m.id;
       }
     }
@@ -116,8 +119,16 @@ export default function ChatWidgetMessagesSection({
 
       {validMessages.map((m) => {
         const isUser = m.role === "user";
-        const isLatestAssistantMessage = !isUser && m.id === lastAssistantMessageId;
-        return <ChatWidgetMessage key={m.id} message={m} isUser={isUser} isLatestAssistantMessage={isLatestAssistantMessage} />;
+        const isLatestAssistantMessage =
+          !isUser && m.id === lastAssistantMessageId;
+        return (
+          <ChatWidgetMessage
+            key={m.id}
+            message={m}
+            isUser={isUser}
+            isLatestAssistantMessage={isLatestAssistantMessage}
+          />
+        );
       })}
 
       {isWaitingForResponse && (

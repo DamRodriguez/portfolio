@@ -9,7 +9,9 @@ type UseFormErrorReturn = {
 const useFormError = <T extends Record<string, unknown>>(
   formState: FormState<T>,
 ): UseFormErrorReturn => {
-  const [apiErrorMessage, setApiErrorMessage] = useState<string | undefined>(undefined);
+  const [apiErrorMessage, setApiErrorMessage] = useState<string | undefined>(
+    undefined,
+  );
 
   useEffect(() => {
     if (formState.isSubmitting) {

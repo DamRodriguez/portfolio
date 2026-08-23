@@ -1,4 +1,6 @@
 "use client";
+import config from "@/config/config";
+import useBreakpoint from "@/hooks/viewport/useBreakpoint";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,17 +13,22 @@ type HorizontalConfig = {
   container?: string;
 };
 
-type UseHorizontalScrollAnimationsProps = {
+type useHorizontalScrollAnimationV2Props = {
   horizontal: HorizontalConfig;
   scope?: RefObject<Element | null>;
   disabled?: boolean;
+  topDistance?: string;
 };
 
-export function useHorizontalScrollAnimations({
+export function useHorizontalScrollAnimationV2({
   horizontal,
   scope,
   disabled = false,
-}: UseHorizontalScrollAnimationsProps) {
+  topDistance,
+}: useHorizontalScrollAnimationV2Props) {
+  const isDeskXl = useBreakpoint(Number(config.breakpoints.xl));
+  const finalTopDistance = topDistance ? topDistance : isDeskXl ? "8%" : "35%";
+
   useGSAP(
     (context) => {
       if (disabled) {
@@ -42,9 +49,9 @@ export function useHorizontalScrollAnimations({
         ease: "none",
         scrollTrigger: {
           trigger: container,
-          start: "top top",
+          start: `top ${finalTopDistance}`,
           pin: true,
-          scrub: 0.2,
+          scrub: 2,
           snap: {
             snapTo: 1 / (panels.length - 1),
             duration: 0,

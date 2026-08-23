@@ -6,7 +6,7 @@ import SecondTitle from "@/components/text/SecondTitle";
 import ButtonWithArrow from "@/components/ui/buttons/ButtonWithArrow";
 import { routes } from "@/constants/routes";
 import { projectsData } from "@/data/projectsData";
-import { useProjectsScrollAnimation } from "@/hooks/useProjectsScrollAnimation";
+import { useProjectsScrollAnimation } from "@/hooks/gsap/useProjectsScrollAnimation";
 import { removeHash } from "@/utils/removeHash";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";

@@ -15,7 +15,7 @@ export const useLenisScroll = () => {
       const { default: Lenis } = await import("lenis");
 
       lenis = new Lenis({
-        duration: 1.2,
+        duration: 1.3,
         easing: (t: number) => 1 - Math.pow(1 - t, 3),
         smoothWheel: true,
         syncTouch: false,

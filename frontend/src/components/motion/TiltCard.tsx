@@ -1,6 +1,6 @@
 "use client";
 import config from "@/config/config";
-import useBreakpoint from "@/hooks/useBreakpoint";
+import useBreakpoint from "@/hooks/viewport/useBreakpoint";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ReactNode, useRef } from "react";
 

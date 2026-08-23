@@ -1,6 +1,6 @@
 "use client";
 import SpaceX from "@/components/layout/SpaceX";
-import { useScrollAnimations } from "@/hooks/useScrollAnimations";
+import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
 import { calculateTotalTime } from "@/utils/calculateTotalTime";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";

@@ -1,5 +1,5 @@
 "use client";
-import useBreakpoint from "@/hooks/useBreakpoint";
+import useBreakpoint from "@/hooks/viewport/useBreakpoint";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";

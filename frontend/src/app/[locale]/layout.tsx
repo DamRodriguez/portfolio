@@ -1,4 +1,5 @@
 import ChatWidget from "@/components/automation/chat-widget/LazyChatWidget";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 import Providers from "@/components/provider/Providers";
 import GoogleAnalytics from "@/components/seo/GoogleAnalytics";
 import PersonSchema from "@/components/seo/PersonSchema";
@@ -68,6 +69,7 @@ export default async function RootLocaleLayout({
           firaCode.variable,
         )}
       >
+        <ScrollToTop />
         <Providers>
           <div className="site-size mx-auto w-full font-open-sans overflow-clip">
             <ToastContainer />

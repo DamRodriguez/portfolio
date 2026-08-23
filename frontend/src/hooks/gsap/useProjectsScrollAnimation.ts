@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { RefObject } from "react";
-import useBreakpoint from "./useBreakpoint";
+import useBreakpoint from "../viewport/useBreakpoint";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -38,7 +38,7 @@ export const useProjectsScrollAnimation = (
               trigger: card,
               start: "top bottom",
               end: "center center",
-              scrub: 1,
+              scrub: 2,
             },
           });
           gsap.to(contents[index - 1], {
@@ -48,7 +48,7 @@ export const useProjectsScrollAnimation = (
               trigger: card,
               start: "top bottom",
               end: "center center",
-              scrub: 1,
+              scrub: 2,
             },
           });
         }

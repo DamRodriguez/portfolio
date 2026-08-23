@@ -7,8 +7,8 @@ import { RichText } from "@/components/next-intl/RichText";
 import ResponsiveTitleWrapper from "@/components/text/ResponsiveTitleWrapper";
 import ButtonWithArrow from "@/components/ui/buttons/ButtonWithArrow";
 import { routes } from "@/constants/routes";
-import useBreakpoint from "@/hooks/useBreakpoint";
-import { useScrollAnimations } from "@/hooks/useScrollAnimations";
+import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
+import useBreakpoint from "@/hooks/viewport/useBreakpoint";
 import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
 

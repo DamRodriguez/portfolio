@@ -6,9 +6,9 @@ import MotionEntrySlide from "@/components/motion/MotionEntrySlide";
 import MotionOpacity from "@/components/motion/MotionOpacity";
 import config from "@/config/config";
 import { routes } from "@/constants/routes";
-import useBreakpoint from "@/hooks/useBreakpoint";
-import { useScrollLock } from "@/hooks/useScrollLock";
-import { useVisualViewportHeight } from "@/hooks/useVisualViewportHeight";
+import { useScrollLock } from "@/hooks/scroll/useScrollLock";
+import useBreakpoint from "@/hooks/viewport/useBreakpoint";
+import { useVisualViewportHeight } from "@/hooks/viewport/useVisualViewportHeight";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import clsx from "clsx";
@@ -65,7 +65,7 @@ export default function ChatWidget() {
       >
         <div className="h-[calc(var(--widget-vh,100dvh)-2rem)] sm:h-[calc(100dvh-var(--height-header-mobile)-5rem)] xl:h-[calc(100dvh-var(--height-header-mobile)-7rem)] flex flex-col 2xl:flex-row w-[calc(100vw-2rem)] sm:w-[32rem] theme-transition-all">
           <MotionEntrySlide
-            order={2}
+            order={3}
             direction={isTablet ? "down" : "right"}
             className="backdrop-blur-[0.5rem]"
           >

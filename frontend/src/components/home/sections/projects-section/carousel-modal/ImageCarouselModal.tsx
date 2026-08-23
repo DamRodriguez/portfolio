@@ -1,7 +1,7 @@
 "use client";
 import SpaceX from "@/components/layout/SpaceX";
 import MotionOpacity from "@/components/motion/MotionOpacity";
-import { useCarousel } from "@/hooks/useCarousel";
+import { useCarousel } from "@/hooks/carousel/useCarousel";
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import CarouselControls from "./CarouselControls";

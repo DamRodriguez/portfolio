@@ -3,7 +3,7 @@ import RightSection from "@/components/layout/header/RightSection";
 import SpaceX from "@/components/layout/SpaceX";
 import MotionEntrySlide from "@/components/motion/MotionEntrySlide";
 import ShineBorderCustom from "@/components/other/ShineBorderCustom";
-import useHasScrolled from "@/hooks/useHasScrolled";
+import useHasScrolled from "@/hooks/scroll/useHasScrolled";
 import { Locale } from "@/i18n/routing";
 import clsx from "clsx";
 

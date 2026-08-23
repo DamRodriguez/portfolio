@@ -1,7 +1,7 @@
 "use client";
 import MotionStagger from "@/components/motion/MotionStagger";
 import Button from "@/components/ui/buttons/Button";
-import { AllProjectFilters } from "@/hooks/useFilteredProjects";
+import { AllProjectFilters } from "@/hooks/filter/useFilteredProjects";
 import { useTranslations } from "next-intl";
 
 interface FilterButtonsProps {

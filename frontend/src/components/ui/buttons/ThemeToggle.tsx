@@ -1,25 +1,21 @@
 "use client";
 import { MoonIcon, SunIcon } from "@/components/icons/theme";
+import { useCurrentTheme } from "@/hooks/theme/useCurrentTheme";
 import { applyThemeTransition } from "@/lib/themeActions";
 import clsx from "clsx";
-import { useTheme } from "next-themes";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 type ThemeToggleProps = {
   hasScrolled: boolean;
 };
 
 export function ThemeToggle(props: ThemeToggleProps) {
-  const { theme, resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const { currentTheme, setTheme, isDark, mounted } = useCurrentTheme();
   const buttonRef = useRef<HTMLLabelElement | null>(null);
 
   const iconClassName = "w-[1rem] h-[1rem] xl:w-[1.5rem] xl:h-[1.5rem]";
 
-  useEffect(() => setMounted(true), []);
-
   const handleThemeChange = () => {
-    const currentTheme = resolvedTheme ?? theme;
     const newTheme = currentTheme === "dark" ? "light" : "dark";
 
     applyThemeTransition({
@@ -44,8 +40,6 @@ export function ThemeToggle(props: ThemeToggleProps) {
       </div>
     );
   }
-
-  const isDark = resolvedTheme === "dark";
 
   return (
     <div className="container flex items-center justify-center">

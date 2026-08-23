@@ -2,7 +2,7 @@
 import MotionHeight from "@/components/motion/MotionHeight";
 import { AnimatedChevron } from "@/components/other/AnimatedChevron";
 import { inputClass } from "@/components/ui/inputs/input/Input.style";
-import { useClickOutside } from "@/hooks/useClickOutside";
+import { useClickOutside } from "@/hooks/other/useClickOutside";
 import "@/styles/scrollbarVertical.css";
 import clsx from "clsx";
 import { AnimatePresence } from "framer-motion";
@@ -113,7 +113,7 @@ export const InputCombobox = <T extends BaseOption>({
           )}
         </div>
 
-        <div className="ml-[1rem] ">
+        <div className="ml-[1rem]">
           <AnimatedChevron isOpen={isOpen} />
         </div>
       </button>

@@ -1,7 +1,7 @@
 "use client";
-import SplitTextWrapper from "@/components/gsap/SplitTextWrapper";
+import SplitTextWrapper from "@/components/gsap/text/SplitTextWrapper";
 import MotionSlide from "@/components/motion/MotionSlide";
-import useBreakpoint from "@/hooks/useBreakpoint";
+import useBreakpoint from "@/hooks/viewport/useBreakpoint";
 
 type ResponsiveTitleWrapperProps = {
   children: React.ReactNode;

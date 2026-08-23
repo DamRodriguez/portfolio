@@ -4,7 +4,7 @@ import ImageCarouselModal from "@/components/home/sections/projects-section/caro
 import { RichText } from "@/components/next-intl/RichText";
 import ItemHover from "@/components/other/ItemHover";
 import { projectIds } from "@/constants/projectIds";
-import { useScrollLock } from "@/hooks/useScrollLock";
+import { useScrollLock } from "@/hooks/scroll/useScrollLock";
 import { removeHash } from "@/utils/removeHash";
 import clsx from "clsx";
 import { AnimatePresence } from "framer-motion";

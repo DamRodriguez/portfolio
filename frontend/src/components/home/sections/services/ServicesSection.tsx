@@ -4,13 +4,9 @@ import ServiceCard, {
 } from "@/components/home/sections/services/service-card/ServiceCard";
 import ServicesContactSection from "@/components/home/sections/services/ServicesContactSection";
 import SpaceX from "@/components/layout/SpaceX";
-import MotionFade from "@/components/motion/MotionFade";
-import MotionSlide from "@/components/motion/MotionSlide";
-import MotionStagger from "@/components/motion/MotionStagger";
 import { RichText } from "@/components/next-intl/RichText";
-import SecondTitle from "@/components/text/SecondTitle";
 import { routes } from "@/constants/routes";
-import { useScrollAnimations } from "@/hooks/useScrollAnimations";
+import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
 import { removeHash } from "@/utils/removeHash";
 import clsx from "clsx";
 import { Cloud, CodeXml, PencilLine } from "lucide-react";
@@ -34,26 +30,61 @@ export default function ServicesSection() {
     },
   ];
 
+  const cardsTrigger = {
+    start: "bottom bottom+=200",
+    end: "center bottom",
+    scrub: 2,
+  };
+
   useScrollAnimations({
+    direction: "bottom",
     animations: {
       ".services-title-gsap": {
-        y: -50,
-        x: -50,
-        rotate: -5,
+        from: { opacity: 0, filter: "blur(3px)", y: 50 },
+        to: {
+          opacity: 1,
+          filter: "blur(0px)",
+          y: 0,
+        },
       },
       ".services-description-gsap": {
-        scale: 0.85,
+        from: {
+          y: 50,
+          filter: "blur(3px)",
+          color: "#121212",
+        },
+        to: {
+          y: 0,
+          filter: "blur(0px)",
+          color: "#c2c2c2 ",
+        },
       },
       ".services-first-card-gsap": {
-        x: -50,
-        rotate: -5,
+        from: {
+          x: 200,
+          rotate: -5,
+          y: 20,
+        },
+        to: {
+          x: 0,
+          rotate: 0,
+          y: 0,
+        },
+        scrollTrigger: cardsTrigger,
       },
       ".services-second-card-gsap": {
-        scale: 0.9,
+        from: { rotate: -2, y: 20 },
+        to: { rotate: 0, y: 0 },
+        scrollTrigger: cardsTrigger,
       },
       ".services-third-card-gsap": {
-        x: 50,
-        rotate: 5,
+        from: {
+          x: -200,
+          rotate: 5,
+          y: 20,
+        },
+        to: { x: 0, rotate: 0, y: 0 },
+        scrollTrigger: cardsTrigger,
       },
     },
   });
@@ -61,21 +92,19 @@ export default function ServicesSection() {
   return (
     <SpaceX
       id={removeHash(routes.services)}
-      className="flex flex-col gap-[3rem] xl:gap-[6rem] w-full"
+      className="flex flex-col gap-[3rem] xl:gap-[5rem] w-full"
     >
-      <div className="text-center flex flex-col gap-[2rem] xl:gap-[3rem]">
-        <MotionSlide>
-          <SecondTitle text={t("title")} className="services-title-gsap" />
-        </MotionSlide>
-        <MotionFade>
-          <p className="services-description-gsap max-w-[34rem] mx-auto text-dark-gray dark:text-soft-gray text-base xl:text-xl">
-            <RichText t={t} translationKey={"subtitle"} />
-          </p>
-        </MotionFade>
+      <div className="text-center flex flex-col gap-[1.5rem] xl:gap-[2rem]">
+        <h2 className="services-title-gsap text-black dark:text-soft-white font-fira-code uppercase font-bold text-5md xl:text-7xl tracking-[0.1em] ">
+          {t("title")}
+        </h2>
+        <p className="services-description-gsap max-w-[22rem] sm:max-w-[30rem] xl:max-w-[34rem] mx-auto text-dark-gray dark:text-soft-gray text-lg xl:text-xl">
+          <RichText t={t} translationKey={"subtitle"} />
+        </p>
       </div>
 
       <div className="flex flex-col gap-[3rem] xl:gap-[6rem]">
-        <MotionStagger className="grid 2xl:grid-cols-3 gap-[2.5rem] xl:gap-[4rem]">
+        <div className="grid 2xl:grid-cols-3 gap-[2.5rem] xl:gap-[4rem]">
           {items.map((item, index) => {
             const isPair = index % 2 === 0;
             return (
@@ -92,7 +121,7 @@ export default function ServicesSection() {
               </div>
             );
           })}
-        </MotionStagger>
+        </div>
 
         <ServicesContactSection />
       </div>

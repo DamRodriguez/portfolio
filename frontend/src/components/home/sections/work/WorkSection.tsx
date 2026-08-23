@@ -4,7 +4,7 @@ import MotionSlide from "@/components/motion/MotionSlide";
 import MotionStagger from "@/components/motion/MotionStagger";
 import config from "@/config/config";
 import { routes } from "@/constants/routes";
-import { useScrollAnimations } from "@/hooks/useScrollAnimations";
+import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
 import { removeHash } from "@/utils/removeHash";
 import { useTranslations } from "next-intl";
 import WorkItem, { WorkItemData } from "./WorkItem";

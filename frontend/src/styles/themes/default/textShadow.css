@@ -1,6 +1,9 @@
 @theme {
   --text-shadow-*: initial;
 
+  /* Sombra inferior derecha */
+  --text-shadow-bottom-right: 6px 8px 10px rgba(0 0 0 / 0.35);
+
   /* Más suave */
   --text-shadow-soft: 0 2px 8px rgb(0 0 0 / 0.25);
 

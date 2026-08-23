@@ -54,7 +54,7 @@ const FooterSection = () => {
           </MotionFade>
         </div>
 
-        <SocialButtonsSection withoutMt gsapDisabled />
+        <SocialButtonsSection withoutMt />
 
         <MotionSlide
           direction="down"

@@ -1,7 +1,6 @@
 "use client";
 import { ImagePopUp } from "@/components/pop-up/ImagePopUp";
 import Button from "@/components/ui/buttons/Button";
-import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
 import { StaticImageData } from "next/image";
@@ -30,18 +29,9 @@ const CertificationItem = (props: CertificationItemProps) => {
     link.click();
   };
 
-  useScrollAnimations({
-    animations: {
-      ".certification-item-gsap": {
-        x: 100,
-        rotate: 2,
-      },
-    },
-  });
-
   return (
     <>
-      <div className="relative group certification-item-gsap md:w-[70%] xl:w-[60%]">
+      <div className="relative group md:w-[70%] xl:w-[60%]">
         <div
           className={clsx(
             "bg-soft-white/40 dark:bg-black group-hover:bg-soft-white dark:group-hover:bg-soft-white/10 theme-transition flex items-center justify-between gap-[1rem] p-[1rem] rounded-[1rem] border border-dark-gray/15 dark:border-soft-gray/15 shadow-s3 dark:shadow-s1",

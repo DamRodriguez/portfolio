@@ -1,5 +1,5 @@
 "use client";
-import useBreakpoint from "@/hooks/useBreakpoint";
+import useBreakpoint from "@/hooks/viewport/useBreakpoint";
 import { Locale } from "@/i18n/routing";
 import Script from "next/script";
 

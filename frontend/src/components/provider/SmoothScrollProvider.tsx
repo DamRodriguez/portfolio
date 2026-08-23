@@ -1,5 +1,5 @@
 "use client";
-import { useLenisScroll } from "@/hooks/useLenisScroll";
+import { useLenisScroll } from "@/hooks/scroll/useLenisScroll";
 
 export const SmoothScrollProvider = ({
   children,

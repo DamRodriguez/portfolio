@@ -1,6 +1,6 @@
 "use client";
 import { HrefType } from "@/components/ui/buttons/LinkButton";
-import { useScrollLock } from "@/hooks/useScrollLock";
+import { useScrollLock } from "@/hooks/scroll/useScrollLock";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { animate } from "motion";
 import { useTheme } from "next-themes";

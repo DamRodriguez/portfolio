@@ -12,7 +12,7 @@ import {
   ContactSchemaFieldNames,
   type ContactSchemaType,
 } from "@/features/contact/schemas/ContactSchema";
-import useFormError from "@/hooks/useFormError";
+import useFormError from "@/hooks/form/useFormError";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { FormProvider, useForm } from "react-hook-form";

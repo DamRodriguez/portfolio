@@ -1,17 +1,20 @@
 import clsx from "clsx";
-import { CSSProperties } from "react";
+import { CSSProperties, Ref } from "react";
 
 type SectionProps = {
   children: React.ReactNode;
   className?: string;
   id?: string;
   style?: CSSProperties;
+  ref?: Ref<HTMLDivElement>;
 };
 
-const SpaceX = ({ children, className, id }: SectionProps) => {
+const SpaceX = ({ children, className, id, style, ref }: SectionProps) => {
   return (
     <div
+      ref={ref}
       id={id}
+      style={style}
       className={clsx(
         "px-[1rem] anchor-offset",
         "md:px-[6rem]",

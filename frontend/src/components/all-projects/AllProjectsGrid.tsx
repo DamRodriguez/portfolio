@@ -1,14 +1,14 @@
 "use client";
 import ProjectCard from "@/components/all-projects/ProjectCard";
-import ResponsiveMotionGrid from "@/components/motion/ResponsiveMotionGrid";
-import { PopUp } from "@/components/pop-up/PopUp";
 import ProjectItem, {
   ProjectItemData,
 } from "@/components/home/sections/projects-section/ProjectItem";
+import ResponsiveMotionGrid from "@/components/motion/ResponsiveMotionGrid";
+import { PopUp } from "@/components/pop-up/PopUp";
 import {
   AllProjectFilters,
   useFilteredProjects,
-} from "@/hooks/useFilteredProjects";
+} from "@/hooks/filter/useFilteredProjects";
 import { useState } from "react";
 
 type AllProjectsGridProps = {
