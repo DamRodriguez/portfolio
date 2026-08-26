@@ -45,22 +45,19 @@ export default function ServicesSection() {
     direction: "bottom",
     animations: {
       ".services-title-gsap": {
-        from: { opacity: 0, filter: "blur(3px)", y: isTablet ? 25 : 50 },
+        from: { opacity: 0, y: isTablet ? 25 : 50 },
         to: {
           opacity: 1,
-          filter: "blur(0px)",
           y: 0,
         },
       },
       ".services-description-gsap": {
         from: {
           y: isTablet ? 25 : 50,
-          filter: "blur(3px)",
           color: isDark ? "#121212" : "#f9f6ee",
         },
         to: {
           y: 0,
-          filter: "blur(0px)",
           color: isDark ? "#c2c2c2" : "#3d3d3d",
         },
       },

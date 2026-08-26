@@ -11,7 +11,7 @@ const SCROLLING_TEXT_ITEMS = [
 ];
 
 const baseScrollingText = SCROLLING_TEXT_ITEMS.join(" & ");
-const formattedScrollingText = `${baseScrollingText} & `.repeat(4);
+const formattedScrollingText = `${baseScrollingText} & `.repeat(3);
 
 type ServicesSectionWrapperProps = {
   children: React.ReactNode;
@@ -27,7 +27,7 @@ export default function ServicesSectionWrapper({
 
   return (
     <div className="overlay-services relative z-10 pt-[6rem] md:pt-[8rem] 2xl:pt-[7rem]">
-      <div className="pointer-events-none absolute inset-0 -z-1">
+      <div className="pointer-events-none absolute inset-0 -z-1 transform-gpu will-change-transform">
         {/* 1. SVG EXCLUSIVO PARA MOBILE (PANTALLAS ANGOSTAS < md) */}
         <svg
           viewBox="0 0 500 1000"

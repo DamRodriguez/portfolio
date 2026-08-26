@@ -1,12 +1,11 @@
 "use client";
 import SpaceX from "@/components/layout/SpaceX";
-import MotionFade from "@/components/motion/MotionFade";
-import MotionSlide from "@/components/motion/MotionSlide";
 import SecondTitle from "@/components/text/SecondTitle";
 import ButtonWithArrow from "@/components/ui/buttons/ButtonWithArrow";
 import { routes } from "@/constants/routes";
 import { projectsData } from "@/data/projectsData";
 import { useProjectsScrollAnimation } from "@/hooks/gsap/useProjectsScrollAnimation";
+import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
 import { removeHash } from "@/utils/removeHash";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
@@ -18,18 +17,61 @@ const ProjectsSection = () => {
   useProjectsScrollAnimation(containerRef);
   const t = useTranslations("projectsSection");
 
+  useScrollAnimations({
+    animations: {
+      ".projects-section-title": {
+        direction: "bottom",
+        from: {
+          opacity: 0,
+          x: -25,
+        },
+        to: {
+          opacity: 1,
+          x: 0,
+        },
+      },
+      ".projects-section-item": {
+        scrollTrigger: {
+          start: "top center+=200",
+          end: "top center",
+          scrub: 2,
+        },
+        individual: true,
+        from: {
+          y: 25,
+          opacity: 0,
+        },
+        to: {
+          y: 0,
+          opacity: 1,
+        },
+      },
+      ".projects-section-button": {
+        direction: "bottom",
+        from: {
+          scale: 0.9,
+          opacity: 0,
+        },
+        to: {
+          scale: 1,
+          opacity: 1,
+        },
+      },
+    },
+  });
+
   return (
     <SpaceX
       id={removeHash(routes.projects)}
       className="w-full flex flex-col gap-[1rem] xl:gap-0"
     >
-      <MotionSlide className="xl:flex xl:gap-[5rem]">
+      <div className="xl:flex xl:gap-[5rem]">
         <div className="xl:w-[60%]" />
         <SecondTitle
           text={t("title")}
-          className="project-title-gsap xl:w-full"
+          className="projects-section-title xl:w-full"
         />
-      </MotionSlide>
+      </div>
 
       <div className="flex flex-col gap-[2.5rem] xl:gap-[6rem]">
         <div ref={containerRef} className="projects-stack">
@@ -61,6 +103,7 @@ const ProjectsSection = () => {
                   containerClassName={clsx(
                     "overflow-y-clip project-card-content will-change-transform transform-gpu",
                     {
+                      "projects-section-item": isFirstProject,
                       "pt-[2rem] pb-[2rem]": !isLastProject,
                       "pt-[2rem] pb-[0rem]": isLastProject,
                     },
@@ -70,12 +113,12 @@ const ProjectsSection = () => {
             );
           })}
         </div>
-        <MotionFade className="z-10 w-fit mx-auto">
+        <div className="z-10 w-fit mx-auto projects-section-button">
           <ButtonWithArrow
             text={t("buttons.allProjects")}
             routerPath={routes.allProjects}
           />
-        </MotionFade>
+        </div>
       </div>
     </SpaceX>
   );

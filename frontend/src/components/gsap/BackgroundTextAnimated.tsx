@@ -43,11 +43,13 @@ const BackgroundTextAnimated = () => {
         ...containerTrigger,
         direction: "center",
         x: isMobile ? 200 : 400,
+        force3D: true,
       },
       ".header-section-background-text-odd": {
         ...containerTrigger,
         direction: "center",
         x: isMobile ? -200 : -400,
+        force3D: true,
       },
     },
   });
@@ -65,14 +67,16 @@ const BackgroundTextAnimated = () => {
             <p
               key={i}
               className={clsx(
-                "text-nowrap blur-[0.2rem] text-5md xl:text-6xl font-bold uppercase text-dark-gray dark:text-soft-gray",
+                "text-nowrap text-5md xl:text-6xl font-bold italic uppercase text-dark-gray dark:text-soft-gray",
+                "will-change-transform transform-gpu backface-hidden",
+                "blur-[3px]",
                 {
-                  "header-section-background-text-even ml-[-5%] opacity-50":
+                  "header-section-background-text-even ml-[-5%] opacity-20":
                     isPair,
-                  "header-section-background-text-odd ml-[-15%] opacity-80":
+                  "header-section-background-text-odd ml-[-15%] opacity-35":
                     !isPair,
-                  "ml-[-25%] opacity-60": is3rd && isPair,
-                  "ml-[-35%] opacity-40": is5th && !isPair,
+                  "ml-[-25%]": is3rd && isPair,
+                  "ml-[-35%]": is5th && !isPair,
                 },
               )}
               style={{

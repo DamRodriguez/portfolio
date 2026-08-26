@@ -14,7 +14,7 @@ export default function AboutMeSectionWrapper({
       id={removeHash(routes.aboutMe)}
       className="anchor-offset overflow-hidden"
     >
-      <div className="pin-projects relative z-0 pb-[5rem] xl:pb-[7rem]">
+      <div className="pin-projects relative z-0 pb-[5rem] xl:pb-[8.5rem]">
         <ViewportActiveSection section="aboutme">
           <div className="pin-aboutme-content">{children}</div>
         </ViewportActiveSection>

@@ -30,14 +30,21 @@ const TechnologiesSection = () => {
         direction: "bottom",
         individual: true,
         from: {
-          filter: "blur(3px)",
           opacity: 0,
           scale: 0.95,
         },
         to: {
-          filter: "blur(0px)",
           opacity: 1,
           scale: 1,
+        },
+      },
+      ".tech-section-description": {
+        direction: "center",
+        from: {
+          y: "-50%",
+        },
+        to: {
+          y: 0,
         },
       },
       ".tech-section-item": {
@@ -91,7 +98,7 @@ const TechnologiesSection = () => {
       </div>
 
       <div className="flex items-end justify-between">
-        <div className="tech-section-common w-[40%] z-30">
+        <div className="tech-section-common tech-section-description w-[40%] z-30">
           <p className="text-dark-gray dark:text-soft-gray text-sm xl:text-lg">
             <RichText t={t} translationKey={"favoritesTools"} />
           </p>

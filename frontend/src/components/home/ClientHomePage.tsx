@@ -58,7 +58,7 @@ export default function Home() {
         },
         to: {
           opacity: 0,
-          scale: 0.85,
+          scale: 0.8,
           y: 100,
         },
         scrollTrigger: aboutMeTransitionTrigger,
@@ -73,6 +73,7 @@ export default function Home() {
         },
       },
       ".curved-scrolling-text": {
+        individual: true,
         from: {
           attr: { startOffset: "0%" },
         },

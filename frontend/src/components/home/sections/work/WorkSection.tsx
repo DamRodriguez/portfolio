@@ -1,11 +1,10 @@
 "use client";
 import SpaceX from "@/components/layout/SpaceX";
-import MotionSlide from "@/components/motion/MotionSlide";
-import MotionStagger from "@/components/motion/MotionStagger";
 import config from "@/config/config";
 import { routes } from "@/constants/routes";
 import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
 import { removeHash } from "@/utils/removeHash";
+import clsx from "clsx";
 import { useTranslations } from "next-intl";
 import WorkItem, { WorkItemData } from "./WorkItem";
 
@@ -28,10 +27,39 @@ const WorkSection = () => {
   ];
 
   useScrollAnimations({
+    direction: "bottom",
     animations: {
-      ".title-gsap": {
-        x: 100,
-        y: -100,
+      ".work-section-title": {
+        from: {
+          opacity: 0,
+          x: 25,
+        },
+        to: {
+          opacity: 1,
+          x: 0,
+        },
+      },
+      ".work-section-item-pair": {
+        individual: true,
+        from: {
+          opacity: 0,
+          x: -50,
+        },
+        to: {
+          opacity: 1,
+          x: 0,
+        },
+      },
+      ".work-section-item-odd": {
+        individual: true,
+        from: {
+          opacity: 0,
+          x: 50,
+        },
+        to: {
+          opacity: 1,
+          x: 0,
+        },
       },
     },
   });
@@ -43,24 +71,30 @@ const WorkSection = () => {
     >
       <div className="absolute w-full h-[3rem] bg-gradient-to-t from-white-bone via-white-bone dark:from-black dark:via-black to-transparent z-20 -top-[2.5rem] " />
       <div className="absolute w-full h-full bg-white-bone dark:bg-black z-20" />
-      <MotionSlide direction="right" className="z-22">
+      <div className="z-22">
         <SpaceX>
-          <h2 className="title-gsap text-black dark:text-soft-white text-end font-fira-code font-semibold text-5md xl:text-8xl">
+          <h2 className="work-section-title text-black dark:text-soft-white text-end font-fira-code font-semibold text-5md xl:text-8xl">
             {t("title")}
           </h2>
         </SpaceX>
-      </MotionSlide>
-      <MotionStagger direction="left" className="z-22">
+      </div>
+      <div className="z-22">
         {workItems.map((item, index) => {
           const isLast = index === workItems.length - 1;
           const isPair = index % 2 === 0;
           return (
-            <div key={index}>
+            <div
+              key={index}
+              className={clsx("", {
+                "work-section-item-pair": isPair,
+                "work-section-item-odd": !isPair,
+              })}
+            >
               <WorkItem data={{ ...item }} isPair={isPair} isLast={isLast} />
             </div>
           );
         })}
-      </MotionStagger>
+      </div>
     </div>
   );
 };

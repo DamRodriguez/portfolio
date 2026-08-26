@@ -25,7 +25,7 @@ const Header = ({
   return (
     <header>
       <MotionEntrySlide
-        order={3}
+        // order={3}
         direction="up"
         className="z-9999 fixed top-0 w-full site-size"
       >

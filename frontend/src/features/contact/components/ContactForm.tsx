@@ -1,7 +1,5 @@
 "use client";
 import { SendIcon } from "@/components/icons/buttons";
-import MotionFade from "@/components/motion/MotionFade";
-import MotionStagger from "@/components/motion/MotionStagger";
 import showToast from "@/components/toast/Toast";
 import Button from "@/components/ui/buttons/Button";
 import Form from "@/components/ui/form/Form";
@@ -13,6 +11,7 @@ import {
   type ContactSchemaType,
 } from "@/features/contact/schemas/ContactSchema";
 import useFormError from "@/hooks/form/useFormError";
+import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { FormProvider, useForm } from "react-hook-form";
@@ -89,6 +88,38 @@ const ContactForm = () => {
     }
   };
 
+  useScrollAnimations({
+    animations: {
+      ".contact-section-form-input": {
+        scrollTrigger: {
+          start: "top bottom",
+          end: "bottom center",
+          scrub: 2,
+        },
+        individual: true,
+        from: {
+          opacity: 0,
+          y: 25,
+        },
+        to: {
+          opacity: 1,
+          y: 0,
+        },
+      },
+      ".contact-section-form-button": {
+        direction: "bottom",
+        from: {
+          opacity: 0,
+          scale: 0.9,
+        },
+        to: {
+          opacity: 1,
+          scale: 1,
+        },
+      },
+    },
+  });
+
   return (
     <FormProvider {...methods}>
       <Form
@@ -96,35 +127,43 @@ const ContactForm = () => {
         methods={methods}
         className="flex flex-col gap-[1.5rem]"
       >
-        <MotionStagger className="flex flex-col gap-[1.5rem]">
-          <Form.InputText
-            {...inputCommonProps}
-            label={t("contactSection.form.nameInput.label")}
-            placeholder={t("contactSection.form.nameInput.placeholder")}
-            name={ContactSchemaFieldNames.name}
-          />
-          <Form.InputText
-            {...inputCommonProps}
-            label={t("contactSection.form.emailInput.label")}
-            placeholder={t("contactSection.form.emailInput.placeholder")}
-            name={ContactSchemaFieldNames.email}
-          />
-          <Form.InputCombobox
-            {...inputCommonProps}
-            label={t("contactSection.form.optionsInput.label")}
-            placeholder={t("contactSection.form.optionsInput.placeholder")}
-            name={ContactSchemaFieldNames.option}
-            options={consultationOptions}
-            renderOption={renderConsultationOption}
-          />
-          <Form.InputTextArea
-            {...inputCommonProps}
-            label={t("contactSection.form.textAreaInput.label")}
-            placeholder={t("contactSection.form.textAreaInput.placeholder")}
-            name={ContactSchemaFieldNames.message}
-            isLastErrorMessageField
-            className="min-h-[11rem]"
-          />
+        <div className="flex flex-col gap-[1.5rem]">
+          <div className="contact-section-form-input">
+            <Form.InputText
+              {...inputCommonProps}
+              label={t("contactSection.form.nameInput.label")}
+              placeholder={t("contactSection.form.nameInput.placeholder")}
+              name={ContactSchemaFieldNames.name}
+            />
+          </div>
+          <div className="contact-section-form-input">
+            <Form.InputText
+              {...inputCommonProps}
+              label={t("contactSection.form.emailInput.label")}
+              placeholder={t("contactSection.form.emailInput.placeholder")}
+              name={ContactSchemaFieldNames.email}
+            />
+          </div>
+          <div className="contact-section-form-input">
+            <Form.InputCombobox
+              {...inputCommonProps}
+              label={t("contactSection.form.optionsInput.label")}
+              placeholder={t("contactSection.form.optionsInput.placeholder")}
+              name={ContactSchemaFieldNames.option}
+              options={consultationOptions}
+              renderOption={renderConsultationOption}
+            />
+          </div>
+          <div className="contact-section-form-input">
+            <Form.InputTextArea
+              {...inputCommonProps}
+              label={t("contactSection.form.textAreaInput.label")}
+              placeholder={t("contactSection.form.textAreaInput.placeholder")}
+              name={ContactSchemaFieldNames.message}
+              isLastErrorMessageField
+              className="min-h-[11rem]"
+            />
+          </div>
           <div
             aria-hidden="true"
             style={{ position: "absolute", left: "-9999px", opacity: 0 }}
@@ -138,8 +177,8 @@ const ContactForm = () => {
               autoComplete="off"
             />
           </div>
-        </MotionStagger>
-        <MotionFade className="w-full">
+        </div>
+        <div className="contact-section-form-button w-full">
           <Button
             variant="primary"
             type="submit"
@@ -150,7 +189,7 @@ const ContactForm = () => {
             {t("contactSection.buttons.sendMessage")}
             <SendIcon />
           </Button>
-        </MotionFade>
+        </div>
       </Form>
     </FormProvider>
   );

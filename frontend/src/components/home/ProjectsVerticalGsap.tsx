@@ -24,8 +24,8 @@ export default function ProjectsVerticalGsap() {
     direction: "bottom",
     animations: {
       ".projects-vertical-title": {
-        from: { opacity: 0, filter: "blur(3px)" },
-        to: { opacity: 1, filter: "blur(0px)" },
+        from: { opacity: 0 },
+        to: { opacity: 1 },
       },
       ".projects-vertical-fill": {
         from: { clipPath: "inset(0% 100% 0% 0%)" },
