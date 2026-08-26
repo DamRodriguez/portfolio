@@ -99,7 +99,7 @@ export default function ServicesSectionWrapper({
         <svg
           viewBox="0 0 2000 1000"
           preserveAspectRatio="none"
-          className="hidden 2xl:block w-full h-full backdrop-blur-[0.3rem]"
+          className="hidden 2xl:block w-full h-full"
         >
           {/* Fondo de la curva */}
           <path
@@ -129,7 +129,6 @@ export default function ServicesSectionWrapper({
 
       {/* Capas de Fondo con clip-path */}
       <div className="pointer-events-none absolute top-0 inset-x-0 bottom-0 z-0 bg-gradient-to-b from-soft-white via-soft-white to-transparent dark:from-strong-black dark:via-strong-black mt-[0.1rem] [clip-path:ellipse(240%_100%_at_50%_105%)] md:[clip-path:ellipse(140%_100%_at_50%_107.4%)] 2xl:[clip-path:ellipse(80%_100%_at_50%_110%)]" />
-      <div className="pointer-events-none absolute top-0 inset-x-0 bottom-0 -z-1 bg-gradient-to-b from-dark-gray/15 via-soft-white to-transparent dark:from-soft-gray/15 dark:via-strong-black [clip-path:ellipse(240%_100%_at_50%_105%)] md:[clip-path:ellipse(140%_100%_at_50%_107.4%)] 2xl:[clip-path:ellipse(80%_100%_at_50%_110%)]" />
 
       <div className="relative z-10">
         <ViewportActiveSection section="services">

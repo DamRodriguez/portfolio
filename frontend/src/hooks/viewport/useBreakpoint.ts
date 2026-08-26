@@ -1,8 +1,11 @@
 import config from "@/config/config";
 import { useCallback, useSyncExternalStore } from "react";
 
-const useBreakpoint = (breakpoint = Number(config.breakpoints.xl)) => {
-  const query = `(max-width: ${breakpoint}px)`;
+const useBreakpoint = (
+  breakpoint = Number(config.breakpoints.xl),
+  type: "max" | "min" = "max",
+) => {
+  const query = `(${type}-width: ${breakpoint}px)`;
 
   const subscribe = useCallback(
     (callback: () => void) => {

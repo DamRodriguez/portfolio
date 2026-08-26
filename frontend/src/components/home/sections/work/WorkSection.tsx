@@ -41,6 +41,7 @@ const WorkSection = () => {
       id={removeHash(routes.work)}
       className="relative w-full flex flex-col gap-[1.5rem] xl:gap-[2rem] anchor-offset"
     >
+      <div className="absolute w-full h-[3rem] bg-gradient-to-t from-white-bone via-white-bone dark:from-black dark:via-black to-transparent z-20 -top-[2.5rem] " />
       <div className="absolute w-full h-full bg-white-bone dark:bg-black z-20" />
       <MotionSlide direction="right" className="z-22">
         <SpaceX>

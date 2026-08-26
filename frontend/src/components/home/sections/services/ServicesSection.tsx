@@ -5,8 +5,11 @@ import ServiceCard, {
 import ServicesContactSection from "@/components/home/sections/services/ServicesContactSection";
 import SpaceX from "@/components/layout/SpaceX";
 import { RichText } from "@/components/next-intl/RichText";
+import config from "@/config/config";
 import { routes } from "@/constants/routes";
 import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
+import { useCurrentTheme } from "@/hooks/theme/useCurrentTheme";
+import useBreakpoint from "@/hooks/viewport/useBreakpoint";
 import { removeHash } from "@/utils/removeHash";
 import clsx from "clsx";
 import { Cloud, CodeXml, PencilLine } from "lucide-react";
@@ -14,6 +17,8 @@ import { useTranslations } from "next-intl";
 
 export default function ServicesSection() {
   const t = useTranslations("servicesSection");
+  const isTablet = useBreakpoint(config.breakpoints["2xl"]);
+  const { isDark } = useCurrentTheme();
 
   const items: ServiceCardData[] = [
     {
@@ -31,8 +36,8 @@ export default function ServicesSection() {
   ];
 
   const cardsTrigger = {
-    start: "bottom bottom+=200",
-    end: "center bottom",
+    start: "bottom bottom+=100",
+    end: "center bottom+=100",
     scrub: 2,
   };
 
@@ -40,7 +45,7 @@ export default function ServicesSection() {
     direction: "bottom",
     animations: {
       ".services-title-gsap": {
-        from: { opacity: 0, filter: "blur(3px)", y: 50 },
+        from: { opacity: 0, filter: "blur(3px)", y: isTablet ? 25 : 50 },
         to: {
           opacity: 1,
           filter: "blur(0px)",
@@ -49,41 +54,50 @@ export default function ServicesSection() {
       },
       ".services-description-gsap": {
         from: {
-          y: 50,
+          y: isTablet ? 25 : 50,
           filter: "blur(3px)",
-          color: "#121212",
+          color: isDark ? "#121212" : "#f9f6ee",
         },
         to: {
           y: 0,
           filter: "blur(0px)",
-          color: "#c2c2c2 ",
+          color: isDark ? "#c2c2c2" : "#3d3d3d",
         },
       },
       ".services-first-card-gsap": {
         from: {
-          x: 200,
-          rotate: -5,
-          y: 20,
+          x: isTablet ? 0 : 200,
+          rotate: isTablet ? 0 : -5,
+          y: isTablet ? 25 : 0,
+          opacity: isTablet ? 0 : 1,
         },
         to: {
           x: 0,
           rotate: 0,
           y: 0,
+          opacity: 1,
         },
         scrollTrigger: cardsTrigger,
       },
       ".services-second-card-gsap": {
-        from: { rotate: -2, y: 20 },
-        to: { rotate: 0, y: 0 },
+        from: {
+          y: isTablet ? 25 : 0,
+          opacity: isTablet ? 0 : 1,
+        },
+        to: {
+          y: 0,
+          opacity: 1,
+        },
         scrollTrigger: cardsTrigger,
       },
       ".services-third-card-gsap": {
         from: {
-          x: -200,
-          rotate: 5,
-          y: 20,
+          x: isTablet ? 0 : -200,
+          rotate: isTablet ? 0 : 5,
+          y: isTablet ? 25 : 0,
+          opacity: isTablet ? 0 : 1,
         },
-        to: { x: 0, rotate: 0, y: 0 },
+        to: { x: 0, rotate: 0, y: 0, opacity: 1 },
         scrollTrigger: cardsTrigger,
       },
     },
@@ -98,7 +112,7 @@ export default function ServicesSection() {
         <h2 className="services-title-gsap text-black dark:text-soft-white font-fira-code uppercase font-bold text-5md xl:text-7xl tracking-[0.1em] ">
           {t("title")}
         </h2>
-        <p className="services-description-gsap max-w-[22rem] sm:max-w-[30rem] xl:max-w-[34rem] mx-auto text-dark-gray dark:text-soft-gray text-lg xl:text-xl">
+        <p className="services-description-gsap max-w-[22rem] sm:max-w-[30rem] xl:max-w-[34rem] mx-auto text-lg xl:text-xl">
           <RichText t={t} translationKey={"subtitle"} />
         </p>
       </div>

@@ -8,6 +8,7 @@ import { RichText } from "@/components/next-intl/RichText";
 import { ReflectedTitle } from "@/components/text/ReflectedTitle";
 import ResponsiveTitleWrapper from "@/components/text/ResponsiveTitleWrapper";
 import ButtonWithArrow from "@/components/ui/buttons/ButtonWithArrow";
+import config from "@/config/config";
 import { routes } from "@/constants/routes";
 import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
 import { useCurrentTheme } from "@/hooks/theme/useCurrentTheme";
@@ -18,7 +19,9 @@ const HeadSectionV2 = () => {
   const t = useTranslations("headSection");
   const projectsButtonText = t("projectsButton");
   const { isDark } = useCurrentTheme();
-  const isMobile = useBreakpoint();
+  const isMobile = useBreakpoint(config.breakpoints.md);
+  const isTablet = useBreakpoint();
+  const isDesktop = useBreakpoint(config.breakpoints["4xl"], "min");
 
   const containerTrigger = {
     scrollTrigger: {
@@ -43,11 +46,11 @@ const HeadSectionV2 = () => {
         },
         to: {
           backgroundColor: isDark ? "#0f0f0f" : "#f5f5f5",
-          scale: isMobile ? 0.95 : 0.85,
+          scale: isTablet ? 0.95 : 0.85,
           borderRadius: "5rem",
           rotationX: 30,
           transformPerspective: 1000,
-          y: -100,
+          y: -40,
           borderWidth: "1px",
           borderColor: isDark
             ? "rgba(255, 255, 255, 0.2)"
@@ -55,13 +58,31 @@ const HeadSectionV2 = () => {
           borderStyle: "solid",
         },
       },
+      ".header-section-line": {
+        scrollTrigger: {
+          start: "top center-=150",
+          end: "bottom center",
+          scrub: 2,
+        },
+        from: {
+          opacity: 0,
+          scaleY: 0,
+          transformOrigin: "bottom",
+        },
+        to: {
+          opacity: 1,
+          scaleY: 1,
+        },
+      },
       ".header-section-title1": {
         ...containerTrigger,
-        x: isMobile ? 30 : 100,
+        x: isDesktop ? "-15%" : isMobile ? 0 : "15%",
+        yPercent: isDesktop ? 50 : isMobile ? 120 : 0,
       },
       ".header-section-title2": {
         ...containerTrigger,
-        x: isMobile ? -30 : -100,
+        x: isDesktop ? "15%" : isMobile ? 0 : "-15%",
+        yPercent: isDesktop ? -30 : isMobile ? 140 : 0,
       },
       ".header-section-opacity": {
         ...containerTrigger,
@@ -72,9 +93,21 @@ const HeadSectionV2 = () => {
           opacity: 0,
         },
       },
+      ".header-section-title-reflection": {
+        ...containerTrigger,
+        from: {
+          opacity: 1,
+          y: 0,
+        },
+        to: {
+          opacity: 0,
+          y: -50,
+        },
+      },
       ".header-section-buttons": {
         ...containerTrigger,
-        scale: 0.7,
+        gap: isTablet ? 40 : 100,
+        scale: 1.1,
       },
     },
   });
@@ -84,12 +117,13 @@ const HeadSectionV2 = () => {
       <BackgroundTextAnimated />
       <div className="w-full absolute z-15 -bottom-[2px] h-[5rem] xl:h-[10rem] pointer-events-none bg-gradient-to-t from-white-bone via-white-bone/70 dark:from-black dark:via-black/70 to-transparent" />
       <SpaceX className="relative head-section-container z-20 flex flex-col justify-center gap-[3rem] xl:gap-[4rem] min-h-svh transform-gpu">
+        <div className="hidden 4xl:flex header-section-line absolute top-1/2 left-0 w-full -translate-y-[65%] h-[15rem] bg-black dark:bg-soft-white pointer-events-none opacity-0" />
         <div className="flex flex-col gap-[2rem] max-w-[90rem] mx-auto">
           <div className="w-full flex flex-col -space-y-[2rem] lg:-space-y-[3rem]">
             <div className="flex justify-center xl:justify-between items-center">
               <ReflectedTitle
                 text={t("title.first")}
-                textClassName="header-section-title1 text-6xl md:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white font-bold font-fira-code"
+                textClassName="header-section-title1 text-6xl md:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white 4xl:text-soft-white font-bold font-fira-code 4xl:mix-blend-difference"
                 renderMain={(children) => (
                   <ResponsiveTitleWrapper direction="left" order={0}>
                     {children}
@@ -99,7 +133,7 @@ const HeadSectionV2 = () => {
                   <MotionEntrySlide
                     order={2}
                     direction="up"
-                    className="header-section-opacity"
+                    className="header-section-title-reflection 4xl:mix-blend-difference"
                   >
                     {children}
                   </MotionEntrySlide>
@@ -120,13 +154,13 @@ const HeadSectionV2 = () => {
                 order={1.5}
                 className="max-w-[70%] xl:max-w-[25%]"
               >
-                <p className="header-section-opacity xl:mt-[1rem] text-dark-gray dark:text-soft-gray text-base 2xl:text-xl">
+                <p className="header-section-opacity xl:ml-[1rem] xl:mt-[1rem] text-dark-gray dark:text-soft-gray text-base 2xl:text-xl">
                   <RichText t={t} translationKey={"personalDescription"} />
                 </p>
               </MotionEntryFade>
               <ReflectedTitle
                 text={t("title.second")}
-                textClassName="header-section-title2 text-6xl md:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white font-bold font-fira-code"
+                textClassName="header-section-title2 text-6xl md:text-8xl xl:text-9xl 2xl:text-10xl text-black dark:text-soft-white 4xl:text-soft-white font-bold font-fira-code 4xl:mix-blend-difference"
                 renderMain={(children) => (
                   <ResponsiveTitleWrapper direction="right" order={0.5}>
                     {children}
@@ -136,7 +170,7 @@ const HeadSectionV2 = () => {
                   <MotionEntrySlide
                     order={2}
                     direction="up"
-                    className="header-section-opacity"
+                    className="header-section-title-reflection 4xl:mix-blend-difference"
                   >
                     {children}
                   </MotionEntrySlide>
@@ -154,9 +188,7 @@ const HeadSectionV2 = () => {
             />
           </MotionEntryFade>
         </div>
-        <div className="header-section-buttons">
-          <SocialButtonsSection order={2} />
-        </div>
+        <SocialButtonsSection order={2} />
       </SpaceX>
     </section>
   );

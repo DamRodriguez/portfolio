@@ -23,9 +23,9 @@ export default function ServicesContactSection() {
           <SpaceX className="w-full lg:w-fit">
             <div
               className={clsx(
-                "relative overflow-hidden group group/second theme-transition-all flex flex-col lg:flex-row gap-[1rem] lg:gap-[4rem] rounded-[1.5rem] lg:rounded-[3rem] lg:rounded-r-[10rem] w-auto items-center justify-between max-w-[65rem] p-[0.8rem] sm:p-[1rem] text-center lg:text-start shadow-s1 border",
-                "border-black/50 bg-soft-white",
-                "dark:border-soft-gray/60 dark:bg-strong-black hover:dark:border-soft-gray",
+                "relative backdrop-blur-[0.5rem] overflow-hidden group group/second theme-transition-all flex flex-col lg:flex-row gap-[1rem] lg:gap-[4rem] rounded-[1.5rem] lg:rounded-[6rem] lg:rounded-r-[10rem] w-auto items-center justify-between max-w-[65rem] p-[0.8rem] sm:p-[1rem] text-center lg:text-start shadow-s1 border",
+                "border-black/50 bg-soft-white/50",
+                "dark:border-soft-gray/60 dark:bg-strong-black/50 hover:dark:border-soft-gray",
               )}
             >
               <div className="flex flex-row items-center gap-[0.7rem] xl:gap-[1rem]">
@@ -70,13 +70,6 @@ export default function ServicesContactSection() {
                 routerPath={config.urls.whatsapp}
                 external
               />
-
-              <div className="absolute -bottom-[1.5rem] lg:-bottom-[2.5rem] left-0 right-0 w-full h-full flex items-end justify-center">
-                <div className="bg-gradient-to-t from-soft-white via-soft-white/70 dark:from-strong-black dark:via-strong-black/70 to-transparent h-full w-full absolute z-2" />
-                <p className="text-[clamp(4.6rem,9vw,7rem)] font-fira-code font-bold opacity-5 z-1 text-nowrap">
-                  {t("buttonText")}
-                </p>
-              </div>
             </div>
           </SpaceX>
         </MotionSlide>

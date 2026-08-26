@@ -32,7 +32,7 @@ const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
     <div ref={containerRef} className="flex justify-center z-10">
       <MotionEntryStagger
         order={props.order}
-        className="grid grid-cols-2 w-fit justify-items-center-safe gap-[1.5rem] lg:flex lg:justify-center xl:gap-[3rem]"
+        className="header-section-buttons grid grid-cols-2 w-fit justify-items-center-safe gap-[1.5rem] lg:flex lg:justify-center xl:gap-[3rem]"
       >
         {socialButtons.map((item, index) => {
           const Icon = item.icon;
@@ -43,7 +43,7 @@ const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
                 href={item.href}
                 external
                 className={clsx("h-fit shadow-s3 dark:shadow-s1", {
-                  "2xl:mt-[0.7rem] ":
+                  "lg:mt-[0.7rem] ":
                     (index === 0 || index === socialButtons.length - 1) &&
                     !props.withoutMt,
                 })}

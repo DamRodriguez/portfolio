@@ -63,6 +63,15 @@ export default function Home() {
         },
         scrollTrigger: aboutMeTransitionTrigger,
       },
+      ".pin-aboutme-content-bg": {
+        from: {},
+        to: {},
+        scrollTrigger: {
+          start: "top top",
+          end: "top center",
+          scrub: 2,
+        },
+      },
       ".curved-scrolling-text": {
         from: {
           attr: { startOffset: "0%" },

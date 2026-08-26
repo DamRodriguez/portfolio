@@ -14,6 +14,7 @@ export type ScrollAnimationConfig = {
   from?: gsap.TweenVars;
   to?: gsap.TweenVars;
   direction?: ScrollDirection;
+  individual?: boolean; // <-- nueva propiedad
   scrollTrigger?: {
     trigger?: ScrollTrigger.Vars["trigger"];
     start?: ScrollTrigger.Vars["start"];
@@ -51,7 +52,7 @@ export function useScrollAnimations({
   ): Partial<ScrollTrigger.Vars> => {
     switch (dir) {
       case "bottom":
-        return { start: "bottom bottom", end: "+=300" };
+        return { start: "bottom bottom", end: "+=200" };
       case "center":
         return { start: "center center", end: "+=300" };
       case "left":
@@ -81,35 +82,68 @@ export function useScrollAnimations({
           to,
           scrollTrigger,
           direction: itemDirection,
+          individual = false, // <-- extraemos la nueva bandera
           ...vars
         } = animation;
 
         const activeDirection = itemDirection || globalDirection;
         const directionConfig = getDirectionConfig(activeDirection);
 
-        const triggerConfig: ScrollTrigger.Vars = {
-          ...BASE_SCROLL_TRIGGER,
-          ...directionConfig,
-          ...scrollTriggerDefaults,
-          ...(scrollTrigger as ScrollTrigger.Vars),
-          trigger: scrollTrigger?.trigger ?? target,
-        };
+        // Si individual es true, animamos cada elemento por separado
+        if (individual) {
+          const elements = gsap.utils.toArray<Element>(target);
+          elements.forEach((element) => {
+            const triggerConfig: ScrollTrigger.Vars = {
+              ...BASE_SCROLL_TRIGGER,
+              ...directionConfig,
+              ...scrollTriggerDefaults,
+              ...(scrollTrigger as ScrollTrigger.Vars),
+              trigger: scrollTrigger?.trigger ?? element, // trigger individual
+            };
 
-        if (from && to) {
-          gsap.fromTo(target, from, {
-            ...to,
-            scrollTrigger: triggerConfig,
-          });
-        } else if (to) {
-          gsap.to(target, {
-            ...to,
-            scrollTrigger: triggerConfig,
+            if (from && to) {
+              gsap.fromTo(element, from, {
+                ...to,
+                scrollTrigger: triggerConfig,
+              });
+            } else if (to) {
+              gsap.to(element, {
+                ...to,
+                scrollTrigger: triggerConfig,
+              });
+            } else {
+              gsap.to(element, {
+                ...vars,
+                scrollTrigger: triggerConfig,
+              });
+            }
           });
         } else {
-          gsap.to(target, {
-            ...vars,
-            scrollTrigger: triggerConfig,
-          });
+          // Comportamiento original: anima todos juntos
+          const triggerConfig: ScrollTrigger.Vars = {
+            ...BASE_SCROLL_TRIGGER,
+            ...directionConfig,
+            ...scrollTriggerDefaults,
+            ...(scrollTrigger as ScrollTrigger.Vars),
+            trigger: scrollTrigger?.trigger ?? target,
+          };
+
+          if (from && to) {
+            gsap.fromTo(target, from, {
+              ...to,
+              scrollTrigger: triggerConfig,
+            });
+          } else if (to) {
+            gsap.to(target, {
+              ...to,
+              scrollTrigger: triggerConfig,
+            });
+          } else {
+            gsap.to(target, {
+              ...vars,
+              scrollTrigger: triggerConfig,
+            });
+          }
         }
       });
     },
