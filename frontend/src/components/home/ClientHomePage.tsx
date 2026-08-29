@@ -1,6 +1,5 @@
 "use client";
 import ViewportActiveSection from "@/components/gsap/in-view/ViewportActiveSection";
-import ProjectsVerticalGsap from "@/components/home/ProjectsVerticalGsap";
 import AboutMeSection from "@/components/home/sections/about-me-section/AboutMeSection";
 import AboutMeSectionWrapper from "@/components/home/sections/about-me-section/AboutMeSectionWrapper";
 import ContactSection from "@/components/home/sections/contact/ContactSection";
@@ -9,6 +8,7 @@ import HeadSectionV2 from "@/components/home/sections/head-section/HeadSectionV2
 import ProjectsSection from "@/components/home/sections/projects-section/ProjectsSection";
 import ServicesSection from "@/components/home/sections/services/ServicesSection";
 import ServicesSectionWrapper from "@/components/home/sections/services/ServicesSectionWrapper";
+import VerticalProjects from "@/components/home/sections/vertical-projects/VerticalProjects";
 import WorkSection from "@/components/home/sections/work/WorkSection";
 import Main from "@/components/layout/Main";
 import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
@@ -51,6 +51,7 @@ export default function Home() {
         },
       },
       ".pin-aboutme-content": {
+        scrollTrigger: aboutMeTransitionTrigger,
         from: {
           opacity: 1,
           scale: 1,
@@ -61,18 +62,9 @@ export default function Home() {
           scale: 0.8,
           y: 100,
         },
-        scrollTrigger: aboutMeTransitionTrigger,
-      },
-      ".pin-aboutme-content-bg": {
-        from: {},
-        to: {},
-        scrollTrigger: {
-          start: "top top",
-          end: "top center",
-          scrub: 2,
-        },
       },
       ".curved-scrolling-text": {
+        scrollTrigger: curvedTextTrigger,
         individual: true,
         from: {
           attr: { startOffset: "0%" },
@@ -80,7 +72,6 @@ export default function Home() {
         to: {
           attr: { startOffset: isMobile ? "-200%" : "-150%" },
         },
-        scrollTrigger: curvedTextTrigger,
       },
     },
   });
@@ -92,7 +83,7 @@ export default function Home() {
       </ViewportActiveSection>
 
       <ViewportActiveSection section={undefined}>
-        <ProjectsVerticalGsap />
+        <VerticalProjects />
       </ViewportActiveSection>
 
       <AboutMeSectionWrapper>

@@ -1,10 +1,8 @@
 "use client";
-import config from "@/config/config";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { RefObject } from "react";
-import useBreakpoint from "../viewport/useBreakpoint";
+import { DependencyList, RefObject } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,7 +12,7 @@ export type ScrollAnimationConfig = {
   from?: gsap.TweenVars;
   to?: gsap.TweenVars;
   direction?: ScrollDirection;
-  individual?: boolean; // <-- nueva propiedad
+  individual?: boolean;
   scrollTrigger?: {
     trigger?: ScrollTrigger.Vars["trigger"];
     start?: ScrollTrigger.Vars["start"];
@@ -35,6 +33,7 @@ type UseScrollAnimationsProps = {
   disabled?: boolean;
   direction?: ScrollDirection;
   scrollTriggerDefaults?: Partial<ScrollTrigger.Vars>;
+  dependencies?: DependencyList;
 };
 
 export function useScrollAnimations({
@@ -43,10 +42,8 @@ export function useScrollAnimations({
   disabled = false,
   direction: globalDirection = "top",
   scrollTriggerDefaults,
+  dependencies = [],
 }: UseScrollAnimationsProps) {
-  const isDeskXl = useBreakpoint(Number(config.breakpoints.xl));
-  // const topDistance = isDeskXl ? "8%" : "15%";
-
   const getDirectionConfig = (
     dir: ScrollDirection,
   ): Partial<ScrollTrigger.Vars> => {
@@ -82,14 +79,13 @@ export function useScrollAnimations({
           to,
           scrollTrigger,
           direction: itemDirection,
-          individual = false, // <-- extraemos la nueva bandera
+          individual = false,
           ...vars
         } = animation;
 
         const activeDirection = itemDirection || globalDirection;
         const directionConfig = getDirectionConfig(activeDirection);
 
-        // Si individual es true, animamos cada elemento por separado
         if (individual) {
           const elements = gsap.utils.toArray<Element>(target);
           elements.forEach((element) => {
@@ -98,7 +94,7 @@ export function useScrollAnimations({
               ...directionConfig,
               ...scrollTriggerDefaults,
               ...(scrollTrigger as ScrollTrigger.Vars),
-              trigger: scrollTrigger?.trigger ?? element, // trigger individual
+              trigger: scrollTrigger?.trigger ?? element,
             };
 
             if (from && to) {
@@ -119,7 +115,6 @@ export function useScrollAnimations({
             }
           });
         } else {
-          // Comportamiento original: anima todos juntos
           const triggerConfig: ScrollTrigger.Vars = {
             ...BASE_SCROLL_TRIGGER,
             ...directionConfig,
@@ -150,11 +145,11 @@ export function useScrollAnimations({
     {
       scope,
       dependencies: [
+        ...dependencies,
         animations,
         disabled,
         scrollTriggerDefaults,
         globalDirection,
-        isDeskXl,
       ],
       revertOnUpdate: true,
     },

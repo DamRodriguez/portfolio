@@ -71,7 +71,9 @@ export default function RotatingOnScrollSection({
   });
 
   return (
-    <div className={`rotating-section-container relative w-full ${className}`}>
+    <div
+      className={`rotating-section-container relative w-full z-10 ${className}`}
+    >
       <div
         ref={marqueeBgRef}
         className="marquee-bg pointer-events-none absolute left-0 w-full bg-black dark:bg-soft-white -z-10"

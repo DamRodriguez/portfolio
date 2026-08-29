@@ -1,17 +1,6 @@
 import ViewportActiveSection from "@/components/gsap/in-view/ViewportActiveSection";
 import clsx from "clsx";
-
-const SCROLLING_TEXT_ITEMS = [
-  "DISEÑO UI/UX",
-  "DESARROLLO WEB",
-  "HOSTING",
-  "OPTIMIZACIÓN SEO",
-  "DISEÑO RESPONSIVE",
-  "RENDIMIENTO WEB",
-];
-
-const baseScrollingText = SCROLLING_TEXT_ITEMS.join(" & ");
-const formattedScrollingText = `${baseScrollingText} & `.repeat(3);
+import { useTranslations } from "next-intl";
 
 type ServicesSectionWrapperProps = {
   children: React.ReactNode;
@@ -20,6 +9,11 @@ type ServicesSectionWrapperProps = {
 export default function ServicesSectionWrapper({
   children,
 }: ServicesSectionWrapperProps) {
+  const t = useTranslations("servicesSection");
+  const curveText = t("curveText");
+  const baseScrollingText = curveText.split(", ").join(" & ");
+  const formattedScrollingText = `${baseScrollingText} & `.repeat(3);
+
   const commonTextClassName =
     "fill-soft-white dark:fill-black uppercase tracking-[0.1em] font-fira-code font-bold";
 

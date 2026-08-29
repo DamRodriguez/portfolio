@@ -103,7 +103,6 @@ const ProjectsSection = () => {
                   containerClassName={clsx(
                     "overflow-y-clip project-card-content will-change-transform transform-gpu",
                     {
-                      "projects-section-item": isFirstProject,
                       "pt-[2rem] pb-[2rem]": !isLastProject,
                       "pt-[2rem] pb-[0rem]": isLastProject,
                     },

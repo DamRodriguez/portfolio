@@ -50,6 +50,10 @@
       }
     }
   },
+  "verticalProjectsSection": {
+    "title": "Featured",
+    "description": "Projects where details make the difference"
+  },
   "aboutMeSection": {
     "header": {
       "sectionName": "../About me",
@@ -91,6 +95,7 @@
   "servicesSection": {
     "title": "Services",
     "subtitle": "Complete and tailored solutions to transform an <strong>idea</strong> into a <strong>launch-ready product</strong>",
+    "curveText": "UI/UX DESIGN, WEB DEVELOPMENT, HOSTING, SEO OPTIMIZATION, RESPONSIVE DESIGN, WEB PERFORMANCE",
     "extra": {
       "free": "Free"
     },
