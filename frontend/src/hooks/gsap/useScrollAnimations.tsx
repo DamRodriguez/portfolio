@@ -2,7 +2,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { DependencyList, RefObject } from "react";
+import { DependencyList, RefObject, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +13,7 @@ export type ScrollAnimationConfig = {
   to?: gsap.TweenVars;
   direction?: ScrollDirection;
   individual?: boolean;
+  disableScrollTrigger?: boolean;
   scrollTrigger?: {
     trigger?: ScrollTrigger.Vars["trigger"];
     start?: ScrollTrigger.Vars["start"];
@@ -66,6 +67,66 @@ export function useScrollAnimations({
     scrub: 2,
   };
 
+  const staticAnimations: Record<string, ScrollAnimationConfig> = {};
+  const dynamicAnimations: Record<string, ScrollAnimationConfig> = {};
+
+  Object.entries(animations).forEach(([target, config]) => {
+    if (config.disableScrollTrigger) {
+      staticAnimations[target] = config;
+    } else {
+      dynamicAnimations[target] = config;
+    }
+  });
+
+  const staticAnimationsKey = JSON.stringify(staticAnimations);
+  const staticAnimationsRef = useRef<{
+    key: string;
+    data: Record<string, ScrollAnimationConfig>;
+  }>({
+    key: staticAnimationsKey,
+    data: staticAnimations,
+  });
+
+  if (staticAnimationsRef.current.key !== staticAnimationsKey) {
+    staticAnimationsRef.current = {
+      key: staticAnimationsKey,
+      data: staticAnimations,
+    };
+  }
+
+  useGSAP(
+    (context) => {
+      if (disabled) return;
+
+      const currentStatic = staticAnimationsRef.current.data;
+      Object.entries(currentStatic).forEach(([target, animation]) => {
+        const { from, to, individual = false, ...vars } = animation;
+
+        const createTween = (element: Element | string) => {
+          if (from && to) {
+            gsap.fromTo(element, from, { ...to, ...vars });
+          } else if (to) {
+            gsap.fromTo(element, {}, { ...to, ...vars });
+          } else {
+            gsap.to(element, { ...vars });
+          }
+        };
+
+        if (individual) {
+          const elements = gsap.utils.toArray<Element>(target);
+          elements.forEach((el) => createTween(el));
+        } else {
+          createTween(target);
+        }
+      });
+    },
+    {
+      scope,
+      dependencies: [],
+      revertOnUpdate: false, // No revierte al actualizar
+    },
+  );
+
   useGSAP(
     (context) => {
       if (disabled) {
@@ -73,7 +134,7 @@ export function useScrollAnimations({
         return;
       }
 
-      Object.entries(animations).forEach(([target, animation]) => {
+      Object.entries(dynamicAnimations).forEach(([target, animation]) => {
         const {
           from,
           to,
@@ -86,59 +147,31 @@ export function useScrollAnimations({
         const activeDirection = itemDirection || globalDirection;
         const directionConfig = getDirectionConfig(activeDirection);
 
-        if (individual) {
-          const elements = gsap.utils.toArray<Element>(target);
-          elements.forEach((element) => {
-            const triggerConfig: ScrollTrigger.Vars = {
-              ...BASE_SCROLL_TRIGGER,
-              ...directionConfig,
-              ...scrollTriggerDefaults,
-              ...(scrollTrigger as ScrollTrigger.Vars),
-              trigger: scrollTrigger?.trigger ?? element,
-            };
-
-            if (from && to) {
-              gsap.fromTo(element, from, {
-                ...to,
-                scrollTrigger: triggerConfig,
-              });
-            } else if (to) {
-              gsap.to(element, {
-                ...to,
-                scrollTrigger: triggerConfig,
-              });
-            } else {
-              gsap.to(element, {
-                ...vars,
-                scrollTrigger: triggerConfig,
-              });
-            }
-          });
-        } else {
+        const createTween = (element: Element | string) => {
           const triggerConfig: ScrollTrigger.Vars = {
             ...BASE_SCROLL_TRIGGER,
             ...directionConfig,
             ...scrollTriggerDefaults,
             ...(scrollTrigger as ScrollTrigger.Vars),
-            trigger: scrollTrigger?.trigger ?? target,
+            trigger: scrollTrigger?.trigger ?? element,
           };
 
+          const scrollProps = { scrollTrigger: triggerConfig };
+
           if (from && to) {
-            gsap.fromTo(target, from, {
-              ...to,
-              scrollTrigger: triggerConfig,
-            });
+            gsap.fromTo(element, from, { ...to, ...scrollProps });
           } else if (to) {
-            gsap.to(target, {
-              ...to,
-              scrollTrigger: triggerConfig,
-            });
+            gsap.to(element, { ...to, ...scrollProps });
           } else {
-            gsap.to(target, {
-              ...vars,
-              scrollTrigger: triggerConfig,
-            });
+            gsap.to(element, { ...vars, ...scrollProps });
           }
+        };
+
+        if (individual) {
+          const elements = gsap.utils.toArray<Element>(target);
+          elements.forEach((el) => createTween(el));
+        } else {
+          createTween(target);
         }
       });
     },
@@ -146,7 +179,7 @@ export function useScrollAnimations({
       scope,
       dependencies: [
         ...dependencies,
-        animations,
+        dynamicAnimations,
         disabled,
         scrollTriggerDefaults,
         globalDirection,

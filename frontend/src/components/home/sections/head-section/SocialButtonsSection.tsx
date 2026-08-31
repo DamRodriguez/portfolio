@@ -5,7 +5,7 @@ import {
   TelegramIcon,
   WhatsAppIcon,
 } from "@/components/icons/social";
-import MotionEntryStagger from "@/components/motion/MotionEntryStagger";
+import MotionOpacity from "@/components/motion/MotionOpacity";
 import LinkButton from "@/components/ui/buttons/LinkButton";
 import config from "@/config/config";
 import clsx from "clsx";
@@ -30,7 +30,7 @@ const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
 
   return (
     <div ref={containerRef} className="flex justify-center z-10">
-      <MotionEntryStagger
+      <MotionOpacity
         order={props.order}
         className="header-section-buttons grid grid-cols-2 w-fit justify-items-center-safe gap-[1.5rem] lg:flex lg:justify-center xl:gap-[3rem]"
       >
@@ -54,7 +54,7 @@ const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
             </div>
           );
         })}
-      </MotionEntryStagger>
+      </MotionOpacity>
     </div>
   );
 };

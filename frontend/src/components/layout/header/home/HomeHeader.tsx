@@ -5,8 +5,8 @@ import Header from "@/components/layout/header/Header";
 import LeftItem from "@/components/layout/header/home/LeftItem";
 import NavDesk from "@/components/layout/header/home/NavDesk";
 import NavMobile from "@/components/layout/header/home/NavMobile";
-import useHasScrolled from "@/hooks/scroll/useHasScrolled";
 import useCloseMobileNavOnDesktop from "@/hooks/other/useCloseMobileNavOnDesktop";
+import useHasScrolled from "@/hooks/scroll/useHasScrolled";
 import { Locale } from "@/i18n/routing";
 import { clsx } from "clsx";
 import { useState } from "react";
@@ -23,6 +23,7 @@ export default function HomeHeader({ locale }: HomeHeaderProps) {
   return (
     <Header
       locale={locale}
+      order={4}
       navComponent={
         <>
           <LeftItem

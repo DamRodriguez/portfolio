@@ -28,10 +28,10 @@ export default function VerticalProjects() {
     animations: {
       ".projects-vertical-title-pin-wrapper": {
         from: {
-          x: 0,
+          scale: 1,
         },
         to: {
-          x: "5%",
+          scale: 1.1,
         },
         scrollTrigger: {
           trigger: ".projects-vertical-title-pin-wrapper",

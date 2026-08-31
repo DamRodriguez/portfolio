@@ -1,7 +1,7 @@
 "use client";
 import RightSection from "@/components/layout/header/RightSection";
 import SpaceX from "@/components/layout/SpaceX";
-import MotionEntrySlide from "@/components/motion/MotionEntrySlide";
+import MotionOpacity from "@/components/motion/MotionOpacity";
 import ShineBorderCustom from "@/components/other/ShineBorderCustom";
 import useHasScrolled from "@/hooks/scroll/useHasScrolled";
 import { Locale } from "@/i18n/routing";
@@ -12,6 +12,7 @@ type HeaderProps = {
   navComponent: React.ReactNode;
   outsideNavComponent?: React.ReactNode;
   rightSectionComponent?: React.ReactNode;
+  order?: number;
 };
 
 const Header = ({
@@ -19,14 +20,14 @@ const Header = ({
   navComponent,
   outsideNavComponent,
   rightSectionComponent,
+  order = 0,
 }: HeaderProps) => {
   const { hasScrolled } = useHasScrolled();
 
   return (
     <header>
-      <MotionEntrySlide
-        // order={3}
-        direction="up"
+      <MotionOpacity
+        order={order}
         className="z-9999 fixed top-0 w-full site-size"
       >
         <div
@@ -52,7 +53,7 @@ const Header = ({
             component={rightSectionComponent}
           />
         </SpaceX>
-      </MotionEntrySlide>
+      </MotionOpacity>
       {outsideNavComponent && outsideNavComponent}
     </header>
   );
