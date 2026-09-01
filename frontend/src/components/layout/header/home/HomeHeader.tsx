@@ -23,7 +23,7 @@ export default function HomeHeader({ locale }: HomeHeaderProps) {
   return (
     <Header
       locale={locale}
-      order={4}
+      order={4.5}
       navComponent={
         <>
           <LeftItem

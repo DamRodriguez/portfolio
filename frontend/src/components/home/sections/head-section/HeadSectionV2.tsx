@@ -120,7 +120,6 @@ const HeadSectionV2 = () => {
       <div className="w-full absolute z-15 -bottom-[2px] h-[5rem] xl:h-[10rem] pointer-events-none bg-gradient-to-t from-white-bone via-white-bone/70 dark:from-black dark:via-black/70 to-transparent" />
       <SpaceX className="relative head-section-container z-20 flex flex-col justify-center gap-[3rem] xl:gap-[4rem] min-h-svh transform-gpu">
         <div className="header-section-cinematic-bg w-dvw h-dvh fixed top-0 left-0 bg-black dark:bg-soft-white" />
-
         <div className="hidden 4xl:flex header-section-line absolute top-1/2 left-0 w-full -translate-y-[65%] h-[15rem] bg-black dark:bg-soft-white pointer-events-none opacity-0" />
         <div className="flex flex-col gap-[2rem] max-w-[90rem] mx-auto">
           <div className="w-full flex flex-col -space-y-[2rem] lg:-space-y-[3rem]">

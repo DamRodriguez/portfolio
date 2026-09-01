@@ -123,7 +123,7 @@ export function useScrollAnimations({
     {
       scope,
       dependencies: [],
-      revertOnUpdate: false, // No revierte al actualizar
+      revertOnUpdate: false,
     },
   );
 

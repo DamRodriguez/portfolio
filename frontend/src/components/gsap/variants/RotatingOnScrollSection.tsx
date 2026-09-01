@@ -71,9 +71,7 @@ export default function RotatingOnScrollSection({
   });
 
   return (
-    <div
-      className={`rotating-section-container relative w-full z-10 ${className}`}
-    >
+    <div className={`rotating-section-container relative w-full ${className}`}>
       <div
         ref={marqueeBgRef}
         className="marquee-bg pointer-events-none absolute left-0 w-full bg-black dark:bg-soft-white -z-10"
@@ -93,7 +91,7 @@ export default function RotatingOnScrollSection({
                   wrapperRefs.current[index] = el;
                 }}
                 className="gallery__item-wrap relative flex w-full max-w-full justify-center px-4 sm:px-0 sm:max-w-[25rem] md:max-w-[30rem] lg:max-w-[35rem] xl:max-w-[40rem]"
-                style={{ perspective: "900px" }}
+                style={{ perspective: "1000px" }}
               >
                 <div
                   ref={(el) => {
@@ -126,9 +124,6 @@ export default function RotatingOnScrollSection({
         className="mark pointer-events-none absolute left-0 w-full flex items-center overflow-hidden z-10"
         aria-hidden="true"
       >
-        {/* <div className="hidden lg:flex">
-          <HorizontalShadow color="black" width="2rem" />
-        </div> */}
         <div
           className="mark__inner flex gap-[2.5rem] whitespace-nowrap"
           style={{ width: "max-content" }}

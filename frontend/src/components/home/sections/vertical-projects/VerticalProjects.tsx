@@ -27,12 +27,6 @@ export default function VerticalProjects() {
   useScrollAnimations({
     animations: {
       ".projects-vertical-title-pin-wrapper": {
-        from: {
-          scale: 1,
-        },
-        to: {
-          scale: 1.1,
-        },
         scrollTrigger: {
           trigger: ".projects-vertical-title-pin-wrapper",
           pin: !isTablet,
