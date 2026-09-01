@@ -81,8 +81,8 @@ export function useCinematicIntro() {
               rotateZ: 0,
             },
             {
-              rotateY: -20,
-              rotateX: 20,
+              rotateY: -10,
+              rotateX: 10,
               rotateZ: 1,
               duration: 1.5,
               ease: "power3.out",
@@ -121,8 +121,8 @@ export function useCinematicIntro() {
               rotateZ: 0,
             },
             {
-              rotateY: -20,
-              rotateX: 20,
+              rotateY: -10,
+              rotateX: 10,
               rotateZ: -1,
               delay: 0.5,
               duration: 1.5,
