@@ -38,16 +38,12 @@ const NameSection = () => {
         },
       },
       ".name-section-common": {
-        scrollTrigger: {
-          start: "top center+=150",
-          end: "top center",
-        },
-        individual: true,
         from: {
           opacity: 0,
-          scale: 0.9,
+          scale: 0.8,
         },
         to: {
+          stagger: 0.5,
           opacity: 1,
           scale: 1,
         },

@@ -13,37 +13,39 @@ import WorkSection from "@/components/home/sections/work/WorkSection";
 import Main from "@/components/layout/Main";
 import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
 import useBreakpoint from "@/hooks/viewport/useBreakpoint";
-import { useMemo, useRef } from "react";
+import { useRef } from "react";
 
 export default function Home() {
   const mainRef = useRef<HTMLDivElement>(null);
   const isMobile = useBreakpoint();
 
-  const aboutMeTransitionTrigger = useMemo(
-    () => ({
-      trigger: ".pin-projects",
-      start: "bottom bottom",
-      endTrigger: ".overlay-services",
-      end: "bottom bottom",
-      scrub: 2,
-    }),
-    [],
-  );
+  const aboutMeTransitionTrigger = {
+    trigger: ".pin-aboutme",
+    start: "bottom bottom",
+    endTrigger: ".overlay-services",
+    end: "bottom bottom",
+    scrub: 2,
+  };
 
-  const curvedTextTrigger = useMemo(
-    () => ({
-      trigger: ".overlay-services",
-      start: "top bottom",
-      end: "bottom top",
-      scrub: 2,
-    }),
-    [],
-  );
+  const curvedTextTrigger = {
+    trigger: ".overlay-services",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: 2,
+  };
+
+  const contactSectionTransitionTrigger = {
+    trigger: ".pin-contactSection",
+    start: "bottom bottom",
+    endTrigger: ".overlay-footer",
+    end: "bottom bottom",
+    scrub: 2,
+  };
 
   useScrollAnimations({
     scope: mainRef,
     animations: {
-      ".pin-projects": {
+      ".pin-aboutme": {
         scrollTrigger: {
           ...aboutMeTransitionTrigger,
           pin: true,
@@ -71,6 +73,26 @@ export default function Home() {
         },
         to: {
           attr: { startOffset: isMobile ? "-200%" : "-150%" },
+        },
+      },
+      ".pin-contactSection": {
+        scrollTrigger: {
+          ...contactSectionTransitionTrigger,
+          pin: true,
+          pinSpacing: false,
+        },
+      },
+      ".pin-contactSection-content": {
+        scrollTrigger: contactSectionTransitionTrigger,
+        from: {
+          opacity: 1,
+          scale: 1,
+          filter: "blur(0px)",
+        },
+        to: {
+          opacity: 0.5,
+          scale: 0.8,
+          filter: "blur(3px)",
         },
       },
     },

@@ -5,7 +5,6 @@ import {
   TelegramIcon,
   WhatsAppIcon,
 } from "@/components/icons/social";
-import MotionOpacity from "@/components/motion/MotionOpacity";
 import LinkButton from "@/components/ui/buttons/LinkButton";
 import config from "@/config/config";
 import clsx from "clsx";
@@ -14,7 +13,7 @@ import { useRef } from "react";
 
 type SocialButtonsSectionProps = {
   withoutMt?: boolean;
-  order?: number;
+  buttonClassName?: string;
 };
 
 const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
@@ -30,15 +29,12 @@ const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
 
   return (
     <div ref={containerRef} className="flex justify-center z-10">
-      <MotionOpacity
-        order={props.order}
-        className="header-section-buttons grid grid-cols-2 w-fit justify-items-center-safe gap-[1.5rem] lg:flex lg:justify-center xl:gap-[3rem]"
-      >
+      <div className="header-section-buttons grid grid-cols-2 w-fit justify-items-center-safe gap-[1.5rem] lg:flex lg:justify-center xl:gap-[3rem]">
         {socialButtons.map((item, index) => {
           const Icon = item.icon;
 
           return (
-            <div key={index}>
+            <div key={index} className={clsx("", props.buttonClassName)}>
               <LinkButton
                 href={item.href}
                 external
@@ -54,7 +50,7 @@ const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
             </div>
           );
         })}
-      </MotionOpacity>
+      </div>
     </div>
   );
 };

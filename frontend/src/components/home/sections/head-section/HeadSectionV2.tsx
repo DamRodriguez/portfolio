@@ -180,7 +180,9 @@ const HeadSectionV2 = () => {
             />
           </MotionOpacity>
         </div>
-        <SocialButtonsSection order={2} />
+        <MotionOpacity>
+          <SocialButtonsSection />
+        </MotionOpacity>
       </SpaceX>
     </section>
   );

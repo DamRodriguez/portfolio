@@ -27,20 +27,22 @@ const ContactSection = () => {
   });
 
   return (
-    <SpaceX
-      id={removeHash(routes.contact)}
-      className="w-full flex flex-col gap-[5rem] xl:gap-[10rem]"
-    >
-      <div className="flex flex-col-reverse 2xl:flex-row gap-[5rem] 4xl:gap-[8rem]">
-        <NameSection />
-        <div className="w-full flex flex-col gap-[2rem] xl:gap-[3rem]">
-          <h2 className="contact-section-title text-black dark:text-soft-white font-fira-code font-semibold text-4xl xl:text-6xl">
-            ../{t("title")}
-          </h2>
-          <ContactForm />
+    <div>
+      <SpaceX
+        id={removeHash(routes.contact)}
+        className="w-full flex flex-col gap-[5rem] xl:gap-[10rem] pin-contactSection pb-[5rem] xl:pb-[6rem]"
+      >
+        <div className="pin-contactSection-content flex flex-col-reverse 2xl:flex-row gap-[5rem] 4xl:gap-[8rem]">
+          <NameSection />
+          <div className="w-full flex flex-col gap-[2rem] xl:gap-[3rem]">
+            <h2 className="contact-section-title text-black dark:text-soft-white font-fira-code font-semibold text-4xl xl:text-6xl">
+              ../{t("title")}
+            </h2>
+            <ContactForm />
+          </div>
         </div>
-      </div>
-    </SpaceX>
+      </SpaceX>
+    </div>
   );
 };
 
