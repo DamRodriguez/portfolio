@@ -27,11 +27,10 @@ export default function BackgroundText() {
 
   const isLeftSide =
     activeSection === "aboutme" ||
-    activeSection === "contact" ||
     activeSection === "services" ||
     activeSection === "projects";
   const isRightSide = "";
-  const isCenter = activeSection === "work";
+  const isCenter = activeSection === "work" || activeSection === "contact";
 
   return (
     <div className="hidden xl:flex pointer-events-none fixed inset-0 z-21 overflow-hidden">
@@ -55,7 +54,7 @@ export default function BackgroundText() {
               exit={{ opacity: 0, filter: "blur(20px)", y: -20, scale: 1.04 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="relative flex items-center justify-center">
+              <div className="relative flex items-center justify-center blur-[0.2rem]">
                 <p
                   className="font-fira-code text-nowrap xl:text-[clamp(4rem,10vh,16rem)] 4xl:text-[clamp(4rem,14vh,16rem)] font-bold uppercase tracking-[0.08em] text-black dark:text-soft-white opacity-8"
                   style={

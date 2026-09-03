@@ -194,6 +194,10 @@
     }
   },
   "contactSection": {
+    "curtain": {
+      "leftTitle": "CONT",
+      "rightTitle": "ACTO"
+    },
     "title": "Contacto",
     "buttons": {
       "downloadCV": "Descargar CV",

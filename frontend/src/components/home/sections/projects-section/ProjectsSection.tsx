@@ -112,7 +112,7 @@ const ProjectsSection = () => {
             );
           })}
         </div>
-        <div className="z-10 w-fit mx-auto projects-section-button">
+        <div className="z-30 w-fit mx-auto projects-section-button">
           <ButtonWithArrow
             text={t("buttons.allProjects")}
             routerPath={routes.allProjects}

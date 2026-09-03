@@ -90,9 +90,9 @@ export default function Home() {
           filter: "blur(0px)",
         },
         to: {
-          opacity: 0.5,
+          opacity: 0.2,
           scale: 0.8,
-          filter: "blur(3px)",
+          filter: "blur(5px)",
         },
       },
     },

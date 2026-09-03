@@ -11,7 +11,6 @@ import {
   type ContactSchemaType,
 } from "@/features/contact/schemas/ContactSchema";
 import useFormError from "@/hooks/form/useFormError";
-import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { FormProvider, useForm } from "react-hook-form";
@@ -88,39 +87,6 @@ const ContactForm = () => {
     }
   };
 
-  useScrollAnimations({
-    animations: {
-      ".contact-section-form-inputs": {
-        scrollTrigger: {
-          start: "top bottom",
-          end: "bottom bottom",
-          scrub: 2,
-        },
-        from: {
-          opacity: 0,
-          y: 25,
-          scale: 0.9,
-        },
-        to: {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-        },
-      },
-      ".contact-section-form-button": {
-        direction: "bottom",
-        from: {
-          opacity: 0,
-          scale: 0.9,
-        },
-        to: {
-          opacity: 1,
-          scale: 1,
-        },
-      },
-    },
-  });
-
   return (
     <FormProvider {...methods}>
       <Form
@@ -128,7 +94,7 @@ const ContactForm = () => {
         methods={methods}
         className="flex flex-col gap-[1.5rem]"
       >
-        <div className="flex flex-col gap-[1.5rem] contact-section-form-inputs">
+        <div className="flex flex-col gap-[1.5rem]">
           <Form.InputText
             {...inputCommonProps}
             label={t("contactSection.form.nameInput.label")}
@@ -171,7 +137,7 @@ const ContactForm = () => {
             />
           </div>
         </div>
-        <div className="contact-section-form-button w-full">
+        <div className="w-full">
           <Button
             variant="primary"
             type="submit"
