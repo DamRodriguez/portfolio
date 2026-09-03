@@ -9,16 +9,15 @@ import LinkButton from "@/components/ui/buttons/LinkButton";
 import config from "@/config/config";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
-import { useRef } from "react";
 
 type SocialButtonsSectionProps = {
   withoutMt?: boolean;
   buttonClassName?: string;
+  containerClassName?: string;
 };
 
 const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
   const t = useTranslations("headSection.socialButtons");
-  const containerRef = useRef(null);
 
   const socialButtons = [
     { icon: WhatsAppIcon, text: t("whatsApp"), href: config.urls.whatsapp },
@@ -28,8 +27,13 @@ const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
   ];
 
   return (
-    <div ref={containerRef} className="flex justify-center z-10">
-      <div className="header-section-buttons grid grid-cols-2 w-fit justify-items-center-safe gap-[1.5rem] lg:flex lg:justify-center xl:gap-[3rem]">
+    <div className="flex justify-center z-10">
+      <div
+        className={clsx(
+          "grid grid-cols-2 w-fit justify-items-center-safe gap-[1.5rem] lg:flex lg:justify-center xl:gap-[3rem]",
+          props.containerClassName,
+        )}
+      >
         {socialButtons.map((item, index) => {
           const Icon = item.icon;
 

@@ -3,10 +3,10 @@ import MotionHeight from "@/components/motion/MotionHeight";
 import { AnimatedChevron } from "@/components/other/AnimatedChevron";
 import { useClickOutside } from "@/hooks/other/useClickOutside";
 import useBreakpoint from "@/hooks/viewport/useBreakpoint";
+import { usePathname, useRouter } from "@/i18n/navigation";
 import clsx from "clsx";
 import { AnimatePresence } from "framer-motion";
 import type { Locale } from "next-intl";
-import { usePathname, useRouter } from "next/navigation";
 import { type JSX, useRef, useState } from "react";
 
 type LanguageDropdownProps = {
@@ -18,11 +18,12 @@ const LanguageDropdown = ({ locale, hasScrolled }: LanguageDropdownProps) => {
   const router = useRouter();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLang, setSelectedLang] = useState<Locale>(locale);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
   useClickOutside(dropdownRef as React.RefObject<HTMLElement>, () => {
     setIsOpen(false);
   });
+
   const isMobile = useBreakpoint();
   const flagIconClassName = "w-5 h-5 xl:w-7 xl:h-7";
 
@@ -32,15 +33,12 @@ const LanguageDropdown = ({ locale, hasScrolled }: LanguageDropdownProps) => {
   ];
 
   const handleLanguageChange = (newLang: Locale) => {
-    const langsRegex = Languages.map((l) => l.lang).join("|");
-    const newPathname = `/${newLang}${(pathname ?? "").replace(new RegExp(`^/(${langsRegex})`), "")}`;
-    router.push(newPathname, { scroll: false });
-    setSelectedLang(newLang);
+    router.push(pathname, { locale: newLang, scroll: false });
     setIsOpen(false);
   };
 
-  const currentLanguage = Languages.find((l) => l.lang === selectedLang);
-  const othersLanguages = Languages.filter((l) => l.lang !== selectedLang);
+  const currentLanguage = Languages.find((l) => l.lang === locale);
+  const othersLanguages = Languages.filter((l) => l.lang !== locale);
 
   return (
     <div

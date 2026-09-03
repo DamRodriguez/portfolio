@@ -10,14 +10,12 @@ import config from "@/config/config";
 import { routes } from "@/constants/routes";
 import { useCinematicIntro } from "@/hooks/gsap/head-section/useCinematicIntro";
 import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
-import { useCurrentTheme } from "@/hooks/theme/useCurrentTheme";
 import useBreakpoint from "@/hooks/viewport/useBreakpoint";
 import { useTranslations } from "next-intl";
 
 const HeadSectionV2 = () => {
   const t = useTranslations("headSection");
   const projectsButtonText = t("projectsButton");
-  const { isDark } = useCurrentTheme();
   const isMobile = useBreakpoint(config.breakpoints.md);
   const isTablet = useBreakpoint();
   const isDesktop = useBreakpoint(config.breakpoints["4xl"], "min");
@@ -32,6 +30,7 @@ const HeadSectionV2 = () => {
   useCinematicIntro();
 
   useScrollAnimations({
+    dependencies: [isMobile, isTablet, isDesktop],
     animations: {
       ".head-section-container": {
         from: {
@@ -40,23 +39,16 @@ const HeadSectionV2 = () => {
           transformOrigin: "bottom center",
           transformPerspective: 1000,
           y: 0,
-          borderWidth: "1px",
-          borderColor: "transparent",
-          borderStyle: "solid",
-          backgroundColor: isDark ? "#121212" : "#f9f6ee",
+          boxShadow: "none",
+          filter: "brightness(1)",
         },
         to: {
-          backgroundColor: isDark ? "#0f0f0f" : "#f5f5f5",
           scale: isTablet ? 0.95 : 0.85,
           borderRadius: "5rem",
           rotationX: 30,
           transformPerspective: 1000,
-          y: -40,
-          borderWidth: "1px",
-          borderColor: isDark
-            ? "rgba(255, 255, 255, 0.2)"
-            : "rgba(0, 0, 0, 0.2)",
-          borderStyle: "solid",
+          boxShadow: "var(--shadow-s6)",
+          filter: "brightness(1.03)",
         },
       },
       ".header-section-line": {
@@ -118,7 +110,7 @@ const HeadSectionV2 = () => {
       <BackgroundTextAnimated />
 
       <div className="w-full absolute z-15 -bottom-[2px] h-[5rem] xl:h-[10rem] pointer-events-none bg-gradient-to-t from-white-bone via-white-bone/70 dark:from-black dark:via-black/70 to-transparent" />
-      <SpaceX className="relative head-section-container z-20 flex flex-col justify-center gap-[3rem] xl:gap-[4rem] min-h-svh transform-gpu">
+      <SpaceX className="relative head-section-container z-20 flex flex-col justify-center gap-[3rem] xl:gap-[4rem] min-h-svh transform-gpu bg-white-bone dark:bg-black">
         <div className="header-section-cinematic-bg w-dvw h-dvh fixed top-0 left-0 bg-black dark:bg-soft-white" />
         <div className="hidden 4xl:flex header-section-line absolute top-1/2 left-0 w-full -translate-y-[65%] h-[15rem] bg-black dark:bg-soft-white pointer-events-none opacity-0" />
         <div className="flex flex-col gap-[2rem] max-w-[90rem] mx-auto">
@@ -181,7 +173,7 @@ const HeadSectionV2 = () => {
           </MotionOpacity>
         </div>
         <MotionOpacity>
-          <SocialButtonsSection />
+          <SocialButtonsSection containerClassName="header-section-buttons" />
         </MotionOpacity>
       </SpaceX>
     </section>

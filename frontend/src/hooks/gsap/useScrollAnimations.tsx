@@ -122,8 +122,8 @@ export function useScrollAnimations({
     },
     {
       scope,
-      dependencies: [],
-      revertOnUpdate: false,
+      dependencies: [...dependencies, staticAnimationsKey, disabled],
+      revertOnUpdate: true,
     },
   );
 

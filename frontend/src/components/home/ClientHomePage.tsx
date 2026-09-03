@@ -36,7 +36,7 @@ export default function Home() {
 
   const contactSectionTransitionTrigger = {
     trigger: ".pin-contactSection",
-    start: "bottom bottom",
+    start: "bottom bottom+=100",
     endTrigger: ".overlay-footer",
     end: "bottom bottom",
     scrub: 2,

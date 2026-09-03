@@ -1,29 +1,20 @@
 "use client";
-import personalImage from "@/assets/images/damian.jpg";
-import CustomImage from "@/components/image/CustomImage";
+import PersonalImage from "@/components/home/sections/about-me-section/PersonalImage";
 import SpaceX from "@/components/layout/SpaceX";
 import { RichText } from "@/components/next-intl/RichText";
-import FadeShadow from "@/components/other/FadeShadow";
 import SecondTitle from "@/components/text/SecondTitle";
 import config from "@/config/config";
 import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
 import useBreakpoint from "@/hooks/viewport/useBreakpoint";
 import { useTranslations } from "next-intl";
-import { useTheme } from "next-themes";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import CertificationSection from "./certification/CertificationSection";
 import TechnologiesSection from "./technologies/TechnologiesSection";
 
 const AboutMeSection = () => {
   const t = useTranslations("aboutMeSection");
-  const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const isDesktop = useBreakpoint(config.breakpoints["4xl"], "min");
   const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useScrollAnimations({
     scope: sectionRef,
@@ -37,9 +28,9 @@ const AboutMeSection = () => {
           scrub: 2,
         },
       },
-      ".aboutme-section-image-opacity": {
-        from: { opacity: 0 },
-        to: { opacity: 1 },
+      ".aboutme-section-image-entry": {
+        from: { opacity: 0, x: isDesktop ? 100 : 50 },
+        to: { opacity: 1, x: 0 },
         scrollTrigger: {
           start: "top bottom",
           end: "bottom center",
@@ -88,23 +79,7 @@ const AboutMeSection = () => {
 
       <div className="flex flex-col-reverse xl:flex-row items-center xl:justify-between gap-[2rem]">
         <TechnologiesSection />
-
-        <div className="relative aboutme-section-image-y aboutme-section-image-opacity overflow-hidden shadow-s1 dark:shadow-none rounded-full dark:rounded-none border border-soft-white/50 dark:border-none">
-          <CustomImage
-            src={personalImage}
-            priority={true}
-            alt="Personal image"
-            className="object-cover w-fit h-120 md:h-150 xl:h-full hover:scale-110 theme-transition-all"
-          />
-          {mounted && theme === "dark" && (
-            <>
-              <FadeShadow direction="left" sizeClasses="w-20 xl:w-30" />
-              <FadeShadow direction="right" sizeClasses="w-20 xl:w-20" />
-              <FadeShadow direction="bottom" sizeClasses="h-30 xl:h-60" />
-              <FadeShadow direction="top" sizeClasses="h-25 xl:h-45" />
-            </>
-          )}
-        </div>
+        <PersonalImage containerClassName="aboutme-section-image-y aboutme-section-image-entry" />
       </div>
 
       <CertificationSection />

@@ -1,6 +1,9 @@
+"use client";
+import config from "@/config/config";
 import { getLenis } from "@/constants/lenis";
 import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
 import { useScrollLock } from "@/hooks/scroll/useScrollLock";
+import useBreakpoint from "@/hooks/viewport/useBreakpoint";
 import { useLayoutEffect, useState } from "react";
 
 if (typeof window !== "undefined") {
@@ -12,6 +15,8 @@ if (typeof window !== "undefined") {
 
 export function useCinematicIntro() {
   const [isLocked, setIsLocked] = useState(true);
+  const isMobile = useBreakpoint(config.breakpoints.sm, "max");
+  console.log(isMobile);
 
   useScrollLock(isLocked);
 
@@ -76,24 +81,18 @@ export function useCinematicIntro() {
               scale: 999,
               letterSpacing: "0.5em",
               zIndex: 999999,
-              rotateY: 0,
-              rotateX: 0,
               rotateZ: 0,
             },
             {
-              rotateY: -10,
-              rotateX: 10,
-              rotateZ: 2,
+              rotateZ: 1,
               duration: 1.5,
               ease: "power3.out",
               opacity: 1,
-              scale: 1.2,
+              scale: isMobile ? 1 : 1.2,
               letterSpacing: "0.5em",
               zIndex: 999999,
             },
             {
-              rotateY: 0,
-              rotateX: 0,
               rotateZ: 0,
               delay: 0.5,
               duration: 1,
@@ -116,25 +115,19 @@ export function useCinematicIntro() {
               scale: 999,
               letterSpacing: "0.5em",
               zIndex: 999999,
-              rotateY: 0,
-              rotateX: 0,
               rotateZ: 0,
             },
             {
-              rotateY: -10,
-              rotateX: 10,
-              rotateZ: -2,
+              rotateZ: -1,
               delay: 0.5,
               duration: 1.5,
               ease: "power3.out",
               opacity: 1,
-              scale: 1.2,
+              scale: isMobile ? 1 : 1.2,
               letterSpacing: "0.5em",
               zIndex: 999999,
             },
             {
-              rotateY: 0,
-              rotateX: 0,
               rotateZ: 0,
               duration: 1,
               ease: "power2.out",
