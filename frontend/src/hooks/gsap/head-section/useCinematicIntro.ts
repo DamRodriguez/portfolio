@@ -1,73 +1,9 @@
 "use client";
-import config from "@/config/config";
-import { getLenis } from "@/constants/lenis";
+import { useCinematicLogic } from "@/hooks/gsap/head-section/useCinematicLogic";
 import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
-import { useScrollLock } from "@/hooks/scroll/useScrollLock";
-import useBreakpoint from "@/hooks/viewport/useBreakpoint";
-import { useLayoutEffect, useState } from "react";
-
-if (typeof window !== "undefined") {
-  if ("scrollRestoration" in window.history) {
-    window.history.scrollRestoration = "manual";
-  }
-  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-}
 
 export function useCinematicIntro() {
-  const [isLocked, setIsLocked] = useState(true);
-  const isMobile = useBreakpoint(config.breakpoints.sm, "max");
-  console.log(isMobile);
-
-  useScrollLock(isLocked);
-
-  useLayoutEffect(() => {
-    if (!isLocked) return;
-
-    const enforceTopScroll = () => {
-      if (window.scrollY > 0 || window.scrollX > 0) {
-        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-      }
-    };
-
-    window.addEventListener("scroll", enforceTopScroll, {
-      capture: true,
-      passive: true,
-    });
-
-    return () => {
-      window.removeEventListener("scroll", enforceTopScroll, { capture: true });
-    };
-  }, [isLocked]);
-
-  useLayoutEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-
-    document.body.style.overflow = "hidden";
-
-    const stopLenisInterval = setInterval(() => {
-      const lenis = getLenis();
-      if (lenis) {
-        lenis.scrollTo(0, { immediate: true });
-        lenis.stop();
-        clearInterval(stopLenisInterval);
-      }
-    }, 5);
-
-    const unlockTimer = setTimeout(() => {
-      setIsLocked(false);
-
-      getLenis()?.start();
-      document.body.style.overflow = "";
-    }, 3000);
-
-    return () => {
-      clearTimeout(unlockTimer);
-      clearInterval(stopLenisInterval);
-      if ("scrollRestoration" in window.history) {
-        window.history.scrollRestoration = "auto";
-      }
-    };
-  }, []);
+  const { isCinematicActive, isMobile } = useCinematicLogic();
 
   useScrollAnimations({
     animations: {
@@ -79,27 +15,21 @@ export function useCinematicIntro() {
               duration: 0,
               opacity: 0,
               scale: 999,
-              letterSpacing: "0.5em",
               zIndex: 999999,
-              rotateZ: 0,
             },
             {
-              rotateZ: 1,
               duration: 1.5,
               ease: "power3.out",
               opacity: 1,
-              scale: isMobile ? 1 : 1.2,
-              letterSpacing: "0.5em",
+              scale: isMobile ? 1.1 : 1.25,
               zIndex: 999999,
             },
             {
-              rotateZ: 0,
               delay: 0.5,
               duration: 1,
               ease: "power2.out",
               opacity: 1,
               scale: 1,
-              letterSpacing: "0em",
               zIndex: 1,
             },
           ],
@@ -113,27 +43,21 @@ export function useCinematicIntro() {
               duration: 0,
               opacity: 0,
               scale: 999,
-              letterSpacing: "0.5em",
               zIndex: 999999,
-              rotateZ: 0,
             },
             {
-              rotateZ: -1,
               delay: 0.5,
               duration: 1.5,
               ease: "power3.out",
               opacity: 1,
-              scale: isMobile ? 1 : 1.2,
-              letterSpacing: "0.5em",
+              scale: isMobile ? 1.1 : 1.25,
               zIndex: 999999,
             },
             {
-              rotateZ: 0,
               duration: 1,
               ease: "power2.out",
               opacity: 1,
               scale: 1,
-              letterSpacing: "0em",
               zIndex: 1,
             },
           ],
@@ -170,4 +94,6 @@ export function useCinematicIntro() {
       },
     },
   });
+
+  return { isCinematicActive };
 }

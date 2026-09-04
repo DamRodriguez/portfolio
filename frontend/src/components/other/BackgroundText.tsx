@@ -54,7 +54,7 @@ export default function BackgroundText() {
               exit={{ opacity: 0, filter: "blur(20px)", y: -20, scale: 1.04 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="relative flex items-center justify-center blur-[0.2rem]">
+              <div className="relative flex items-center justify-center ">
                 <p
                   className="font-fira-code text-nowrap xl:text-[clamp(4rem,10vh,16rem)] 4xl:text-[clamp(4rem,14vh,16rem)] font-bold uppercase tracking-[0.08em] text-black dark:text-soft-white opacity-8"
                   style={

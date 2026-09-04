@@ -11,15 +11,15 @@ type MotionEntrySlideProps = MotionDefaults & {
 const getInitialPosition = (direction: MotionEntrySlideProps["direction"]) => {
   switch (direction) {
     case "left":
-      return { x: -50, y: 0 };
+      return { x: -25, y: 0 };
     case "right":
-      return { x: 50, y: 0 };
+      return { x: 25, y: 0 };
     case "up":
-      return { x: 0, y: -50 };
+      return { x: 0, y: -25 };
     case "down":
-      return { x: 0, y: 50 };
+      return { x: 0, y: 25 };
     default:
-      return { x: -50, y: 0 };
+      return { x: -25, y: 0 };
   }
 };
 

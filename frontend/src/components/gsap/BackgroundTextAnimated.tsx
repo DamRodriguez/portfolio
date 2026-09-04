@@ -44,14 +44,12 @@ const BackgroundTextAnimated = () => {
         direction: "center",
         x: isMobile ? 200 : 400,
         force3D: true,
-        y: isMobile ? 100 : 200,
       },
       ".header-section-background-text-odd": {
         ...containerTrigger,
         direction: "center",
         x: isMobile ? -200 : -400,
         force3D: true,
-        y: isMobile ? 100 : 200,
       },
     },
   });

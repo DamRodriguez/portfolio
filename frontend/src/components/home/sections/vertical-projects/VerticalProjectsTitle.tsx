@@ -51,7 +51,7 @@ export default function VerticalProjectsTitle() {
       <div className="projects-vertical-title-pin-wrapper relative w-full flex flex-col">
         <h2
           className={clsx(
-            "relative flex items-center justify-center font-fira-code font-semibold text-6xl xl:text-8md w-full",
+            "relative flex items-center justify-center font-fira-code font-semibold text-5md xl:text-8md w-full",
             {
               "projects-vertical-title-x": !isTablet,
             },

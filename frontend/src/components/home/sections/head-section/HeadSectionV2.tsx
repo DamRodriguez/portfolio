@@ -11,6 +11,7 @@ import { routes } from "@/constants/routes";
 import { useCinematicIntro } from "@/hooks/gsap/head-section/useCinematicIntro";
 import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
 import useBreakpoint from "@/hooks/viewport/useBreakpoint";
+import clsx from "clsx";
 import { useTranslations } from "next-intl";
 
 const HeadSectionV2 = () => {
@@ -27,7 +28,7 @@ const HeadSectionV2 = () => {
     },
   };
 
-  useCinematicIntro();
+  const { isCinematicActive } = useCinematicIntro();
 
   useScrollAnimations({
     dependencies: [isMobile, isTablet, isDesktop],
@@ -38,17 +39,13 @@ const HeadSectionV2 = () => {
           scale: 1,
           transformOrigin: "bottom center",
           transformPerspective: 1000,
-          y: 0,
           boxShadow: "none",
-          filter: "brightness(1)",
         },
         to: {
-          scale: isTablet ? 0.95 : 0.85,
-          borderRadius: "5rem",
           rotationX: 30,
+          scale: isTablet ? 0.95 : 0.85,
           transformPerspective: 1000,
           boxShadow: "var(--shadow-s6)",
-          filter: "brightness(1.03)",
         },
       },
       ".header-section-line": {
@@ -58,13 +55,12 @@ const HeadSectionV2 = () => {
           scrub: 2,
         },
         from: {
-          opacity: 0,
           scaleY: 0,
           transformOrigin: "bottom",
         },
         to: {
-          opacity: 1,
           scaleY: 1,
+          ease: "power2.inOut",
         },
       },
       ".header-section-title1": {
@@ -79,23 +75,13 @@ const HeadSectionV2 = () => {
       },
       ".header-section-opacity": {
         ...containerTrigger,
-        from: {
-          opacity: 1,
-        },
-        to: {
-          opacity: 0,
-        },
+        from: { opacity: 1 },
+        to: { opacity: 0 },
       },
       ".header-section-title-reflection": {
         ...containerTrigger,
-        from: {
-          opacity: 1,
-          y: 0,
-        },
-        to: {
-          opacity: 0,
-          y: -50,
-        },
+        from: { opacity: 1, y: 0 },
+        to: { opacity: 0, y: -50 },
       },
       ".header-section-buttons": {
         ...containerTrigger,
@@ -106,13 +92,27 @@ const HeadSectionV2 = () => {
   });
 
   return (
-    <section className="relative overflow-hidden pb-[5rem] xl:pb-[10rem]">
+    <section
+      className={clsx("relative pb-[5rem] xl:pb-[10rem]", {
+        "overflow-hidden": !isCinematicActive,
+      })}
+    >
       <BackgroundTextAnimated />
 
       <div className="w-full absolute z-15 -bottom-[2px] h-[5rem] xl:h-[10rem] pointer-events-none bg-gradient-to-t from-white-bone via-white-bone/70 dark:from-black dark:via-black/70 to-transparent" />
-      <SpaceX className="relative head-section-container z-20 flex flex-col justify-center gap-[3rem] xl:gap-[4rem] min-h-svh transform-gpu bg-white-bone dark:bg-black">
-        <div className="header-section-cinematic-bg w-dvw h-dvh fixed top-0 left-0 bg-black dark:bg-soft-white" />
-        <div className="hidden 4xl:flex header-section-line absolute top-1/2 left-0 w-full -translate-y-[65%] h-[15rem] bg-black dark:bg-soft-white pointer-events-none opacity-0" />
+
+      <SpaceX
+        className={clsx(
+          "relative head-section-container z-20 flex flex-col justify-center gap-[3rem] xl:gap-[4rem] min-h-svh bg-white-bone dark:bg-black rounded-[5rem]",
+          {
+            "transform-gpu": !isCinematicActive,
+          },
+        )}
+      >
+        <div className="header-section-cinematic-bg w-dvw h-dvh fixed top-0 left-0 bg-black dark:bg-soft-white origin-bottom z-10 pointer-events-none" />
+
+        <div className="hidden 4xl:flex header-section-line absolute top-1/2 left-0 w-full -translate-y-[65%] h-[15rem] bg-black dark:bg-soft-white pointer-events-none" />
+
         <div className="flex flex-col gap-[2rem] max-w-[90rem] mx-auto">
           <div className="w-full flex flex-col -space-y-[2rem] lg:-space-y-[3rem]">
             <div className="flex justify-center xl:justify-between items-center">

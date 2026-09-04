@@ -5,10 +5,12 @@ import Header from "@/components/layout/header/Header";
 import LeftItem from "@/components/layout/header/home/LeftItem";
 import NavDesk from "@/components/layout/header/home/NavDesk";
 import NavMobile from "@/components/layout/header/home/NavMobile";
+import { useCinematicLogic } from "@/hooks/gsap/head-section/useCinematicLogic";
 import useCloseMobileNavOnDesktop from "@/hooks/other/useCloseMobileNavOnDesktop";
 import useHasScrolled from "@/hooks/scroll/useHasScrolled";
 import { Locale } from "@/i18n/routing";
 import { clsx } from "clsx";
+import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
 type HomeHeaderProps = {
@@ -19,51 +21,55 @@ export default function HomeHeader({ locale }: HomeHeaderProps) {
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(false);
   const { hasScrolled } = useHasScrolled();
   useCloseMobileNavOnDesktop({ setIsMobileNavVisible });
+  const { isCinematicActive } = useCinematicLogic();
 
   return (
-    <Header
-      locale={locale}
-      order={4.5}
-      navComponent={
-        <>
-          <LeftItem
-            onClick={() => {
-              if (isMobileNavVisible) {
+    <AnimatePresence>
+      {!isCinematicActive && (
+        <Header
+          locale={locale}
+          navComponent={
+            <>
+              <LeftItem
+                onClick={() => {
+                  if (isMobileNavVisible) {
+                    setIsMobileNavVisible(false);
+                  }
+                }}
+              />
+              <NavDesk />
+            </>
+          }
+          outsideNavComponent={
+            <Drawer
+              visible={isMobileNavVisible}
+              onClose={() => {
                 setIsMobileNavVisible(false);
-              }
-            }}
-          />
-          <NavDesk />
-        </>
-      }
-      outsideNavComponent={
-        <Drawer
-          visible={isMobileNavVisible}
-          onClose={() => {
-            setIsMobileNavVisible(false);
-          }}
-          position="top"
-          closeButton={null}
-          className={clsx("2xl:hidden shadow-s1 h-full", {
-            "translate-y-[calc(var(--height-header-mobile)+1.5rem)] xl:translate-y-[calc(var(--height-header-mobile)+3.5rem)] border border-black/40 dark:border-soft-gray/50 rounded-t-[5rem] bg-soft-white/90 dark:bg-strong-black/90 max-h-[calc(100%-var(--height-header-mobile)-1.5rem)] xl:max-h-[calc(100%-var(--height-header-desktop)-2.5rem)]":
-              hasScrolled,
-            "translate-y-header-mobile bg-white-bone/90 dark:bg-black/90 max-h-[calc(100%-var(--height-header-mobile))]":
-              !hasScrolled,
-          })}
-        >
-          <NavMobile
-            onClose={() => {
-              setIsMobileNavVisible(false);
-            }}
-          />
-        </Drawer>
-      }
-      rightSectionComponent={
-        <HamburgerButton
-          isMobileNavVisible={isMobileNavVisible}
-          setIsMobileNavVisible={setIsMobileNavVisible}
+              }}
+              position="top"
+              closeButton={null}
+              className={clsx("2xl:hidden shadow-s1 h-full", {
+                "translate-y-[calc(var(--height-header-mobile)+1.5rem)] xl:translate-y-[calc(var(--height-header-mobile)+3.5rem)] border border-black/40 dark:border-soft-gray/50 rounded-t-[5rem] bg-soft-white/90 dark:bg-strong-black/90 max-h-[calc(100%-var(--height-header-mobile)-1.5rem)] xl:max-h-[calc(100%-var(--height-header-desktop)-2.5rem)]":
+                  hasScrolled,
+                "translate-y-header-mobile bg-white-bone/90 dark:bg-black/90 max-h-[calc(100%-var(--height-header-mobile))]":
+                  !hasScrolled,
+              })}
+            >
+              <NavMobile
+                onClose={() => {
+                  setIsMobileNavVisible(false);
+                }}
+              />
+            </Drawer>
+          }
+          rightSectionComponent={
+            <HamburgerButton
+              isMobileNavVisible={isMobileNavVisible}
+              setIsMobileNavVisible={setIsMobileNavVisible}
+            />
+          }
         />
-      }
-    />
+      )}
+    </AnimatePresence>
   );
 }

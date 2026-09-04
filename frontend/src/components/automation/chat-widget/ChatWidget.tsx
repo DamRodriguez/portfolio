@@ -6,6 +6,7 @@ import MotionEntrySlide from "@/components/motion/MotionEntrySlide";
 import MotionOpacity from "@/components/motion/MotionOpacity";
 import config from "@/config/config";
 import { routes } from "@/constants/routes";
+import { useCinematicLogic } from "@/hooks/gsap/head-section/useCinematicLogic";
 import { useScrollLock } from "@/hooks/scroll/useScrollLock";
 import useBreakpoint from "@/hooks/viewport/useBreakpoint";
 import { useVisualViewportHeight } from "@/hooks/viewport/useVisualViewportHeight";
@@ -18,6 +19,7 @@ import { useState } from "react";
 export type SendMessage = ReturnType<typeof useChat>["sendMessage"];
 
 export default function ChatWidget() {
+  const { isCinematicActive } = useCinematicLogic();
   const [isWidgetOpen, setIsWidgetOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const { messages, status, sendMessage } = useChat({
@@ -39,6 +41,8 @@ export default function ChatWidget() {
     variableName: "--widget-vh",
     fallbackValue: "100dvh",
   });
+
+  if (isCinematicActive) return null;
 
   return (
     <>
@@ -65,7 +69,6 @@ export default function ChatWidget() {
       >
         <div className="h-[calc(var(--widget-vh,100dvh)-2rem)] sm:h-[calc(100dvh-var(--height-header-mobile)-5rem)] xl:h-[calc(100dvh-var(--height-header-mobile)-7rem)] flex flex-col 2xl:flex-row w-[calc(100vw-2rem)] sm:w-[32rem] theme-transition-all">
           <MotionEntrySlide
-            order={6}
             direction={isTablet ? "down" : "right"}
             className="backdrop-blur-[0.5rem]"
           >
