@@ -20,6 +20,7 @@ const HeadSectionV2 = () => {
   const isMobile = useBreakpoint(config.breakpoints.md);
   const isTablet = useBreakpoint();
   const isDesktop = useBreakpoint(config.breakpoints["4xl"], "min");
+  const { isCinematicActive } = useCinematicIntro();
 
   const containerTrigger = {
     scrollTrigger: {
@@ -27,8 +28,6 @@ const HeadSectionV2 = () => {
       scrub: 2,
     },
   };
-
-  const { isCinematicActive } = useCinematicIntro();
 
   useScrollAnimations({
     dependencies: [isMobile, isTablet, isDesktop],
@@ -46,6 +45,7 @@ const HeadSectionV2 = () => {
           scale: isTablet ? 0.95 : 0.85,
           transformPerspective: 1000,
           boxShadow: "var(--shadow-s6)",
+          ease: "power3.out",
         },
       },
       ".header-section-line": {
@@ -141,7 +141,7 @@ const HeadSectionV2 = () => {
               </MotionOpacity>
             </div>
             <div className="flex flex-col-reverse text-center xl:text-start items-center xl:flex xl:flex-row xl:justify-between xl:items-center gap-[1rem]">
-              <MotionOpacity className="max-w-[70%] xl:max-w-[25%]">
+              <MotionOpacity className="max-w-[70%] xl:max-w-[24%]">
                 <p className="header-section-opacity xl:ml-[1rem] xl:mt-[1rem] text-dark-gray dark:text-soft-gray text-base 2xl:text-xl">
                   <RichText t={t} translationKey={"personalDescription"} />
                 </p>

@@ -30,7 +30,7 @@ export default function PersonalImage({
         src={personalImage}
         priority={true}
         alt="Personal image"
-        className="object-cover w-fit h-120 md:h-150 xl:h-full hover:scale-110 theme-transition-all"
+        className="object-cover w-fit h-120 md:h-150 xl:h-full"
       />
       {mounted && theme === "dark" && (
         <>
