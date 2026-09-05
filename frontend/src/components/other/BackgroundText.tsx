@@ -33,7 +33,7 @@ export default function BackgroundText() {
   const isCenter = activeSection === "work" || activeSection === "contact";
 
   return (
-    <div className="hidden xl:flex pointer-events-none fixed inset-0 z-21 overflow-hidden">
+    <div className="flex pointer-events-none fixed inset-0 z-21 overflow-hidden">
       <div className="absolute top-[calc(var(--height-header-desktop)+1rem)] w-full h-[calc(100vh-var(--height-header-desktop))]">
         <AnimatePresence mode="popLayout">
           {activeSection && activeSection !== "services" && (
@@ -54,9 +54,9 @@ export default function BackgroundText() {
               exit={{ opacity: 0, filter: "blur(20px)", y: -20, scale: 1.04 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="relative flex items-center justify-center ">
+              <div className="relative flex items-center justify-center">
                 <p
-                  className="font-fira-code text-nowrap xl:text-[clamp(4rem,10vh,16rem)] 4xl:text-[clamp(4rem,14vh,16rem)] font-bold uppercase tracking-[0.08em] text-black dark:text-soft-white opacity-8"
+                  className="font-fira-code text-nowrap text-[clamp(2rem,5vh,8rem)] xl:text-[clamp(4rem,10vh,16rem)] 4xl:text-[clamp(4rem,14vh,16rem)] font-bold uppercase tracking-[0.08em] text-black dark:text-soft-white opacity-8"
                   style={
                     isCenter
                       ? {}

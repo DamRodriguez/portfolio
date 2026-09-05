@@ -62,7 +62,7 @@ export default function Home() {
         to: {
           opacity: 0,
           scale: 0.8,
-          y: 100,
+          y: 150,
         },
       },
       ".curved-scrolling-text": {

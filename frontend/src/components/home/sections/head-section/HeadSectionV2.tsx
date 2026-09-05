@@ -85,7 +85,7 @@ const HeadSectionV2 = () => {
       },
       ".header-section-buttons": {
         ...containerTrigger,
-        gap: isTablet ? 40 : 100,
+        gap: isTablet ? 20 : 100,
         scale: 1.1,
       },
     },
