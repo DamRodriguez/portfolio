@@ -92,7 +92,7 @@ const ContactSection = () => {
   });
 
   return (
-    <div className="pin-contactSection pb-[8rem] xl:pb-[0rem] z-22">
+    <div className="pin-contactSection pb-[10rem] xl:pb-[0rem] z-22">
       <SpaceX
         id={removeHash(routes.contact)}
         className="relative w-full min-h-svh flex flex-col gap-[5rem] xl:gap-[10rem] pt-[2rem] xl:pt-[5rem]"
