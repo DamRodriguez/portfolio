@@ -30,6 +30,7 @@ const HeadSectionV2 = () => {
   };
 
   useScrollAnimations({
+    disabled: isMobile,
     dependencies: [isMobile, isTablet, isDesktop],
     animations: {
       ".head-section-container": {
