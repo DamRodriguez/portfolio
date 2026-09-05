@@ -20,7 +20,7 @@ const HeadSectionV2 = () => {
   const isMobile = useBreakpoint(config.breakpoints.md);
   const isTablet = useBreakpoint();
   const isDesktop = useBreakpoint(config.breakpoints["4xl"], "min");
-  const { isCinematicActive } = useCinematicIntro();
+  useCinematicIntro();
 
   const containerTrigger = {
     scrollTrigger: {
