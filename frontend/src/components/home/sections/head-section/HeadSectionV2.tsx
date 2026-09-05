@@ -102,7 +102,7 @@ const HeadSectionV2 = () => {
 
   return (
     <section
-      className={clsx("relative pb-[5rem] xl:pb-[10rem] overflow-hidden")}
+      className={clsx("relative pb-[0rem] xl:pb-[10rem] overflow-hidden")}
     >
       <BackgroundTextAnimated />
 
