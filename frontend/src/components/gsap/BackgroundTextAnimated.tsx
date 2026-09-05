@@ -56,7 +56,7 @@ const BackgroundTextAnimated = () => {
 
   return (
     <>
-      <MotionOpacity className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200vw] flex flex-col gap-1 pointer-events-none select-none z-0">
+      <MotionOpacity className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200vw] flex flex-col gap-1 pointer-events-none select-none z-0 bg-transparent">
         {[...Array(rowCount)].map((_, i) => {
           const isPair = i % 2 === 0;
           const positionInGroup = i % 6;
@@ -68,7 +68,7 @@ const BackgroundTextAnimated = () => {
               key={i}
               className={clsx(
                 "text-nowrap text-5md xl:text-6xl font-bold italic uppercase text-dark-gray dark:text-soft-gray",
-                "will-change-transform transform-gpu backface-hidden",
+                "will-change-transform transform-gpu backface-hidden bg-transparent",
                 "blur-[3px]",
                 {
                   "header-section-background-text-even ml-[-5%] opacity-20":

@@ -93,9 +93,7 @@ const HeadSectionV2 = () => {
 
   return (
     <section
-      className={clsx("relative pb-[5rem] xl:pb-[10rem]", {
-        "overflow-hidden": !isCinematicActive,
-      })}
+      className={clsx("relative pb-[5rem] xl:pb-[10rem] overflow-hidden")}
     >
       <BackgroundTextAnimated />
 
@@ -109,7 +107,7 @@ const HeadSectionV2 = () => {
           },
         )}
       >
-        <div className="header-section-cinematic-bg w-dvw h-dvh fixed top-0 left-0 bg-black dark:bg-soft-white origin-bottom z-10 pointer-events-none" />
+        <div className="header-section-cinematic-bg w-screen h-screen fixed top-0 left-0 bg-black dark:bg-soft-white origin-bottom z-10 pointer-events-none" />
 
         <div className="hidden 4xl:flex header-section-line absolute top-1/2 left-0 w-full -translate-y-[65%] h-[15rem] bg-black dark:bg-soft-white pointer-events-none" />
 
@@ -141,7 +139,7 @@ const HeadSectionV2 = () => {
               </MotionOpacity>
             </div>
             <div className="flex flex-col-reverse text-center xl:text-start items-center xl:flex xl:flex-row xl:justify-between xl:items-center gap-[1rem]">
-              <MotionOpacity className="max-w-[70%] xl:max-w-[24%]">
+              <MotionOpacity className="max-w-[70%] xl:max-w-[28%]">
                 <p className="header-section-opacity xl:ml-[1rem] xl:mt-[1rem] text-dark-gray dark:text-soft-gray text-base 2xl:text-xl">
                   <RichText t={t} translationKey={"personalDescription"} />
                 </p>
