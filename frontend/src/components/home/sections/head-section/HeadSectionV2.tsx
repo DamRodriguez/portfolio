@@ -46,6 +46,8 @@ const HeadSectionV2 = () => {
           transformPerspective: isMobile ? 0 : 1000,
           boxShadow: "var(--shadow-s6)",
           ease: "power3.out",
+          force3D: true,
+          willChange: "transform",
         },
       },
       ".header-section-line": {
@@ -61,32 +63,38 @@ const HeadSectionV2 = () => {
         to: {
           scaleY: 1,
           ease: "power2.inOut",
+          force3D: true,
         },
       },
       ".header-section-title1": {
         ...containerTrigger,
         x: isDesktop ? "-15%" : isMobile ? 0 : "15%",
         yPercent: isDesktop ? 50 : isMobile ? 120 : 0,
+        force3D: true,
+        willChange: "transform",
       },
       ".header-section-title2": {
         ...containerTrigger,
         x: isDesktop ? "15%" : isMobile ? 0 : "-15%",
         yPercent: isDesktop ? -30 : isMobile ? 140 : 0,
+        force3D: true,
+        willChange: "transform",
       },
       ".header-section-common-fade": {
         ...containerTrigger,
         from: { opacity: 1, scale: 1 },
-        to: { opacity: 0, scale: 0.9 },
+        to: { opacity: 0, scale: 0.9, force3D: true },
       },
       ".header-section-title-reflection": {
         ...containerTrigger,
         from: { opacity: 1, y: 0 },
-        to: { opacity: 0, y: -50 },
+        to: { opacity: 0, y: -50, force3D: true },
       },
       ".header-section-buttons": {
         ...containerTrigger,
         gap: isTablet ? 20 : 100,
         scale: 1.1,
+        force3D: true,
       },
     },
   });
@@ -99,14 +107,7 @@ const HeadSectionV2 = () => {
 
       <div className="w-full absolute z-15 -bottom-[2px] h-[5rem] xl:h-[10rem] pointer-events-none bg-gradient-to-t from-white-bone via-white-bone/70 dark:from-black dark:via-black/70 to-transparent" />
 
-      <SpaceX
-        className={clsx(
-          "relative head-section-container z-20 flex flex-col justify-center gap-[3rem] xl:gap-[4rem] min-h-svh bg-white-bone dark:bg-black rounded-[5rem]",
-          {
-            "transform-gpu": !isCinematicActive,
-          },
-        )}
-      >
+      <SpaceX className="relative head-section-container z-20 flex flex-col justify-center gap-[3rem] xl:gap-[4rem] min-h-svh bg-white-bone dark:bg-black rounded-[5rem] transform-gpu">
         <div className="header-section-cinematic-bg w-screen h-screen fixed top-0 left-0 bg-black dark:bg-soft-white origin-bottom z-10 pointer-events-none" />
 
         <div className="hidden 4xl:flex header-section-line absolute top-1/2 left-0 w-full -translate-y-[65%] h-[15rem] bg-black dark:bg-soft-white pointer-events-none" />
