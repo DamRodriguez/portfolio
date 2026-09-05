@@ -131,7 +131,7 @@ export default function RotatingOnScrollSection({
           {marqueeItems.map((item, index) => (
             <span
               key={`marquee-item-${index}`}
-              className="font-fira-code text-soft-white font-bold uppercase tracking-tight text-7xl lg:text-8md"
+              className="font-fira-code text-soft-white font-bold uppercase tracking-tight text-6xl md:text-7xl lg:text-8md"
             >
               {item}
               {index < marqueeItems.length - 1 && <span> / </span>}
