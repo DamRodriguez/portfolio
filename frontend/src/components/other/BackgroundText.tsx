@@ -33,7 +33,7 @@ export default function BackgroundText() {
   const isCenter = activeSection === "work" || activeSection === "contact";
 
   return (
-    <div className="flex pointer-events-none fixed inset-0 z-21 overflow-hidden">
+    <div className="hidden xl:flex pointer-events-none fixed inset-0 z-21 overflow-hidden">
       <div className="absolute top-[calc(var(--height-header-desktop)+1rem)] w-full h-[calc(100vh-var(--height-header-desktop))]">
         <AnimatePresence mode="popLayout">
           {activeSection && activeSection !== "services" && (
