@@ -1,14 +1,15 @@
 "use client";
 import MotionOpacity from "@/components/motion/MotionOpacity";
 import HorizontalShadow from "@/components/other/HorizontalShadow";
+import config from "@/config/config";
 import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
 import useBreakpoint from "@/hooks/viewport/useBreakpoint";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 
 const BackgroundTextAnimated = () => {
-  const isMobile = useBreakpoint();
-  const backgroundTextHeight = isMobile ? 60 : 80;
+  const isTablet = useBreakpoint(config.breakpoints.lg);
+  const backgroundTextHeight = isTablet ? 60 : 80;
   const [rowCount, setRowCount] = useState(10);
 
   useEffect(() => {
@@ -42,21 +43,23 @@ const BackgroundTextAnimated = () => {
       ".header-section-background-text-even": {
         ...containerTrigger,
         direction: "center",
-        x: isMobile ? 200 : 400,
+        x: isTablet ? 200 : 400,
         force3D: true,
       },
       ".header-section-background-text-odd": {
         ...containerTrigger,
         direction: "center",
-        x: isMobile ? -200 : -400,
+        x: isTablet ? -200 : -400,
         force3D: true,
       },
     },
   });
 
+  if (isTablet) return null;
+
   return (
     <>
-      <MotionOpacity className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200vw] flex flex-col gap-1 pointer-events-none select-none z-0 bg-transparent">
+      <MotionOpacity className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200vw] flex flex-col gap-1 pointer-events-none select-none z-0">
         {[...Array(rowCount)].map((_, i) => {
           const isPair = i % 2 === 0;
           const positionInGroup = i % 6;
