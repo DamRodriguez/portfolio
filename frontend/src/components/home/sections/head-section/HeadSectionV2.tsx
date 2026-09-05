@@ -36,14 +36,14 @@ const HeadSectionV2 = () => {
         from: {
           rotationX: 0,
           scale: 1,
-          transformOrigin: "bottom center",
-          transformPerspective: 1000,
+          transformOrigin: isMobile ? "" : "bottom center",
+          transformPerspective: isMobile ? 0 : 1000,
           boxShadow: "none",
         },
         to: {
-          rotationX: 30,
+          rotationX: isMobile ? 0 : 30,
           scale: isTablet ? 0.95 : 0.85,
-          transformPerspective: 1000,
+          transformPerspective: isMobile ? 0 : 1000,
           boxShadow: "var(--shadow-s6)",
           ease: "power3.out",
         },
