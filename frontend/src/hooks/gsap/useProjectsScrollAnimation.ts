@@ -33,7 +33,7 @@ export const useProjectsScrollAnimation = (
 
         if (index > 0) {
           gsap.from(card, {
-            scale: 1.05,
+            scale: 1.1,
             scrollTrigger: {
               trigger: card,
               start: "top bottom",

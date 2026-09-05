@@ -30,22 +30,6 @@ const ProjectsSection = () => {
           x: 0,
         },
       },
-      ".projects-section-item": {
-        scrollTrigger: {
-          start: "top center+=200",
-          end: "top center",
-          scrub: 2,
-        },
-        individual: true,
-        from: {
-          y: 25,
-          opacity: 0,
-        },
-        to: {
-          y: 0,
-          opacity: 1,
-        },
-      },
       ".projects-section-button": {
         direction: "bottom",
         from: {

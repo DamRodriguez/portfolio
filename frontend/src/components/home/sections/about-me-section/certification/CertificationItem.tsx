@@ -34,7 +34,7 @@ const CertificationItem = (props: CertificationItemProps) => {
       <div className="relative group md:w-[70%] xl:w-[60%]">
         <div
           className={clsx(
-            "bg-soft-white/40 dark:bg-black group-hover:bg-soft-white dark:group-hover:bg-soft-white/10 theme-transition flex items-center justify-between gap-[1rem] p-[1rem] rounded-[1rem] border border-dark-gray/15 dark:border-soft-gray/15 shadow-s3 dark:shadow-s1",
+            "bg-soft-white/40 dark:bg-black group-hover:bg-soft-white dark:group-hover:bg-soft-white/10 theme-transition flex items-center justify-between gap-[1rem] p-[1rem] rounded-[1rem] border border-dark-gray/15 dark:border-soft-gray/15 shadow-s2 dark:shadow-s1",
             props.containerClassName,
           )}
         >

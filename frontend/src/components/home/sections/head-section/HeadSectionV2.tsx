@@ -73,10 +73,10 @@ const HeadSectionV2 = () => {
         x: isDesktop ? "15%" : isMobile ? 0 : "-15%",
         yPercent: isDesktop ? -30 : isMobile ? 140 : 0,
       },
-      ".header-section-opacity": {
+      ".header-section-common-fade": {
         ...containerTrigger,
-        from: { opacity: 1 },
-        to: { opacity: 0 },
+        from: { opacity: 1, scale: 1 },
+        to: { opacity: 0, scale: 0.9 },
       },
       ".header-section-title-reflection": {
         ...containerTrigger,
@@ -131,7 +131,7 @@ const HeadSectionV2 = () => {
                   </MotionOpacity>
                 )}
               />
-              <MotionOpacity className="hidden xl:flex header-section-opacity">
+              <MotionOpacity className="hidden xl:flex header-section-common-fade">
                 <ButtonWithArrow
                   text={projectsButtonText}
                   routerPath={routes.projects}
@@ -140,7 +140,7 @@ const HeadSectionV2 = () => {
             </div>
             <div className="flex flex-col-reverse text-center xl:text-start items-center xl:flex xl:flex-row xl:justify-between xl:items-center gap-[1rem]">
               <MotionOpacity className="max-w-[70%] xl:max-w-[28%]">
-                <p className="header-section-opacity xl:ml-[1rem] xl:mt-[1rem] text-dark-gray dark:text-soft-gray text-base 2xl:text-xl">
+                <p className="header-section-common-fade xl:ml-[1rem] xl:mt-[1rem] text-dark-gray dark:text-soft-gray text-base 2xl:text-xl">
                   <RichText t={t} translationKey={"personalDescription"} />
                 </p>
               </MotionOpacity>
@@ -163,7 +163,7 @@ const HeadSectionV2 = () => {
               />
             </div>
           </div>
-          <MotionOpacity className="flex xl:hidden justify-center header-section-opacity">
+          <MotionOpacity className="flex xl:hidden justify-center header-section-common-fade">
             <ButtonWithArrow
               text={projectsButtonText}
               routerPath={routes.projects}

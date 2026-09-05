@@ -14,7 +14,7 @@ export function useCinematicIntro() {
             {
               duration: 0,
               opacity: 0,
-              scale: 999,
+              scale: 500,
               zIndex: 999999,
               rotate: -2,
             },
@@ -45,7 +45,7 @@ export function useCinematicIntro() {
             {
               duration: 0,
               opacity: 0,
-              scale: 999,
+              scale: 500,
               zIndex: 999999,
               rotate: 2,
             },

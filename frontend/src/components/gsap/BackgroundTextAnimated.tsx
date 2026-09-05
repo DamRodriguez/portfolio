@@ -89,8 +89,8 @@ const BackgroundTextAnimated = () => {
         })}
       </MotionOpacity>
       <HorizontalShadow />
-      <div className="w-full absolute z-15 top-[calc(var(--height-header-desktop))] h-[5rem] xl:h-[25rem] pointer-events-none bg-gradient-to-b from-white-bone via-white-bone/70 dark:from-black dark:via-black/70 to-transparent" />
-      <div className="w-full absolute z-15 -bottom-[2px] h-[10rem] xl:h-[30rem] pointer-events-none bg-gradient-to-t from-white-bone via-white-bone/70 dark:from-black dark:via-black/70 to-transparent" />
+      <div className="w-full absolute z-15 top-[calc(var(--height-header-desktop))] h-[5rem] xl:h-[15rem] pointer-events-none bg-gradient-to-b from-white-bone via-white-bone/70 dark:from-black dark:via-black/70 to-transparent" />
+      <div className="w-full absolute z-15 -bottom-[2px] h-[10rem] xl:h-[15rem] pointer-events-none bg-gradient-to-t from-white-bone via-white-bone/70 dark:from-black dark:via-black/70 to-transparent" />
     </>
   );
 };
