@@ -41,7 +41,7 @@ const TechnologiesSection = () => {
       ".tech-section-description": {
         direction: "center",
         from: {
-          y: "-50%",
+          y: -20,
         },
         to: {
           y: 0,
