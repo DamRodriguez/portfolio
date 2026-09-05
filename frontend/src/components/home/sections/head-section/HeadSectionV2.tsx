@@ -37,14 +37,14 @@ const HeadSectionV2 = () => {
         from: {
           rotationX: 0,
           scale: 1,
-          transformOrigin: isMobile ? "" : "bottom center",
-          transformPerspective: isMobile ? 0 : 1000,
+          transformOrigin: "bottom center",
+          transformPerspective: 1000,
           boxShadow: "none",
         },
         to: {
-          rotationX: isMobile ? 0 : 30,
+          rotationX: 30,
           scale: isTablet ? 0.95 : 0.85,
-          transformPerspective: isMobile ? 0 : 1000,
+          transformPerspective: 1000,
           boxShadow: "var(--shadow-s6)",
           ease: "power3.out",
           force3D: true,
@@ -69,15 +69,15 @@ const HeadSectionV2 = () => {
       },
       ".header-section-title1": {
         ...containerTrigger,
-        x: isDesktop ? "-15%" : isMobile ? 0 : "15%",
-        yPercent: isDesktop ? 50 : isMobile ? 120 : 0,
+        x: isDesktop ? "-15%" : "15%",
+        yPercent: isDesktop ? 50 : 0,
         force3D: true,
         willChange: "transform",
       },
       ".header-section-title2": {
         ...containerTrigger,
-        x: isDesktop ? "15%" : isMobile ? 0 : "-15%",
-        yPercent: isDesktop ? -30 : isMobile ? 140 : 0,
+        x: isDesktop ? "15%" : "-15%",
+        yPercent: isDesktop ? -30 : 0,
         force3D: true,
         willChange: "transform",
       },
@@ -102,7 +102,7 @@ const HeadSectionV2 = () => {
 
   return (
     <section
-      className={clsx("relative pb-[0rem] xl:pb-[10rem] overflow-hidden")}
+      className={clsx("relative pb-[0rem] lg:pb-[10rem] overflow-hidden")}
     >
       <BackgroundTextAnimated />
 
