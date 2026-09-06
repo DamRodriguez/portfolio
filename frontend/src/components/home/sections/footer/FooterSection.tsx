@@ -1,9 +1,9 @@
 "use client";
 import SpaceX from "@/components/layout/SpaceX";
+import LinkButton from "@/components/ui/buttons/LinkButton";
 import { navRoutes } from "@/constants/navRoutes";
 import { routes } from "@/constants/routes";
 import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
-import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import SocialButtonsSection from "../head-section/SocialButtonsSection";
 
@@ -75,23 +75,23 @@ const FooterSection = () => {
         </div>
 
         <div className="relative flex flex-col items-center gap-10 z-10">
-          <div className="footer-nav-links flex flex-wrap gap-y-[0.8rem] gap-x-[2rem] xl:gap-x-[3rem] xl:gap-y-[1rem] justify-center max-w-[18rem] sm:max-w-full">
+          <div className="footer-nav-links flex flex-wrap gap-y-[0.8rem] gap-x-[2rem] xl:gap-x-[3rem] xl:gap-y-[1rem] justify-center max-w-[18rem] sm:max-w-[30rem] lg:max-w-full">
             {footerRoutes.map((route, index) => {
               const isHome = route.label === "home";
 
               return (
-                <Link
+                <LinkButton
                   key={index}
                   href={route.href}
-                  onClick={(e) => {
+                  variant="empty"
+                  onClick={() => {
                     if (!isHome) return;
-                    e.preventDefault();
                     handleTopScroll();
                   }}
-                  className="text-dark-gray dark:text-soft-gray text-base xl:text-lg hover:text-strong-black dark:hover:text-soft-white theme-transition cursor-pointer"
+                  className="text-dark-gray dark:text-soft-gray !font-normal !text-base xl:!text-lg hover:text-strong-black dark:hover:text-soft-white theme-transition cursor-pointer"
                 >
                   {t(route.label)}
-                </Link>
+                </LinkButton>
               );
             })}
           </div>

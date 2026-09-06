@@ -75,7 +75,7 @@ export default function Home() {
           attr: { startOffset: "0%" },
         },
         to: {
-          attr: { startOffset: isMobile ? "-100%" : "-150%" },
+          attr: { startOffset: "-100%" },
         },
       },
       ".pin-contactSection": {
