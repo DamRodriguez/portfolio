@@ -27,68 +27,54 @@ const ContactSection = () => {
         direction: "bottom",
         from: {
           opacity: 0,
-          filter: "blur(3px)",
+          filter: isMobile ? "none" : "blur(3px)",
           y: 15,
         },
         to: {
           opacity: 1,
-          filter: "blur(0px)",
+          filter: isMobile ? "none" : "blur(0px)",
           y: 0,
         },
       },
       ".curtain-fade-left-element": {
         scrollTrigger: curtainScrollTrigger,
-        from: {
-          y: 0,
-          x: 0,
-          scale: 1,
-        },
-        to: {
-          y: 100,
-          x: -50,
-          scale: 0.85,
-        },
+        from: { y: 0, x: 0, scale: 1 },
+        to: { y: 100, x: -50, scale: isMobile ? 1 : 0.85 },
       },
       ".curtain-fade-right-element": {
         scrollTrigger: curtainScrollTrigger,
-        from: {
-          y: 0,
-          x: 0,
-          scale: 1,
-        },
-        to: {
-          y: 100,
-          x: 50,
-          scale: 0.85,
-        },
+        from: { y: 0, x: 0, scale: 1 },
+        to: { y: 100, x: 50, scale: isMobile ? 1 : 0.85 },
       },
       ".curtain-left": {
         from: {
-          width: "50%",
+          xPercent: 0,
           borderTopRightRadius: "0rem",
         },
         to: {
-          width: "0%",
-          borderTopRightRadius: "3rem",
+          xPercent: -100,
+          borderTopRightRadius: isMobile ? "0rem" : "3rem",
           ease: "power1.in",
+          force3D: true,
         },
         scrollTrigger: curtainScrollTrigger,
       },
       ".curtain-right": {
         from: {
-          width: "50%",
+          xPercent: 0,
           borderTopLeftRadius: "0rem",
         },
         to: {
-          width: "0%",
-          borderTopLeftRadius: "3rem",
+          xPercent: 100,
+          borderTopLeftRadius: isMobile ? "0rem" : "3rem",
           ease: "power1.in",
+          force3D: true,
         },
         scrollTrigger: curtainScrollTrigger,
       },
       ".contact-section-content": {
         from: { opacity: 0, scale: isMobile ? 1 : 0.85 },
-        to: { opacity: 1, scale: 1, ease: "power1.in" },
+        to: { opacity: 1, scale: 1, ease: "power1.in", force3D: true },
         scrollTrigger: curtainScrollTrigger,
       },
     },

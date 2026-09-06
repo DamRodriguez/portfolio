@@ -64,6 +64,7 @@ export default function Home() {
           opacity: 0,
           scale: isMobile ? 1 : 0.8,
           y: isMobile ? 0 : 150,
+          force3D: true,
         },
       },
       ".curved-scrolling-text": {
@@ -73,7 +74,7 @@ export default function Home() {
           attr: { startOffset: "0%" },
         },
         to: {
-          attr: { startOffset: isMobile ? "-150%" : "-150%" },
+          attr: { startOffset: isMobile ? "-100%" : "-150%" },
         },
       },
       ".pin-contactSection": {
@@ -88,12 +89,13 @@ export default function Home() {
         from: {
           opacity: 1,
           scale: 1,
-          filter: "blur(0px)",
+          filter: isMobile ? "none" : "blur(0px)",
         },
         to: {
           opacity: 0.2,
           scale: isMobile ? 1 : 0.8,
-          filter: isMobile ? "blur(0px)" : "blur(5px)",
+          filter: isMobile ? "none" : "blur(5px)",
+          force3D: true,
         },
       },
     },

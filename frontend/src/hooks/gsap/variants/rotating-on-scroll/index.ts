@@ -118,10 +118,17 @@ export function useRotatingOnScrollAnimation({
       scrollTriggersRef.current.push(...entranceTriggers);
 
       // 4. Manejo de resize
+      let lastWidth = window.innerWidth;
+
       const handleResize = () => {
-        positionWrappers(wrapperRefs);
-        alignMarquee(marquee, marqueeBg, wrappers[0]);
-        ScrollTrigger.refresh();
+        // En mobile, el scroll oculta la barra y cambia el innerHeight, pero el innerWidth se mantiene.
+        // Solo recalculamos si el ancho realmente cambió (ej: rotación de pantalla).
+        if (window.innerWidth !== lastWidth) {
+          lastWidth = window.innerWidth;
+          positionWrappers(wrapperRefs);
+          alignMarquee(marquee, marqueeBg, wrappers[0]);
+          ScrollTrigger.refresh();
+        }
       };
 
       window.addEventListener("resize", handleResize);

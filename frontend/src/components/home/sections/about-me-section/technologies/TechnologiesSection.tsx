@@ -4,13 +4,16 @@ import TechnologyItem, {
 } from "@/components/home/sections/about-me-section/technologies/TechnologyItem";
 import { RichText } from "@/components/next-intl/RichText";
 import GithubButton from "@/components/ui/buttons/GithubButton";
+import config from "@/config/config";
 import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
+import useBreakpoint from "@/hooks/viewport/useBreakpoint";
 import { useTranslations } from "next-intl";
 import { useRef } from "react";
 
 const TechnologiesSection = () => {
   const t = useTranslations("aboutMeSection");
   const containerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useBreakpoint(config.breakpoints.sm);
 
   const trigger = {
     start: "top center",
@@ -23,7 +26,7 @@ const TechnologiesSection = () => {
     animations: {
       ".tech-section-animated-bg": {
         from: { clipPath: "ellipse(40% 0% at 50% 0%)" },
-        to: { clipPath: "ellipse(250% 120% at 50% 0%)" },
+        to: { clipPath: "ellipse(250% 120% at 50% 0%)", force3D: true },
         scrollTrigger: trigger,
       },
       ".tech-section-common": {
@@ -31,27 +34,36 @@ const TechnologiesSection = () => {
         individual: true,
         from: {
           opacity: 0,
-          scale: 0.95,
+          scale: isMobile ? 1 : 0.95,
         },
         to: {
           opacity: 1,
           scale: 1,
+          force3D: true,
         },
       },
       ".tech-section-description": {
         direction: "center",
         from: {
-          y: -20,
+          y: isMobile ? -10 : -20,
         },
         to: {
           y: 0,
+          force3D: true,
         },
       },
       ".tech-section-item": {
         direction: "bottom",
         individual: true,
-        from: { scale: 0.9, y: 20 },
-        to: { scale: 1, y: 0 },
+        from: {
+          scale: isMobile ? 1 : 0.9,
+          y: isMobile ? 10 : 20,
+        },
+        to: {
+          scale: 1,
+          y: 0,
+          force3D: true,
+        },
       },
     },
   });
@@ -81,7 +93,7 @@ const TechnologiesSection = () => {
       ref={containerRef}
       className="relative gap-[1.5rem] xl:gap-[2rem] flex flex-col xl:w-1/2"
     >
-      <div className="tech-section-animated-bg absolute top-0 left-0 w-full h-full bg-white-bone dark:bg-black z-20 mix-blend-multiply dark:mix-blend-exclusion pointer-events-none rounded-none" />
+      <div className="tech-section-animated-bg absolute top-0 left-0 w-full h-full bg-white-bone dark:bg-black z-20 mix-blend-multiply dark:mix-blend-exclusion pointer-events-none rounded-none will-change-transform" />
 
       <div className="tech-section-item">
         <TechnologyItem data={frontTechnologyData} animation="left" />
