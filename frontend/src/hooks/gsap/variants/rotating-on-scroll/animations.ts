@@ -62,6 +62,7 @@ export function setupGallery3DAnimation({
         rotationX: endRot.x,
         rotationY: endRot.y,
         rotationZ: endRot.z,
+        force3D: true,
         ease: "none",
         scrollTrigger: {
           trigger: wrap,
@@ -128,8 +129,8 @@ export function setupMarqueeAnimation({
       onRefresh: (self) => {
         const spacer = self.pin?.parentElement;
         if (spacer && spacer.classList.contains("pin-spacer")) {
-          spacer.style.mixBlendMode = "difference";
-          marquee.style.mixBlendMode = "normal";
+          gsap.set(spacer, { mixBlendMode: "difference" });
+          gsap.set(marquee, { mixBlendMode: "normal" });
         }
       },
     },
@@ -199,6 +200,7 @@ export function setupEntranceAnimation({
     gsap.set(el, from);
     const tween = gsap.to(el, {
       ...to,
+      force3D: true,
       scrollTrigger: {
         trigger: el,
         start: config.start,

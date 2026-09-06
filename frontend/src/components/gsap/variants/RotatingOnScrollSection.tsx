@@ -101,7 +101,6 @@ export default function RotatingOnScrollSection({
                   style={{
                     aspectRatio: itemAspectRatio,
                     transformStyle: "preserve-3d",
-                    willChange: "transform, filter",
                   }}
                 >
                   <CustomImage

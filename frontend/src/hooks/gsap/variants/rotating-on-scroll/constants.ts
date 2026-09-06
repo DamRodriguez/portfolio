@@ -13,12 +13,10 @@ export const DEFAULT_ENTRANCE_ANIMATION: EntranceAnimationConfig = {
   from: {
     scale: 0.9,
     y: 30,
-    filter: "blur(8px)",
   },
   to: {
     scale: 1,
     y: 0,
-    filter: "blur(0px)",
     ease: "power2.out",
   },
 };
