@@ -11,13 +11,14 @@ import ServicesSectionWrapper from "@/components/home/sections/services/Services
 import VerticalProjects from "@/components/home/sections/vertical-projects/VerticalProjects";
 import WorkSection from "@/components/home/sections/work/WorkSection";
 import Main from "@/components/layout/Main";
+import config from "@/config/config";
 import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
 import useBreakpoint from "@/hooks/viewport/useBreakpoint";
 import { useRef } from "react";
 
 export default function Home() {
   const mainRef = useRef<HTMLDivElement>(null);
-  const isMobile = useBreakpoint();
+  const isMobile = useBreakpoint(config.breakpoints.sm);
 
   const aboutMeTransitionTrigger = {
     trigger: ".pin-aboutme",
@@ -61,8 +62,8 @@ export default function Home() {
         },
         to: {
           opacity: 0,
-          scale: 0.8,
-          y: 150,
+          scale: isMobile ? 1 : 0.8,
+          y: isMobile ? 0 : 150,
         },
       },
       ".curved-scrolling-text": {
@@ -72,7 +73,7 @@ export default function Home() {
           attr: { startOffset: "0%" },
         },
         to: {
-          attr: { startOffset: isMobile ? "-200%" : "-150%" },
+          attr: { startOffset: isMobile ? "-150%" : "-150%" },
         },
       },
       ".pin-contactSection": {
