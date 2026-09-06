@@ -30,6 +30,7 @@ export const useProjectsScrollAnimation = (
           end: isLast ? endPosition : undefined,
           pin: true,
           pinSpacing: false,
+          anticipatePin: isMobile ? 1 : 0,
         });
 
         if (index > 0) {

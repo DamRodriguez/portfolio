@@ -51,6 +51,7 @@ export default function Home() {
           ...aboutMeTransitionTrigger,
           pin: true,
           pinSpacing: false,
+          anticipatePin: isMobile ? 1 : 0,
         },
       },
       ".pin-aboutme-content": {
@@ -82,6 +83,7 @@ export default function Home() {
           ...contactSectionTransitionTrigger,
           pin: true,
           pinSpacing: false,
+          anticipatePin: isMobile ? 1 : 0,
         },
       },
       ".pin-contactSection-content": {
