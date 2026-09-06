@@ -11,9 +11,10 @@ gsap.registerPlugin(ScrollTrigger);
 export const useProjectsScrollAnimation = (
   containerRef: RefObject<HTMLDivElement | null>,
 ) => {
-  const isMobile = useBreakpoint(config.breakpoints.xl);
-  const topPosition = isMobile ? "top top+=70" : "top top+=85";
-  const endPosition = isMobile ? "+=70" : "+=85";
+  const isMobile = useBreakpoint(config.breakpoints.sm);
+  const isTablet = useBreakpoint(config.breakpoints.xl);
+  const topPosition = isTablet ? "top top+=70" : "top top+=85";
+  const endPosition = isTablet ? "+=70" : "+=85";
 
   useGSAP(
     () => {
@@ -33,7 +34,7 @@ export const useProjectsScrollAnimation = (
 
         if (index > 0) {
           gsap.from(card, {
-            scale: 1.1,
+            scale: isMobile ? 1 : 1.1,
             scrollTrigger: {
               trigger: card,
               start: "top bottom",
@@ -43,7 +44,7 @@ export const useProjectsScrollAnimation = (
           });
           gsap.to(contents[index - 1], {
             opacity: 0.1,
-            scale: 0.85,
+            scale: isMobile ? 1 : 0.85,
             scrollTrigger: {
               trigger: card,
               start: "top bottom",
@@ -54,6 +55,6 @@ export const useProjectsScrollAnimation = (
         }
       });
     },
-    { scope: containerRef, dependencies: [isMobile], revertOnUpdate: true },
+    { scope: containerRef, dependencies: [isTablet], revertOnUpdate: true },
   );
 };

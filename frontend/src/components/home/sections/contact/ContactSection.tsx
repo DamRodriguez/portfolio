@@ -1,15 +1,18 @@
 "use client";
 import SpaceX from "@/components/layout/SpaceX";
 import { ReflectedTitle } from "@/components/text/ReflectedTitle";
+import config from "@/config/config";
 import { routes } from "@/constants/routes";
 import ContactForm from "@/features/contact/components/ContactForm";
 import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
+import useBreakpoint from "@/hooks/viewport/useBreakpoint";
 import { removeHash } from "@/utils/removeHash";
 import { useTranslations } from "next-intl";
 import NameSection from "./NameSection";
 
 const ContactSection = () => {
   const t = useTranslations("contactSection");
+  const isMobile = useBreakpoint(config.breakpoints.sm);
 
   const curtainScrollTrigger = {
     trigger: ".pin-contactSection",
@@ -84,7 +87,7 @@ const ContactSection = () => {
         scrollTrigger: curtainScrollTrigger,
       },
       ".contact-section-content": {
-        from: { opacity: 0, scale: 0.85 },
+        from: { opacity: 0, scale: isMobile ? 1 : 0.85 },
         to: { opacity: 1, scale: 1, ease: "power1.in" },
         scrollTrigger: curtainScrollTrigger,
       },

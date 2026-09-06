@@ -92,8 +92,8 @@ export default function Home() {
         },
         to: {
           opacity: 0.2,
-          scale: 0.8,
-          filter: "blur(5px)",
+          scale: isMobile ? 1 : 0.8,
+          filter: isMobile ? "blur(0px)" : "blur(5px)",
         },
       },
     },
