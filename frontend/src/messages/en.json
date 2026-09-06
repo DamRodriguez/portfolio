@@ -52,7 +52,8 @@
   },
   "verticalProjectsSection": {
     "title": "Featured",
-    "description": "Projects where details make the difference"
+    "description": "Projects where details make the difference",
+    "marqueeMobileText": "Detailed projects"
   },
   "aboutMeSection": {
     "header": {

@@ -4,6 +4,7 @@ import VerticalProjectsTitle from "@/components/home/sections/vertical-projects/
 import config from "@/config/config";
 import { useScrollAnimations } from "@/hooks/gsap/useScrollAnimations";
 import useBreakpoint from "@/hooks/viewport/useBreakpoint";
+import { useTranslations } from "next-intl";
 
 const images = [
   "/images/projects/spotify-mobile/logo.webp",
@@ -23,6 +24,10 @@ const marqueeItems = [
 
 export default function VerticalProjects() {
   const isTablet = useBreakpoint(config.breakpoints.lg);
+  const isMobile = useBreakpoint(config.breakpoints.md);
+  const t = useTranslations("verticalProjectsSection");
+  const marqueeMobileText = t("marqueeMobileText");
+  const marqueeText = isMobile ? [marqueeMobileText] : marqueeItems;
 
   useScrollAnimations({
     animations: {
@@ -42,7 +47,7 @@ export default function VerticalProjects() {
   return (
     <div className="projects-vertical-container relative flex flex-col gap-[1.5rem] md:gap-[2rem] overflow-hidden">
       <VerticalProjectsTitle />
-      <RotatingOnScrollSection images={images} marqueeItems={marqueeItems} />
+      <RotatingOnScrollSection images={images} marqueeItems={marqueeText} />
     </div>
   );
 }
