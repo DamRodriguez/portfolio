@@ -92,11 +92,16 @@ const HeadSectionV2 = () => {
         to: { opacity: 0, y: isMobile ? -20 : -50, force3D: true },
       },
       ".header-section-buttons": {
-        disableScrollTrigger: isMobile,
-        ...containerTrigger,
-        gap: isTablet ? 20 : 100,
-        scale: 1.1,
-        force3D: true,
+        ...(isMobile
+          ? {
+              y: -50,
+            }
+          : {
+              ...containerTrigger,
+              gap: isTablet ? 20 : 100,
+              scale: 1.1,
+              force3D: true,
+            }),
       },
     },
   });
