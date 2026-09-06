@@ -30,7 +30,6 @@ const HeadSectionV2 = () => {
   };
 
   useScrollAnimations({
-    disabled: isMobile,
     dependencies: [isMobile, isTablet, isDesktop],
     animations: {
       ".head-section-container": {
@@ -38,20 +37,21 @@ const HeadSectionV2 = () => {
           rotationX: 0,
           scale: 1,
           transformOrigin: "bottom center",
-          transformPerspective: 1000,
+          transformPerspective: isMobile ? "none" : 1000,
           boxShadow: "none",
         },
         to: {
-          rotationX: 30,
+          rotationX: isMobile ? 0 : 30,
           scale: isTablet ? 0.95 : 0.85,
-          transformPerspective: 1000,
-          boxShadow: "var(--shadow-s6)",
+          transformPerspective: isMobile ? 0 : 1000,
+          boxShadow: isMobile ? "none" : "var(--shadow-s6)",
           ease: "power3.out",
           force3D: true,
           willChange: "transform",
         },
       },
       ".header-section-line": {
+        disableScrollTrigger: isMobile,
         scrollTrigger: {
           start: "top center-=150",
           end: "bottom center",
@@ -69,29 +69,30 @@ const HeadSectionV2 = () => {
       },
       ".header-section-title1": {
         ...containerTrigger,
-        x: isDesktop ? "-15%" : "15%",
-        yPercent: isDesktop ? 50 : 0,
+        x: isDesktop ? "-15%" : isMobile ? 0 : "15%",
+        yPercent: isDesktop ? 50 : isMobile ? 150 : 0,
         force3D: true,
         willChange: "transform",
       },
       ".header-section-title2": {
         ...containerTrigger,
-        x: isDesktop ? "15%" : "-15%",
-        yPercent: isDesktop ? -30 : 0,
+        x: isDesktop ? "15%" : isMobile ? 0 : "-15%",
+        yPercent: isDesktop ? -30 : isMobile ? 150 : 0,
         force3D: true,
         willChange: "transform",
       },
       ".header-section-common-fade": {
         ...containerTrigger,
         from: { opacity: 1, scale: 1 },
-        to: { opacity: 0, scale: 0.9, force3D: true },
+        to: { opacity: 0, scale: isMobile ? 1 : 0.9, force3D: true },
       },
       ".header-section-title-reflection": {
         ...containerTrigger,
         from: { opacity: 1, y: 0 },
-        to: { opacity: 0, y: -50, force3D: true },
+        to: { opacity: 0, y: isMobile ? -20 : -50, force3D: true },
       },
       ".header-section-buttons": {
+        disableScrollTrigger: isMobile,
         ...containerTrigger,
         gap: isTablet ? 20 : 100,
         scale: 1.1,
