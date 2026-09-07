@@ -70,14 +70,16 @@ const HeadSectionV2 = () => {
       ".header-section-title1": {
         ...containerTrigger,
         x: isDesktop ? "-15%" : isMobile ? 0 : "15%",
-        yPercent: isDesktop ? 50 : isMobile ? 150 : 0,
+        yPercent: isDesktop ? 50 : 0,
+        y: isMobile ? 200 : 0,
         force3D: true,
         willChange: "transform",
       },
       ".header-section-title2": {
         ...containerTrigger,
         x: isDesktop ? "15%" : isMobile ? 0 : "-15%",
-        yPercent: isDesktop ? -30 : isMobile ? 150 : 0,
+        yPercent: isDesktop ? -30 : 0,
+        y: isMobile ? 200 : 0,
         force3D: true,
         willChange: "transform",
       },
@@ -93,9 +95,7 @@ const HeadSectionV2 = () => {
       },
       ".header-section-buttons": {
         ...(isMobile
-          ? {
-              y: -50,
-            }
+          ? {}
           : {
               ...containerTrigger,
               gap: isTablet ? 20 : 100,
