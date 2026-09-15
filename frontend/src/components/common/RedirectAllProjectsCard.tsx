@@ -8,7 +8,7 @@ export default function RedirectAllProjectsCard() {
 
   return (
     <LinkButton
-      variant="secondary"
+      variant="primary"
       href={routes.allProjects}
       className="h-fit shadow-s3 dark:shadow-s1"
     >

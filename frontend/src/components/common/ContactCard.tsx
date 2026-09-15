@@ -38,7 +38,7 @@ export default function ContactCard() {
         const Icon = contact.icon;
         return (
           <LinkButton
-            variant="secondary"
+            variant="primary"
             key={contact.name}
             href={contact.link}
             className="h-fit shadow-s3 dark:shadow-s1"
