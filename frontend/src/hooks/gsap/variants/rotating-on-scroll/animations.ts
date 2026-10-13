@@ -164,6 +164,7 @@ export function setupMarqueeAnimation({
       pin: marqueeBg,
       pinSpacing: false,
       invalidateOnRefresh: true,
+      scrub: 2,
     });
     triggers.push(bgPin);
   }
