@@ -4,6 +4,27 @@ import config from "@/config/config";
 // Primero se cargan los textos del proyecto en messages (es - en) y luego con la clave del nombre se completa el objeto.
 export const projectsData: ProjectItemData[] = [
   {
+    translationKey: "inkAndSoul",
+    button: {
+      type: "site",
+      link: config.projects.inkAndSoul,
+    },
+    imageLogo: "/images/projects/ink-and-soul/logo.webp",
+    imageSource: {
+      type: "default",
+      images: {
+        rectangular: "/images/projects/ink-and-soul/rectangular.webp",
+        vertical: "/images/projects/ink-and-soul/vertical.webp",
+        square: "/images/projects/ink-and-soul/square.webp",
+        horizontal: "/images/projects/ink-and-soul/horizontal.webp",
+        extra: [
+          "/images/projects/ink-and-soul/extra/contacto.webp",
+          "/images/projects/ink-and-soul/extra/estudio.webp",
+        ],
+      },
+    },
+  },
+  {
     translationKey: "spotifyMobile",
     button: {
       type: "repository",

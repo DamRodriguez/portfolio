@@ -162,6 +162,12 @@
       "all": "All"
     },
     "data": {
+      "inkAndSoul": {
+        "title": "Ink & Soul",
+        "description": "<strong>Immersive landing page</strong> with a <strong>tattoo studio</strong> theme, featuring a unique and modern design. \n\nIt includes sections for team members, their services, work with an image gallery, a <strong>simulator</strong> to try out tattoos, and a contact section.",
+        "technologies": "Next.js, TypeScript, Tailwind, Zod, React Hook Form, Motion, GSAP, Three.js, TanStack Query",
+        "category": "webPlatform"
+      },
       "vanicracia": {
         "title": "Vanicracia",
         "description": "<strong>E-commerce</strong> focused on astrology, featuring various sections including <strong>services</strong>, <strong>courses</strong>, and <strong>products</strong>. It allows users to explore and purchase items, view their details, and access <strong>pre-recorded courses</strong>.\n\nIt also includes a <strong>shopping cart</strong> with integrated payment systems and a <strong>user authentication system</strong> that supports login, registration, and password recovery.",

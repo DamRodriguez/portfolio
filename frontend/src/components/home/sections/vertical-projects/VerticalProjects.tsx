@@ -7,19 +7,19 @@ import useBreakpoint from "@/hooks/viewport/useBreakpoint";
 import { useTranslations } from "next-intl";
 
 const images = [
+  "/images/projects/ink-and-soul/logo.webp",
   "/images/projects/spotify-mobile/logo.webp",
   "/images/projects/lopez-propiedades/logo.webp",
   "/images/projects/vanicracia/logo.webp",
   "/images/projects/alfombras-tauro/logo.webp",
-  "/images/projects/donde-salgo/logo.webp",
 ];
 
 const marqueeItems = [
+  "Ink & Soul",
   "Spotify Mobile",
   "Lopez Propiedades",
   "Vanicracia",
   "Alfombras Tauro",
-  "Donde Salgo",
 ];
 
 export default function VerticalProjects() {
