@@ -10,7 +10,7 @@ import clsx from "clsx";
 import { AnimatePresence } from "framer-motion";
 import { Messages, useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
-import ButtonsSection, { ProjectButton } from "./ButtonsSection";
+import ButtonsSection, { DemoVideo, ProjectButton } from "./ButtonsSection";
 import ImagesSection, { ImageSource } from "./ImagesSection";
 
 export type ProjectKey = keyof Messages["projectsSection"]["data"];
@@ -20,7 +20,7 @@ export type CategoryTranslationKey = `categories.${ProjectCategory}`;
 
 export type ProjectItemData = {
   button: ProjectButton;
-  demoVideo?: string;
+  demoVideo?: DemoVideo;
   imageSource: ImageSource;
   imageLogo: string;
   disablePopUp?: boolean;

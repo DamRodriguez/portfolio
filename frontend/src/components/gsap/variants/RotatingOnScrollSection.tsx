@@ -120,7 +120,7 @@ export default function RotatingOnScrollSection({
 
       <div
         ref={marqueeRef}
-        className="mark pointer-events-none absolute left-0 w-full flex items-center overflow-hidden z-10"
+        className="mark pointer-events-none hidden absolute left-0 w-full md:flex items-center overflow-hidden z-10"
         aria-hidden="true"
       >
         <div

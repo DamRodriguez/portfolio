@@ -151,7 +151,8 @@
       "inDevelopment": "In development",
       "seeCode": "Source code",
       "seeDemo": "Live demo",
-      "allProjects": "View more projects"
+      "allProjects": "View more projects",
+      "seeAdmin": "View admin"
     },
     "categories": {
       "ecommerce": "E-commerce",
@@ -164,8 +165,8 @@
     "data": {
       "inkAndSoul": {
         "title": "Ink & Soul",
-        "description": "<strong>Immersive landing page</strong> with a <strong>tattoo studio</strong> theme, featuring a unique and modern design. \n\nIt includes sections for team members, their services, work with an image gallery, a <strong>simulator</strong> to try out tattoos, and a contact section.",
-        "technologies": "Next.js, TypeScript, Tailwind, Zod, React Hook Form, Motion, GSAP, Three.js, TanStack Query",
+        "description": "End-to-end platform for <strong>tattoo studios</strong>, combining an <strong>immersive landing page</strong> with a <strong>complete admin panel</strong>.\n\nIt features multiple sections, ranging from a <strong>tattoo simulator</strong> and artwork gallery to a <strong>metrics dashboard</strong> and modules for <strong>complete management</strong> of the studio.",
+        "technologies": "Next.js, TypeScript, Supabase, Tailwind, Zod, React Hook Form, Motion, GSAP, Three.js, React Toastify",
         "category": "webPlatform"
       },
       "vanicracia": {

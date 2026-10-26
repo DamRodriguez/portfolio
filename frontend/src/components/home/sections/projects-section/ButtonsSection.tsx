@@ -2,7 +2,7 @@ import { ArrowIcon, PlayIcon } from "@/components/icons/buttons";
 import { VideoPopUp } from "@/components/pop-up/VideoPopUp";
 import CustomButton from "@/components/ui/buttons/CustomButton";
 import clsx from "clsx";
-import { useTranslations } from "next-intl";
+import { Messages, useTranslations } from "next-intl";
 import { useState } from "react";
 
 export type ProjectButton =
@@ -18,9 +18,16 @@ export type ProjectButton =
       type: "inDevelopment";
     };
 
+export type DemoVideo =
+  | string
+  | {
+      url: string;
+      buttonText?: keyof Messages["projectsSection"]["buttons"];
+    };
+
 type ButtonsSectionProps = {
   button: ProjectButton;
-  demoVideo?: string;
+  demoVideo?: DemoVideo;
   containerClassName?: string;
   lockScroll?: boolean;
 };
@@ -33,6 +40,12 @@ const ButtonsSection = ({
 }: ButtonsSectionProps) => {
   const t = useTranslations("projectsSection.buttons");
   const [demoVideoState, setDemoVideoState] = useState<string>("");
+  const demoVideoUrl =
+    typeof demoVideo === "string" ? demoVideo : demoVideo?.url;
+  const demoVideoButtonText =
+    typeof demoVideo === "string"
+      ? t("seeDemo")
+      : t(demoVideo?.buttonText ?? "seeDemo");
 
   return (
     <>
@@ -67,14 +80,14 @@ const ButtonsSection = ({
             {t("inDevelopment")}
           </div>
         )}
-        {demoVideo && (
+        {demoVideoUrl && (
           <CustomButton
-            text={t("seeDemo")}
+            text={demoVideoButtonText}
             icon={PlayIcon}
             variant={{
               type: "button",
               onClick: () => {
-                setDemoVideoState(demoVideo);
+                setDemoVideoState(demoVideoUrl);
               },
             }}
           />

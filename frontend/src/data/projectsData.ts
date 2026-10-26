@@ -9,6 +9,10 @@ export const projectsData: ProjectItemData[] = [
       type: "site",
       link: config.projects.inkAndSoul,
     },
+    demoVideo: {
+      url: "/videos/projects/ink-and-soul/ink_desktop_admin.mp4",
+      buttonText: "seeAdmin",
+    },
     imageLogo: "/images/projects/ink-and-soul/logo.webp",
     imageSource: {
       type: "default",
@@ -18,8 +22,12 @@ export const projectsData: ProjectItemData[] = [
         square: "/images/projects/ink-and-soul/square.webp",
         horizontal: "/images/projects/ink-and-soul/horizontal.webp",
         extra: [
-          "/images/projects/ink-and-soul/extra/contacto.webp",
-          "/images/projects/ink-and-soul/extra/estudio.webp",
+          "/images/projects/ink-and-soul/extra/contact.webp",
+          "/images/projects/ink-and-soul/extra/studio.webp",
+          "/images/projects/ink-and-soul/extra/tattoo-simulator.webp",
+          "/images/projects/ink-and-soul/extra/team.webp",
+          "/images/projects/ink-and-soul/extra/nav-mobile.webp",
+          "/images/projects/ink-and-soul/extra/mobile-work-gallery.webp",
         ],
       },
     },
@@ -40,7 +48,10 @@ export const projectsData: ProjectItemData[] = [
         "/images/projects/spotify-mobile/image4.webp",
       ],
     },
-    demoVideo: "/videos/projects/spotify-mobile/spotify-mobile.mp4",
+    demoVideo: {
+      url: "/videos/projects/spotify-mobile/spotify-mobile.mp4",
+      buttonText: "seeDemo",
+    },
   },
   {
     translationKey: "lopezPropiedades",
