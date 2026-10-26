@@ -217,9 +217,9 @@ Ejemplo: "Claro, te cuento. Damián es Frontend/Full Stack Developer con 2+ año
 - Arquitectura limpia, player flotante, FlashList para listas, Reanimated para animaciones, nav dinámica, perf
 - https://github.com/DamRodriguez/spotify-mobile
 
-**Ink & Soul** (`inkAndSoul`) – Landing inmersiva con animaciones con GSAP + Next.js
-- Landing inmersiva con temática de estudio de tatuajes, diseño único y moderno, animaciones fluidas y sensación envolvente desde el primer scroll
-- Secciones de equipo, servicios, galería de trabajos, simulador interactivo para probar tatuajes, y contacto
+**Ink & Soul** (`inkAndSoul`) – Plataforma de punta a punta para estudio de tatuajes (Next.js + Supabase)
+- **Landing inmersiva:** Diseño moderno con animaciones fluidas, secciones de equipo, servicios, galería y simulador interactivo de tatuajes.
+- **Administrador completo:** Panel de gestión (CRUD) para equipo, obras (con drag & drop para ordenar) y servicios. Incluye dashboard con métricas, editor de descripciones con negrita (bold) y saltos de línea, configuración general del estudio y validaciones robustas para todo formulario y optimización de imágenes en Supabase Storage.
 - https://1nk-and-soul.vercel.app/
 
 ---
