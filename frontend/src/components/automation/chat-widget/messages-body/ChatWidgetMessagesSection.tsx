@@ -99,15 +99,17 @@ export default function ChatWidgetMessagesSection({
       data-lenis-prevent
       className="flex-1 scrollbarCustom overflow-hidden p-4 space-y-4 border-b border-black/50 dark:border-soft-white/50"
     >
-      <BackgroundEffects
-        tailwindColors={[
-          "color-ribbon-sides",
-          hasText
-            ? "color-ribbon-center-active"
-            : "color-ribbon-center-default",
-          "color-ribbon-sides",
-        ]}
-      />
+      <div className="hidden md:flex">
+        <BackgroundEffects
+          tailwindColors={[
+            "color-ribbon-sides",
+            hasText
+              ? "color-ribbon-center-active"
+              : "color-ribbon-center-default",
+            "color-ribbon-sides",
+          ]}
+        />
+      </div>
       {noMessages && (
         <div className="space-y-[2rem]">
           <div className="flex flex-col gap-2 text-black dark:text-soft-white text-center text-base xl:text-lg mt-[0.5rem] font-fira-code">
