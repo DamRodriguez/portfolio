@@ -17,10 +17,10 @@ export const projectsData: ProjectItemData[] = [
     imageSource: {
       type: "default",
       images: {
-        rectangular: "/images/projects/ink-and-soul/rectangular.webp",
-        vertical: "/images/projects/ink-and-soul/vertical.webp",
-        square: "/images/projects/ink-and-soul/square.webp",
-        horizontal: "/images/projects/ink-and-soul/horizontal.webp",
+        rectangular: "/images/projects/ink-and-soul/rectangular-v2.webp",
+        vertical: "/images/projects/ink-and-soul/vertical-v2.webp",
+        square: "/images/projects/ink-and-soul/square-v2.webp",
+        horizontal: "/images/projects/ink-and-soul/horizontal-v2.webp",
         extra: [
           "/images/projects/ink-and-soul/extra/contact.webp",
           "/images/projects/ink-and-soul/extra/studio.webp",
