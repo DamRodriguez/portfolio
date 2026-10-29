@@ -10,7 +10,7 @@ export const projectsData: ProjectItemData[] = [
       link: config.projects.inkAndSoul,
     },
     demoVideo: {
-      url: "/videos/projects/ink-and-soul/ink_desktop_admin.mp4",
+      url: "/videos/projects/ink-and-soul/ink_desktop_admin-v2.mp4",
       buttonText: "seeAdmin",
     },
     imageLogo: "/images/projects/ink-and-soul/logo.webp",
