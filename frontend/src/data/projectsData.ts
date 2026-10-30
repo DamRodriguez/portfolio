@@ -5,10 +5,16 @@ import config from "@/config/config";
 export const projectsData: ProjectItemData[] = [
   {
     translationKey: "inkAndSoul",
-    button: {
-      type: "site",
-      link: config.projects.inkAndSoul,
-    },
+    button: [
+      {
+        type: "site",
+        link: config.projects.inkAndSoul.web,
+      },
+      {
+        type: "demo",
+        link: config.projects.inkAndSoul.demo,
+      },
+    ],
     demoVideo: {
       url: "/videos/projects/ink-and-soul/ink_desktop_admin-v2.mp4",
       buttonText: "seeAdmin",

@@ -27,7 +27,7 @@ type CustomButtonProps = {
 
 const CustomButtonContainer = (props: CustomButtonContainerProps) => {
   const containerClassName =
-    "flex group cursor-pointer w-fit theme-transition-all";
+    "flex group cursor-pointer w-fit shrink-0 theme-transition-all";
 
   return (
     <>
@@ -54,10 +54,7 @@ const CustomButton = (props: CustomButtonProps) => {
       <div
         className={clsx(
           "bg-soft-white dark:bg-black flex shadow-s3 dark:shadow-s1 items-center text-dark-gray dark:text-soft-gray text-base xl:text-lg border border-black/30 dark:border-soft-gray/80 h-[2.5rem] xl:h-[3rem] pl-[1rem] xl:pl-[1.5rem] pr-[2rem] group-hover:bg-black dark:group-hover:bg-soft-white group-hover:text-soft-white dark:group-hover:text-black theme-transition-all rounded-l-full border-r-0",
-          {
-            "group-hover:pr-[1rem] xl:group-hover:pr-[1.5rem] group-hover:rounded-r-full":
-              !isButton,
-          },
+          !isButton && "group-hover:rounded-r-full",
         )}
       >
         {props.text}

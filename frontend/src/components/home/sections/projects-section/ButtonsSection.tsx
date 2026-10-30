@@ -15,6 +15,10 @@ export type ProjectButton =
       link: string;
     }
   | {
+      type: "demo";
+      link: string;
+    }
+  | {
       type: "inDevelopment";
     };
 
@@ -26,7 +30,7 @@ export type DemoVideo =
     };
 
 type ButtonsSectionProps = {
-  button: ProjectButton;
+  button: ProjectButton | ProjectButton[];
   demoVideo?: DemoVideo;
   containerClassName?: string;
   lockScroll?: boolean;
@@ -46,40 +50,50 @@ const ButtonsSection = ({
     typeof demoVideo === "string"
       ? t("seeDemo")
       : t(demoVideo?.buttonText ?? "seeDemo");
+  const projectButtons = Array.isArray(button) ? button : [button];
 
   return (
     <>
       <div
         className={clsx(
-          "flex flex-col gap-[1rem] xl:gap-[1.5rem]",
+          "flex flex-wrap items-start gap-[1rem] xl:gap-[1.5rem]",
           containerClassName,
         )}
       >
-        {button.type === "site" && (
-          <CustomButton
-            text={t("visitSite")}
-            icon={ArrowIcon}
-            variant={{
-              type: "link",
-              href: button.link,
-            }}
-          />
-        )}
-        {button.type === "repository" && (
-          <CustomButton
-            text={t("seeCode")}
-            icon={ArrowIcon}
-            variant={{
-              type: "link",
-              href: button.link,
-            }}
-          />
-        )}
-        {button.type === "inDevelopment" && (
-          <div className="bg-soft-white w-fit dark:bg-black flex items-center text-black dark:text-soft-gray text-base xl:text-lg border border-black/30 dark:border-soft-gray/80 h-[2.5rem] xl:h-[3rem] px-[1rem] xl:px-[1.5rem] hover:bg-black dark:hover:bg-soft-white hover:text-soft-white dark:hover:text-black theme-transition rounded-full group-hover:rounded-r-full shadow-s3 dark:shadow-s1">
-            {t("inDevelopment")}
-          </div>
-        )}
+        {projectButtons.map((projectButton, index) => {
+          if (
+            projectButton.type === "site" ||
+            projectButton.type === "repository" ||
+            projectButton.type === "demo"
+          ) {
+            const text = {
+              site: t("visitSite"),
+              repository: t("seeCode"),
+              demo: t("seeDemo"),
+            }[projectButton.type];
+
+            return (
+              <CustomButton
+                key={`${projectButton.type}-${index}`}
+                text={text}
+                icon={ArrowIcon}
+                variant={{
+                  type: "link",
+                  href: projectButton.link,
+                }}
+              />
+            );
+          }
+
+          return (
+            <div
+              key={`${projectButton.type}-${index}`}
+              className="bg-soft-white w-fit dark:bg-black flex items-center text-black dark:text-soft-gray text-base xl:text-lg border border-black/30 dark:border-soft-gray/80 h-[2.5rem] xl:h-[3rem] px-[1rem] xl:px-[1.5rem] hover:bg-black dark:hover:bg-soft-white hover:text-soft-white dark:hover:text-black theme-transition rounded-full group-hover:rounded-r-full shadow-s3 dark:shadow-s1"
+            >
+              {t("inDevelopment")}
+            </div>
+          );
+        })}
         {demoVideoUrl && (
           <CustomButton
             text={demoVideoButtonText}

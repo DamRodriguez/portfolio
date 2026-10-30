@@ -19,7 +19,7 @@ export type ProjectCategory = keyof Messages["projectsSection"]["categories"];
 export type CategoryTranslationKey = `categories.${ProjectCategory}`;
 
 export type ProjectItemData = {
-  button: ProjectButton;
+  button: ProjectButton | ProjectButton[];
   demoVideo?: DemoVideo;
   imageSource: ImageSource;
   imageLogo: string;

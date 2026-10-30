@@ -21,7 +21,10 @@ const config = {
     vanicracia: "https://vanicracia.com/",
     alfombrasTauro: "https://alfombrastauro.com/",
     lopezPropiedades: "https://www.loppezinmobiliaria.com/",
-    inkAndSoul: "https://1nk-and-soul.vercel.app/",
+    inkAndSoul: {
+      web: "https://1nk-and-soul.vercel.app/",
+      demo: "https://1nk-demo.vercel.app/",
+    },
   },
   repositories: {
     spotifyMobile: "https://github.com/DamRodriguez/spotify-mobile",
