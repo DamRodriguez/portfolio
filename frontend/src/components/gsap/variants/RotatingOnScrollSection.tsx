@@ -97,7 +97,7 @@ export default function RotatingOnScrollSection({
                   ref={(el) => {
                     itemRefs.current[index] = el;
                   }}
-                  className="gallery__item shadow-s1 border border-soft-gray/10 rounded-[2rem] relative w-full z-20 overflow-hidden"
+                  className="gallery__item shadow-s1 border border-soft-gray/20 rounded-[2rem] relative w-full z-20 overflow-hidden"
                   style={{
                     aspectRatio: itemAspectRatio,
                     transformStyle: "preserve-3d",
