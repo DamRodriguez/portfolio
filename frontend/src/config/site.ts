@@ -5,13 +5,13 @@ export const siteTranslations = {
     name: "Damian Rodriguez",
     title: "Damian Rodriguez | Portfolio",
     description:
-      "Portfolio de Damian Rodriguez, Frontend Developer especializado en React, Next.js, TypeScript y Tailwind CSS. Desarrollo aplicaciones modernas, responsivas y optimizadas para rendimiento y experiencia de usuario.",
+      "Portfolio de Damian Rodriguez, Software Developer especializado en React, Next.js, TypeScript y Tailwind CSS. Desarrollo aplicaciones modernas, responsivas y optimizadas para rendimiento y experiencia de usuario.",
   },
   en: {
     name: "Damian Rodriguez",
     title: "Damian Rodriguez | Portfolio",
     description:
-      "Portfolio of Damian Rodriguez, Frontend Developer specialized in React, Next.js, TypeScript and Tailwind CSS. I develop modern, responsive applications optimized for performance and user experience.",
+      "Portfolio of Damian Rodriguez, Software Developer specialized in React, Next.js, TypeScript and Tailwind CSS. I develop modern, responsive applications optimized for performance and user experience.",
   },
 };
 
@@ -26,13 +26,13 @@ export const siteConfig = {
   defaultLocale: "es",
   keywords: [
     "Damian Rodriguez",
-    "Frontend Developer",
+    "Software Developer",
     "Web Development",
     "React Developer",
     "Next.js Developer",
     "TypeScript",
     "Tailwind CSS",
-    "Frontend Portfolio",
+    "Software Developer Portfolio",
     "Portfolio Developer",
     "Web Development",
     "React",
@@ -40,16 +40,16 @@ export const siteConfig = {
     "JavaScript",
     "Argentina",
     "damrod",
-    "Frontend Developer Argentina",
-    "Frontend Developer React",
-    "Frontend Developer Argentina",
+    "Software Developer Argentina",
+    "Software Developer React",
+    "Software Developer Argentina",
     "React Developer",
     "Next.js Developer",
     "React Developer Argentina",
     "Next.js Developer Argentina",
     "Damian Rodriguez Portfolio",
     "React Developer Portfolio",
-    "Frontend Engineer",
+    "Software Engineer",
     "TypeScript Developer",
   ],
 };

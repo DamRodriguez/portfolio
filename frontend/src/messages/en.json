@@ -12,10 +12,10 @@
   },
   "headSection": {
     "title": {
-      "first": "Frontend",
+      "first": "Software",
       "second": "Developer"
     },
-    "personalDescription": "My goal is to build <strong>engaging interfaces</strong> using <strong>modern technologies</strong>, while keeping the code <strong>clean</strong>, <strong>efficient</strong>, and <strong>scalable</strong>",
+    "personalDescription": "My goal is to develop <strong>engaging products</strong> using <strong>modern technologies</strong>, maintaining <strong>clean</strong>, <strong>efficient</strong>, and <strong>scalable code</strong>",
     "projectsButton": "Projects",
     "socialButtons": {
       "telegram": "Telegram",
@@ -58,7 +58,7 @@
   "aboutMeSection": {
     "header": {
       "sectionName": "../About me",
-      "description": "Hello! I'm Damián Rodríguez, a <strong>Frontend Developer</strong> from Buenos Aires, Argentina.\nOver <strong>2 years</strong> of experience building modern digital solutions."
+      "description": "Hello! I'm Damián Rodríguez, a <strong>Software Developer</strong> from Buenos Aires, Argentina.\nOver <strong>3 years</strong> of experience building modern digital solutions."
     },
     "technologies": {
       "frontend": {
@@ -75,7 +75,7 @@
       },
       "tools": {
         "title": "Tools",
-        "items": "Framer Motion, GSAP, Reanimated, Zod, React Hook Form, TanStack Query, Git, GitHub, Figma, i18next, next-intl, React Toastify, Recharts"
+        "items": "Framer Motion, GSAP, Reanimated, Zod, React Hook Form, TanStack Query, Git, GitHub, Figma, i18next, next-intl, React Toastify, Recharts, Supabase"
       }
     },
     "certificationSection": {
@@ -245,7 +245,7 @@
         "api": "An error has occurred, please try again"
       }
     },
-    "position": "Frontend\nDeveloper",
+    "position": "Software\nDeveloper",
     "toast": {
       "messages": {
         "contactFormSuccess": "Message sent successfully!",

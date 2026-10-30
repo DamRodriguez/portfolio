@@ -8,9 +8,9 @@ export default function PersonSchema() {
     name: siteConfig.creator.name,
     url: siteConfig.url,
     image: `${siteConfig.url}/images/profile.jpg`,
-    jobTitle: "Frontend Developer",
+    jobTitle: "Software Developer",
     description:
-      "Frontend Developer especializado en React, Next.js, TypeScript y Tailwind CSS.",
+      "Software Developer especializado en React, Next.js, TypeScript y Tailwind CSS.",
     knowsAbout: [
       "React",
       "Next.js",
