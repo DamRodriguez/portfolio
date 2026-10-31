@@ -5,13 +5,13 @@ export const siteTranslations = {
     name: "Damian Rodriguez",
     title: "Damian Rodriguez | Portfolio",
     description:
-      "Portfolio de Damian Rodriguez, Software Developer especializado en React, Next.js, TypeScript y Tailwind CSS. Desarrollo aplicaciones modernas, responsivas y optimizadas para rendimiento y experiencia de usuario.",
+      "Software Developer de Buenos Aires, Argentina. Especializado en crear experiencias digitales de alto impacto.",
   },
   en: {
     name: "Damian Rodriguez",
     title: "Damian Rodriguez | Portfolio",
     description:
-      "Portfolio of Damian Rodriguez, Software Developer specialized in React, Next.js, TypeScript and Tailwind CSS. I develop modern, responsive applications optimized for performance and user experience.",
+      "Software Developer based in Buenos Aires, Argentina. Specialized in crafting high-impact digital experiences.",
   },
 };
 
