@@ -29,13 +29,7 @@ const FadeShadow = ({ direction, sizeClasses }: FadeShadowProps) => {
 
   return (
     <div className={clsx(container, sizeClasses, "pointer-events-none")}>
-      <div
-        className={clsx(
-          "absolute inset-0",
-          gradient,
-          "from-black to-transparent",
-        )}
-      />
+      <div className={clsx("absolute inset-0", gradient)} />
     </div>
   );
 };

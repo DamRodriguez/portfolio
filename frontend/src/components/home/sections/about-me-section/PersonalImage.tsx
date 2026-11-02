@@ -1,5 +1,5 @@
 "use client";
-import personalImage from "@/assets/images/damian.jpg";
+import personalImage from "@/assets/images/damian.png";
 import CustomImage from "@/components/image/CustomImage";
 import FadeShadow from "@/components/other/FadeShadow";
 import clsx from "clsx";
@@ -22,7 +22,7 @@ export default function PersonalImage({
   return (
     <div
       className={clsx(
-        "relative overflow-hidden shadow-s1 dark:shadow-none rounded-full dark:rounded-none border border-soft-white/50 dark:border-none",
+        "relative overflow-hidden bg-black shadow-s4 dark:shadow-none rounded-full",
         containerClassName,
       )}
     >
@@ -30,14 +30,14 @@ export default function PersonalImage({
         src={personalImage}
         priority={true}
         alt="Personal image"
-        className="object-cover w-fit h-120 md:h-150 xl:h-full"
+        className="object-cover w-fit h-120 md:h-150 xl:h-170 pl-[20%] "
       />
-      {mounted && theme === "dark" && (
+      {mounted && (
         <>
-          <FadeShadow direction="left" sizeClasses="w-20 xl:w-30" />
-          <FadeShadow direction="right" sizeClasses="w-20 xl:w-20" />
-          <FadeShadow direction="bottom" sizeClasses="h-30 xl:h-60" />
-          <FadeShadow direction="top" sizeClasses="h-25 xl:h-45" />
+          <FadeShadow direction="left" sizeClasses="w-20" />
+          <FadeShadow direction="right" sizeClasses="w-20" />
+          <FadeShadow direction="bottom" sizeClasses="h-20" />
+          <FadeShadow direction="top" sizeClasses="h-20" />
         </>
       )}
     </div>
