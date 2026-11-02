@@ -2,8 +2,8 @@ import config from "@/config/config";
 import Link from "next/link";
 import {
   GithubIcon,
+  InstagramIcon,
   LinkedInIcon,
-  TelegramIcon,
   WhatsAppIcon,
 } from "../icons/social";
 
@@ -12,7 +12,7 @@ const SocialButtons = () => {
     { href: config.urls.whatsapp, icon: <WhatsAppIcon /> },
     { href: config.urls.linkedin, icon: <LinkedInIcon /> },
     { href: config.urls.github, icon: <GithubIcon /> },
-    { href: config.urls.telegram, icon: <TelegramIcon /> },
+    { href: config.urls.instagram, icon: <InstagramIcon /> },
   ];
   return (
     <div className="flex flex-wrap justify-center gap-[1rem] [&_svg]:fill-dark-gray dark:[&_svg]:fill-soft-white max-w-[12rem] sm:max-w-full mx-auto">

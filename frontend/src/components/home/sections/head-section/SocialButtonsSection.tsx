@@ -1,8 +1,8 @@
 "use client";
 import {
   GithubIcon,
+  InstagramIcon,
   LinkedInIcon,
-  TelegramIcon,
   WhatsAppIcon,
 } from "@/components/icons/social";
 import LinkButton from "@/components/ui/buttons/LinkButton";
@@ -23,7 +23,7 @@ const SocialButtonsSection = (props: SocialButtonsSectionProps) => {
     { icon: WhatsAppIcon, text: t("whatsApp"), href: config.urls.whatsapp },
     { icon: LinkedInIcon, text: t("linkedIn"), href: config.urls.linkedin },
     { icon: GithubIcon, text: t("github"), href: config.urls.github },
-    { icon: TelegramIcon, text: t("telegram"), href: config.urls.telegram },
+    { icon: InstagramIcon, text: t("instagram"), href: config.urls.instagram },
   ];
 
   return (

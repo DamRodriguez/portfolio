@@ -9,7 +9,7 @@ const config = {
     "4xl": 1920,
   },
   urls: {
-    telegram: "https://t.me/damrod99",
+    instagram: "https://www.instagram.com/damrod.dev",
     linkedin: "http://www.linkedin.com/in/damianagustinrodriguez",
     github: "https://github.com/DamRodriguez",
     whatsapp: "https://wa.me/5491159641031",
